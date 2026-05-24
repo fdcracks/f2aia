@@ -39,7 +39,7 @@ body {
   font-family: var(--sans);
   font-size: 16px;
   line-height: 1.6;
-  background: var(--bg);
+  background: #050709; /* base muy oscuro — el canvas PCB se ve encima */
   color: var(--ink);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
@@ -154,7 +154,7 @@ h1, h2, h3, h4 { text-wrap: balance; line-height: 1.05; letter-spacing: -0.02em;
   padding-inline: 1.5rem;
 }
 .nav-logo {
-  font-size: 1.25rem;
+  font-size: 1.7rem;
   font-weight: 900;
   letter-spacing: -0.04em;
   display: flex;
@@ -235,6 +235,7 @@ h1, h2, h3, h4 { text-wrap: balance; line-height: 1.05; letter-spacing: -0.02em;
   min-height: 100svh;
   display: flex;
   align-items: center;
+  justify-content: center;
   padding-top: calc(var(--nav-h) + var(--marquee-top-h));
   padding-inline: 1.5rem;
   overflow: hidden;
@@ -243,14 +244,14 @@ h1, h2, h3, h4 { text-wrap: balance; line-height: 1.05; letter-spacing: -0.02em;
 /* Mouse reactive gradient */
 .hero-gradient {
   position: absolute; inset: 0; z-index: 0;
+  /* Sin var(--bg) al final → el canvas de la placa madre se ve debajo */
   background:
     radial-gradient(circle 800px at var(--mx, 30%) var(--my, 40%),
-      rgba(99,102,241,0.22) 0%, transparent 60%),
+      rgba(99,102,241,0.18) 0%, transparent 60%),
     radial-gradient(circle 600px at calc(var(--mx, 30%) + 20%) calc(var(--my, 40%) + 15%),
-      rgba(139,92,246,0.15) 0%, transparent 50%),
+      rgba(139,92,246,0.10) 0%, transparent 50%),
     radial-gradient(circle 400px at 80% 80%,
-      rgba(6,182,212,0.1) 0%, transparent 50%),
-    var(--bg);
+      rgba(6,182,212,0.08) 0%, transparent 50%);
   transition: background 0.4s ease;
 }
 
@@ -293,24 +294,65 @@ h1, h2, h3, h4 { text-wrap: balance; line-height: 1.05; letter-spacing: -0.02em;
   background-size: 200px;
 }
 
+/* ── HERO FLOATS: capa absoluta para cards a los costados ── */
+.hero-floats {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Cada card flotante */
+.hf { position: absolute; pointer-events: auto; }
+
+/* ── IZQUIERDA ── */
+.hf-l1 { top: 16%; left: 5vw;   animation: floatCard2 8.0s ease-in-out infinite; animation-delay: 0.0s; }
+.hf-l2 { top: 38%; left: 4.5vw; animation: floatCard1 6.5s ease-in-out infinite; animation-delay: 0.8s; }
+.hf-l3 { top: 59%; left: 5vw;   animation: floatCard2 7.0s ease-in-out infinite; animation-delay: 1.6s; }
+.hf-l4 { top: 78%; left: 4.5vw; animation: floatCard1 6.0s ease-in-out infinite; animation-delay: 2.4s; }
+
+/* ── DERECHA ── */
+.hf-r1 { top: 14%; right: 5vw;   animation: floatCard1 7.0s ease-in-out infinite; animation-delay: 0.4s; }
+.hf-r2 { top: 38%; right: 4.5vw; animation: floatCard2 6.5s ease-in-out infinite; animation-delay: 1.2s; }
+.hf-r3 { top: 59%; right: 5vw;   animation: floatCard1 7.5s ease-in-out infinite; animation-delay: 2.0s; }
+.hf-r4 { top: 78%; right: 4.5vw; animation: floatCard2 6.0s ease-in-out infinite; animation-delay: 2.8s; }
+
+/* Cards dentro de .hf: position normal (no absolute) */
+.hf .hv-card,
+.hf .hv-chat-card,
+.hf .hv-notif {
+  position: relative;
+  top: auto; left: auto; right: auto; bottom: auto;
+}
+
+/* ── HERO INNER: texto centrado en el medio ── */
 .hero-inner {
-  position: relative; z-index: 2;
-  max-width: 900px;
+  position: relative;
+  z-index: 5;
+  width: 100%;
+  max-width: 860px;
   margin-inline: auto;
-  padding-block: 6rem 5rem;
+  padding-block: 3rem 2.5rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
 }
 
 .hero-kicker {
   font-family: var(--mono);
-  font-size: clamp(.85rem, 1.2vw, 1rem);
+  font-size: clamp(.72rem, 1vw, .9rem);
   font-weight: 600;
   letter-spacing: .1em;
   text-transform: uppercase;
   color: var(--accent-2);
   display: inline-flex;
   align-items: center;
-  gap: .85rem;
+  justify-content: center;
+  gap: .75rem;
   margin-bottom: 2.25rem;
+  white-space: nowrap;
   animation: fadeUp .8s var(--ease-out) both;
 }
 .kicker-dot {
@@ -351,13 +393,14 @@ h1, h2, h3, h4 { text-wrap: balance; line-height: 1.05; letter-spacing: -0.02em;
   color: var(--ink-mute);
   line-height: 1.7;
   max-width: 56ch;
-  margin-bottom: 2.5rem;
+  margin: 0 auto 2.5rem;
   animation: fadeUp .9s var(--ease-out) .2s both;
 }
 
 .hero-actions {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 1rem;
   margin-bottom: 3rem;
   animation: fadeUp .9s var(--ease-out) .3s both;
@@ -366,6 +409,7 @@ h1, h2, h3, h4 { text-wrap: balance; line-height: 1.05; letter-spacing: -0.02em;
 .hero-social-proof {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 1rem;
   animation: fadeUp .9s var(--ease-out) .4s both;
 }
@@ -456,7 +500,18 @@ h1, h2, h3, h4 { text-wrap: balance; line-height: 1.05; letter-spacing: -0.02em;
   border-color: rgba(99,102,241,0.4);
 }
 
-.btn-full { width: 100%; }
+.btn-full {
+  width: 100%;
+  font-size: 1.05rem;
+  letter-spacing: .04em;
+  padding: 1.1rem 2rem;
+  box-shadow: 0 4px 24px rgba(99,102,241,0.40), 0 0 0 1px rgba(99,102,241,0.25);
+  transition: transform .2s var(--ease-out), box-shadow .2s, background .2s;
+}
+.btn-full:hover {
+  transform: translateY(-2px) scale(1.01);
+  box-shadow: 0 8px 36px rgba(99,102,241,0.55), 0 0 0 1px rgba(129,140,248,0.4);
+}
 
 /* =============================================================
    8. Marquee
@@ -512,14 +567,14 @@ h1, h2, h3, h4 { text-wrap: balance; line-height: 1.05; letter-spacing: -0.02em;
   font-weight: 500;
   letter-spacing: .1em;
   text-transform: uppercase;
-  color: rgba(129,140,248,0.75);
+  color: rgba(255,255,255,0.93);
   white-space: nowrap;
-  text-shadow: 0 0 10px rgba(129,140,248,0.5), 0 0 22px rgba(99,102,241,0.3);
+  text-shadow: 0 0 10px rgba(255,255,255,0.35), 0 0 22px rgba(99,102,241,0.45);
 }
 .marquee-wrap--top .marquee-track span {
   font-size: .68rem;
-  color: rgba(129,140,248,0.6);
-  text-shadow: 0 0 8px rgba(129,140,248,0.4), 0 0 18px rgba(99,102,241,0.25);
+  color: rgba(255,255,255,0.90);
+  text-shadow: 0 0 8px rgba(255,255,255,0.30), 0 0 18px rgba(99,102,241,0.35);
 }
 .marquee-track .sep {
   color: var(--accent);
@@ -961,13 +1016,21 @@ h1, h2, h3, h4 { text-wrap: balance; line-height: 1.05; letter-spacing: -0.02em;
 
 /* Form */
 .contacto-form {
-  background: var(--bg-card);
-  border: 1px solid var(--line);
+  background: rgba(18, 20, 36, 0.92);
+  border: 1px solid rgba(99,102,241,0.35);
   border-radius: 20px;
   padding: 2.5rem;
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
+  box-shadow:
+    0 0 0 1px rgba(99,102,241,0.12),
+    0 8px 40px rgba(0,0,0,0.4),
+    0 0 60px rgba(99,102,241,0.10),
+    0 0 120px rgba(99,102,241,0.05),
+    inset 0 1px 0 rgba(255,255,255,0.06);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
 }
 .form-group {
   display: flex;
@@ -983,8 +1046,8 @@ h1, h2, h3, h4 { text-wrap: balance; line-height: 1.05; letter-spacing: -0.02em;
 .form-group input,
 .form-group select,
 .form-group textarea {
-  background: rgba(255,255,255,0.05);
-  border: 1px solid var(--line);
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(99,102,241,0.22);
   border-radius: 8px;
   padding: .875rem 1rem;
   font-family: var(--sans);
@@ -1094,6 +1157,71 @@ h1, h2, h3, h4 { text-wrap: balance; line-height: 1.05; letter-spacing: -0.02em;
 }
 .footer-email:hover::after { transform: scaleX(1); }
 
+/* ── Footer Social Links ── */
+.footer-social {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.25rem;
+  flex-wrap: wrap;
+}
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  font-size: .8rem;
+  font-family: var(--mono);
+  letter-spacing: .05em;
+  padding: .4rem .9rem .4rem .7rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.1);
+  background: rgba(255,255,255,0.04);
+  color: var(--ink-mute);
+  transition: background .2s, border-color .2s, color .2s, transform .2s;
+  text-decoration: none;
+}
+.social-link:hover {
+  transform: translateY(-2px);
+  color: var(--ink);
+  border-color: rgba(255,255,255,0.25);
+  background: rgba(255,255,255,0.08);
+}
+.social-link--fb:hover  { border-color: rgba(66,103,178,0.6);  color: #7a9ee8; }
+.social-link--ig:hover  { border-color: rgba(225,48,108,0.5);  color: #f080a0; }
+
+/* ── WhatsApp FAB (botón flotante) ── */
+.wa-fab {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 8000;
+  display: inline-flex;
+  align-items: center;
+  gap: .6rem;
+  background: #25d366;
+  color: #fff;
+  border-radius: 999px;
+  padding: .75rem 1.25rem .75rem 1rem;
+  font-size: .875rem;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 6px 24px rgba(37,211,102,0.45), 0 2px 8px rgba(0,0,0,0.3);
+  transition: transform .2s var(--ease-out), box-shadow .2s;
+  white-space: nowrap;
+}
+.wa-fab:hover {
+  transform: translateY(-3px) scale(1.04);
+  box-shadow: 0 10px 32px rgba(37,211,102,0.55), 0 4px 12px rgba(0,0,0,0.3);
+  color: #fff;
+}
+.wa-fab:active { transform: translateY(0) scale(0.98); }
+.wa-fab svg   { flex-shrink: 0; }
+
+/* En mobile: solo el ícono, sin label */
+@media (max-width: 480px) {
+  .wa-fab { padding: .85rem; border-radius: 50%; }
+  .wa-fab-label { display: none; }
+}
+
 /* =============================================================
    17. Custom cursor (desktop only)
    ============================================================= */
@@ -1164,4 +1292,385 @@ h1, h2, h3, h4 { text-wrap: balance; line-height: 1.05; letter-spacing: -0.02em;
   .hero-orb { animation: none; }
   .marquee-track { animation: none; }
   .scroll-line { animation: none; }
+}
+
+
+/* =============================================================
+   CIRCUIT BOARD BACKGROUND
+   ============================================================= */
+
+/* Canvas fijo detrás de todo */
+#circuit-bg {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Todo el contenido encima del canvas */
+.nav,
+.marquee-wrap,
+.marquee-wrap--top,
+.hero,
+.problema,
+.servicios,
+.stats,
+.como-funciona,
+.testimoniales,
+.faq,
+.contacto,
+footer,
+.skip-link,
+.cursor {
+  position: relative;
+  z-index: 10;
+}
+
+/* Fondo del body más oscuro/azulado para que el circuito resalte */
+body {
+  background: #05070f;
+}
+
+/* Glassmorphism en cards para legibilidad sobre el circuito */
+.problema-card,
+.service-card,
+.step,
+.testimonial-card,
+.faq-item,
+.stat-item {
+  background: rgba(6, 8, 20, 0.80) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  border: 1px solid rgba(99,102,241,0.20) !important;
+}
+
+/* Hero: overlay oscuro centrado para que el título sea legible */
+.hero {
+  background: transparent !important;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  /* Sin overlay — la placa madre se ve limpia */
+  background: transparent;
+  z-index: 1;
+  pointer-events: none;
+}
+/* hero-inner: z-index propio para estar encima del overlay ::before */
+.hero-inner {
+  z-index: 5;
+}
+
+/* Secciones transparentes para que el circuito se vea debajo */
+.problema,
+.servicios,
+.como-funciona,
+.testimoniales,
+.faq {
+  background: transparent !important;
+}
+
+/* Formulario y footer con fondo semiopaco */
+.contacto {
+  background: rgba(5,7,15,0.85) !important;
+  backdrop-filter: blur(14px) !important;
+  -webkit-backdrop-filter: blur(14px) !important;
+}
+footer {
+  background: rgba(5,7,15,0.92) !important;
+}
+
+/* Marquee con fondo que tapa el circuito sin perder el estilo */
+.marquee-wrap {
+  background: rgba(5,7,15,0.88) !important;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+.marquee-wrap--top {
+  background: rgba(5,7,15,0.93) !important;
+}
+
+/* ─── FLOATING ANIMATION ──────────────────────────────────── */
+@keyframes floatUp {
+  0%,100% { transform: translateY(0px); }
+  50%      { transform: translateY(-7px); }
+}
+@keyframes floatSlow {
+  0%,100% { transform: translateY(0px); }
+  50%      { transform: translateY(-4px); }
+}
+
+/* Hero flota suavemente */
+.hero-inner {
+  animation: floatUp 9s ease-in-out infinite;
+}
+
+/* Cards de servicios flotan con delays distintos */
+.service-card { animation: floatSlow 6s ease-in-out infinite; }
+.service-card:nth-child(2) { animation-delay: 1.3s; }
+.service-card:nth-child(3) { animation-delay: 2.6s; }
+.service-card:nth-child(4) { animation-delay: 3.9s; }
+
+/* Stats flotan */
+.stat-item { animation: floatSlow 5.5s ease-in-out infinite; }
+.stat-item:nth-child(2) { animation-delay: 0.9s; }
+.stat-item:nth-child(3) { animation-delay: 1.8s; }
+.stat-item:nth-child(4) { animation-delay: 2.7s; }
+
+/* Nav fijo siempre encima */
+.nav { z-index: 900; }
+
+
+/* =============================================================
+   HERO SPLIT LAYOUT
+   ============================================================= */
+
+
+
+/* ── Contenido (derecha) ── */
+
+
+/* ── Visual (izquierda): cards flotantes ── */
+/* hero-visual: ya no se usa como absolute — layout es grid */
+.hero-visual { display: none; }
+
+/* Cards métricas */
+.hv-card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: rgba(8, 10, 24, 0.72);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(99,102,241,0.35);
+  border-radius: 16px;
+  padding: 1.15rem 1.6rem;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.4), 0 0 0 1px rgba(99,102,241,0.12), 0 0 24px rgba(99,102,241,0.06);
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+.hv-card:hover {
+  transform: translateY(-6px) scale(1.02) !important;
+  box-shadow: 0 20px 50px rgba(99,102,241,0.3), 0 0 30px rgba(99,102,241,0.12);
+  border-color: rgba(99,102,241,0.55);
+}
+
+/* card positions: gestionadas por grid — no absolute */
+
+@keyframes floatCard1 {
+  0%,100% { transform: translateY(0px) rotate(-1deg); }
+  50%      { transform: translateY(-10px) rotate(0deg); }
+}
+@keyframes floatCard2 {
+  0%,100% { transform: translateY(0px) rotate(1deg); }
+  50%      { transform: translateY(-8px) rotate(0deg); }
+}
+
+.hv-icon {
+  font-size: 1.8rem;
+  line-height: 1;
+  filter: drop-shadow(0 0 10px rgba(99,102,241,0.7));
+}
+.hv-data {
+  display: flex;
+  flex-direction: column;
+  gap: .1rem;
+}
+.hv-data strong {
+  font-family: var(--sans);
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: #fff;
+  line-height: 1;
+  background: linear-gradient(135deg, #818cf8, #06b6d4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.hv-data span {
+  font-size: .78rem;
+  color: var(--ink-soft);
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  font-family: var(--mono);
+}
+
+/* Badge "Sistema activo" */
+.hv-badge {
+  position: absolute;
+  bottom: 8%;
+  left: 50%;
+  transform: translateX(-50%);
+  top: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  background: rgba(6,182,212,0.12);
+  border: 1px solid rgba(6,182,212,0.35);
+  border-radius: 999px;
+  padding: .45rem 1rem;
+  font-family: var(--mono);
+  font-size: .68rem;
+  color: #67e8f9;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  animation: floatCard2 8s ease-in-out infinite;
+  animation-delay: 2s;
+  white-space: nowrap;
+}
+.hv-badge-dot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: #06b6d4;
+  box-shadow: 0 0 6px #06b6d4, 0 0 14px rgba(6,182,212,0.6);
+  animation: pulse 2s ease infinite;
+}
+
+/* Mini flujo de automatización */
+.hv-flow {
+  position: absolute;
+  top: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: .4rem;
+  animation: floatCard1 9s ease-in-out infinite;
+  animation-delay: 0.8s;
+}
+.hv-flow-node {
+  background: rgba(99,102,241,0.18);
+  border: 1px solid rgba(99,102,241,0.40);
+  border-radius: 10px;
+  padding: .6rem 1.2rem;
+  font-family: var(--mono);
+  font-size: .82rem;
+  font-weight: 600;
+  color: var(--accent-2);
+  white-space: nowrap;
+  letter-spacing: .05em;
+  box-shadow: 0 0 12px rgba(99,102,241,0.15);
+}
+.hv-flow-arrow {
+  color: rgba(99,102,241,0.70);
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+/* ── Responsive ───────────────────────────────────────── */
+/* ── CHATBOT CARD ──────────────────────────────────────────── */
+.hv-chat-card {
+  position: relative;
+  width: 270px;
+  background: rgba(8, 10, 24, 0.82);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(99,102,241,0.30);
+  border-radius: 14px;
+  padding: 1rem 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: .55rem;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.35), 0 0 20px rgba(99,102,241,0.08);
+  animation: floatCard2 8s ease-in-out infinite;
+  animation-delay: 0.5s;
+}
+.hv-chat-header {
+  display: flex;
+  align-items: center;
+  gap: .45rem;
+  font-family: var(--mono);
+  font-size: .62rem;
+  color: #67e8f9;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  margin-bottom: .15rem;
+}
+.hv-chat-bubble {
+  font-size: .8rem;
+  line-height: 1.4;
+  padding: .45rem .7rem;
+  border-radius: 10px;
+  max-width: 92%;
+  font-family: var(--sans);
+}
+.hv-chat-in {
+  background: rgba(255,255,255,0.07);
+  color: var(--ink-soft);
+  align-self: flex-start;
+  border-bottom-left-radius: 3px;
+}
+.hv-chat-out {
+  background: rgba(99,102,241,0.22);
+  color: var(--accent-2);
+  align-self: flex-end;
+  border-bottom-right-radius: 3px;
+}
+
+/* ── NOTIFICACIÓN ──────────────────────────────────────────── */
+.hv-notif {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: .7rem;
+  background: rgba(6, 182, 212, 0.10);
+  border: 1px solid rgba(6,182,212,0.28);
+  border-radius: 12px;
+  padding: .8rem 1.25rem;
+  animation: floatCard1 7s ease-in-out infinite;
+  animation-delay: 1.8s;
+  white-space: nowrap;
+}
+.hv-notif-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: #06b6d4;
+  box-shadow: 0 0 8px #06b6d4;
+  flex-shrink: 0;
+  animation: pulse 2s ease infinite;
+}
+.hv-notif-text {
+  display: flex;
+  flex-direction: column;
+  gap: .1rem;
+}
+.hv-notif-text strong {
+  font-size: .82rem;
+  color: #fff;
+  font-weight: 600;
+}
+.hv-notif-text span {
+  font-size: .6rem;
+  color: #67e8f9;
+  font-family: var(--mono);
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+
+/* ── RESPONSIVE HERO FLOATS ── */
+
+/* Tablet: reducir cards laterales */
+@media (max-width: 1100px) {
+  .hf-l4, .hf-r4 { display: none; }
+  .hf-l1 { left: 0.5vw; }
+  .hf-r1 { right: 0.5vw; }
+}
+
+/* Tablet pequeño: solo 2 por lado */
+@media (max-width: 860px) {
+  .hf-l3, .hf-l4, .hf-r3, .hf-r4 { display: none; }
+  .hf-l1 { top: 20%; left: 1vw; }
+  .hf-l2 { top: 50%; left: 1vw; }
+  .hf-r1 { top: 20%; right: 1vw; }
+  .hf-r2 { top: 50%; right: 1vw; }
+  .hv-chat-card { width: 210px; }
+}
+
+/* Mobile: ocultar floats, hero centrado */
+@media (max-width: 620px) {
+  .hero-floats { display: none; }
+  .hero-inner  { padding-block: 2rem 1.5rem; }
 }
