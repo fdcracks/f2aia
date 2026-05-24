@@ -3,17 +3,61 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="F2AIA — Agencia de automatización con IA para negocios en CABA. Agentes WhatsApp, flujos n8n, CRM inteligente." />
-  <title>F2AIA — Automatización con IA</title>
+
+  <!-- ── SEO Primary ── -->
+  <title>F2AIA — Automatización con IA para Negocios | Buenos Aires</title>
+  <meta name="description" content="Agencia de automatización con IA en CABA. Agentes WhatsApp, flujos n8n, CRM inteligente y turnos automáticos. Tu negocio trabaja solo, 24/7." />
+  <meta name="keywords" content="automatización IA, agentes WhatsApp, n8n, GoHighLevel, CRM inteligente, automatización negocios Buenos Aires, CABA, turnos automáticos, inteligencia artificial negocios" />
+  <meta name="author" content="F2AIA" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://fdcracks.github.io/f2aia/" />
+
+  <!-- ── Open Graph (Facebook / LinkedIn) ── -->
+  <meta property="og:type"        content="website" />
+  <meta property="og:url"         content="https://fdcracks.github.io/f2aia/" />
+  <meta property="og:title"       content="F2AIA — Automatización con IA para Negocios" />
+  <meta property="og:description" content="Tu negocio trabaja solo. Agentes IA, flujos automáticos y CRM inteligente para negocios que quieren escalar sin límites." />
+  <meta property="og:image"       content="https://fdcracks.github.io/f2aia/og-image.png" />
+  <meta property="og:locale"      content="es_AR" />
+  <meta property="og:site_name"   content="F2AIA" />
+
+  <!-- ── Twitter Card ── -->
+  <meta name="twitter:card"        content="summary_large_image" />
+  <meta name="twitter:title"       content="F2AIA — Automatización con IA para Negocios" />
+  <meta name="twitter:description" content="Tu negocio trabaja solo. Agentes IA, flujos automáticos y CRM inteligente para negocios que quieren escalar." />
+  <meta name="twitter:image"       content="https://fdcracks.github.io/f2aia/og-image.png" />
+
+  <!-- ── Schema.org LocalBusiness ── -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "F2AIA",
+    "description": "Agencia de automatización con inteligencia artificial para negocios en Buenos Aires. Agentes WhatsApp, flujos n8n, CRM inteligente.",
+    "url": "https://fdcracks.github.io/f2aia/",
+    "email": "hola@f2aia.com",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Buenos Aires",
+      "addressRegion": "CABA",
+      "addressCountry": "AR"
+    },
+    "areaServed": "Buenos Aires, Argentina",
+    "serviceType": ["Automatización con IA", "Agentes WhatsApp", "CRM inteligente", "Flujos n8n"],
+    "priceRange": "$$"
+  }
+  </script>
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" />
 
-  <link rel="stylesheet" href="styles.css?v=20260520" />
+  <link rel="stylesheet" href="styles.css?v=20260524" />
 </head>
 <body>
+  <!-- ======== CIRCUIT BOARD BACKGROUND ======== -->
+  <canvas id="circuit-bg" aria-hidden="true"></canvas>
 
   <!-- Skip link -->
   <a href="#contacto" class="skip-link">Ir al contacto</a>
@@ -28,7 +72,7 @@
         <li><a href="#servicios">Servicios</a></li>
         <li><a href="#como-funciona">Cómo funciona</a></li>
         <li><a href="#testimoniales">Casos</a></li>
-        <li><a href="#contacto" class="nav-cta">Hablar con Franco →</a></li>
+        <li><a href="#contacto" class="nav-cta">Solicitar diagnóstico →</a></li>
       </ul>
       <button class="nav-burger" aria-label="Menú" aria-expanded="false">
         <span></span><span></span>
@@ -39,7 +83,7 @@
         <li><a href="#servicios">Servicios</a></li>
         <li><a href="#como-funciona">Cómo funciona</a></li>
         <li><a href="#testimoniales">Casos</a></li>
-        <li><a href="#contacto">Hablar con Franco</a></li>
+        <li><a href="#contacto">Solicitar diagnóstico</a></li>
       </ul>
     </div>
   </nav>
@@ -82,15 +126,54 @@
     <div class="hero-orb hero-orb--3" aria-hidden="true"></div>
     <div class="hero-grain" aria-hidden="true"></div>
 
+    <!-- Cards flotantes — posicionados en los extremos del hero, NO dentro del texto -->
+    <div class="hero-floats" aria-hidden="true">
+
+      <!-- IZQUIERDA -->
+      <div class="hf hf-l1">
+        <div class="hv-chat-card">
+          <div class="hv-chat-header"><span class="hv-badge-dot"></span><span>Bot IA — activo</span></div>
+          <div class="hv-chat-bubble hv-chat-in">¿Tienen turnos disponibles?</div>
+          <div class="hv-chat-bubble hv-chat-out">¡Sí! Te agendo para el martes a las 10hs 🤖</div>
+        </div>
+      </div>
+      <div class="hf hf-l2">
+        <div class="hv-card"><div class="hv-icon">⚡</div><div class="hv-data"><strong>80%</strong><span>tareas automatizadas</span></div></div>
+      </div>
+      <div class="hf hf-l3">
+        <div class="hv-card"><div class="hv-icon">📈</div><div class="hv-data"><strong>3×</strong><span>más conversiones</span></div></div>
+      </div>
+      <div class="hf hf-l4">
+        <div class="hv-card"><div class="hv-icon">✅</div><div class="hv-data"><strong>100%</strong><span>consultas respondidas</span></div></div>
+      </div>
+
+      <!-- DERECHA -->
+      <div class="hf hf-r1">
+        <div class="hv-notif">
+          <div class="hv-notif-dot"></div>
+          <div class="hv-notif-text"><strong>Nuevo lead captado</strong><span>hace 2 min · WhatsApp</span></div>
+        </div>
+      </div>
+      <div class="hf hf-r2">
+        <div class="hv-card"><div class="hv-icon">🎯</div><div class="hv-data"><strong>+15</strong><span>leads este mes</span></div></div>
+      </div>
+      <div class="hf hf-r3">
+        <div class="hv-card"><div class="hv-icon">🤖</div><div class="hv-data"><strong>24/7</strong><span>tu negocio activo</span></div></div>
+      </div>
+      <div class="hf hf-r4">
+        <div class="hv-card"><div class="hv-icon">⏱</div><div class="hv-data"><strong>15 días</strong><span>para estar activo</span></div></div>
+      </div>
+
+    </div>
+
+    <!-- Texto centrado — igual que la segunda captura -->
     <div class="hero-inner">
       <p class="hero-kicker">
         <span class="kicker-dot"></span>
-        <span class="kicker-text">Agencia de Automatización con IA&nbsp;&nbsp;·&nbsp;&nbsp;Buenos Aires</span>
+        <span class="kicker-text">Menos tareas &nbsp;·&nbsp; Más negocio</span>
       </p>
       <h1 class="hero-title">
-        Tu negocio<br>
-        trabaja<br>
-        <em>solo.</em>
+        Tu negocio<br>trabaja<br><em>solo.</em>
       </h1>
       <p class="hero-sub">
         Agentes de IA, flujos automáticos y CRM inteligente.<br>
@@ -102,17 +185,16 @@
       </div>
       <div class="hero-social-proof">
         <div class="sp-avatars">
-          <div class="sp-avatar" style="background: #6366f1;"></div>
-          <div class="sp-avatar" style="background: #818cf8;"></div>
-          <div class="sp-avatar" style="background: #a5b4fc;"></div>
+          <div class="sp-avatar" style="background:#6366f1;"></div>
+          <div class="sp-avatar" style="background:#818cf8;"></div>
+          <div class="sp-avatar" style="background:#a5b4fc;"></div>
         </div>
         <p>Negocios de CABA que ya trabajan con IA</p>
       </div>
     </div>
 
     <div class="hero-scroll-hint" aria-hidden="true">
-      <span>scroll</span>
-      <div class="scroll-line"></div>
+      <span>scroll</span><div class="scroll-line"></div>
     </div>
   </section>
 
@@ -407,7 +489,7 @@
             <textarea id="mensaje" name="mensaje" rows="3" placeholder="Contame brevemente qué proceso te está consumiendo más tiempo..."></textarea>
           </div>
           <button type="submit" class="btn btn-primary btn-full" id="btn-submit">
-            <span class="btn-label">Quiero mi diagnóstico gratis</span>
+            <span class="btn-label">Empezar ahora →</span>
             <span class="btn-sending" aria-hidden="true">Enviando…</span>
             <span class="btn-sent" aria-hidden="true">✓ Mensaje enviado</span>
           </button>
@@ -425,6 +507,19 @@
           <span class="logo-f2">F2</span><span class="logo-aia">AIA</span>
         </a>
         <p>Automatización con IA para negocios que quieren escalar.</p>
+        <!-- REDES SOCIALES -->
+        <div class="footer-social">
+          <!-- FACEBOOK: reemplazar href con tu URL real, ej: https://facebook.com/f2aia -->
+          <a href="AQUI_VA_LA_URL_DE_FACEBOOK" class="social-link social-link--fb" target="_blank" rel="noopener" aria-label="Facebook de F2AIA">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.236 2.686.236v2.97h-1.514c-1.491 0-1.956.931-1.956 1.886v2.267h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg>
+            <span>Facebook</span>
+          </a>
+          <!-- INSTAGRAM: @f2aiaworking -->
+          <a href="https://instagram.com/f2aiaworking" class="social-link social-link--ig" target="_blank" rel="noopener" aria-label="Instagram de F2AIA @f2aiaworking">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+            <span>@f2aiaworking</span>
+          </a>
+        </div>
       </div>
       <nav class="footer-nav" aria-label="Footer">
         <a href="#servicios">Servicios</a>
@@ -434,10 +529,18 @@
       </nav>
       <div class="footer-bottom">
         <p>© 2026 F2AIA. Buenos Aires, Argentina.</p>
-        <a href="mailto:hola@f2aia.com" class="footer-email">hola@f2aia.com</a>
       </div>
     </div>
   </footer>
+
+  <!-- ======== BOTÓN WHATSAPP FLOTANTE ======== -->
+  <!-- WHATSAPP: el número se configura en main.js → variable WHATSAPP_NUMBER -->
+  <a id="wa-fab" class="wa-fab" href="#" target="_blank" rel="noopener" aria-label="Chatear por WhatsApp">
+    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+    <span class="wa-fab-label">Hablemos</span>
+  </a>
 
   <!-- ======== CURSOR ======== -->
   <div class="cursor" aria-hidden="true">
@@ -448,5 +551,192 @@
   <!-- Scripts -->
   <script defer src="lib/manifest.js?v=20260520"></script>
   <script defer src="main.js?v=20260520"></script>
+
+  <!-- Circuit board background -->
+  <script>
+  (function () {
+    'use strict';
+    var canvas = document.getElementById('circuit-bg');
+    if (!canvas) return;
+    var ctx = canvas.getContext('2d');
+    var W, H, nodes = [], edges = [], pulses = [];
+    var CELL = 68, NODE_CHANCE = 0.70, EDGE_CHANCE = 0.48, MAX_PULSES = 30;
+    var COLORS = ['#6366f1','#818cf8','#06b6d4','#a5b4fc','#38bdf8'];
+
+    function resize() {
+      W = canvas.width  = window.innerWidth;
+      H = canvas.height = window.innerHeight;
+      buildGrid();
+    }
+
+    function buildGrid() {
+      nodes = []; edges = []; pulses = [];
+      var cols = Math.ceil(W / CELL) + 2;
+      var rows = Math.ceil(H / CELL) + 2;
+      var grid = {};
+
+      for (var r = -1; r <= rows; r++) {
+        for (var c = -1; c <= cols; c++) {
+          if (Math.random() < NODE_CHANCE) {
+            var nd = {
+              x: c * CELL + (Math.random() * 14 - 7),
+              y: r * CELL + (Math.random() * 14 - 7),
+              size: Math.random() < 0.07 ? 4 : (Math.random() < 0.18 ? 3 : 1.8),
+              phase: Math.random() * Math.PI * 2
+            };
+            nodes.push(nd);
+            grid[r + ',' + c] = nd;
+          }
+        }
+      }
+
+      // Horizontal edges
+      for (var r2 = -1; r2 <= rows; r2++) {
+        for (var c2 = -1; c2 < cols; c2++) {
+          var a = grid[r2+','+c2], b = grid[r2+','+(c2+1)];
+          if (a && b && Math.random() < EDGE_CHANCE) edges.push({a:a,b:b,lit:0});
+        }
+      }
+      // Vertical edges
+      for (var r3 = -1; r3 < rows; r3++) {
+        for (var c3 = -1; c3 <= cols; c3++) {
+          var a2 = grid[r3+','+c3], b2 = grid[(r3+1)+','+c3];
+          if (a2 && b2 && Math.random() < EDGE_CHANCE) edges.push({a:a2,b:b2,lit:0});
+        }
+      }
+
+      for (var i = 0; i < MAX_PULSES; i++) spawnPulse();
+    }
+
+    function spawnPulse() {
+      if (!edges.length) return;
+      var e = edges[Math.floor(Math.random() * edges.length)];
+      pulses.push({
+        edge : e,
+        t    : Math.random() * 0.3,
+        speed: 0.0005 + Math.random() * 0.0011,
+        size : 1.8 + Math.random() * 2.4,
+        color: COLORS[Math.floor(Math.random() * COLORS.length)],
+        rev  : Math.random() < 0.5
+      });
+    }
+
+    var last = 0;
+    function frame(now) {
+      requestAnimationFrame(frame);
+      var dt = Math.min(now - last, 64);
+      last = now;
+      ctx.clearRect(0, 0, W, H);
+
+      // Decay lit
+      for (var i = 0; i < edges.length; i++) edges[i].lit *= 0.93;
+
+      // Move pulses
+      var alive = [];
+      for (var j = 0; j < pulses.length; j++) {
+        var p = pulses[j];
+        p.t += p.speed * dt;
+        p.edge.lit = Math.min(1, p.edge.lit + 0.55);
+        if (p.t < 1) alive.push(p); else spawnPulse();
+      }
+      pulses = alive;
+
+      // Draw edges (L-bend PCB style)
+      for (var e = 0; e < edges.length; e++) {
+        var ed = edges[e];
+        var mx = ed.a.x, my = ed.b.y;
+        var alpha = 0.06 + ed.lit * 0.20;
+
+        ctx.beginPath();
+        ctx.moveTo(ed.a.x, ed.a.y);
+        ctx.lineTo(mx, my);
+        ctx.lineTo(ed.b.x, ed.b.y);
+        ctx.strokeStyle = 'rgba(99,102,241,' + alpha + ')';
+        ctx.lineWidth = 1.1;
+        ctx.stroke();
+
+        if (ed.lit > 0.12) {
+          ctx.beginPath();
+          ctx.moveTo(ed.a.x, ed.a.y);
+          ctx.lineTo(mx, my);
+          ctx.lineTo(ed.b.x, ed.b.y);
+          ctx.strokeStyle = 'rgba(129,140,248,' + (ed.lit * 0.32) + ')';
+          ctx.lineWidth = 2.4;
+          ctx.stroke();
+        }
+      }
+
+      // Draw nodes (vias)
+      var t = now * 0.001;
+      for (var n = 0; n < nodes.length; n++) {
+        var nd = nodes[n];
+        var glow = 0.28 + 0.18 * Math.sin(t + nd.phase);
+        var g = ctx.createRadialGradient(nd.x, nd.y, 0, nd.x, nd.y, nd.size * 5);
+        g.addColorStop(0,   'rgba(99,102,241,' + glow + ')');
+        g.addColorStop(0.5, 'rgba(99,102,241,' + (glow * 0.25) + ')');
+        g.addColorStop(1,   'transparent');
+        ctx.beginPath();
+        ctx.arc(nd.x, nd.y, nd.size * 5, 0, 6.283);
+        ctx.fillStyle = g;
+        ctx.fill();
+
+        ctx.beginPath();
+        ctx.arc(nd.x, nd.y, nd.size, 0, 6.283);
+        ctx.fillStyle = 'rgba(129,140,248,0.60)';
+        ctx.fill();
+      }
+
+      // Draw pulses
+      for (var k = 0; k < pulses.length; k++) {
+        var pu = pulses[k];
+        var ta = pu.rev ? 1 - pu.t : pu.t;
+        var ea = pu.edge;
+        var mx2 = ea.a.x, my2 = ea.b.y;
+        var lenA = Math.hypot(mx2 - ea.a.x, my2 - ea.a.y);
+        var lenB = Math.hypot(ea.b.x - mx2, ea.b.y - my2);
+        var total = lenA + lenB;
+        var px, py;
+        if (total < 0.01) { px = ea.a.x; py = ea.a.y; }
+        else {
+          var dist = ta * total;
+          if (dist <= lenA) {
+            var f = lenA > 0 ? dist / lenA : 0;
+            px = ea.a.x + (mx2 - ea.a.x) * f;
+            py = ea.a.y + (my2 - ea.a.y) * f;
+          } else {
+            var f2 = lenB > 0 ? (dist - lenA) / lenB : 0;
+            px = mx2 + (ea.b.x - mx2) * f2;
+            py = my2 + (ea.b.y - my2) * f2;
+          }
+        }
+
+        // Halo
+        var r2 = pu.size * 6;
+        var pg = ctx.createRadialGradient(px, py, 0, px, py, r2);
+        pg.addColorStop(0,   pu.color + 'cc');
+        pg.addColorStop(0.35,'rgba(129,140,248,0.40)');
+        pg.addColorStop(1,   'transparent');
+        ctx.beginPath();
+        ctx.arc(px, py, r2, 0, 6.283);
+        ctx.fillStyle = pg;
+        ctx.fill();
+
+        // Core
+        ctx.beginPath();
+        ctx.arc(px, py, pu.size * 0.85, 0, 6.283);
+        ctx.fillStyle = '#ffffff';
+        ctx.shadowColor = pu.color;
+        ctx.shadowBlur  = 10;
+        ctx.fill();
+        ctx.shadowBlur  = 0;
+      }
+    }
+
+    window.addEventListener('resize', resize);
+    resize();
+    requestAnimationFrame(frame);
+  })();
+  </script>
+
 </body>
 </html>
