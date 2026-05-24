@@ -242,7 +242,7 @@
     // ⚠️ REEMPLAZÁ esta URL con tu webhook de n8n o Make
     // En n8n: Webhook node → copiá "Production URL"
     // En Make: Webhook → copiá la URL del módulo
-    var WEBHOOK_URL = "PEGAR_AQUI_URL_DE_N8N_O_MAKE";
+    var WEBHOOK_URL = "https://n8n.f2aia.com/webhook/f2aia-leads";
 
     form.addEventListener("submit", async function(e) {
       e.preventDefault();
