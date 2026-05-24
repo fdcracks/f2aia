@@ -1,6 +1,15 @@
 (function () {
   "use strict";
 
+  /* ===================== Configuración ===================== */
+  // ⚠️ WHATSAPP: reemplazá este número con el tuyo real
+  // Formato: código de país + código de área + número, SIN el "+"
+  // Ejemplo Argentina: 5491123456789 → 54=AR, 9=celular, 11=CABA, 23456789=número
+  var WHATSAPP_NUMBER = "PEGAR_AQUI_NUMERO_SIN_SIGNO_MAS";
+
+  // Mensaje que aparece predescrito en el chat de WhatsApp
+  var WHATSAPP_MSG = encodeURIComponent("Hola! Vi la web de F2AIA y me interesa automatizar mi negocio.");
+
   /* ===================== Helpers ===================== */
   const $ = (sel, scope) => (scope || document).querySelector(sel);
   const $$ = (sel, scope) => Array.from((scope || document).querySelectorAll(sel));
@@ -84,6 +93,22 @@
       document.documentElement.style.setProperty("--mx", mx + "%");
       document.documentElement.style.setProperty("--my", my + "%");
     }
+  }
+
+  /* ===================== WHATSAPP FAB ===================== */
+  function initWhatsAppFab() {
+    const fab = $("#wa-fab");
+    if (!fab) return;
+
+    // Si el número no fue configurado, mostrar igualmente pero llevar al formulario
+    if (!WHATSAPP_NUMBER || WHATSAPP_NUMBER === "PEGAR_AQUI_NUMERO_SIN_SIGNO_MAS") {
+      fab.href = "#contacto";
+      fab.removeAttribute("target");
+      return;
+    }
+
+    // Número configurado: armar URL de WhatsApp
+    fab.href = "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + WHATSAPP_MSG;
   }
 
   /* ===================== CURSOR ===================== */
@@ -217,7 +242,7 @@
     // ⚠️ REEMPLAZÁ esta URL con tu webhook de n8n o Make
     // En n8n: Webhook node → copiá "Production URL"
     // En Make: Webhook → copiá la URL del módulo
-    var WEBHOOK_URL = "https://n8n.f2aia.com/webhook/f2aia-leads";
+    var WEBHOOK_URL = "PEGAR_AQUI_URL_DE_N8N_O_MAKE";
 
     form.addEventListener("submit", async function(e) {
       e.preventDefault();
@@ -286,6 +311,7 @@
     safe(initNav, "initNav");
     safe(initSmoothScroll, "initSmoothScroll");
     safe(initHeroGradient, "initHeroGradient");
+    safe(initWhatsAppFab, "initWhatsAppFab");
     safe(initCursor, "initCursor");
     safe(initReveals, "initReveals");
     safe(initCountUp, "initCountUp");
