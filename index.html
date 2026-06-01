@@ -3,738 +3,627 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <!-- ── SEO Primary ── -->
-  <title>F2AIA — Automatización con IA para Negocios | Buenos Aires</title>
-  <meta name="description" content="Agencia de automatización con IA en CABA. Agentes WhatsApp, flujos n8n, CRM inteligente y turnos automáticos. Tu negocio trabaja solo, 24/7." />
-  <meta name="keywords" content="automatización IA, agentes WhatsApp, n8n, GoHighLevel, CRM inteligente, automatización negocios Buenos Aires, CABA, turnos automáticos, inteligencia artificial negocios" />
-  <meta name="author" content="F2AIA" />
+  <title>F2AIA — Tu negocio trabaja solo | IA para negocios · Buenos Aires</title>
+  <meta name="description" content="Automatizamos tu negocio con IA: atención 24/7 por WhatsApp, turnos automáticos y CRM inteligente. Implementado en 15 días. Buenos Aires, CABA." />
   <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://fdcracks.github.io/f2aia/" />
-
-  <!-- ── Open Graph (Facebook / LinkedIn) ── -->
-  <meta property="og:type"        content="website" />
-  <meta property="og:url"         content="https://fdcracks.github.io/f2aia/" />
-  <meta property="og:title"       content="F2AIA — Automatización con IA para Negocios" />
-  <meta property="og:description" content="Tu negocio trabaja solo. Agentes IA, flujos automáticos y CRM inteligente para negocios que quieren escalar sin límites." />
-  <meta property="og:image"       content="https://fdcracks.github.io/f2aia/og-image.png" />
-  <meta property="og:locale"      content="es_AR" />
-  <meta property="og:site_name"   content="F2AIA" />
-
-  <!-- ── Twitter Card ── -->
-  <meta name="twitter:card"        content="summary_large_image" />
-  <meta name="twitter:title"       content="F2AIA — Automatización con IA para Negocios" />
-  <meta name="twitter:description" content="Tu negocio trabaja solo. Agentes IA, flujos automáticos y CRM inteligente para negocios que quieren escalar." />
-  <meta name="twitter:image"       content="https://fdcracks.github.io/f2aia/og-image.png" />
-
-  <!-- ── Schema.org LocalBusiness ── -->
+  <link rel="canonical" href="https://www.f2aia.com/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.f2aia.com/" />
+  <meta property="og:title" content="F2AIA — Tu negocio trabaja solo" />
+  <meta property="og:description" content="Tu negocio, trabajando solo. IA que responde, agenda y capta leads por vos, las 24 horas." />
+  <meta property="og:locale" content="es_AR" />
+  <meta property="og:site_name" content="F2AIA" />
+  <meta name="twitter:card" content="summary_large_image" />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "name": "F2AIA",
-    "description": "Agencia de automatización con inteligencia artificial para negocios en Buenos Aires. Agentes WhatsApp, flujos n8n, CRM inteligente.",
-    "url": "https://fdcracks.github.io/f2aia/",
+    "description": "Agencia de automatización con inteligencia artificial para negocios en Buenos Aires.",
+    "url": "https://www.f2aia.com/",
     "email": "hola@f2aia.com",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Buenos Aires",
-      "addressRegion": "CABA",
-      "addressCountry": "AR"
-    },
-    "areaServed": "Buenos Aires, Argentina",
-    "serviceType": ["Automatización con IA", "Agentes WhatsApp", "CRM inteligente", "Flujos n8n"],
-    "priceRange": "$$"
+    "telephone": "+5491164858166",
+    "address": { "@type": "PostalAddress", "addressLocality": "Buenos Aires", "addressRegion": "CABA", "addressCountry": "AR" },
+    "sameAs": ["https://www.facebook.com/profile.php?id=61590053287826","https://instagram.com/f2aiaworking"]
   }
   </script>
-
-  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" />
-
-  <link rel="stylesheet" href="styles.css?v=20260524" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Inter:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" />
+  <link rel="stylesheet" href="styles.css?v=20260601" />
 </head>
 <body>
-  <!-- ======== CIRCUIT BOARD BACKGROUND ======== -->
-  <canvas id="circuit-bg" aria-hidden="true"></canvas>
 
-  <!-- Skip link -->
-  <a href="#contacto" class="skip-link">Ir al contacto</a>
+  <canvas id="space-bg" aria-hidden="true"></canvas>
+  <div class="scroll-bar" id="scroll-bar" aria-hidden="true"></div>
+  <a href="#diagnostico" class="skip-link">Ir al formulario</a>
 
-  <!-- ======== NAV ======== -->
+  <!-- NAV -->
   <nav class="nav" id="nav">
     <div class="nav-inner">
-      <a href="#" class="nav-logo" aria-label="F2AIA inicio">
-        <span class="logo-f2">F2</span><span class="logo-aia">AIA</span>
-      </a>
-      <ul class="nav-links">
+      <a href="#" class="nav-logo" aria-label="F2AIA inicio">F2<span>AIA</span></a>
+      <ul class="nav-links" role="list">
         <li><a href="#servicios">Servicios</a></li>
-        <li><a href="#como-funciona">Cómo funciona</a></li>
+        <li><a href="#como-funciona">Proceso</a></li>
         <li><a href="#testimoniales">Casos</a></li>
-        <li><a href="#contacto" class="nav-cta">Solicitar diagnóstico →</a></li>
+        <li><a href="#diagnostico" class="nav-cta">Diagnóstico gratis →</a></li>
       </ul>
-      <button class="nav-burger" aria-label="Menú" aria-expanded="false">
-        <span></span><span></span>
+      <button class="nav-burger" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-mobile">
+        <span></span><span></span><span></span>
       </button>
     </div>
-    <div class="nav-mobile" aria-hidden="true">
-      <ul>
-        <li><a href="#servicios">Servicios</a></li>
-        <li><a href="#como-funciona">Cómo funciona</a></li>
-        <li><a href="#testimoniales">Casos</a></li>
-        <li><a href="#contacto">Solicitar diagnóstico</a></li>
-      </ul>
+    <div class="nav-mobile" id="nav-mobile" aria-hidden="true">
+      <a href="#servicios">Servicios</a>
+      <a href="#como-funciona">Proceso</a>
+      <a href="#testimoniales">Casos</a>
+      <a href="#diagnostico" class="mobile-cta">Diagnóstico gratis →</a>
     </div>
   </nav>
 
-  <!-- ======== MARQUEE TOP ======== -->
-  <div class="marquee-wrap marquee-wrap--top" aria-hidden="true">
-    <div class="marquee-track marquee-track--reverse">
-      <span>Automatización IA</span>
-      <span class="sep">✦</span>
-      <span>Más tiempo libre</span>
-      <span class="sep">✦</span>
-      <span>Clientes en piloto automático</span>
-      <span class="sep">✦</span>
-      <span>Respuesta inmediata</span>
-      <span class="sep">✦</span>
-      <span>Sin errores humanos</span>
-      <span class="sep">✦</span>
-      <span>Escalar sin contratar</span>
-      <span class="sep">✦</span>
-      <span>Automatización IA</span>
-      <span class="sep">✦</span>
-      <span>Más tiempo libre</span>
-      <span class="sep">✦</span>
-      <span>Clientes en piloto automático</span>
-      <span class="sep">✦</span>
-      <span>Respuesta inmediata</span>
-      <span class="sep">✦</span>
-      <span>Sin errores humanos</span>
-      <span class="sep">✦</span>
-      <span>Escalar sin contratar</span>
-      <span class="sep">✦</span>
+  <!-- HERO -->
+  <section class="hero" id="hero" aria-label="Portada">
+    <div class="hero-grid">
+
+      <!-- TEXTO -->
+      <div class="hero-text">
+        <div class="hero-badge">
+          <span class="badge-pulse"></span>
+          <span>Sistema activo · Buenos Aires</span>
+        </div>
+        <h1 class="hero-title">
+          Tu negocio,<br>
+          trabajando<br>
+          <em>solo.</em>
+        </h1>
+        <p class="hero-sub">
+          Atención automática 24/7, captación de leads y turnos sin esfuerzo.<br class="br-desk">
+          Tu competencia trabaja 8 horas. Vos, sin límites.
+        </p>
+        <div class="hero-ctas">
+          <a href="#diagnostico" class="btn btn-green">Activar mi sistema gratis</a>
+          <a href="#como-funciona" class="btn btn-ghost">Cómo funciona →</a>
+        </div>
+        <div class="hero-proof">
+          <div class="proof-dots">
+            <span style="background:linear-gradient(135deg,#00FF88,#00CC6A)"></span>
+            <span style="background:linear-gradient(135deg,#00CC6A,#009950)"></span>
+            <span style="background:linear-gradient(135deg,#009950,#006630)"></span>
+          </div>
+          <p>+50 negocios de CABA ya automatizados</p>
+        </div>
+      </div>
+
+      <!-- TERMINAL VISUAL (tablet/desktop) -->
+      <div class="hero-visual" aria-hidden="true">
+        <div class="terminal">
+          <div class="terminal-bar">
+            <span class="tb-dot" style="background:#FF5F57"></span>
+            <span class="tb-dot" style="background:#FFBD2E"></span>
+            <span class="tb-dot" style="background:#28C840"></span>
+            <span class="tb-title">f2aia · sistema activo</span>
+          </div>
+          <div class="terminal-body">
+            <div class="tl"><span class="tl-k">AGENTE WHATSAPP</span><span class="tl-v green">● ACTIVO</span></div>
+            <div class="tl"><span class="tl-k">TURNOS AUTO</span><span class="tl-v green">● ACTIVO</span></div>
+            <div class="tl"><span class="tl-k">CRM LEADS</span><span class="tl-v green">● ACTIVO</span></div>
+            <div class="tl tl-sep">────────────────────</div>
+            <div class="tl"><span class="tl-k">LEADS HOY</span><span class="tl-v">+3 nuevos</span></div>
+            <div class="tl"><span class="tl-k">TURNOS CONFIRMADOS</span><span class="tl-v">12 / 12</span></div>
+            <div class="tl"><span class="tl-k">CONSULTAS ATENDIDAS</span><span class="tl-v">100%</span></div>
+            <div class="tl tl-sep">────────────────────</div>
+            <div class="tl-cursor-line">
+              <span class="tl-prompt">$</span>
+              <span class="tl-type">Nuevo lead captado hace 2 min</span>
+              <span class="cursor-blink">▌</span>
+            </div>
+          </div>
+        </div>
+        <div class="hero-metrics">
+          <div class="hm-item"><strong>80%</strong><span>tareas eliminadas</span></div>
+          <div class="hm-div"></div>
+          <div class="hm-item"><strong>24/7</strong><span>sin descanso</span></div>
+          <div class="hm-div"></div>
+          <div class="hm-item"><strong>15D</strong><span>para activar</span></div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Chips solo en mobile -->
+    <div class="hero-chips" aria-hidden="true">
+      <span class="chip">80% automatizado</span>
+      <span class="chip">24/7 activo</span>
+      <span class="chip">15 días</span>
+      <span class="chip">3× más leads</span>
+    </div>
+
+    <div class="hero-scroll" aria-hidden="true">
+      <span>SCROLL</span>
+      <div class="scroll-dot"></div>
+    </div>
+  </section>
+
+  <!-- TICKER -->
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker-track">
+      <span>WhatsApp IA</span><span class="sep">✦</span>
+      <span>n8n</span><span class="sep">✦</span>
+      <span>GoHighLevel</span><span class="sep">✦</span>
+      <span>OpenAI</span><span class="sep">✦</span>
+      <span>Turnos automáticos</span><span class="sep">✦</span>
+      <span>CRM inteligente</span><span class="sep">✦</span>
+      <span>Agentes IA</span><span class="sep">✦</span>
+      <span>Make</span><span class="sep">✦</span>
+      <span>WhatsApp IA</span><span class="sep">✦</span>
+      <span>n8n</span><span class="sep">✦</span>
+      <span>GoHighLevel</span><span class="sep">✦</span>
+      <span>OpenAI</span><span class="sep">✦</span>
+      <span>Turnos automáticos</span><span class="sep">✦</span>
+      <span>CRM inteligente</span><span class="sep">✦</span>
+      <span>Agentes IA</span><span class="sep">✦</span>
+      <span>Make</span><span class="sep">✦</span>
     </div>
   </div>
 
-  <!-- ======== HERO ======== -->
-  <section class="hero" id="hero">
-    <div class="hero-gradient" aria-hidden="true"></div>
-    <div class="hero-orb hero-orb--1" aria-hidden="true"></div>
-    <div class="hero-orb hero-orb--2" aria-hidden="true"></div>
-    <div class="hero-orb hero-orb--3" aria-hidden="true"></div>
-    <div class="hero-grain" aria-hidden="true"></div>
-
-    <!-- Cards flotantes — posicionados en los extremos del hero, NO dentro del texto -->
-    <div class="hero-floats" aria-hidden="true">
-
-      <!-- IZQUIERDA -->
-      <div class="hf hf-l1">
-        <div class="hv-chat-card">
-          <div class="hv-chat-header"><span class="hv-badge-dot"></span><span>Bot IA — activo</span></div>
-          <div class="hv-chat-bubble hv-chat-in">¿Tienen turnos disponibles?</div>
-          <div class="hv-chat-bubble hv-chat-out">¡Sí! Te agendo para el martes a las 10hs 🤖</div>
-        </div>
-      </div>
-      <div class="hf hf-l2">
-        <div class="hv-card"><div class="hv-icon">⚡</div><div class="hv-data"><strong>80%</strong><span>tareas automatizadas</span></div></div>
-      </div>
-      <div class="hf hf-l3">
-        <div class="hv-card"><div class="hv-icon">📈</div><div class="hv-data"><strong>3×</strong><span>más conversiones</span></div></div>
-      </div>
-      <div class="hf hf-l4">
-        <div class="hv-card"><div class="hv-icon">✅</div><div class="hv-data"><strong>100%</strong><span>consultas respondidas</span></div></div>
-      </div>
-
-      <!-- DERECHA -->
-      <div class="hf hf-r1">
-        <div class="hv-notif">
-          <div class="hv-notif-dot"></div>
-          <div class="hv-notif-text"><strong>Nuevo lead captado</strong><span>hace 2 min · WhatsApp</span></div>
-        </div>
-      </div>
-      <div class="hf hf-r2">
-        <div class="hv-card"><div class="hv-icon">🎯</div><div class="hv-data"><strong>+15</strong><span>leads este mes</span></div></div>
-      </div>
-      <div class="hf hf-r3">
-        <div class="hv-card"><div class="hv-icon">🤖</div><div class="hv-data"><strong>24/7</strong><span>tu negocio activo</span></div></div>
-      </div>
-      <div class="hf hf-r4">
-        <div class="hv-card"><div class="hv-icon">⏱</div><div class="hv-data"><strong>15 días</strong><span>para estar activo</span></div></div>
-      </div>
-
-    </div>
-
-    <!-- Texto centrado — igual que la segunda captura -->
-    <div class="hero-inner">
-      <p class="hero-kicker">
-        <span class="kicker-dot"></span>
-        <span class="kicker-text">Menos tareas &nbsp;·&nbsp; Más negocio</span>
-      </p>
-      <h1 class="hero-title">
-        Tu negocio<br>trabaja<br><em>solo.</em>
-      </h1>
-      <p class="hero-sub">
-        Agentes de IA, flujos automáticos y CRM inteligente.<br>
-        Para negocios que quieren crecer sin que el tiempo sea el límite.
-      </p>
-      <div class="hero-actions">
-        <a href="#contacto" class="btn btn-primary">Quiero automatizar mi negocio</a>
-        <a href="#como-funciona" class="btn btn-ghost">Ver cómo funciona →</a>
-      </div>
-      <div class="hero-social-proof">
-        <div class="sp-avatars">
-          <div class="sp-avatar" style="background:#6366f1;"></div>
-          <div class="sp-avatar" style="background:#818cf8;"></div>
-          <div class="sp-avatar" style="background:#a5b4fc;"></div>
-        </div>
-        <p>Negocios de CABA que ya trabajan con IA</p>
-      </div>
-    </div>
-
-    <div class="hero-scroll-hint" aria-hidden="true">
-      <span>scroll</span><div class="scroll-line"></div>
-    </div>
-  </section>
-
-  <!-- ======== MARQUEE ======== -->
-  <div class="marquee-wrap" aria-hidden="true">
-    <div class="marquee-track">
-      <span>WhatsApp IA</span>
-      <span class="sep">·</span>
-      <span>Turnos automáticos</span>
-      <span class="sep">·</span>
-      <span>n8n</span>
-      <span class="sep">·</span>
-      <span>GoHighLevel</span>
-      <span class="sep">·</span>
-      <span>Agentes IA</span>
-      <span class="sep">·</span>
-      <span>CRM inteligente</span>
-      <span class="sep">·</span>
-      <span>Flujos sin código</span>
-      <span class="sep">·</span>
-      <span>WhatsApp IA</span>
-      <span class="sep">·</span>
-      <span>Turnos automáticos</span>
-      <span class="sep">·</span>
-      <span>n8n</span>
-      <span class="sep">·</span>
-      <span>GoHighLevel</span>
-      <span class="sep">·</span>
-      <span>Agentes IA</span>
-      <span class="sep">·</span>
-      <span>CRM inteligente</span>
-      <span class="sep">·</span>
-      <span>Flujos sin código</span>
-      <span class="sep">·</span>
-    </div>
-  </div>
-
-  <!-- ======== PROBLEMA ======== -->
-  <section class="problema" id="problema">
+  <!-- FORMULARIO -->
+  <section class="form-section" id="diagnostico" aria-label="Formulario de contacto">
     <div class="container">
-      <div class="problema-header reveal">
-        <p class="section-kicker">El problema</p>
-        <h2>Tu negocio pierde dinero<br><em>por cosas que se pueden automatizar.</em></h2>
-      </div>
-      <div class="problema-grid">
-        <div class="problema-card reveal">
-          <div class="prob-num">01</div>
-          <h3>Reservas que nadie confirma</h3>
-          <p>Los clientes no responden el mensaje. No aparecen. Y vos perdés esa hora que podrías haber dado a otro.</p>
-        </div>
-        <div class="problema-card reveal">
-          <div class="prob-num">02</div>
-          <h3>Consultas que se pierden</h3>
-          <p>Llegan mensajes a las 11pm, los fines de semana, mientras estás trabajando. Sin respuesta rápida, ese lead elige a otro.</p>
-        </div>
-        <div class="problema-card reveal">
-          <div class="prob-num">03</div>
-          <h3>Administración que te come el tiempo</h3>
-          <p>Confirmar reservas, recordar clientes, responder las mismas preguntas. Horas perdidas en tareas que una IA puede hacer sola.</p>
-        </div>
-      </div>
-      <div class="problema-cta reveal">
-        <p>¿Alguno de estos te resulta familiar?</p>
-        <a href="#contacto" class="btn btn-primary">Hablemos cómo lo resolvemos</a>
-      </div>
-    </div>
-  </section>
+      <div class="form-wrap">
 
-  <!-- ======== SERVICIOS ======== -->
-  <section class="servicios" id="servicios">
-    <div class="container">
-      <div class="servicios-header reveal">
-        <p class="section-kicker">Qué hacemos</p>
-        <h2>Automatizaciones que<br><em>generan resultados.</em></h2>
-      </div>
-      <div class="servicios-grid" data-servicios>
-        <!-- JS fills this -->
-        <article class="servicio-card reveal">
-          <div class="srv-icon">💬</div>
-          <h3>Agente de WhatsApp IA</h3>
-          <p>Un asistente 24/7 que responde consultas, confirma turnos y convierte mensajes en pacientes sin que muevas un dedo.</p>
-        </article>
-        <article class="servicio-card reveal">
-          <div class="srv-icon">🔄</div>
-          <h3>Automatización de Turnos</h3>
-          <p>Flujos n8n que coordinan agenda, recordatorios y reprogramaciones automáticamente. Cero llamadas, cero olvidos.</p>
-        </article>
-        <article class="servicio-card reveal">
-          <div class="srv-icon">📊</div>
-          <h3>CRM Inteligente</h3>
-          <p>GoHighLevel configurado para tu negocio: seguimiento de leads, historial de pacientes y reportes en tiempo real.</p>
-        </article>
-        <article class="servicio-card reveal">
-          <div class="srv-icon">🚀</div>
-          <h3>Integración Total</h3>
-          <p>Conectamos tus herramientas existentes — Instagram, email, calendario — en un solo flujo que trabaja junto.</p>
-        </article>
-      </div>
-    </div>
-  </section>
+        <div class="form-copy">
+          <p class="kicker">DIAGNÓSTICO SIN COSTO</p>
+          <h2>Activá tu sistema<br><span class="green-text">en 15 días.</span></h2>
+          <p class="form-sub">Contanos tu negocio y te armamos el plan de automatización. Gratis. Sin compromiso.</p>
+          <ul class="form-benefits" role="list">
+            <li>
+              <span class="fb-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              </span>
+              <span>Sin conocimiento técnico — nos ocupamos de todo</span>
+            </li>
+            <li>
+              <span class="fb-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              </span>
+              <span>Sistema activo en 15 días hábiles garantizados</span>
+            </li>
+            <li>
+              <span class="fb-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              </span>
+              <span>Soporte directo el primer mes incluido</span>
+            </li>
+            <li>
+              <span class="fb-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              </span>
+              <span>Respondemos en menos de 24 horas</span>
+            </li>
+          </ul>
+          <div class="form-wa">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="#25d366" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            <span>O escribinos directo por WhatsApp</span>
+          </div>
+        </div>
 
-  <!-- ======== STATS ======== -->
-  <section class="stats">
-    <div class="container">
-      <div class="stats-grid" data-stats>
-        <div class="stat-item reveal">
-          <div class="stat-val"><span class="count-up" data-target="80">0</span>%</div>
-          <div class="stat-label">menos turnos perdidos</div>
-        </div>
-        <div class="stat-item reveal">
-          <div class="stat-val"><span class="count-up" data-target="24">0</span>h</div>
-          <div class="stat-label">atención sin parar</div>
-        </div>
-        <div class="stat-item reveal">
-          <div class="stat-val"><span class="count-up" data-target="3">0</span>×</div>
-          <div class="stat-label">más leads calificados</div>
-        </div>
-        <div class="stat-item reveal">
-          <div class="stat-val"><span class="count-up" data-target="15">0</span>d</div>
-          <div class="stat-label">implementación promedio</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ======== CÓMO FUNCIONA ======== -->
-  <section class="como-funciona" id="como-funciona">
-    <div class="container">
-      <div class="cf-header reveal">
-        <p class="section-kicker">El proceso</p>
-        <h2>De idea a sistema<br><em>funcionando en 3 pasos.</em></h2>
-      </div>
-      <div class="cf-steps">
-        <div class="cf-step reveal">
-          <div class="step-num">01</div>
-          <div class="step-content">
-            <h3>Diagnóstico</h3>
-            <p>Analizamos tu negocio en 30 minutos. Mapeamos los procesos que te roban tiempo y definimos el sistema ideal para vos.</p>
-          </div>
-          <div class="step-line" aria-hidden="true"></div>
-        </div>
-        <div class="cf-step reveal">
-          <div class="step-num">02</div>
-          <div class="step-content">
-            <h3>Diseño</h3>
-            <p>Armamos el flujo de automatización a medida. Sin soluciones genéricas. Cada pieza diseñada para tu realidad.</p>
-          </div>
-          <div class="step-line" aria-hidden="true"></div>
-        </div>
-        <div class="cf-step reveal">
-          <div class="step-num">03</div>
-          <div class="step-content">
-            <h3>Activación</h3>
-            <p>Desplegamos, probamos contigo y te entregamos el sistema funcionando. Soporte incluido el primer mes.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ======== TESTIMONIALES ======== -->
-  <section class="testimoniales" id="testimoniales">
-    <div class="container">
-      <div class="test-header reveal">
-        <p class="section-kicker">Casos reales</p>
-        <h2>Lo que dicen<br><em>quienes ya automatizaron.</em></h2>
-      </div>
-      <div class="test-grid" data-testimoniales>
-        <article class="test-card reveal">
-          <div class="test-quote">"</div>
-          <p>Implementamos todo en menos de 2 semanas. Antes pasaba una hora al día confirmando turnos a mano. Ahora lo hace el sistema y yo uso ese tiempo para atender más.</p>
-          <div class="test-author">
-            <div class="test-avatar" style="background: linear-gradient(135deg, #6366f1, #818cf8);"></div>
-            <div>
-              <strong>Dra. Carla Mendez</strong>
-              <span>Profesional independiente — CABA</span>
-            </div>
-          </div>
-        </article>
-        <article class="test-card reveal">
-          <div class="test-quote">"</div>
-          <p>Tenía mis dudas porque no soy técnico. Franco se hizo cargo de todo desde el primer día. Hoy el sistema responde, filtra y agenda sin que yo haga nada.</p>
-          <div class="test-author">
-            <div class="test-avatar" style="background: linear-gradient(135deg, #8b5cf6, #a78bfa);"></div>
-            <div>
-              <strong>Sebastián Torres</strong>
-              <span>Dueño de negocio — Palermo</span>
-            </div>
-          </div>
-        </article>
-        <article class="test-card reveal">
-          <div class="test-quote">"</div>
-          <p>F2AIA configuró todo en 2 semanas. Hoy tengo un sistema que trabaja mientras duermo. Nunca pensé que fuera tan accesible.</p>
-          <div class="test-author">
-            <div class="test-avatar" style="background: linear-gradient(135deg, #06b6d4, #67e8f9);"></div>
-            <div>
-              <strong>Marcela Ríos</strong>
-              <span>Consultorio Integral — Belgrano</span>
-            </div>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- ======== FAQ ======== -->
-  <section class="faq">
-    <div class="container faq-inner">
-      <div class="faq-header reveal">
-        <p class="section-kicker">Preguntas</p>
-        <h2>Cosas que<br><em>siempre preguntan.</em></h2>
-      </div>
-      <div class="faq-list" data-faq>
-        <div class="faq-item reveal">
-          <button class="faq-q" aria-expanded="false">
-            ¿Necesito saber de tecnología?
-            <span class="faq-icon" aria-hidden="true">+</span>
-          </button>
-          <div class="faq-a">
-            <p>No. Nos encargamos de todo. Solo necesitás decirme cómo funciona tu negocio hoy y el resto lo hacemos nosotros.</p>
-          </div>
-        </div>
-        <div class="faq-item reveal">
-          <button class="faq-q" aria-expanded="false">
-            ¿Cuánto tarda la implementación?
-            <span class="faq-icon" aria-hidden="true">+</span>
-          </button>
-          <div class="faq-a">
-            <p>Entre 10 y 20 días hábiles para un sistema completo, funcionando y testeado en tu contexto real.</p>
-          </div>
-        </div>
-        <div class="faq-item reveal">
-          <button class="faq-q" aria-expanded="false">
-            ¿Funciona con mi WhatsApp actual?
-            <span class="faq-icon" aria-hidden="true">+</span>
-          </button>
-          <div class="faq-a">
-            <p>Sí. Trabajamos con WhatsApp Business API y también con soluciones alternativas sin necesidad de cambiar tu número.</p>
-          </div>
-        </div>
-        <div class="faq-item reveal">
-          <button class="faq-q" aria-expanded="false">
-            ¿Qué pasa si algo falla?
-            <span class="faq-icon" aria-hidden="true">+</span>
-          </button>
-          <div class="faq-a">
-            <p>Soporte directo conmigo el primer mes. Los sistemas son estables y están diseñados para requerir mínimo mantenimiento.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ======== CONTACTO ======== -->
-  <section class="contacto" id="contacto">
-    <div class="contacto-bg" aria-hidden="true"></div>
-    <div class="container">
-      <div class="contacto-inner">
-        <div class="contacto-copy reveal">
-          <p class="section-kicker">Primer paso</p>
-          <h2>¿Listo para que tu negocio<br><em>trabaje solo?</em></h2>
-          <p class="contacto-sub">Completá el formulario. Te respondo en menos de 24 horas con un diagnóstico sin costo.</p>
-          <div class="contacto-trust">
-            <span>✓ Sin compromiso</span>
-            <span>✓ Diagnóstico gratis</span>
-            <span>✓ Respuesta en 24h</span>
-          </div>
-        </div>
-        <form class="contacto-form reveal" id="form-contacto" novalidate>
-          <div class="form-group">
+        <form class="form-card" id="form-contacto" novalidate>
+          <div class="field-group">
             <label for="nombre">Nombre completo</label>
-            <input type="text" id="nombre" name="nombre" placeholder="Ej: Dra. Carla Mendez" required />
+            <input type="text" id="nombre" name="nombre" placeholder="Ej: Dr. Martín García" required autocomplete="name" />
           </div>
-          <div class="form-group">
-            <label for="negocio">Tipo de negocio</label>
+          <div class="field-group">
+            <label for="negocio">¿A qué te dedicás?</label>
             <select id="negocio" name="negocio" required>
-              <option value="">Seleccioná tu rubro</option>
+              <option value="">— Seleccioná tu rubro —</option>
               <option>Clínica / Consultorio dental</option>
               <option>Consultorio médico</option>
               <option>Inmobiliaria</option>
               <option>Estudio jurídico</option>
               <option>Comercio / Retail</option>
+              <option>Restaurante / Gastronomía</option>
               <option>Otro servicio</option>
             </select>
           </div>
-          <div class="form-group">
-            <label for="whatsapp">WhatsApp (con código de área)</label>
-            <input type="tel" id="whatsapp" name="whatsapp" placeholder="Ej: 1123456789" required />
+          <div class="field-group">
+            <label for="whatsapp">Tu WhatsApp (con código de área)</label>
+            <input type="tel" id="whatsapp" name="whatsapp" placeholder="Ej: 1123456789" required autocomplete="tel" />
           </div>
-          <div class="form-group">
-            <label for="mensaje">¿Qué querés automatizar?</label>
-            <textarea id="mensaje" name="mensaje" rows="3" placeholder="Contame brevemente qué proceso te está consumiendo más tiempo..."></textarea>
+          <div class="field-group">
+            <label for="mensaje">¿Qué proceso te consume más tiempo?</label>
+            <textarea id="mensaje" name="mensaje" rows="3" placeholder="Ej: confirmar turnos, responder consultas, seguir leads..."></textarea>
           </div>
-          <button type="submit" class="btn btn-primary btn-full" id="btn-submit">
-            <span class="btn-label">Empezar ahora →</span>
+          <button type="submit" class="btn btn-green btn-submit" id="btn-submit">
+            <span class="btn-label">Quiero mi diagnóstico gratis →</span>
             <span class="btn-sending" aria-hidden="true">Enviando…</span>
-            <span class="btn-sent" aria-hidden="true">✓ Mensaje enviado</span>
+            <span class="btn-sent" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              ¡Recibido! Te contactamos pronto
+            </span>
           </button>
-          <p class="form-disclaimer">Sin spam. Solo te contacto para darte el diagnóstico.</p>
+          <p class="form-disclaimer">Sin spam · Diagnóstico gratuito · Respuesta en menos de 24h</p>
         </form>
+
       </div>
     </div>
   </section>
 
-  <!-- ======== FOOTER ======== -->
-  <footer class="footer">
-    <div class="container footer-inner">
-      <div class="footer-brand">
-        <a href="#" class="nav-logo">
-          <span class="logo-f2">F2</span><span class="logo-aia">AIA</span>
-        </a>
-        <p>Automatización con IA para negocios que quieren escalar.</p>
-        <!-- REDES SOCIALES -->
-        <div class="footer-social">
-          <!-- FACEBOOK: reemplazar href con tu URL real, ej: https://facebook.com/f2aia -->
-          <a href="AQUI_VA_LA_URL_DE_FACEBOOK" class="social-link social-link--fb" target="_blank" rel="noopener" aria-label="Facebook de F2AIA">
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.236 2.686.236v2.97h-1.514c-1.491 0-1.956.931-1.956 1.886v2.267h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg>
-            <span>Facebook</span>
-          </a>
-          <!-- INSTAGRAM: @f2aiaworking -->
-          <a href="https://instagram.com/f2aiaworking" class="social-link social-link--ig" target="_blank" rel="noopener" aria-label="Instagram de F2AIA @f2aiaworking">
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
-            <span>@f2aiaworking</span>
+  <!-- PROBLEMA -->
+  <section class="problema" id="problema" aria-label="Problemas que resolvemos">
+    <div class="container">
+      <div class="prob-header reveal">
+        <p class="kicker">EL PROBLEMA</p>
+        <h2>Sin automatización, tu negocio<br><span class="green-text">trabaja contra reloj.</span></h2>
+      </div>
+      <div class="prob-grid">
+        <div class="prob-card reveal">
+          <span class="prob-bg-num" aria-hidden="true">01</span>
+          <div class="prob-icon" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          </div>
+          <h3>Turnos que se pierden</h3>
+          <p>Clientes que no aparecen, horas vacías, ingresos que no llegan. Todo porque no hay una confirmación automática que lo evite.</p>
+        </div>
+        <div class="prob-card reveal">
+          <span class="prob-bg-num" aria-hidden="true">02</span>
+          <div class="prob-icon" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          </div>
+          <h3>Mensajes sin respuesta</h3>
+          <p>A las 11pm llegan consultas y nadie responde. Ese lead en dos minutos elige a tu competencia. Y así, cada fin de semana.</p>
+        </div>
+        <div class="prob-card reveal">
+          <span class="prob-bg-num" aria-hidden="true">03</span>
+          <div class="prob-icon" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <h3>Tiempo en tareas que no escalan</h3>
+          <p>Confirmar reservas, recordar clientes, responder lo mismo 20 veces. Horas que deberías invertir en hacer crecer tu negocio.</p>
+        </div>
+      </div>
+      <div class="prob-cta reveal">
+        <a href="#diagnostico" class="btn btn-green">Quiero resolver esto ahora</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICIOS -->
+  <section class="servicios" id="servicios" aria-label="Nuestros servicios">
+    <div class="container">
+      <div class="srv-header reveal">
+        <p class="kicker">LO QUE HACEMOS</p>
+        <h2>Todo lo que tu negocio necesita,<br><span class="green-text">en un solo sistema.</span></h2>
+      </div>
+      <div class="srv-bento">
+        <article class="srv-card srv-wide reveal">
+          <div class="srv-card-icon" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          </div>
+          <div class="srv-card-text">
+            <h3>Agente WhatsApp IA</h3>
+            <p>Un asistente que responde, agenda y convierte consultas en clientes, las 24 horas, sin que muevas un dedo. Tu negocio siempre disponible.</p>
+          </div>
+          <span class="srv-tag">Más popular</span>
+        </article>
+        <article class="srv-card reveal">
+          <div class="srv-card-icon" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+          </div>
+          <div class="srv-card-text">
+            <h3>CRM Inteligente</h3>
+            <p>Seguimiento de cada lead, historial completo y reportes en tiempo real. GoHighLevel configurado para tu negocio.</p>
+          </div>
+        </article>
+        <article class="srv-card reveal">
+          <div class="srv-card-icon" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><polyline points="23 20 23 14 17 14"/><path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 0 1 3.51 15"/></svg>
+          </div>
+          <div class="srv-card-text">
+            <h3>Turnos Automáticos</h3>
+            <p>Flujos n8n que coordinan agenda, recordatorios y confirmaciones sin llamadas. Agenda llena, cero esfuerzo.</p>
+          </div>
+        </article>
+        <article class="srv-card srv-wide reveal">
+          <div class="srv-card-icon" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+          </div>
+          <div class="srv-card-text">
+            <h3>Integración Total</h3>
+            <p>Conectamos Instagram, email, calendario y tus herramientas actuales en un flujo único. Un ecosistema que trabaja junto, en piloto automático.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section class="stats" aria-label="Números clave">
+    <div class="container">
+      <div class="stats-row">
+        <div class="stat-item reveal">
+          <div class="stat-num"><span class="count-up" data-target="80">0</span>%</div>
+          <p class="stat-desc">de tus tareas<br>eliminadas</p>
+        </div>
+        <div class="stat-div" aria-hidden="true"></div>
+        <div class="stat-item reveal">
+          <div class="stat-num">24<span class="stat-unit">H</span></div>
+          <p class="stat-desc">atención sin<br>interrupciones</p>
+        </div>
+        <div class="stat-div" aria-hidden="true"></div>
+        <div class="stat-item reveal">
+          <div class="stat-num"><span class="count-up" data-target="3">0</span>×</div>
+          <p class="stat-desc">más leads<br>calificados</p>
+        </div>
+        <div class="stat-div" aria-hidden="true"></div>
+        <div class="stat-item reveal">
+          <div class="stat-num"><span class="count-up" data-target="15">0</span><span class="stat-unit">D</span></div>
+          <p class="stat-desc">de idea a<br>sistema activo</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESO -->
+  <section class="proceso" id="como-funciona" aria-label="Cómo funciona">
+    <div class="container">
+      <div class="proc-header reveal">
+        <p class="kicker">EL PROCESO</p>
+        <h2>Tres pasos.<br><span class="green-text">Un sistema que funciona.</span></h2>
+      </div>
+      <div class="proc-steps">
+        <div class="proc-step reveal">
+          <div class="proc-num">01</div>
+          <div class="proc-line" aria-hidden="true"></div>
+          <div class="proc-content">
+            <h3>Diagnóstico</h3>
+            <p>30 minutos para mapear tu negocio, detectar dónde perdés tiempo y dinero, y definir el sistema ideal para vos.</p>
+          </div>
+        </div>
+        <div class="proc-step reveal">
+          <div class="proc-num">02</div>
+          <div class="proc-line" aria-hidden="true"></div>
+          <div class="proc-content">
+            <h3>Arquitectura</h3>
+            <p>Diseñamos el flujo a medida. Sin plantillas genéricas. Cada automatización pensada para tu realidad y tu rubro.</p>
+          </div>
+        </div>
+        <div class="proc-step reveal">
+          <div class="proc-num">03</div>
+          <div class="proc-content">
+            <h3>Activación</h3>
+            <p>Deploy, testing en vivo y entrega del sistema funcionando. Soporte directo el primer mes incluido.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALES -->
+  <section class="testimoniales" id="testimoniales" aria-label="Testimonios">
+    <div class="container">
+      <div class="test-header reveal">
+        <p class="kicker">RESULTADOS REALES</p>
+        <h2>Negocios que dieron el salto<br><span class="green-text">y no vuelven atrás.</span></h2>
+      </div>
+      <div class="test-grid">
+        <article class="test-card reveal">
+          <div class="test-stars" aria-label="5 estrellas">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="#00FF88" stroke="none" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="#00FF88" stroke="none" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="#00FF88" stroke="none" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="#00FF88" stroke="none" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="#00FF88" stroke="none" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <p>"Antes pasaba una hora al día confirmando turnos a mano. Ahora lo hace el sistema solo. Recuperé ese tiempo para atender más pacientes."</p>
+          <div class="test-author">
+            <div class="test-av" style="background:linear-gradient(135deg,#00FF88,#00AA55);color:#050505" aria-hidden="true">CM</div>
+            <div>
+              <strong>Dra. Carla Mendez</strong>
+              <span>Profesional independiente · CABA</span>
+            </div>
+          </div>
+        </article>
+        <article class="test-card reveal">
+          <div class="test-stars" aria-label="5 estrellas">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="#00FF88" stroke="none" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="#00FF88" stroke="none" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="#00FF88" stroke="none" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="#00FF88" stroke="none" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="#00FF88" stroke="none" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <p>"No soy técnico y tenía miedo. Franco se encargó de todo desde el día uno. Hoy el sistema responde, filtra y agenda sin que yo haga nada."</p>
+          <div class="test-author">
+            <div class="test-av" style="background:linear-gradient(135deg,#005533,#00FF88);color:#fff" aria-hidden="true">ST</div>
+            <div>
+              <strong>Sebastián Torres</strong>
+              <span>Dueño de negocio · Palermo</span>
+            </div>
+          </div>
+        </article>
+        <article class="test-card reveal">
+          <div class="test-stars" aria-label="5 estrellas">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="#00FF88" stroke="none" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="#00FF88" stroke="none" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="#00FF88" stroke="none" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="#00FF88" stroke="none" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="#00FF88" stroke="none" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <p>"Implementado en 2 semanas exactas. Hoy tengo un sistema que trabaja mientras duermo. Es la mejor inversión que hice para mi consultorio."</p>
+          <div class="test-author">
+            <div class="test-av" style="background:linear-gradient(135deg,#003322,#00CC66);color:#fff" aria-hidden="true">MR</div>
+            <div>
+              <strong>Marcela Ríos</strong>
+              <span>Consultorio Integral · Belgrano</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq" aria-label="Preguntas frecuentes">
+    <div class="container">
+      <div class="faq-header reveal">
+        <p class="kicker">PREGUNTAS</p>
+        <h2>Todo lo que querés saber<br><span class="green-text">antes de arrancar.</span></h2>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item reveal">
+          <button class="faq-btn" aria-expanded="false">
+            <span>¿Necesito saber de tecnología?</span>
+            <span class="faq-icon" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </span>
+          </button>
+          <div class="faq-answer"><p>No. Nos encargamos de todo. Solo necesitás contarnos cómo funciona tu negocio hoy. El resto lo hacemos nosotros.</p></div>
+        </div>
+        <div class="faq-item reveal">
+          <button class="faq-btn" aria-expanded="false">
+            <span>¿Cuánto tarda la implementación?</span>
+            <span class="faq-icon" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </span>
+          </button>
+          <div class="faq-answer"><p>Entre 10 y 20 días hábiles para un sistema completo, funcionando y testeado en tu entorno real.</p></div>
+        </div>
+        <div class="faq-item reveal">
+          <button class="faq-btn" aria-expanded="false">
+            <span>¿Funciona con mi WhatsApp actual?</span>
+            <span class="faq-icon" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </span>
+          </button>
+          <div class="faq-answer"><p>Sí. Trabajamos con WhatsApp Business API y también con soluciones alternativas, sin necesidad de cambiar tu número actual.</p></div>
+        </div>
+        <div class="faq-item reveal">
+          <button class="faq-btn" aria-expanded="false">
+            <span>¿Qué pasa si algo falla?</span>
+            <span class="faq-icon" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </span>
+          </button>
+          <div class="faq-answer"><p>Soporte directo conmigo el primer mes. Los sistemas son estables y están diseñados para requerir mínimo mantenimiento una vez activos.</p></div>
+        </div>
+        <div class="faq-item reveal">
+          <button class="faq-btn" aria-expanded="false">
+            <span>¿Cuánto cuesta?</span>
+            <span class="faq-icon" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </span>
+          </button>
+          <div class="faq-answer"><p>Depende del sistema que necesitás. El diagnóstico es completamente gratuito y sin compromiso. A partir de ahí te presentamos una propuesta a medida.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="cta-final" aria-label="Llamada a la acción final">
+    <div class="container">
+      <div class="cta-box reveal">
+        <p class="kicker">SIGUIENTE PASO</p>
+        <h2>Tu competencia no espera.<br><span class="green-text">¿Vos sí?</span></h2>
+        <p>El diagnóstico es gratis. El primer paso, tuyo.</p>
+        <div class="cta-final-btns">
+          <a href="#diagnostico" class="btn btn-green">Activar mi sistema gratis</a>
+          <a href="https://wa.me/5491164858166?text=Hola%21+Vi+la+web+de+F2AIA+y+me+interesa+automatizar+mi+negocio." class="btn btn-ghost" target="_blank" rel="noopener">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp directo
           </a>
         </div>
       </div>
-      <nav class="footer-nav" aria-label="Footer">
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer" role="contentinfo">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <a href="#" class="nav-logo" aria-label="F2AIA inicio">F2<span>AIA</span></a>
+        <p>Automatización con IA para negocios que quieren escalar sin límites.</p>
+        <div class="footer-social">
+          <a href="https://www.facebook.com/profile.php?id=61590053287826" class="soc-link" target="_blank" rel="noopener" aria-label="Facebook F2AIA">
+            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.236 2.686.236v2.97h-1.514c-1.491 0-1.956.931-1.956 1.886v2.267h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg>
+            Facebook
+          </a>
+          <a href="https://instagram.com/f2aiaworking" class="soc-link" target="_blank" rel="noopener" aria-label="Instagram @f2aiaworking">
+            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+            @f2aiaworking
+          </a>
+        </div>
+      </div>
+      <nav class="footer-nav" aria-label="Navegación footer">
         <a href="#servicios">Servicios</a>
         <a href="#como-funciona">Proceso</a>
         <a href="#testimoniales">Casos</a>
-        <a href="#contacto">Contacto</a>
+        <a href="#diagnostico">Contacto</a>
+        <a href="mailto:hola@f2aia.com">hola@f2aia.com</a>
       </nav>
-      <div class="footer-bottom">
-        <p>© 2026 F2AIA. Buenos Aires, Argentina.</p>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <p>© 2026 F2AIA · Buenos Aires, Argentina · Todos los derechos reservados.</p>
       </div>
     </div>
   </footer>
 
-  <!-- ======== BOTÓN WHATSAPP FLOTANTE ======== -->
-  <!-- WHATSAPP: el número se configura en main.js → variable WHATSAPP_NUMBER -->
-  <a id="wa-fab" class="wa-fab" href="#" target="_blank" rel="noopener" aria-label="Chatear por WhatsApp">
-    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-    </svg>
-    <span class="wa-fab-label">Hablemos</span>
+  <!-- WHATSAPP FAB -->
+  <a id="wa-fab" class="wa-fab" href="https://wa.me/5491164858166?text=Hola%21+Vi+la+web+de+F2AIA+y+me+interesa+automatizar+mi+negocio." target="_blank" rel="noopener" aria-label="Chatear por WhatsApp con F2AIA">
+    <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    <span class="wa-label">Hablemos</span>
   </a>
 
-  <!-- ======== CURSOR ======== -->
-  <div class="cursor" aria-hidden="true">
-    <div class="cursor-dot"></div>
-    <div class="cursor-ring"></div>
-  </div>
+  <script defer src="main.js?v=20260601"></script>
 
-  <!-- Scripts -->
-  <script defer src="lib/manifest.js?v=20260520"></script>
-  <script defer src="main.js?v=20260520"></script>
-
-  <!-- Circuit board background -->
+  <!-- SPACE PARTICLES -->
   <script>
-  (function () {
+  (function(){
     'use strict';
-    var canvas = document.getElementById('circuit-bg');
-    if (!canvas) return;
+    var canvas = document.getElementById('space-bg');
+    if(!canvas) return;
     var ctx = canvas.getContext('2d');
-    var W, H, nodes = [], edges = [], pulses = [];
-    var CELL = 68, NODE_CHANCE = 0.70, EDGE_CHANCE = 0.48, MAX_PULSES = 30;
-    var COLORS = ['#6366f1','#818cf8','#06b6d4','#a5b4fc','#38bdf8'];
-
-    function resize() {
-      W = canvas.width  = window.innerWidth;
-      H = canvas.height = window.innerHeight;
-      buildGrid();
+    var W, H, particles = [];
+    var COUNT = 200;
+    function resize(){ W = canvas.width = window.innerWidth; H = canvas.height = window.innerHeight; }
+    function mkP(){
+      return {
+        x: Math.random()*W, y: Math.random()*H,
+        r: Math.random()*1.6+0.2,
+        a: Math.random()*0.7+0.1,
+        dx: (Math.random()-0.5)*0.12,
+        dy: (Math.random()-0.5)*0.12,
+        phase: Math.random()*Math.PI*2,
+        speed: 0.008+Math.random()*0.018,
+        green: Math.random()<0.07
+      };
     }
-
-    function buildGrid() {
-      nodes = []; edges = []; pulses = [];
-      var cols = Math.ceil(W / CELL) + 2;
-      var rows = Math.ceil(H / CELL) + 2;
-      var grid = {};
-
-      for (var r = -1; r <= rows; r++) {
-        for (var c = -1; c <= cols; c++) {
-          if (Math.random() < NODE_CHANCE) {
-            var nd = {
-              x: c * CELL + (Math.random() * 14 - 7),
-              y: r * CELL + (Math.random() * 14 - 7),
-              size: Math.random() < 0.07 ? 4 : (Math.random() < 0.18 ? 3 : 1.8),
-              phase: Math.random() * Math.PI * 2
-            };
-            nodes.push(nd);
-            grid[r + ',' + c] = nd;
-          }
+    function init(){ resize(); particles=[]; for(var i=0;i<COUNT;i++) particles.push(mkP()); }
+    function draw(){
+      ctx.clearRect(0,0,W,H);
+      for(var i=0;i<particles.length;i++){
+        var p=particles[i];
+        p.phase+=p.speed;
+        var alpha=p.a*(0.4+0.6*Math.abs(Math.sin(p.phase)));
+        p.x+=p.dx; p.y+=p.dy;
+        if(p.x<-4) p.x=W+4; if(p.x>W+4) p.x=-4;
+        if(p.y<-4) p.y=H+4; if(p.y>H+4) p.y=-4;
+        if(p.green){
+          var g=ctx.createRadialGradient(p.x,p.y,0,p.x,p.y,p.r*5);
+          g.addColorStop(0,'rgba(0,255,136,'+alpha+')');
+          g.addColorStop(1,'transparent');
+          ctx.beginPath(); ctx.arc(p.x,p.y,p.r*5,0,6.283);
+          ctx.fillStyle=g; ctx.fill();
+          ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,6.283);
+          ctx.fillStyle='rgba(0,255,136,'+(Math.min(1,alpha*1.8))+')'; ctx.fill();
+        } else {
+          ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,6.283);
+          ctx.fillStyle='rgba(255,255,255,'+(alpha*0.75)+')'; ctx.fill();
         }
       }
-
-      // Horizontal edges
-      for (var r2 = -1; r2 <= rows; r2++) {
-        for (var c2 = -1; c2 < cols; c2++) {
-          var a = grid[r2+','+c2], b = grid[r2+','+(c2+1)];
-          if (a && b && Math.random() < EDGE_CHANCE) edges.push({a:a,b:b,lit:0});
-        }
-      }
-      // Vertical edges
-      for (var r3 = -1; r3 < rows; r3++) {
-        for (var c3 = -1; c3 <= cols; c3++) {
-          var a2 = grid[r3+','+c3], b2 = grid[(r3+1)+','+c3];
-          if (a2 && b2 && Math.random() < EDGE_CHANCE) edges.push({a:a2,b:b2,lit:0});
-        }
-      }
-
-      for (var i = 0; i < MAX_PULSES; i++) spawnPulse();
+      requestAnimationFrame(draw);
     }
-
-    function spawnPulse() {
-      if (!edges.length) return;
-      var e = edges[Math.floor(Math.random() * edges.length)];
-      pulses.push({
-        edge : e,
-        t    : Math.random() * 0.3,
-        speed: 0.0005 + Math.random() * 0.0011,
-        size : 1.8 + Math.random() * 2.4,
-        color: COLORS[Math.floor(Math.random() * COLORS.length)],
-        rev  : Math.random() < 0.5
-      });
-    }
-
-    var last = 0;
-    function frame(now) {
-      requestAnimationFrame(frame);
-      var dt = Math.min(now - last, 64);
-      last = now;
-      ctx.clearRect(0, 0, W, H);
-
-      // Decay lit
-      for (var i = 0; i < edges.length; i++) edges[i].lit *= 0.93;
-
-      // Move pulses
-      var alive = [];
-      for (var j = 0; j < pulses.length; j++) {
-        var p = pulses[j];
-        p.t += p.speed * dt;
-        p.edge.lit = Math.min(1, p.edge.lit + 0.55);
-        if (p.t < 1) alive.push(p); else spawnPulse();
-      }
-      pulses = alive;
-
-      // Draw edges (L-bend PCB style)
-      for (var e = 0; e < edges.length; e++) {
-        var ed = edges[e];
-        var mx = ed.a.x, my = ed.b.y;
-        var alpha = 0.06 + ed.lit * 0.20;
-
-        ctx.beginPath();
-        ctx.moveTo(ed.a.x, ed.a.y);
-        ctx.lineTo(mx, my);
-        ctx.lineTo(ed.b.x, ed.b.y);
-        ctx.strokeStyle = 'rgba(99,102,241,' + alpha + ')';
-        ctx.lineWidth = 1.1;
-        ctx.stroke();
-
-        if (ed.lit > 0.12) {
-          ctx.beginPath();
-          ctx.moveTo(ed.a.x, ed.a.y);
-          ctx.lineTo(mx, my);
-          ctx.lineTo(ed.b.x, ed.b.y);
-          ctx.strokeStyle = 'rgba(129,140,248,' + (ed.lit * 0.32) + ')';
-          ctx.lineWidth = 2.4;
-          ctx.stroke();
-        }
-      }
-
-      // Draw nodes (vias)
-      var t = now * 0.001;
-      for (var n = 0; n < nodes.length; n++) {
-        var nd = nodes[n];
-        var glow = 0.28 + 0.18 * Math.sin(t + nd.phase);
-        var g = ctx.createRadialGradient(nd.x, nd.y, 0, nd.x, nd.y, nd.size * 5);
-        g.addColorStop(0,   'rgba(99,102,241,' + glow + ')');
-        g.addColorStop(0.5, 'rgba(99,102,241,' + (glow * 0.25) + ')');
-        g.addColorStop(1,   'transparent');
-        ctx.beginPath();
-        ctx.arc(nd.x, nd.y, nd.size * 5, 0, 6.283);
-        ctx.fillStyle = g;
-        ctx.fill();
-
-        ctx.beginPath();
-        ctx.arc(nd.x, nd.y, nd.size, 0, 6.283);
-        ctx.fillStyle = 'rgba(129,140,248,0.60)';
-        ctx.fill();
-      }
-
-      // Draw pulses
-      for (var k = 0; k < pulses.length; k++) {
-        var pu = pulses[k];
-        var ta = pu.rev ? 1 - pu.t : pu.t;
-        var ea = pu.edge;
-        var mx2 = ea.a.x, my2 = ea.b.y;
-        var lenA = Math.hypot(mx2 - ea.a.x, my2 - ea.a.y);
-        var lenB = Math.hypot(ea.b.x - mx2, ea.b.y - my2);
-        var total = lenA + lenB;
-        var px, py;
-        if (total < 0.01) { px = ea.a.x; py = ea.a.y; }
-        else {
-          var dist = ta * total;
-          if (dist <= lenA) {
-            var f = lenA > 0 ? dist / lenA : 0;
-            px = ea.a.x + (mx2 - ea.a.x) * f;
-            py = ea.a.y + (my2 - ea.a.y) * f;
-          } else {
-            var f2 = lenB > 0 ? (dist - lenA) / lenB : 0;
-            px = mx2 + (ea.b.x - mx2) * f2;
-            py = my2 + (ea.b.y - my2) * f2;
-          }
-        }
-
-        // Halo
-        var r2 = pu.size * 6;
-        var pg = ctx.createRadialGradient(px, py, 0, px, py, r2);
-        pg.addColorStop(0,   pu.color + 'cc');
-        pg.addColorStop(0.35,'rgba(129,140,248,0.40)');
-        pg.addColorStop(1,   'transparent');
-        ctx.beginPath();
-        ctx.arc(px, py, r2, 0, 6.283);
-        ctx.fillStyle = pg;
-        ctx.fill();
-
-        // Core
-        ctx.beginPath();
-        ctx.arc(px, py, pu.size * 0.85, 0, 6.283);
-        ctx.fillStyle = '#ffffff';
-        ctx.shadowColor = pu.color;
-        ctx.shadowBlur  = 10;
-        ctx.fill();
-        ctx.shadowBlur  = 0;
-      }
-    }
-
     window.addEventListener('resize', resize);
-    resize();
-    requestAnimationFrame(frame);
+    init(); draw();
   })();
   </script>
 
