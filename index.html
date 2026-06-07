@@ -29,12 +29,18 @@
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=DM+Sans:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" />
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Inter:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" />
+  <link rel="stylesheet" href="styles.css?v=20260608" />
 </head>
 <body>
 
-  <canvas id="space-bg" aria-hidden="true"></canvas>
+  <!-- BACKGROUND GRID -->
+  <div class="bg-grid" aria-hidden="true"></div>
+
+  <!-- CUSTOM CURSOR -->
+  <div class="cursor-outer" id="cursor-outer" aria-hidden="true"></div>
+  <div class="cursor-dot"   id="cursor-dot"   aria-hidden="true"></div>
+
   <div class="scroll-bar" id="scroll-bar" aria-hidden="true"></div>
   <a href="#diagnostico" class="skip-link">Ir al formulario</a>
 
@@ -46,6 +52,12 @@
         <li><a href="#servicios">Servicios</a></li>
         <li><a href="#como-funciona">Proceso</a></li>
         <li><a href="#testimoniales">Casos</a></li>
+        <li>
+          <a href="#" class="nav-app-btn" title="Plataforma en desarrollo" tabindex="-1" aria-disabled="true">
+            Acceder al sistema
+            <span class="nav-app-pill">Próximamente</span>
+          </a>
+        </li>
         <li><a href="#diagnostico" class="nav-cta">Diagnóstico gratis →</a></li>
       </ul>
       <button class="nav-burger" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-mobile">
@@ -56,6 +68,10 @@
       <a href="#servicios">Servicios</a>
       <a href="#como-funciona">Proceso</a>
       <a href="#testimoniales">Casos</a>
+      <a href="#" class="mobile-app-link" tabindex="-1" aria-disabled="true">
+        Acceder al sistema
+        <span class="mobile-app-pill">Próximamente</span>
+      </a>
       <a href="#diagnostico" class="mobile-cta">Diagnóstico gratis →</a>
     </div>
   </nav>
@@ -64,35 +80,21 @@
   <section class="hero" id="hero" aria-label="Portada">
     <div class="hero-grid">
 
-      <div class="hero-text">
+      <!-- TEXTO SUPERIOR: badge + título -->
+      <div class="hero-text-top">
         <div class="hero-badge">
           <span class="badge-pulse"></span>
           <span>Sistema activo · Buenos Aires</span>
         </div>
         <h1 class="hero-title">
-          Tu negocio,<br>
-          trabajando<br>
-          <em class="gradient-text">solo.</em>
+          Tu <br>
+          negocio,<br>
+          trabaja<br>
+          <em>solo.</em>
         </h1>
-        <p class="hero-sub">
-          Atención automática 24/7, captación de leads y turnos sin esfuerzo.<br class="br-desk">
-          Tu competencia trabaja 8 horas. Vos, sin límites.
-        </p>
-        <div class="hero-ctas">
-          <a href="#diagnostico" class="btn btn-green">Activar mi sistema gratis</a>
-          <a href="#como-funciona" class="btn btn-ghost">Cómo funciona →</a>
-        </div>
-        <div class="hero-proof">
-          <div class="proof-dots">
-            <span style="background:linear-gradient(135deg,#6366F1,#818CF8)"></span>
-            <span style="background:linear-gradient(135deg,#818CF8,#06B6D4)"></span>
-            <span style="background:linear-gradient(135deg,#06B6D4,#F97316)"></span>
-          </div>
-          <p>+50 negocios de CABA ya automatizados</p>
-        </div>
       </div>
 
-      <!-- TERMINAL (tablet/desktop) -->
+      <!-- TERMINAL VISUAL (todos los dispositivos) -->
       <div class="hero-visual" aria-hidden="true">
         <div class="terminal">
           <div class="terminal-bar">
@@ -104,15 +106,15 @@
           <div class="terminal-body">
             <div class="tl"><span class="tl-k">AGENTE WHATSAPP</span><span class="tl-v green">● ACTIVO</span></div>
             <div class="tl"><span class="tl-k">TURNOS AUTO</span><span class="tl-v green">● ACTIVO</span></div>
-            <div class="tl"><span class="tl-k">CRM LEADS</span><span class="tl-v cyan">● ACTIVO</span></div>
+            <div class="tl"><span class="tl-k">CRM LEADS</span><span class="tl-v green">● ACTIVO</span></div>
             <div class="tl tl-sep">────────────────────</div>
-            <div class="tl"><span class="tl-k">LEADS HOY</span><span class="tl-v cyan">+3 nuevos</span></div>
+            <div class="tl"><span class="tl-k">LEADS HOY</span><span class="tl-v">+3 nuevos</span></div>
             <div class="tl"><span class="tl-k">TURNOS CONFIRMADOS</span><span class="tl-v">12 / 12</span></div>
-            <div class="tl"><span class="tl-k">CONSULTAS ATENDIDAS</span><span class="tl-v green">100%</span></div>
+            <div class="tl"><span class="tl-k">CONSULTAS ATENDIDAS</span><span class="tl-v">100%</span></div>
             <div class="tl tl-sep">────────────────────</div>
             <div class="tl-cursor-line">
               <span class="tl-prompt">$</span>
-              <span class="tl-type">Nuevo lead captado hace 2 min</span>
+              <span class="tl-type" id="live-feed-text">Nuevo lead captado hace 2 min</span>
               <span class="cursor-blink">▌</span>
             </div>
           </div>
@@ -126,9 +128,33 @@
         </div>
       </div>
 
+      <!-- TEXTO INFERIOR: sub + ctas + proof -->
+      <div class="hero-text-bottom">
+        <p class="hero-sub">
+          Atención automática 24/7, captación de leads y turnos sin esfuerzo.<br class="br-desk">
+          Tu competencia trabaja 8 horas. Vos, sin límites.
+        </p>
+        <div class="hero-ctas">
+          <a href="#diagnostico" class="btn btn-green">Activar mi sistema gratis</a>
+          <a href="#como-funciona" class="btn btn-ghost">Cómo funciona →</a>
+        </div>
+        <div class="hero-app-badge" aria-label="Plataforma en desarrollo">
+          <span class="app-dot"></span>
+          F2AIA Platform · En desarrollo
+        </div>
+        <div class="hero-proof">
+          <div class="proof-dots">
+            <span style="background:linear-gradient(135deg,#00FF88,#00CC6A)"></span>
+            <span style="background:linear-gradient(135deg,#00CC6A,#009950)"></span>
+            <span style="background:linear-gradient(135deg,#009950,#006630)"></span>
+          </div>
+          <p>+50 negocios de CABA ya automatizados</p>
+        </div>
+      </div>
+
     </div>
 
-    <!-- Chips solo mobile -->
+    <!-- Chips solo en mobile -->
     <div class="hero-chips" aria-hidden="true">
       <span class="chip">80% automatizado</span>
       <span class="chip">24/7 activo</span>
@@ -164,14 +190,14 @@
     </div>
   </div>
 
-  <!-- FORMULARIO — POSICIÓN ALTA -->
+  <!-- FORMULARIO -->
   <section class="form-section" id="diagnostico" aria-label="Formulario de contacto">
     <div class="container">
       <div class="form-wrap">
 
         <div class="form-copy">
           <p class="kicker">DIAGNÓSTICO SIN COSTO</p>
-          <h2>Activá tu sistema<br><span class="gradient-text">en 15 días.</span></h2>
+          <h2>Activá tu sistema<br><span class="green-text">en 15 días.</span></h2>
           <p class="form-sub">Contanos tu negocio y te armamos el plan de automatización. Gratis. Sin compromiso.</p>
           <ul class="form-benefits" role="list">
             <li>
@@ -205,44 +231,42 @@
           </div>
         </div>
 
-        <div class="form-card-wrap">
-          <form class="form-card" id="form-contacto" novalidate>
-            <div class="field-group">
-              <label for="nombre">Nombre completo</label>
-              <input type="text" id="nombre" name="nombre" placeholder="Ej: Dr. Martín García" required autocomplete="name" />
-            </div>
-            <div class="field-group">
-              <label for="negocio">¿A qué te dedicás?</label>
-              <select id="negocio" name="negocio" required>
-                <option value="">— Seleccioná tu rubro —</option>
-                <option>Clínica / Consultorio dental</option>
-                <option>Consultorio médico</option>
-                <option>Inmobiliaria</option>
-                <option>Estudio jurídico</option>
-                <option>Comercio / Retail</option>
-                <option>Restaurante / Gastronomía</option>
-                <option>Otro servicio</option>
-              </select>
-            </div>
-            <div class="field-group">
-              <label for="whatsapp">Tu WhatsApp (con código de área)</label>
-              <input type="tel" id="whatsapp" name="whatsapp" placeholder="Ej: 1123456789" required autocomplete="tel" />
-            </div>
-            <div class="field-group">
-              <label for="mensaje">¿Qué proceso te consume más tiempo?</label>
-              <textarea id="mensaje" name="mensaje" rows="3" placeholder="Ej: confirmar turnos, responder consultas, seguir leads..."></textarea>
-            </div>
-            <button type="submit" class="btn btn-green btn-submit" id="btn-submit">
-              <span class="btn-label">Quiero mi diagnóstico gratis →</span>
-              <span class="btn-sending" aria-hidden="true">Enviando…</span>
-              <span class="btn-sent" aria-hidden="true">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-                ¡Recibido! Te contactamos pronto
-              </span>
-            </button>
-            <p class="form-disclaimer">Sin spam · Diagnóstico gratuito · Respuesta en menos de 24h</p>
-          </form>
-        </div>
+        <form class="form-card" id="form-contacto" novalidate>
+          <div class="field-group">
+            <label for="nombre">Nombre completo</label>
+            <input type="text" id="nombre" name="nombre" placeholder="Ej: Dr. Martín García" required autocomplete="name" />
+          </div>
+          <div class="field-group">
+            <label for="negocio">¿A qué te dedicás?</label>
+            <select id="negocio" name="negocio" required>
+              <option value="">— Seleccioná tu rubro —</option>
+              <option>Clínica / Consultorio dental</option>
+              <option>Consultorio médico</option>
+              <option>Inmobiliaria</option>
+              <option>Estudio jurídico</option>
+              <option>Comercio / Retail</option>
+              <option>Restaurante / Gastronomía</option>
+              <option>Otro servicio</option>
+            </select>
+          </div>
+          <div class="field-group">
+            <label for="whatsapp">Tu WhatsApp (con código de área)</label>
+            <input type="tel" id="whatsapp" name="whatsapp" placeholder="Ej: 1123456789" required autocomplete="tel" />
+          </div>
+          <div class="field-group">
+            <label for="mensaje">¿Qué proceso te consume más tiempo?</label>
+            <textarea id="mensaje" name="mensaje" rows="3" placeholder="Ej: confirmar turnos, responder consultas, seguir leads..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-green btn-submit" id="btn-submit">
+            <span class="btn-label">Quiero mi diagnóstico gratis →</span>
+            <span class="btn-sending" aria-hidden="true">Enviando…</span>
+            <span class="btn-sent" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              ¡Recibido! Te contactamos pronto
+            </span>
+          </button>
+          <p class="form-disclaimer">Sin spam · Diagnóstico gratuito · Respuesta en menos de 24h</p>
+        </form>
 
       </div>
     </div>
@@ -253,7 +277,7 @@
     <div class="container">
       <div class="prob-header reveal">
         <p class="kicker">EL PROBLEMA</p>
-        <h2>Sin automatización, tu negocio<br><span class="gradient-text">trabaja contra reloj.</span></h2>
+        <h2>Sin automatización, tu negocio<br><span class="green-text">trabaja contra reloj.</span></h2>
       </div>
       <div class="prob-grid">
         <div class="prob-card reveal">
@@ -292,10 +316,10 @@
     <div class="container">
       <div class="srv-header reveal">
         <p class="kicker">LO QUE HACEMOS</p>
-        <h2>Todo lo que tu negocio necesita,<br><span class="gradient-text">en un solo sistema.</span></h2>
+        <h2>Todo lo que tu negocio necesita,<br><span class="green-text">en un solo sistema.</span></h2>
       </div>
       <div class="srv-bento">
-        <article class="srv-card srv-c-green srv-wide reveal">
+        <article class="srv-card srv-wide reveal">
           <div class="srv-card-icon" aria-hidden="true">
             <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
           </div>
@@ -305,7 +329,7 @@
           </div>
           <span class="srv-tag">Más popular</span>
         </article>
-        <article class="srv-card srv-c-cyan reveal">
+        <article class="srv-card reveal">
           <div class="srv-card-icon" aria-hidden="true">
             <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
           </div>
@@ -314,7 +338,7 @@
             <p>Seguimiento de cada lead, historial completo y reportes en tiempo real. GoHighLevel configurado para tu negocio.</p>
           </div>
         </article>
-        <article class="srv-card srv-c-purple reveal">
+        <article class="srv-card reveal">
           <div class="srv-card-icon" aria-hidden="true">
             <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><polyline points="23 20 23 14 17 14"/><path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 0 1 3.51 15"/></svg>
           </div>
@@ -323,7 +347,7 @@
             <p>Flujos n8n que coordinan agenda, recordatorios y confirmaciones sin llamadas. Agenda llena, cero esfuerzo.</p>
           </div>
         </article>
-        <article class="srv-card srv-c-mixed srv-wide reveal">
+        <article class="srv-card srv-wide reveal">
           <div class="srv-card-icon" aria-hidden="true">
             <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
           </div>
@@ -336,12 +360,39 @@
     </div>
   </section>
 
+  <!-- STATS -->
+  <section class="stats" aria-label="Números clave">
+    <div class="container">
+      <div class="stats-row">
+        <div class="stat-item reveal">
+          <div class="stat-num"><span class="count-up" data-target="80">0</span>%</div>
+          <p class="stat-desc">de tus tareas<br>eliminadas</p>
+        </div>
+        <div class="stat-div" aria-hidden="true"></div>
+        <div class="stat-item reveal">
+          <div class="stat-num">24<span class="stat-unit">H</span></div>
+          <p class="stat-desc">atención sin<br>interrupciones</p>
+        </div>
+        <div class="stat-div" aria-hidden="true"></div>
+        <div class="stat-item reveal">
+          <div class="stat-num"><span class="count-up" data-target="3">0</span>×</div>
+          <p class="stat-desc">más leads<br>calificados</p>
+        </div>
+        <div class="stat-div" aria-hidden="true"></div>
+        <div class="stat-item reveal">
+          <div class="stat-num"><span class="count-up" data-target="15">0</span><span class="stat-unit">D</span></div>
+          <p class="stat-desc">de idea a<br>sistema activo</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- PROCESO -->
   <section class="proceso" id="como-funciona" aria-label="Cómo funciona">
     <div class="container">
       <div class="proc-header reveal">
         <p class="kicker">EL PROCESO</p>
-        <h2>Tres pasos.<br><span class="gradient-text">Un sistema que funciona.</span></h2>
+        <h2>Tres pasos.<br><span class="green-text">Un sistema que funciona.</span></h2>
       </div>
       <div class="proc-steps">
         <div class="proc-step reveal">
@@ -371,41 +422,12 @@
     </div>
   </section>
 
-  <!-- STATS -->
-  <section class="stats" aria-label="Números clave">
-    <div class="container">
-      <div class="stats-inner">
-        <div class="stats-row">
-          <div class="stat-item reveal">
-            <div class="stat-num"><span class="count-up" data-target="80">0</span>%</div>
-            <p class="stat-desc">de tus tareas<br>eliminadas</p>
-          </div>
-          <div class="stat-div" aria-hidden="true"></div>
-          <div class="stat-item reveal">
-            <div class="stat-num">24<span class="stat-unit">H</span></div>
-            <p class="stat-desc">atención sin<br>interrupciones</p>
-          </div>
-          <div class="stat-div" aria-hidden="true"></div>
-          <div class="stat-item reveal">
-            <div class="stat-num"><span class="count-up" data-target="3">0</span>×</div>
-            <p class="stat-desc">más leads<br>calificados</p>
-          </div>
-          <div class="stat-div" aria-hidden="true"></div>
-          <div class="stat-item reveal">
-            <div class="stat-num"><span class="count-up" data-target="15">0</span><span class="stat-unit">D</span></div>
-            <p class="stat-desc">de idea a<br>sistema activo</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- TESTIMONIALES -->
   <section class="testimoniales" id="testimoniales" aria-label="Testimonios">
     <div class="container">
       <div class="test-header reveal">
         <p class="kicker">RESULTADOS REALES</p>
-        <h2>Negocios que dieron el salto<br><span class="gradient-text">y no vuelven atrás.</span></h2>
+        <h2>Negocios que dieron el salto<br><span class="green-text">y no vuelven atrás.</span></h2>
       </div>
       <div class="test-grid">
         <article class="test-card reveal">
@@ -427,15 +449,15 @@
         </article>
         <article class="test-card reveal">
           <div class="test-stars" aria-label="5 estrellas">
-            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="#00D4FF" stroke="none" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="#00D4FF" stroke="none" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="#00D4FF" stroke="none" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="#00D4FF" stroke="none" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="#00D4FF" stroke="none" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="#00FF88" stroke="none" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="#00FF88" stroke="none" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="#00FF88" stroke="none" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="#00FF88" stroke="none" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="#00FF88" stroke="none" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
           </div>
           <p>"No soy técnico y tenía miedo. Franco se encargó de todo desde el día uno. Hoy el sistema responde, filtra y agenda sin que yo haga nada."</p>
           <div class="test-author">
-            <div class="test-av" style="background:linear-gradient(135deg,#004466,#00D4FF);color:#fff" aria-hidden="true">ST</div>
+            <div class="test-av" style="background:linear-gradient(135deg,#005533,#00FF88);color:#fff" aria-hidden="true">ST</div>
             <div>
               <strong>Sebastián Torres</strong>
               <span>Dueño de negocio · Palermo</span>
@@ -444,15 +466,15 @@
         </article>
         <article class="test-card reveal">
           <div class="test-stars" aria-label="5 estrellas">
-            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="#7B2FFF" stroke="none" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="#7B2FFF" stroke="none" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="#7B2FFF" stroke="none" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="#7B2FFF" stroke="none" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="#7B2FFF" stroke="none" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="#00FF88" stroke="none" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="#00FF88" stroke="none" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="#00FF88" stroke="none" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="#00FF88" stroke="none" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="#00FF88" stroke="none" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
           </div>
           <p>"Implementado en 2 semanas exactas. Hoy tengo un sistema que trabaja mientras duermo. Es la mejor inversión que hice para mi consultorio."</p>
           <div class="test-author">
-            <div class="test-av" style="background:linear-gradient(135deg,#2D0066,#7B2FFF);color:#fff" aria-hidden="true">MR</div>
+            <div class="test-av" style="background:linear-gradient(135deg,#003322,#00CC66);color:#fff" aria-hidden="true">MR</div>
             <div>
               <strong>Marcela Ríos</strong>
               <span>Consultorio Integral · Belgrano</span>
@@ -468,7 +490,7 @@
     <div class="container">
       <div class="faq-header reveal">
         <p class="kicker">PREGUNTAS</p>
-        <h2>Todo lo que querés saber<br><span class="gradient-text">antes de arrancar.</span></h2>
+        <h2>Todo lo que querés saber<br><span class="green-text">antes de arrancar.</span></h2>
       </div>
       <div class="faq-list">
         <div class="faq-item reveal">
@@ -525,7 +547,7 @@
     <div class="container">
       <div class="cta-box reveal">
         <p class="kicker">SIGUIENTE PASO</p>
-        <h2>Tu competencia no espera.<br><span class="gradient-text">¿Vos sí?</span></h2>
+        <h2>Tu competencia no espera.<br><span class="green-text">¿Vos sí?</span></h2>
         <p>El diagnóstico es gratis. El primer paso, tuyo.</p>
         <div class="cta-final-btns">
           <a href="#diagnostico" class="btn btn-green">Activar mi sistema gratis</a>
@@ -561,6 +583,7 @@
         <a href="#testimoniales">Casos</a>
         <a href="#diagnostico">Contacto</a>
         <a href="mailto:hola@f2aia.com">hola@f2aia.com</a>
+        <a href="https://f2aia.com/privacidad" target="_blank" rel="noopener">Privacidad</a>
       </nav>
     </div>
     <div class="footer-bottom">
@@ -576,81 +599,7 @@
     <span class="wa-label">Hablemos</span>
   </a>
 
-  <script defer src="main.js"></script>
-
-  <!-- SPACE PARTICLES — Indigo + Cyan + Orange -->
-  <script>
-  (function(){
-    'use strict';
-    var canvas = document.getElementById('space-bg');
-    if(!canvas) return;
-    var ctx = canvas.getContext('2d');
-    var W, H, particles = [];
-    var COUNT = 220;
-    function resize(){ W = canvas.width = window.innerWidth; H = canvas.height = window.innerHeight; }
-    function mkP(){
-      var rnd = Math.random();
-      var color = rnd < 0.08 ? 'indigo' : rnd < 0.13 ? 'cyan' : rnd < 0.16 ? 'orange' : 'white';
-      return {
-        x: Math.random()*W, y: Math.random()*H,
-        r: Math.random()*1.6+0.2,
-        a: Math.random()*0.7+0.1,
-        dx: (Math.random()-0.5)*0.12,
-        dy: (Math.random()-0.5)*0.12,
-        phase: Math.random()*Math.PI*2,
-        speed: 0.008+Math.random()*0.018,
-        color: color
-      };
-    }
-    function init(){ resize(); particles=[]; for(var i=0;i<COUNT;i++) particles.push(mkP()); }
-    function draw(){
-      ctx.clearRect(0,0,W,H);
-      for(var i=0;i<particles.length;i++){
-        var p=particles[i];
-        p.phase+=p.speed;
-        var alpha=p.a*(0.4+0.6*Math.abs(Math.sin(p.phase)));
-        p.x+=p.dx; p.y+=p.dy;
-        if(p.x<-4) p.x=W+4; if(p.x>W+4) p.x=-4;
-        if(p.y<-4) p.y=H+4; if(p.y>H+4) p.y=-4;
-        var r,g,b,gr;
-        if(p.color==='indigo'){
-          r=99;g=102;b=241;
-          gr=ctx.createRadialGradient(p.x,p.y,0,p.x,p.y,p.r*5);
-          gr.addColorStop(0,'rgba('+r+','+g+','+b+','+alpha+')');
-          gr.addColorStop(1,'transparent');
-          ctx.beginPath(); ctx.arc(p.x,p.y,p.r*5,0,6.283);
-          ctx.fillStyle=gr; ctx.fill();
-          ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,6.283);
-          ctx.fillStyle='rgba('+r+','+g+','+b+','+(Math.min(1,alpha*1.8))+')'; ctx.fill();
-        } else if(p.color==='cyan'){
-          r=6;g=182;b=212;
-          gr=ctx.createRadialGradient(p.x,p.y,0,p.x,p.y,p.r*4);
-          gr.addColorStop(0,'rgba('+r+','+g+','+b+','+(alpha*0.9)+')');
-          gr.addColorStop(1,'transparent');
-          ctx.beginPath(); ctx.arc(p.x,p.y,p.r*4,0,6.283);
-          ctx.fillStyle=gr; ctx.fill();
-          ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,6.283);
-          ctx.fillStyle='rgba('+r+','+g+','+b+','+(Math.min(1,alpha*1.6))+')'; ctx.fill();
-        } else if(p.color==='orange'){
-          r=249;g=115;b=22;
-          gr=ctx.createRadialGradient(p.x,p.y,0,p.x,p.y,p.r*4);
-          gr.addColorStop(0,'rgba('+r+','+g+','+b+','+(alpha*0.7)+')');
-          gr.addColorStop(1,'transparent');
-          ctx.beginPath(); ctx.arc(p.x,p.y,p.r*4,0,6.283);
-          ctx.fillStyle=gr; ctx.fill();
-          ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,6.283);
-          ctx.fillStyle='rgba('+r+','+g+','+b+','+(Math.min(1,alpha*1.5))+')'; ctx.fill();
-        } else {
-          ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,6.283);
-          ctx.fillStyle='rgba(255,255,255,'+(alpha*0.65)+')'; ctx.fill();
-        }
-      }
-      requestAnimationFrame(draw);
-    }
-    window.addEventListener('resize', resize);
-    init(); draw();
-  })();
-  </script>
+  <script defer src="main.js?v=20260606"></script>
 
 </body>
 </html>
