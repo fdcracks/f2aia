@@ -5,12 +5,14 @@
   var WA_MSG  = encodeURIComponent('Hola! Vi la web de F2AIA y me interesa automatizar mi negocio.');
   var WEBHOOK = 'https://n8n.f2aia.com/webhook/f2aia-leads';
 
-  var $ = function(s,p){ return (p||document).querySelector(s); };
-  var $$ = function(s,p){ return Array.from((p||document).querySelectorAll(s)); };
   var reduced = matchMedia('(prefers-reduced-motion:reduce)').matches;
+  var isMobile = !matchMedia('(hover:hover)').matches;
+
+  function $(s,p){ return (p||document).querySelector(s); }
+  function $$(s,p){ return Array.from((p||document).querySelectorAll(s)); }
   function safe(fn,n){ try{ fn(); }catch(e){ console.warn('['+n+']',e); } }
 
-  /* SCROLL PROGRESS */
+  /* ── SCROLL PROGRESS ── */
   function initScrollBar(){
     var bar = document.getElementById('scroll-bar');
     if(!bar) return;
@@ -22,12 +24,59 @@
     update();
   }
 
-  /* NAV */
+  /* ── CUSTOM CURSOR ── */
+  function initCursor(){
+    if(isMobile) return;
+    var outer = document.getElementById('cursor-outer');
+    var dot   = document.getElementById('cursor-dot');
+    if(!outer || !dot) return;
+
+    var mx = -100, my = -100, ox = -100, oy = -100;
+    var raf;
+
+    document.addEventListener('mousemove', function(e){
+      mx = e.clientX; my = e.clientY;
+      dot.style.transform = 'translate('+(mx-2.5)+'px,'+(my-2.5)+'px)';
+    });
+
+    function lerp(a,b,t){ return a+(b-a)*t; }
+    function loop(){
+      ox = lerp(ox, mx, 0.12);
+      oy = lerp(oy, my, 0.12);
+      outer.style.transform = 'translate('+(ox-18)+'px,'+(oy-18)+'px)';
+      raf = requestAnimationFrame(loop);
+    }
+    loop();
+
+    var hoverEls = 'a, button, [role="button"], input, select, textarea, label, .prob-card, .srv-card, .test-card, .faq-btn';
+    document.addEventListener('mouseover', function(e){
+      if(e.target.closest(hoverEls)) outer.classList.add('is-hover');
+    });
+    document.addEventListener('mouseout', function(e){
+      if(e.target.closest(hoverEls)) outer.classList.remove('is-hover');
+    });
+    document.addEventListener('mousedown', function(){
+      outer.classList.add('is-click');
+    });
+    document.addEventListener('mouseup', function(){
+      outer.classList.remove('is-click');
+    });
+    document.addEventListener('mouseleave', function(){
+      outer.style.opacity = '0';
+      dot.style.opacity   = '0';
+    });
+    document.addEventListener('mouseenter', function(){
+      outer.style.opacity = '1';
+      dot.style.opacity   = '1';
+    });
+  }
+
+  /* ── NAV ── */
   function initNav(){
     var nav    = $('.nav');
     var burger = $('.nav-burger');
     if(!nav) return;
-    function onScroll(){ nav.classList.toggle('scrolled', window.scrollY>50); }
+    function onScroll(){ nav.classList.toggle('scrolled', window.scrollY > 50); }
     window.addEventListener('scroll', onScroll, {passive:true});
     onScroll();
     if(burger){
@@ -54,7 +103,7 @@
     });
   }
 
-  /* SMOOTH SCROLL */
+  /* ── SMOOTH SCROLL ── */
   function initSmoothScroll(){
     document.addEventListener('click', function(e){
       var a = e.target.closest('a[href^="#"]');
@@ -69,7 +118,7 @@
     });
   }
 
-  /* WHATSAPP */
+  /* ── WHATSAPP ── */
   function initWA(){
     var fab = $('#wa-fab');
     if(fab) fab.href = 'https://wa.me/'+WA_NUM+'?text='+WA_MSG;
@@ -82,7 +131,7 @@
     }
   }
 
-  /* SCROLL REVEALS */
+  /* ── SCROLL REVEALS ── */
   function initReveals(){
     var els = $$('.reveal');
     if(!els.length) return;
@@ -96,10 +145,10 @@
       $$('.reveal:not(.is-visible)').forEach(function(el){
         if(el.getBoundingClientRect().top < window.innerHeight*1.2) el.classList.add('is-visible');
       });
-    }, 5000);
+    }, 4000);
   }
 
-  /* COUNT-UP */
+  /* ── COUNT-UP ── */
   function initCountUp(){
     var els = $$('.count-up');
     if(!els.length) return;
@@ -129,7 +178,7 @@
     }, 3000);
   }
 
-  /* FAQ */
+  /* ── FAQ ── */
   function initFaq(){
     $$('.faq-item').forEach(function(item){
       var btn = item.querySelector('.faq-btn');
@@ -148,7 +197,39 @@
     });
   }
 
-  /* FORM → n8n */
+  /* ── LIVE FEED TERMINAL ── */
+  function initLiveFeed(){
+    var el = document.getElementById('live-feed-text');
+    if(!el || reduced) return;
+
+    var messages = [
+      'Nuevo lead captado — Clínica Belgrano',
+      'Turno confirmado — 16:30hs vía WhatsApp',
+      'CRM actualizado: +1 lead calificado',
+      'IA respondió consulta en 8 seg',
+      'Pipeline agendamiento: 3 turnos procesados',
+      'Lead calificado — Estudio Jurídico CABA',
+      'Sistema conversacional: consulta resuelta',
+      'Integración CRM: sincronización completa',
+      'Turno recordatorio enviado · 100% confirmado',
+      'Nuevo lead desde Instagram captado'
+    ];
+
+    var idx = 0;
+
+    function next(){
+      el.style.opacity = '0';
+      setTimeout(function(){
+        idx = (idx + 1) % messages.length;
+        el.textContent = messages[idx];
+        el.style.opacity = '1';
+      }, 350);
+    }
+
+    setInterval(next, 3500);
+  }
+
+  /* ── FORM → n8n ── */
   function initForm(){
     var form = $('#form-contacto');
     var btn  = $('#btn-submit');
@@ -186,16 +267,18 @@
     });
   }
 
-  /* BOOT */
+  /* ── BOOT ── */
   function boot(){
-    safe(initScrollBar,  'scrollBar');
-    safe(initNav,        'nav');
+    safe(initScrollBar,   'scrollBar');
+    safe(initCursor,      'cursor');
+    safe(initNav,         'nav');
     safe(initSmoothScroll,'smoothScroll');
-    safe(initWA,         'wa');
-    safe(initReveals,    'reveals');
-    safe(initCountUp,    'countUp');
-    safe(initFaq,        'faq');
-    safe(initForm,       'form');
+    safe(initWA,          'wa');
+    safe(initReveals,     'reveals');
+    safe(initCountUp,     'countUp');
+    safe(initFaq,         'faq');
+    safe(initLiveFeed,    'liveFeed');
+    safe(initForm,        'form');
     document.documentElement.classList.add('loaded');
   }
 
