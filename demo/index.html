@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <meta name="description" content="F2AIA â ProbÃ¡ en vivo cÃ³mo funciona un agente IA para tu negocio">
-  <title>F2AIA â Demo en Vivo</title>
+  <meta name="description" content="F2AIA — Probá en vivo cómo funciona un agente IA para tu negocio">
+  <title>F2AIA — Demo en Vivo</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
-    /* âââ VARIABLES âââââââââââââââââââââââââââââââââââââââ */
+    /* ─── VARIABLES ─────────────────────────────────────── */
     :root {
       --bg:          #070707;
       --bg-1:        #0f0f0f;
@@ -33,7 +33,7 @@
       --font:        'Inter', -apple-system, sans-serif;
     }
 
-    /* âââ RESET âââââââââââââââââââââââââââââââââââââââââââ */
+    /* ─── RESET ─────────────────────────────────────────── */
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
     html, body {
@@ -45,7 +45,7 @@
       overflow: hidden;
     }
 
-    /* âââ BACKGROUND GRID âââââââââââââââââââââââââââââââââ */
+    /* ─── BACKGROUND GRID ───────────────────────────────── */
     body::before {
       content: '';
       position: fixed;
@@ -59,7 +59,7 @@
       z-index: 0;
     }
 
-    /* âââ SCREENS âââââââââââââââââââââââââââââââââââââââââ */
+    /* ─── SCREENS ───────────────────────────────────────── */
     .screen {
       display: none;
       position: relative;
@@ -71,9 +71,9 @@
     }
     .screen.active { display: flex; }
 
-    /* ââââââââââââââââââââââââââââââââââââââââââââââââââââââ
-       SCREEN 1 â INTRO
-    âââââââââââââââââââââââââââââââââââââââââââââââââââââââ */
+    /* ═══════════════════════════════════════════════════════
+       SCREEN 1 — INTRO
+    ═══════════════════════════════════════════════════════ */
     #intro-screen {
       align-items: center;
       justify-content: center;
@@ -302,9 +302,9 @@
     .stat-chip strong { color: var(--accent); }
 
 
-    /* âââââââââââââââââââââââââââââââââââââââââââââââââââââââ
-       SCREEN 2 â CHAT
-    âââââââââââââââââââââââââââââââââââââââââââââââââââââââ */
+    /* ═══════════════════════════════════════════════════════
+       SCREEN 2 — CHAT
+    ═══════════════════════════════════════════════════════ */
     #chat-screen {
       height: 100%;
       height: 100dvh;
@@ -568,9 +568,9 @@
     .send-btn:disabled svg path { fill: var(--text-3); }
 
 
-    /* âââââââââââââââââââââââââââââââââââââââââââââââââââââââ
-       SCREEN 3 â SUCCESS
-    âââââââââââââââââââââââââââââââââââââââââââââââââââââââ */
+    /* ═══════════════════════════════════════════════════════
+       SCREEN 3 — SUCCESS
+    ═══════════════════════════════════════════════════════ */
     #success-screen {
       align-items: center;
       justify-content: center;
@@ -659,7 +659,7 @@
       color: var(--text-3);
     }
 
-    /* âââ UTILS âââââââââââââââââââââââââââââââââââââââââââ */
+    /* ─── UTILS ─────────────────────────────────────────── */
     .sr-only {
       position: absolute; width: 1px; height: 1px;
       padding: 0; margin: -1px; overflow: hidden;
@@ -670,9 +670,9 @@
 
 <body>
 
-  <!-- ââââââââââââââââââââââââââââââââââââââââââââââââââââââ
-       SCREEN 1 â INTRO
-  ââââââââââââââââââââââââââââââââââââââââââââââââââââââ -->
+  <!-- ══════════════════════════════════════════════════════
+       SCREEN 1 — INTRO
+  ══════════════════════════════════════════════════════ -->
   <div id="intro-screen" class="screen active">
 
     <div class="brand">
@@ -684,14 +684,14 @@
     </div>
 
     <div class="intro-hero">
-      <h1>ProbÃ¡ el sistema<br><em>antes de comprarlo.</em></h1>
-      <p>ChateÃ¡ con Valentina, nuestra agente IA. En 2 minutos vas a ver cÃ³mo trabajarÃ­a para tu negocio.</p>
+      <h1>Probá el sistema<br><em>antes de comprarlo.</em></h1>
+      <p>Chateá con Valentina, nuestra agente IA. En 2 minutos vas a ver cómo trabajaría para tu negocio.</p>
     </div>
 
     <div class="intro-stats">
       <div class="stat-chip"><strong>24/7</strong> sin descanso</div>
       <div class="stat-chip"><strong>2 min</strong> demo real</div>
-      <div class="stat-chip"><strong>0</strong> tÃ©cnica requerida</div>
+      <div class="stat-chip"><strong>0</strong> técnica requerida</div>
     </div>
 
     <div class="intro-card">
@@ -703,21 +703,21 @@
           class="field-input"
           type="text"
           id="inp-name"
-          placeholder="Ej: MartÃ­n GarcÃ­a"
+          placeholder="Ej: Martín García"
           autocomplete="given-name"
           autocorrect="off"
         >
-        <p class="field-error" id="err-name">IngresÃ¡ tu nombre para continuar</p>
+        <p class="field-error" id="err-name">Ingresá tu nombre para continuar</p>
       </div>
 
       <!-- Rubro -->
       <div class="field-group">
-        <label class="field-label" for="inp-rubro">Â¿A quÃ© se dedica tu negocio?</label>
+        <label class="field-label" for="inp-rubro">¿A qué se dedica tu negocio?</label>
         <input
           class="field-input"
           type="text"
           id="inp-rubro"
-          placeholder="Ej: ClÃ­nica dental, inmobiliaria, gym..."
+          placeholder="Ej: Clínica dental, inmobiliaria, gym..."
           autocorrect="off"
         >
         <p class="field-error" id="err-rubro">Contanos el rubro de tu negocio</p>
@@ -727,7 +727,7 @@
       <div class="field-group">
         <label class="field-label" for="inp-phone">Tu WhatsApp</label>
         <div class="phone-group">
-          <span class="phone-prefix">ð¦ð· +54</span>
+          <span class="phone-prefix">🇦🇷 +54</span>
           <input
             class="field-input"
             type="tel"
@@ -738,7 +738,7 @@
             oninput="this.value=this.value.replace(/\D/g,'')"
           >
         </div>
-        <p class="field-error" id="err-phone">IngresÃ¡ tu nÃºmero sin 0 ni 15 (solo cÃ³digo de Ã¡rea + nÃºmero)</p>
+        <p class="field-error" id="err-phone">Ingresá tu número sin 0 ni 15 (solo código de área + número)</p>
       </div>
 
       <!-- Privacidad -->
@@ -758,21 +758,21 @@
 
     </div>
 
-    <p class="intro-footer-note">Sin registro Â· Demo 100% gratuita Â· 2 minutos</p>
+    <p class="intro-footer-note">Sin registro · Demo 100% gratuita · 2 minutos</p>
 
   </div>
 
 
-  <!-- ââââââââââââââââââââââââââââââââââââââââââââââââââââââ
-       SCREEN 2 â CHAT
-  ââââââââââââââââââââââââââââââââââââââââââââââââââââââ -->
+  <!-- ══════════════════════════════════════════════════════
+       SCREEN 2 — CHAT
+  ══════════════════════════════════════════════════════ -->
   <div id="chat-screen" class="screen">
 
     <header class="chat-header">
-      <div class="header-avatar" aria-hidden="true">ð¤</div>
+      <div class="header-avatar" aria-hidden="true">🤖</div>
       <div class="header-info">
-        <div class="header-name">Valentina â Agente IA F2AIA</div>
-        <div class="header-status">En lÃ­nea ahora</div>
+        <div class="header-name">Valentina — Agente IA F2AIA</div>
+        <div class="header-status">En línea ahora</div>
       </div>
       <div class="header-counter" id="msg-counter" aria-live="polite">0 / 7</div>
     </header>
@@ -780,16 +780,16 @@
     <main class="chat-body" id="chat-body" role="log" aria-live="polite" aria-label="Chat con Valentina"></main>
 
     <div class="limit-bar" id="limit-bar">
-      â¡ Ãltimo mensaje â Valentina va a cerrar la conversaciÃ³n para vos
+      ⚡ Último mensaje — Valentina va a cerrar la conversación para vos
     </div>
 
     <footer class="chat-footer">
       <textarea
         class="chat-textarea"
         id="chat-input"
-        placeholder="EscribÃ­ tu mensaje..."
+        placeholder="Escribí tu mensaje..."
         rows="1"
-        aria-label="EscribÃ­ tu mensaje"
+        aria-label="Escribí tu mensaje"
         onkeydown="handleEnter(event)"
         oninput="autoResize(this)"
       ></textarea>
@@ -803,20 +803,20 @@
   </div>
 
 
-  <!-- ââââââââââââââââââââââââââââââââââââââââââââââââââââââ
-       SCREEN 3 â SUCCESS
-  ââââââââââââââââââââââââââââââââââââââââââââââââââââââ -->
+  <!-- ══════════════════════════════════════════════════════
+       SCREEN 3 — SUCCESS
+  ══════════════════════════════════════════════════════ -->
   <div id="success-screen" class="screen">
 
-    <div class="success-glow" aria-hidden="true">â</div>
+    <div class="success-glow" aria-hidden="true">✅</div>
 
     <div class="success-text">
-      <h2>Â¡Todo listo! ð</h2>
-      <p>En unos minutos vas a recibir un mensaje real en tu WhatsApp. AsÃ­ funciona exactamente el sistema para los clientes de tu negocio.</p>
+      <h2>¡Todo listo! 🚀</h2>
+      <p>En unos minutos vas a recibir un mensaje real en tu WhatsApp. Así funciona exactamente el sistema para los clientes de tu negocio.</p>
     </div>
 
     <div class="success-proof">
-      Lo que acabÃ¡s de probar es <strong>exactamente lo que implementamos</strong> para tu negocio: un agente IA que responde, agenda y capta leads de forma autÃ³noma, las 24 horas, sin que tengas que hacer nada.
+      Lo que acabás de probar es <strong>exactamente lo que implementamos</strong> para tu negocio: un agente IA que responde, agenda y capta leads de forma autónoma, las 24 horas, sin que tengas que hacer nada.
     </div>
 
     <a
@@ -825,27 +825,27 @@
       target="_blank"
       rel="noopener noreferrer"
     >
-      ð Agendar diagnÃ³stico gratuito â
+      📅 Agendar diagnóstico gratuito →
     </a>
 
-    <p class="success-footer-note">30 minutos Â· Sin compromiso Â· DiagnÃ³stico personalizado para tu negocio</p>
+    <p class="success-footer-note">30 minutos · Sin compromiso · Diagnóstico personalizado para tu negocio</p>
 
   </div>
 
 
-  <!-- ââââââââââââââââââââââââââââââââââââââââââââââââââââââ
+  <!-- ══════════════════════════════════════════════════════
        JAVASCRIPT
-  ââââââââââââââââââââââââââââââââââââââââââââââââââââââ -->
+  ══════════════════════════════════════════════════════ -->
   <script>
-    /* ââ CONFIGURACIÃN ââââââââââââââââââââââââââââââââââââ */
+    /* ── CONFIGURACIÓN ──────────────────────────────────── */
     const CFG = {
       WEBHOOK_CHAT:    'https://n8n.f2aia.com/webhook/f2aia-chat',
       WEBHOOK_LEAD:    'https://n8n.f2aia.com/webhook/f2aia-lead',
       MAX_MSGS:        7,      // mensajes del usuario antes del cierre
-      RATE_LIMIT_MS:   3000,   // ms mÃ­nimos entre envÃ­os
+      RATE_LIMIT_MS:   3000,   // ms mínimos entre envíos
     };
 
-    /* ââ ESTADO âââââââââââââââââââââââââââââââââââââââââââ */
+    /* ── ESTADO ─────────────────────────────────────────── */
     const S = {
       name:      '',
       rubro:     '',
@@ -854,10 +854,10 @@
       count:     0,       // mensajes enviados por el usuario
       history:   [],      // [{role, content}] para el contexto de n8n
       waiting:   false,   // esperando respuesta del bot
-      lastSend:  0,       // timestamp del Ãºltimo envÃ­o (rate limit)
+      lastSend:  0,       // timestamp del último envío (rate limit)
     };
 
-    /* ââ HELPERS ââââââââââââââââââââââââââââââââââââââââââ */
+    /* ── HELPERS ────────────────────────────────────────── */
     const $   = id => document.getElementById(id);
     const hh  = () => new Date().toLocaleTimeString('es-AR', { hour: '2-digit', minute: '2-digit' });
     const uid = () => 'ses_' + Date.now() + '_' + Math.random().toString(36).slice(2, 7);
@@ -882,13 +882,13 @@
       requestAnimationFrame(() => { b.scrollTop = b.scrollHeight; });
     }
 
-    /* ââ VALIDACIÃN âââââââââââââââââââââââââââââââââââââââ */
+    /* ── VALIDACIÓN ─────────────────────────────────────── */
     function setFieldError(inputId, errorId, hasError) {
       $(inputId).classList.toggle('error', hasError);
       $(errorId).classList.toggle('show',  hasError);
     }
 
-    /* ââ MENSAJES EN EL CHAT ââââââââââââââââââââââââââââââ */
+    /* ── MENSAJES EN EL CHAT ────────────────────────────── */
     function appendBotMsg(rawText) {
       const body = $('chat-body');
       const html = rawText
@@ -899,7 +899,7 @@
       row.className = 'msg-row bot';
       row.innerHTML = `
         <div class="bubble bot">${html}</div>
-        <div class="msg-meta">ð¤ Valentina Â· ${hh()}</div>
+        <div class="msg-meta">🤖 Valentina · ${hh()}</div>
       `;
       body.appendChild(row);
       scrollBottom();
@@ -952,21 +952,21 @@
       }
     }
 
-    /* ââ BOTÃN CTA AL FINAL DEL CHAT ââââââââââââââââââââââ */
+    /* ── BOTÓN CTA AL FINAL DEL CHAT ────────────────────── */
     function showChatCTA() {
       const body = $('chat-body');
       const row = document.createElement('div');
       row.className = 'msg-row bot';
       row.innerHTML = `
         <button class="btn-cta-chat" onclick="showScreen('success-screen')">
-          ð Agendar diagnÃ³stico gratuito â
+          📅 Agendar diagnóstico gratuito →
         </button>
       `;
       body.appendChild(row);
       scrollBottom();
     }
 
-    /* ââ PANTALLA INTRO â CHAT ââââââââââââââââââââââââââââ */
+    /* ── PANTALLA INTRO → CHAT ──────────────────────────── */
     function startDemo() {
       const name     = $('inp-name').value.trim();
       const rubro    = $('inp-rubro').value.trim();
@@ -1008,23 +1008,23 @@
       // Divisor de fecha
       const divider = document.createElement('div');
       divider.className = 'date-divider';
-      divider.innerHTML = '<span>Hoy Â· Demo en vivo</span>';
+      divider.innerHTML = '<span>Hoy · Demo en vivo</span>';
       $('chat-body').appendChild(divider);
 
       // Saludo inicial de Valentina (hardcoded, sin llamada a la API)
       setInput(true);
       setTimeout(() => {
         appendBotMsg(
-          `Â¡Hola *${name}*! ð Soy *Valentina*, agente de inteligencia artificial de F2AIA.\n\n` +
-          `Vi que tenÃ©s un negocio de *${rubro}*. Voy a mostrarte cÃ³mo responderÃ­a el sistema a tus clientes.\n\n` +
-          `Â¿CuÃ¡l es la consulta que mÃ¡s seguido recibÃ­s?`
+          `¡Hola *${name}*! 👋 Soy *Valentina*, agente de inteligencia artificial de F2AIA.\n\n` +
+          `Vi que tenés un negocio de *${rubro}*. Voy a mostrarte cómo respondería el sistema a tus clientes.\n\n` +
+          `¿Cuál es la consulta que más seguido recibís?`
         );
         setInput(false);
         $('chat-input').focus();
       }, 800);
     }
 
-    /* ââ ENVIAR MENSAJE âââââââââââââââââââââââââââââââââââ */
+    /* ── ENVIAR MENSAJE ─────────────────────────────────── */
     async function sendMessage() {
       // Bloqueos
       if (S.waiting) return;
@@ -1067,8 +1067,8 @@
 
         hideTyping();
 
-        // Bug 1 fix â chain completo incluyendo data.response
-        let reply = 'DisculpÃ¡, tuve un inconveniente. Â¿PodÃ©s repetir tu mensaje?';
+        // Bug 1 fix — chain completo incluyendo data.response
+        let reply = 'Disculpá, tuve un inconveniente. ¿Podés repetir tu mensaje?';
         if (res.ok) {
           const data = await res.json().catch(() => ({}));
           reply = data.reply ?? data.response ?? data.message ?? data.output ?? data.text ?? reply;
@@ -1078,7 +1078,7 @@
         S.history.push({ role: 'assistant', content: reply });
 
         if (isLast) {
-          // Mostrar botÃ³n CTA y dejar input deshabilitado
+          // Mostrar botón CTA y dejar input deshabilitado
           setTimeout(showChatCTA, 700);
         } else {
           setInput(false);
@@ -1087,7 +1087,7 @@
 
       } catch (err) {
         hideTyping();
-        appendBotMsg('Hubo un problema de conexiÃ³n. VerificÃ¡ que n8n estÃ© activo e intentÃ¡ de nuevo.');
+        appendBotMsg('Hubo un problema de conexión. Verificá que n8n esté activo e intentá de nuevo.');
         console.error('[F2AIA Chat]', err);
         setInput(false);
       }
@@ -1100,14 +1100,14 @@
       }
     }
 
-    /* ââ ENTER en intro form ââââââââââââââââââââââââââââââ */
+    /* ── ENTER en intro form ────────────────────────────── */
     ['inp-name', 'inp-rubro', 'inp-phone'].forEach(id => {
       document.getElementById(id).addEventListener('keydown', e => {
         if (e.key === 'Enter') startDemo();
       });
     });
 
-    /* ââ Limpiar error al escribir ââââââââââââââââââââââââ */
+    /* ── Limpiar error al escribir ──────────────────────── */
     [
       ['inp-name',  'err-name'],
       ['inp-rubro', 'err-rubro'],
