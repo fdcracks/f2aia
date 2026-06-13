@@ -1,0 +1,1121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="description" content="F2AIA â ProbÃ¡ en vivo cÃ³mo funciona un agente IA para tu negocio">
+  <title>F2AIA â Demo en Vivo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    /* âââ VARIABLES âââââââââââââââââââââââââââââââââââââââ */
+    :root {
+      --bg:          #070707;
+      --bg-1:        #0f0f0f;
+      --bg-2:        #161616;
+      --bg-3:        #1c1c1c;
+      --accent:      #22c55e;
+      --accent-2:    #16a34a;
+      --accent-glow: rgba(34, 197, 94, 0.12);
+      --accent-line: rgba(34, 197, 94, 0.25);
+      --error:       #ef4444;
+      --error-glow:  rgba(239, 68, 68, 0.12);
+      --text:        #f0f0f0;
+      --text-2:      #a0a0a0;
+      --text-3:      #555;
+      --border:      rgba(255, 255, 255, 0.07);
+      --border-2:    rgba(255, 255, 255, 0.12);
+      --radius-sm:   10px;
+      --radius:      14px;
+      --radius-lg:   20px;
+      --font:        'Inter', -apple-system, sans-serif;
+    }
+
+    /* âââ RESET âââââââââââââââââââââââââââââââââââââââââââ */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html, body {
+      height: 100%;
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+      overflow: hidden;
+    }
+
+    /* âââ BACKGROUND GRID âââââââââââââââââââââââââââââââââ */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        radial-gradient(ellipse 60% 40% at 50% -10%, rgba(34,197,94,0.06) 0%, transparent 70%),
+        linear-gradient(rgba(34,197,94,0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(34,197,94,0.025) 1px, transparent 1px);
+      background-size: 100% 100%, 40px 40px, 40px 40px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* âââ SCREENS âââââââââââââââââââââââââââââââââââââââââ */
+    .screen {
+      display: none;
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      height: 100%;
+      height: 100dvh;
+      flex-direction: column;
+    }
+    .screen.active { display: flex; }
+
+    /* ââââââââââââââââââââââââââââââââââââââââââââââââââââââ
+       SCREEN 1 â INTRO
+    âââââââââââââââââââââââââââââââââââââââââââââââââââââââ */
+    #intro-screen {
+      align-items: center;
+      justify-content: center;
+      padding: 32px 24px;
+      overflow-y: auto;
+      gap: 24px;
+    }
+
+    /* Brand */
+    .brand {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+    .brand-wordmark {
+      font-size: 28px;
+      font-weight: 800;
+      letter-spacing: -1px;
+      color: var(--text);
+    }
+    .brand-wordmark em {
+      font-style: normal;
+      color: var(--accent);
+    }
+    .brand-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: var(--accent-glow);
+      border: 1px solid var(--accent-line);
+      border-radius: 99px;
+      padding: 5px 14px;
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--accent);
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+    }
+    .pulse-dot {
+      width: 6px; height: 6px;
+      background: var(--accent);
+      border-radius: 50%;
+      flex-shrink: 0;
+      animation: pulse 1.8s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50%       { opacity: 0.35; transform: scale(0.8); }
+    }
+
+    /* Hero text */
+    .intro-hero {
+      text-align: center;
+      max-width: 340px;
+    }
+    .intro-hero h1 {
+      font-size: 28px;
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.8px;
+    }
+    .intro-hero h1 em {
+      font-style: normal;
+      color: var(--accent);
+    }
+    .intro-hero p {
+      margin-top: 10px;
+      font-size: 14px;
+      color: var(--text-2);
+      line-height: 1.65;
+    }
+
+    /* Form card */
+    .intro-card {
+      background: var(--bg-1);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      width: 100%;
+      max-width: 380px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    /* Field group */
+    .field-group { display: flex; flex-direction: column; gap: 0; }
+
+    .field-label {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--text-3);
+      letter-spacing: 0.7px;
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 6px;
+    }
+    .field-input {
+      width: 100%;
+      background: var(--bg-2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 13px 16px;
+      font-size: 15px;
+      font-family: var(--font);
+      color: var(--text);
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .field-input::placeholder { color: var(--text-3); }
+    .field-input:focus {
+      border-color: var(--accent-line);
+      box-shadow: 0 0 0 3px var(--accent-glow);
+    }
+    .field-input.error {
+      border-color: var(--error) !important;
+      box-shadow: 0 0 0 3px var(--error-glow) !important;
+    }
+
+    /* Error message */
+    .field-error {
+      font-size: 11.5px;
+      color: var(--error);
+      margin-top: 5px;
+      padding-left: 2px;
+      display: none;
+    }
+    .field-error.show { display: block; }
+
+    /* WhatsApp prefix group */
+    .phone-group {
+      display: flex;
+      align-items: stretch;
+    }
+    .phone-prefix {
+      background: var(--bg-3);
+      border: 1px solid var(--border);
+      border-right: none;
+      border-radius: var(--radius-sm) 0 0 var(--radius-sm);
+      padding: 0 13px;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-2);
+      font-family: var(--font);
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      white-space: nowrap;
+    }
+    .phone-group .field-input {
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      flex: 1;
+    }
+
+    /* Privacy note */
+    .privacy-note {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      padding: 10px 12px;
+      background: rgba(255,255,255,0.02);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+    }
+    .privacy-note svg {
+      flex-shrink: 0;
+      margin-top: 1px;
+      color: var(--text-3);
+    }
+    .privacy-note p {
+      font-size: 11.5px;
+      color: var(--text-3);
+      line-height: 1.55;
+    }
+
+    .btn-start {
+      width: 100%;
+      background: var(--accent);
+      color: #000;
+      border: none;
+      border-radius: var(--radius-sm);
+      padding: 15px;
+      font-size: 15px;
+      font-weight: 700;
+      font-family: var(--font);
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    .btn-start:hover {
+      background: var(--accent-2);
+      box-shadow: 0 4px 20px rgba(34,197,94,0.3);
+      transform: translateY(-1px);
+    }
+    .btn-start:active { transform: translateY(0); }
+
+    .intro-footer-note {
+      text-align: center;
+      font-size: 11.5px;
+      color: var(--text-3);
+      max-width: 280px;
+    }
+
+    /* Stats chips */
+    .intro-stats {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      flex-wrap: wrap;
+      max-width: 340px;
+    }
+    .stat-chip {
+      background: var(--bg-1);
+      border: 1px solid var(--border);
+      border-radius: 99px;
+      padding: 5px 13px;
+      font-size: 12px;
+      color: var(--text-2);
+      font-weight: 500;
+    }
+    .stat-chip strong { color: var(--accent); }
+
+
+    /* âââââââââââââââââââââââââââââââââââââââââââââââââââââââ
+       SCREEN 2 â CHAT
+    âââââââââââââââââââââââââââââââââââââââââââââââââââââââ */
+    #chat-screen {
+      height: 100%;
+      height: 100dvh;
+    }
+
+    /* Header */
+    .chat-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 16px;
+      background: var(--bg-1);
+      border-bottom: 1px solid var(--border);
+      flex-shrink: 0;
+      z-index: 10;
+    }
+    .header-avatar {
+      width: 42px; height: 42px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent) 0%, #065f46 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      flex-shrink: 0;
+      box-shadow: 0 0 0 2px var(--bg-1), 0 0 0 4px var(--accent-line);
+    }
+    .header-info { flex: 1; min-width: 0; }
+    .header-name {
+      font-size: 15px;
+      font-weight: 600;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .header-status {
+      font-size: 12px;
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      margin-top: 1px;
+    }
+    .header-status::before {
+      content: '';
+      width: 6px; height: 6px;
+      background: var(--accent);
+      border-radius: 50%;
+      animation: pulse 1.8s infinite;
+    }
+    .header-counter {
+      flex-shrink: 0;
+      background: var(--bg-2);
+      border: 1px solid var(--border);
+      border-radius: 99px;
+      padding: 4px 11px;
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--text-3);
+      transition: all 0.3s;
+    }
+    .header-counter.warning {
+      border-color: var(--accent-line);
+      color: var(--accent);
+      background: var(--accent-glow);
+    }
+
+    /* Messages */
+    .chat-body {
+      flex: 1;
+      overflow-y: auto;
+      padding: 16px 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      scroll-behavior: smooth;
+    }
+    .chat-body::-webkit-scrollbar { width: 3px; }
+    .chat-body::-webkit-scrollbar-track { background: transparent; }
+    .chat-body::-webkit-scrollbar-thumb { background: var(--bg-3); border-radius: 3px; }
+
+    /* Date divider */
+    .date-divider {
+      text-align: center;
+      font-size: 11px;
+      color: var(--text-3);
+      padding: 8px 0 4px;
+      position: relative;
+    }
+    .date-divider span {
+      background: var(--bg);
+      padding: 0 10px;
+      position: relative;
+      z-index: 1;
+    }
+    .date-divider::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 0; right: 0;
+      height: 1px;
+      background: var(--border);
+    }
+
+    /* Bubbles */
+    .msg-row {
+      display: flex;
+      flex-direction: column;
+      max-width: 80%;
+      animation: msgIn 0.22s cubic-bezier(0.34,1.56,0.64,1);
+    }
+    @keyframes msgIn {
+      from { opacity: 0; transform: translateY(10px) scale(0.96); }
+      to   { opacity: 1; transform: translateY(0) scale(1); }
+    }
+    .msg-row.user { align-self: flex-end; align-items: flex-end; margin-top: 2px; }
+    .msg-row.bot  { align-self: flex-start; align-items: flex-start; margin-top: 2px; }
+
+    .bubble {
+      padding: 10px 14px;
+      font-size: 14.5px;
+      line-height: 1.55;
+      word-break: break-word;
+      position: relative;
+    }
+    .bubble.user {
+      background: linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 100%);
+      color: #000;
+      border-radius: 18px 18px 4px 18px;
+      font-weight: 500;
+    }
+    .bubble.bot {
+      background: var(--bg-2);
+      color: var(--text);
+      border-radius: 18px 18px 18px 4px;
+      border: 1px solid var(--border);
+    }
+
+    .msg-meta {
+      font-size: 10.5px;
+      color: var(--text-3);
+      margin-top: 3px;
+      padding: 0 5px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    /* CTA button que aparece al final del chat */
+    .btn-cta-chat {
+      margin-top: 10px;
+      background: var(--accent);
+      color: #000;
+      border: none;
+      border-radius: var(--radius-sm);
+      padding: 13px 20px;
+      font-size: 14.5px;
+      font-weight: 700;
+      font-family: var(--font);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+      animation: msgIn 0.3s cubic-bezier(0.34,1.56,0.64,1);
+    }
+    .btn-cta-chat:hover {
+      background: var(--accent-2);
+      box-shadow: 0 4px 20px rgba(34,197,94,0.35);
+      transform: translateY(-1px);
+    }
+
+    /* Typing */
+    .typing-row {
+      align-self: flex-start;
+      animation: msgIn 0.22s cubic-bezier(0.34,1.56,0.64,1);
+    }
+    .typing-bubble {
+      background: var(--bg-2);
+      border: 1px solid var(--border);
+      border-radius: 18px 18px 18px 4px;
+      padding: 12px 16px;
+      display: flex;
+      gap: 5px;
+      align-items: center;
+    }
+    .t-dot {
+      width: 7px; height: 7px;
+      background: var(--text-3);
+      border-radius: 50%;
+      animation: typeDot 1.3s ease-in-out infinite;
+    }
+    .t-dot:nth-child(2) { animation-delay: 0.18s; }
+    .t-dot:nth-child(3) { animation-delay: 0.36s; }
+    @keyframes typeDot {
+      0%, 60%, 100% { transform: translateY(0); opacity: 0.4; }
+      30%            { transform: translateY(-5px); opacity: 1; }
+    }
+
+    /* Limit warning bar */
+    .limit-bar {
+      display: none;
+      background: var(--accent-glow);
+      border-top: 1px solid var(--accent-line);
+      padding: 9px 16px;
+      font-size: 12.5px;
+      color: var(--accent);
+      text-align: center;
+      font-weight: 500;
+      flex-shrink: 0;
+    }
+    .limit-bar.show { display: block; }
+
+    /* Input area */
+    .chat-footer {
+      display: flex;
+      align-items: flex-end;
+      gap: 10px;
+      padding: 10px 14px;
+      padding-bottom: calc(10px + env(safe-area-inset-bottom));
+      background: var(--bg-1);
+      border-top: 1px solid var(--border);
+      flex-shrink: 0;
+    }
+    .chat-textarea {
+      flex: 1;
+      background: var(--bg-2);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 10px 16px;
+      font-size: 15px;
+      font-family: var(--font);
+      color: var(--text);
+      outline: none;
+      resize: none;
+      line-height: 1.45;
+      max-height: 110px;
+      transition: border-color 0.2s;
+      overflow-y: auto;
+    }
+    .chat-textarea::placeholder { color: var(--text-3); }
+    .chat-textarea:focus { border-color: var(--accent-line); }
+    .chat-textarea:disabled { opacity: 0.35; cursor: not-allowed; }
+
+    .send-btn {
+      width: 42px; height: 42px;
+      background: var(--accent);
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .send-btn:hover:not(:disabled) { background: var(--accent-2); transform: scale(1.05); }
+    .send-btn:disabled { background: var(--bg-3); cursor: not-allowed; }
+    .send-btn svg { width: 18px; height: 18px; }
+    .send-btn svg path { fill: #000; }
+    .send-btn:disabled svg path { fill: var(--text-3); }
+
+
+    /* âââââââââââââââââââââââââââââââââââââââââââââââââââââââ
+       SCREEN 3 â SUCCESS
+    âââââââââââââââââââââââââââââââââââââââââââââââââââââââ */
+    #success-screen {
+      align-items: center;
+      justify-content: center;
+      padding: 40px 24px;
+      gap: 28px;
+      text-align: center;
+      overflow-y: auto;
+    }
+
+    .success-glow {
+      width: 88px; height: 88px;
+      border-radius: 50%;
+      background: var(--accent-glow);
+      border: 2px solid var(--accent-line);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 40px;
+      animation: successPop 0.5s cubic-bezier(0.34,1.7,0.64,1);
+      box-shadow: 0 0 40px rgba(34,197,94,0.15);
+    }
+    @keyframes successPop {
+      from { transform: scale(0); opacity: 0; }
+      to   { transform: scale(1); opacity: 1; }
+    }
+
+    .success-text h2 {
+      font-size: 28px;
+      font-weight: 800;
+      letter-spacing: -0.6px;
+      margin-bottom: 10px;
+    }
+    .success-text p {
+      font-size: 14px;
+      color: var(--text-2);
+      line-height: 1.65;
+      max-width: 320px;
+    }
+
+    .success-proof {
+      background: var(--bg-1);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 18px 20px;
+      font-size: 13.5px;
+      color: var(--text-2);
+      line-height: 1.65;
+      max-width: 360px;
+      text-align: left;
+    }
+    .success-proof strong { color: var(--accent); }
+
+    .btn-calendly {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      max-width: 360px;
+      background: var(--accent);
+      color: #000;
+      font-family: var(--font);
+      font-size: 15px;
+      font-weight: 700;
+      border: none;
+      border-radius: var(--radius-sm);
+      padding: 16px 24px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+      animation: fadeInUp 0.4s 0.3s ease both;
+    }
+    .btn-calendly:hover {
+      background: var(--accent-2);
+      box-shadow: 0 4px 24px rgba(34,197,94,0.35);
+      transform: translateY(-1px);
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .success-footer-note {
+      font-size: 12px;
+      color: var(--text-3);
+    }
+
+    /* âââ UTILS âââââââââââââââââââââââââââââââââââââââââââ */
+    .sr-only {
+      position: absolute; width: 1px; height: 1px;
+      padding: 0; margin: -1px; overflow: hidden;
+      clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ââââââââââââââââââââââââââââââââââââââââââââââââââââââ
+       SCREEN 1 â INTRO
+  ââââââââââââââââââââââââââââââââââââââââââââââââââââââ -->
+  <div id="intro-screen" class="screen active">
+
+    <div class="brand">
+      <div class="brand-wordmark">F2<em>AIA</em></div>
+      <div class="brand-pill">
+        <span class="pulse-dot"></span>
+        Demo en vivo
+      </div>
+    </div>
+
+    <div class="intro-hero">
+      <h1>ProbÃ¡ el sistema<br><em>antes de comprarlo.</em></h1>
+      <p>ChateÃ¡ con Valentina, nuestra agente IA. En 2 minutos vas a ver cÃ³mo trabajarÃ­a para tu negocio.</p>
+    </div>
+
+    <div class="intro-stats">
+      <div class="stat-chip"><strong>24/7</strong> sin descanso</div>
+      <div class="stat-chip"><strong>2 min</strong> demo real</div>
+      <div class="stat-chip"><strong>0</strong> tÃ©cnica requerida</div>
+    </div>
+
+    <div class="intro-card">
+
+      <!-- Nombre -->
+      <div class="field-group">
+        <label class="field-label" for="inp-name">Tu nombre</label>
+        <input
+          class="field-input"
+          type="text"
+          id="inp-name"
+          placeholder="Ej: MartÃ­n GarcÃ­a"
+          autocomplete="given-name"
+          autocorrect="off"
+        >
+        <p class="field-error" id="err-name">IngresÃ¡ tu nombre para continuar</p>
+      </div>
+
+      <!-- Rubro -->
+      <div class="field-group">
+        <label class="field-label" for="inp-rubro">Â¿A quÃ© se dedica tu negocio?</label>
+        <input
+          class="field-input"
+          type="text"
+          id="inp-rubro"
+          placeholder="Ej: ClÃ­nica dental, inmobiliaria, gym..."
+          autocorrect="off"
+        >
+        <p class="field-error" id="err-rubro">Contanos el rubro de tu negocio</p>
+      </div>
+
+      <!-- WhatsApp -->
+      <div class="field-group">
+        <label class="field-label" for="inp-phone">Tu WhatsApp</label>
+        <div class="phone-group">
+          <span class="phone-prefix">ð¦ð· +54</span>
+          <input
+            class="field-input"
+            type="tel"
+            id="inp-phone"
+            placeholder="1164858166"
+            autocomplete="tel"
+            inputmode="numeric"
+            oninput="this.value=this.value.replace(/\D/g,'')"
+          >
+        </div>
+        <p class="field-error" id="err-phone">IngresÃ¡ tu nÃºmero sin 0 ni 15 (solo cÃ³digo de Ã¡rea + nÃºmero)</p>
+      </div>
+
+      <!-- Privacidad -->
+      <div class="privacy-note">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+        </svg>
+        <p>Tus datos son confidenciales. Solo los usamos para enviarte la demo y contactarte si te interesa el sistema.</p>
+      </div>
+
+      <button class="btn-start" onclick="startDemo()">
+        Iniciar demo en vivo
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M5 12H19M13 6L19 12L13 18" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+
+    </div>
+
+    <p class="intro-footer-note">Sin registro Â· Demo 100% gratuita Â· 2 minutos</p>
+
+  </div>
+
+
+  <!-- ââââââââââââââââââââââââââââââââââââââââââââââââââââââ
+       SCREEN 2 â CHAT
+  ââââââââââââââââââââââââââââââââââââââââââââââââââââââ -->
+  <div id="chat-screen" class="screen">
+
+    <header class="chat-header">
+      <div class="header-avatar" aria-hidden="true">ð¤</div>
+      <div class="header-info">
+        <div class="header-name">Valentina â Agente IA F2AIA</div>
+        <div class="header-status">En lÃ­nea ahora</div>
+      </div>
+      <div class="header-counter" id="msg-counter" aria-live="polite">0 / 7</div>
+    </header>
+
+    <main class="chat-body" id="chat-body" role="log" aria-live="polite" aria-label="Chat con Valentina"></main>
+
+    <div class="limit-bar" id="limit-bar">
+      â¡ Ãltimo mensaje â Valentina va a cerrar la conversaciÃ³n para vos
+    </div>
+
+    <footer class="chat-footer">
+      <textarea
+        class="chat-textarea"
+        id="chat-input"
+        placeholder="EscribÃ­ tu mensaje..."
+        rows="1"
+        aria-label="EscribÃ­ tu mensaje"
+        onkeydown="handleEnter(event)"
+        oninput="autoResize(this)"
+      ></textarea>
+      <button class="send-btn" id="send-btn" onclick="sendMessage()" aria-label="Enviar mensaje">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+        </svg>
+      </button>
+    </footer>
+
+  </div>
+
+
+  <!-- ââââââââââââââââââââââââââââââââââââââââââââââââââââââ
+       SCREEN 3 â SUCCESS
+  ââââââââââââââââââââââââââââââââââââââââââââââââââââââ -->
+  <div id="success-screen" class="screen">
+
+    <div class="success-glow" aria-hidden="true">â</div>
+
+    <div class="success-text">
+      <h2>Â¡Todo listo! ð</h2>
+      <p>En unos minutos vas a recibir un mensaje real en tu WhatsApp. AsÃ­ funciona exactamente el sistema para los clientes de tu negocio.</p>
+    </div>
+
+    <div class="success-proof">
+      Lo que acabÃ¡s de probar es <strong>exactamente lo que implementamos</strong> para tu negocio: un agente IA que responde, agenda y capta leads de forma autÃ³noma, las 24 horas, sin que tengas que hacer nada.
+    </div>
+
+    <a
+      href="https://calendar.app.google/YT3TMi5QvcQJMpKk6"
+      class="btn-calendly"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      ð Agendar diagnÃ³stico gratuito â
+    </a>
+
+    <p class="success-footer-note">30 minutos Â· Sin compromiso Â· DiagnÃ³stico personalizado para tu negocio</p>
+
+  </div>
+
+
+  <!-- ââââââââââââââââââââââââââââââââââââââââââââââââââââââ
+       JAVASCRIPT
+  ââââââââââââââââââââââââââââââââââââââââââââââââââââââ -->
+  <script>
+    /* ââ CONFIGURACIÃN ââââââââââââââââââââââââââââââââââââ */
+    const CFG = {
+      WEBHOOK_CHAT:    'https://n8n.f2aia.com/webhook/f2aia-chat',
+      WEBHOOK_LEAD:    'https://n8n.f2aia.com/webhook/f2aia-lead',
+      MAX_MSGS:        7,      // mensajes del usuario antes del cierre
+      RATE_LIMIT_MS:   3000,   // ms mÃ­nimos entre envÃ­os
+    };
+
+    /* ââ ESTADO âââââââââââââââââââââââââââââââââââââââââââ */
+    const S = {
+      name:      '',
+      rubro:     '',
+      phone:     '',
+      sessionId: '',
+      count:     0,       // mensajes enviados por el usuario
+      history:   [],      // [{role, content}] para el contexto de n8n
+      waiting:   false,   // esperando respuesta del bot
+      lastSend:  0,       // timestamp del Ãºltimo envÃ­o (rate limit)
+    };
+
+    /* ââ HELPERS ââââââââââââââââââââââââââââââââââââââââââ */
+    const $   = id => document.getElementById(id);
+    const hh  = () => new Date().toLocaleTimeString('es-AR', { hour: '2-digit', minute: '2-digit' });
+    const uid = () => 'ses_' + Date.now() + '_' + Math.random().toString(36).slice(2, 7);
+
+    function showScreen(id) {
+      document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+      $(id).classList.add('active');
+    }
+
+    function autoResize(el) {
+      el.style.height = 'auto';
+      el.style.height = Math.min(el.scrollHeight, 110) + 'px';
+    }
+
+    function setInput(disabled) {
+      $('chat-input').disabled = disabled;
+      $('send-btn').disabled   = disabled;
+    }
+
+    function scrollBottom() {
+      const b = $('chat-body');
+      requestAnimationFrame(() => { b.scrollTop = b.scrollHeight; });
+    }
+
+    /* ââ VALIDACIÃN âââââââââââââââââââââââââââââââââââââââ */
+    function setFieldError(inputId, errorId, hasError) {
+      $(inputId).classList.toggle('error', hasError);
+      $(errorId).classList.toggle('show',  hasError);
+    }
+
+    /* ââ MENSAJES EN EL CHAT ââââââââââââââââââââââââââââââ */
+    function appendBotMsg(rawText) {
+      const body = $('chat-body');
+      const html = rawText
+        .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+        .replace(/\*([^*\n]+)\*/g, '<strong>$1</strong>')
+        .replace(/\n/g, '<br>');
+      const row = document.createElement('div');
+      row.className = 'msg-row bot';
+      row.innerHTML = `
+        <div class="bubble bot">${html}</div>
+        <div class="msg-meta">ð¤ Valentina Â· ${hh()}</div>
+      `;
+      body.appendChild(row);
+      scrollBottom();
+    }
+
+    function appendUserMsg(text) {
+      const body = $('chat-body');
+      const safe = text
+        .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+        .replace(/\n/g, '<br>');
+      const row = document.createElement('div');
+      row.className = 'msg-row user';
+      row.innerHTML = `
+        <div class="bubble user">${safe}</div>
+        <div class="msg-meta">${hh()}</div>
+      `;
+      body.appendChild(row);
+      scrollBottom();
+    }
+
+    function showTyping() {
+      const body = $('chat-body');
+      const el = document.createElement('div');
+      el.className = 'typing-row';
+      el.id = 'typing';
+      el.innerHTML = `
+        <div class="typing-bubble">
+          <div class="t-dot"></div>
+          <div class="t-dot"></div>
+          <div class="t-dot"></div>
+        </div>
+      `;
+      body.appendChild(el);
+      scrollBottom();
+      S.waiting = true;
+    }
+
+    function hideTyping() {
+      const el = $('typing');
+      if (el) el.remove();
+      S.waiting = false;
+    }
+
+    function updateCounter() {
+      const el = $('msg-counter');
+      el.textContent = `${S.count} / ${CFG.MAX_MSGS}`;
+      el.classList.toggle('warning', S.count >= CFG.MAX_MSGS - 1);
+      if (S.count === CFG.MAX_MSGS - 1) {
+        $('limit-bar').classList.add('show');
+      }
+    }
+
+    /* ââ BOTÃN CTA AL FINAL DEL CHAT ââââââââââââââââââââââ */
+    function showChatCTA() {
+      const body = $('chat-body');
+      const row = document.createElement('div');
+      row.className = 'msg-row bot';
+      row.innerHTML = `
+        <button class="btn-cta-chat" onclick="showScreen('success-screen')">
+          ð Agendar diagnÃ³stico gratuito â
+        </button>
+      `;
+      body.appendChild(row);
+      scrollBottom();
+    }
+
+    /* ââ PANTALLA INTRO â CHAT ââââââââââââââââââââââââââââ */
+    function startDemo() {
+      const name     = $('inp-name').value.trim();
+      const rubro    = $('inp-rubro').value.trim();
+      const rawPhone = $('inp-phone').value.replace(/\D/g, '');
+
+      // Validaciones
+      const nameOk  = name.length >= 2;
+      const rubroOk = rubro.length >= 3;
+      const phoneOk = rawPhone.length >= 10;
+
+      setFieldError('inp-name',  'err-name',  !nameOk);
+      setFieldError('inp-rubro', 'err-rubro', !rubroOk);
+      setFieldError('inp-phone', 'err-phone', !phoneOk);
+
+      if (!nameOk || !rubroOk || !phoneOk) return;
+
+      // Guardar estado
+      S.name      = name;
+      S.rubro     = rubro;
+      S.phone     = '54' + rawPhone;
+      S.sessionId = uid();
+
+      // Disparar webhook lead inmediatamente (no bloqueante)
+      fetch(CFG.WEBHOOK_LEAD, {
+        method:  'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name:      S.name,
+          phone:     S.phone,
+          rubro:     S.rubro,
+          fuente:    'demo-web',
+          sessionId: S.sessionId,
+        }),
+      }).catch(err => console.error('[F2AIA Lead]', err));
+
+      // Pasar al chat
+      showScreen('chat-screen');
+
+      // Divisor de fecha
+      const divider = document.createElement('div');
+      divider.className = 'date-divider';
+      divider.innerHTML = '<span>Hoy Â· Demo en vivo</span>';
+      $('chat-body').appendChild(divider);
+
+      // Saludo inicial de Valentina (hardcoded, sin llamada a la API)
+      setInput(true);
+      setTimeout(() => {
+        appendBotMsg(
+          `Â¡Hola *${name}*! ð Soy *Valentina*, agente de inteligencia artificial de F2AIA.\n\n` +
+          `Vi que tenÃ©s un negocio de *${rubro}*. Voy a mostrarte cÃ³mo responderÃ­a el sistema a tus clientes.\n\n` +
+          `Â¿CuÃ¡l es la consulta que mÃ¡s seguido recibÃ­s?`
+        );
+        setInput(false);
+        $('chat-input').focus();
+      }, 800);
+    }
+
+    /* ââ ENVIAR MENSAJE âââââââââââââââââââââââââââââââââââ */
+    async function sendMessage() {
+      // Bloqueos
+      if (S.waiting) return;
+      if (Date.now() - S.lastSend < CFG.RATE_LIMIT_MS) return;
+
+      const input = $('chat-input');
+      const text  = input.value.trim();
+      if (!text) return;
+
+      input.value = '';
+      autoResize(input);
+      setInput(true);
+
+      appendUserMsg(text);
+      S.history.push({ role: 'user', content: text });
+      S.count++;
+      S.lastSend = Date.now();
+      updateCounter();
+
+      const isLast = S.count === CFG.MAX_MSGS;
+
+      showTyping();
+
+      try {
+        const res = await fetch(CFG.WEBHOOK_CHAT, {
+          method:  'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            message:       text,
+            name:          S.name,
+            rubro:         S.rubro,
+            sessionId:     S.sessionId,
+            session_count: S.count,
+            history:       S.history.slice(-10),
+            is_last:       isLast,
+            contact_type:  'whatsapp',
+            has_whatsapp:  true,
+          }),
+        });
+
+        hideTyping();
+
+        // Bug 1 fix â chain completo incluyendo data.response
+        let reply = 'DisculpÃ¡, tuve un inconveniente. Â¿PodÃ©s repetir tu mensaje?';
+        if (res.ok) {
+          const data = await res.json().catch(() => ({}));
+          reply = data.reply ?? data.response ?? data.message ?? data.output ?? data.text ?? reply;
+        }
+
+        appendBotMsg(reply);
+        S.history.push({ role: 'assistant', content: reply });
+
+        if (isLast) {
+          // Mostrar botÃ³n CTA y dejar input deshabilitado
+          setTimeout(showChatCTA, 700);
+        } else {
+          setInput(false);
+          $('chat-input').focus();
+        }
+
+      } catch (err) {
+        hideTyping();
+        appendBotMsg('Hubo un problema de conexiÃ³n. VerificÃ¡ que n8n estÃ© activo e intentÃ¡ de nuevo.');
+        console.error('[F2AIA Chat]', err);
+        setInput(false);
+      }
+    }
+
+    function handleEnter(e) {
+      if (e.key === 'Enter' && !e.shiftKey) {
+        e.preventDefault();
+        sendMessage();
+      }
+    }
+
+    /* ââ ENTER en intro form ââââââââââââââââââââââââââââââ */
+    ['inp-name', 'inp-rubro', 'inp-phone'].forEach(id => {
+      document.getElementById(id).addEventListener('keydown', e => {
+        if (e.key === 'Enter') startDemo();
+      });
+    });
+
+    /* ââ Limpiar error al escribir ââââââââââââââââââââââââ */
+    [
+      ['inp-name',  'err-name'],
+      ['inp-rubro', 'err-rubro'],
+      ['inp-phone', 'err-phone'],
+    ].forEach(([inputId, errorId]) => {
+      $(inputId).addEventListener('input', () => setFieldError(inputId, errorId, false));
+    });
+  </script>
+
+</body>
+</html>
