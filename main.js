@@ -216,17 +216,28 @@
     ];
 
     var idx = 0;
+    var typeTimer = null;
 
-    function next(){
-      el.style.opacity = '0';
-      setTimeout(function(){
-        idx = (idx + 1) % messages.length;
-        el.textContent = messages[idx];
-        el.style.opacity = '1';
-      }, 350);
+    function typeText(text){
+      if(typeTimer) clearInterval(typeTimer);
+      el.textContent = '';
+      var i = 0;
+      typeTimer = setInterval(function(){
+        if(i < text.length){
+          el.textContent += text.charAt(i);
+          i++;
+        } else {
+          clearInterval(typeTimer);
+          typeTimer = null;
+        }
+      }, 38);
     }
 
-    setInterval(next, 3500);
+    typeText(messages[0]);
+    setInterval(function(){
+      idx = (idx + 1) % messages.length;
+      typeText(messages[idx]);
+    }, 4200);
   }
 
   /* ── FORM → n8n ── */
