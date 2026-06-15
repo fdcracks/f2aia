@@ -30,7 +30,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Syne:wght@700;800&family=Inter:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" />
-  <link rel="stylesheet" href="styles.css?v=20260613" />
+  <link rel="stylesheet" href="styles.css?v=20260614" />
 </head>
 <body>
 
@@ -142,13 +142,9 @@
           <span class="app-dot"></span>
           F2AIA Demo · Probalo ahora
         </a>
-        <div class="hero-proof">
-          <div class="proof-dots">
-            <span style="background:linear-gradient(135deg,#00FF88,#00CC6A)"></span>
-            <span style="background:linear-gradient(135deg,#00CC6A,#009950)"></span>
-            <span style="background:linear-gradient(135deg,#009950,#006630)"></span>
-          </div>
-          <p>+50 negocios de CABA ya automatizados</p>
+        <div class="demo-live-count" id="demo-live-count">
+          <span class="dlc-dot"></span>
+          <span class="dlc-text"><strong id="dlc-num">50</strong>&nbsp;negocios ya probaron el agente</span>
         </div>
       </div>
 
@@ -600,6 +596,43 @@
     <span class="wa-label">Hablemos</span>
   </a>
 
+  <script>
+  (function(){
+    var READ_URL = 'https://n8n.f2aia.com/webhook/f2aia-counter';
+    var INC_URL  = 'https://n8n.f2aia.com/webhook/f2aia-counter-inc';
+    var SECRET   = 'f2aia-demo-2026';
+    var numEl    = document.getElementById('dlc-num');
+
+    function setCount(n) {
+      if (!numEl || !n) return;
+      numEl.textContent = n;
+      numEl.classList.remove('dlc-bump');
+      void numEl.offsetWidth;
+      numEl.classList.add('dlc-bump');
+    }
+
+    fetch(READ_URL)
+      .then(function(r){ return r.json(); })
+      .then(function(d){ if (d.count) setCount(d.count); })
+      .catch(function(){});
+
+    document.addEventListener('click', function(e){
+      var btn = e.target.closest('a[href="https://f2aia.com/demo"]');
+      if (!btn) return;
+      e.preventDefault();
+      var url = btn.getAttribute('href');
+      window.open(url, '_blank', 'noopener,noreferrer');
+      fetch(INC_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'X-F2AIA-Secret': SECRET },
+        body: '{}'
+      })
+      .then(function(r){ return r.json(); })
+      .then(function(d){ if (d.count) setCount(d.count); })
+      .catch(function(){});
+    });
+  })();
+  </script>
   <script defer src="main.js?v=20260613"></script>
 
 </body>
