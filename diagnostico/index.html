@@ -30,7 +30,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Inter:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="styles.css?v=20260616">
+  <link rel="stylesheet" href="styles.css?v=20260617">
 </head>
 <body>
 
@@ -55,87 +55,45 @@
     <div class="container">
       <span class="kicker">Diagnóstico gratuito · F2AIA</span>
       <h1 id="hero-title">
-        Diagnóstico de Automatización<br>
-        Comercial para <span class="green-text">tu negocio</span>
+        Descubrí qué automatizar<br>
+        <span class="green-text">en tu negocio</span>
       </h1>
-      <p class="hero-sub">
-        Respondé unas preguntas rápidas y descubrí qué tareas, procesos o canales
-        de venta podés automatizar con IA para ahorrar tiempo, ordenar tus datos
-        y mejorar la captación de clientes.
-      </p>
+      <div class="hero-badges" aria-label="Características del diagnóstico">
+        <span class="badge">100% gratuito</span>
+        <span class="badge">2 minutos</span>
+        <span class="badge">Sin compromiso</span>
+      </div>
       <div class="hero-cta-group">
         <button class="btn-primary" data-action="start" type="button">
-          Empezar diagnóstico gratuito →
+          Empezar diagnóstico →
         </button>
-        <a href="https://f2aia.com/demo" class="btn-ghost">Probar Demo primero</a>
+        <a href="https://f2aia.com/demo" class="btn-ghost">Probar Demo</a>
         <a href="https://f2aia.com" class="btn-ghost">← Volver a f2aia.com</a>
       </div>
-      <p class="hero-microcopy">Menos de 2 minutos · Recomendación personalizada según tus respuestas</p>
     </div>
   </section>
 
-  <!-- ═══ SECCIÓN PROBLEMA ════════════════════════════════════ -->
-  <section class="problema-section reveal" aria-labelledby="problema-title">
-    <div class="container">
-      <div class="problema-inner">
-        <span class="kicker">El diagnóstico correcto</span>
-        <h2 id="problema-title">
-          La mayoría de los negocios pierde clientes<br>antes de darse cuenta
-        </h2>
-        <p>
-          Los leads llegan, pero nadie los sigue a tiempo. Las consultas se responden
-          cuando ya eligieron a otro. Los datos de clientes viven en WhatsApp,
-          en un Excel y en la cabeza del dueño.
-        </p>
-        <p>
-          No es un problema de esfuerzo. Es un problema de sistema.
-        </p>
-        <div class="problema-highlight">
-          Primero diagnosticamos dónde tu negocio pierde tiempo, datos o clientes.<br>
-          Después diseñamos el sistema adecuado.
-        </div>
+  <!-- ═══ TRUST STRIP ══════════════════════════════════════════ -->
+  <div class="trust-strip" aria-hidden="true">
+    <div class="trust-strip-inner">
+      <div class="trust-item">
+        <span class="trust-icon">🎯</span>
+        <span>Qué automatizar primero</span>
+      </div>
+      <div class="trust-item">
+        <span class="trust-icon">⚡</span>
+        <span>Sistema recomendado</span>
+      </div>
+      <div class="trust-item">
+        <span class="trust-icon">📲</span>
+        <span>Próximo paso concreto</span>
       </div>
     </div>
-  </section>
-
-  <!-- ═══ BENEFICIOS ══════════════════════════════════════════ -->
-  <section class="beneficios-section" aria-labelledby="beneficios-title">
-    <div class="container">
-      <h2 id="beneficios-title" class="reveal">¿Qué recibís con este diagnóstico?</h2>
-      <div class="beneficios-grid">
-        <div class="beneficio-card reveal">
-          <div class="beneficio-icon" aria-hidden="true">🔍</div>
-          <h3>Problema identificado</h3>
-          <p>No genérico. Basado en tus respuestas reales sobre tu negocio.</p>
-        </div>
-        <div class="beneficio-card reveal">
-          <div class="beneficio-icon" aria-hidden="true">⚙️</div>
-          <h3>Sistema recomendado</h3>
-          <p>Te decimos qué tipo de automatización tendría mayor impacto en tu caso.</p>
-        </div>
-        <div class="beneficio-card reveal">
-          <div class="beneficio-icon" aria-hidden="true">📊</div>
-          <h3>Score de oportunidad</h3>
-          <p>Calculamos qué tan urgente y prioritaria es la automatización para vos.</p>
-        </div>
-        <div class="beneficio-card reveal">
-          <div class="beneficio-icon" aria-hidden="true">📩</div>
-          <h3>Resumen por email</h3>
-          <p>Te enviamos el diagnóstico a tu correo para que lo tengas de referencia.</p>
-        </div>
-        <div class="beneficio-card reveal">
-          <div class="beneficio-icon" aria-hidden="true">💬</div>
-          <h3>Próximo paso claro</h3>
-          <p>Sin venderte nada. Te decimos qué hacer primero para empezar a ordenar.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+  </div>
 
   <!-- ═══ FORMULARIO MULTI-STEP ═══════════════════════════════ -->
-  <section class="diagnostico-section" id="diagnostico-anchor" aria-labelledby="form-heading">
+  <section class="diagnostico-section" id="diagnostico-anchor" aria-labelledby="diag-label">
     <div class="container">
-      <h2 class="reveal" id="form-heading">Empezá tu diagnóstico</h2>
 
       <!-- Contenedor del diagnóstico -->
       <div id="diagnostico-form" role="form" aria-label="Diagnóstico de Automatización Comercial">
