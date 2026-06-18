@@ -869,7 +869,7 @@
     const CFG = {
       WEBHOOK_CHAT:    'https://n8n.f2aia.com/webhook/f2aia-chat',
       WEBHOOK_LEAD:    'https://n8n.f2aia.com/webhook/f2aia-lead',
-      SECRET:          'f2aia-demo-2026',   // header de seguridad — debe coincidir con n8n
+
       MAX_MSGS:        7,      // mensajes del usuario antes del cierre
       RATE_LIMIT_MS:   3000,   // ms mínimos entre envíos
     };
@@ -1022,7 +1022,7 @@
       // Disparar webhook lead inmediatamente (no bloqueante)
       fetch(CFG.WEBHOOK_LEAD, {
         method:  'POST',
-        headers: { 'Content-Type': 'application/json', 'X-F2AIA-Secret': CFG.SECRET },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           name:      S.name,
           phone:     S.phone,
@@ -1081,7 +1081,7 @@
       try {
         const res = await fetch(CFG.WEBHOOK_CHAT, {
           method:  'POST',
-          headers: { 'Content-Type': 'application/json', 'X-F2AIA-Secret': CFG.SECRET },
+          headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
             message:       text,
             name:          S.name,

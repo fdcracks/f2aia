@@ -230,7 +230,7 @@
         <form class="form-card" id="form-contacto" novalidate>
           <div class="field-group">
             <label for="nombre">Nombre completo</label>
-            <input type="text" id="nombre" name="nombre" placeholder="Ej: Dr. Martín García" required autocomplete="name" />
+            <input type="text" id="nombre" name="nombre" placeholder="Ej: Dr. Martín García" required autocomplete="name" maxlength="120" />
           </div>
           <div class="field-group">
             <label for="negocio">¿A qué te dedicás?</label>
@@ -247,11 +247,11 @@
           </div>
           <div class="field-group">
             <label for="whatsapp">Tu WhatsApp (con código de área)</label>
-            <input type="tel" id="whatsapp" name="whatsapp" placeholder="Ej: 1123456789" required autocomplete="tel" />
+            <input type="tel" id="whatsapp" name="whatsapp" placeholder="Ej: 1123456789" required autocomplete="tel" maxlength="20" />
           </div>
           <div class="field-group">
             <label for="mensaje">¿Qué proceso te consume más tiempo?</label>
-            <textarea id="mensaje" name="mensaje" rows="3" placeholder="Ej: confirmar turnos, responder consultas, seguir leads..."></textarea>
+            <textarea id="mensaje" name="mensaje" rows="3" placeholder="Ej: confirmar turnos, responder consultas, seguir leads..." maxlength="800"></textarea>
           </div>
           <button type="submit" class="btn btn-green btn-submit" id="btn-submit">
             <span class="btn-label">Quiero mi diagnóstico gratis →</span>
@@ -600,7 +600,6 @@
   (function(){
     var READ_URL = 'https://n8n.f2aia.com/webhook/f2aia-counter';
     var INC_URL  = 'https://n8n.f2aia.com/webhook/f2aia-counter-inc';
-    var SECRET   = 'f2aia-demo-2026';
     var numEl    = document.getElementById('dlc-num');
 
     function setCount(n) {
@@ -624,7 +623,7 @@
       window.open(url, '_blank', 'noopener,noreferrer');
       fetch(INC_URL, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'X-F2AIA-Secret': SECRET },
+        headers: { 'Content-Type': 'application/json' },
         body: '{}'
       })
       .then(function(r){ return r.json(); })
