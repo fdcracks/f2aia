@@ -517,6 +517,8 @@ section {
   font-size: 0.86rem;
   color: var(--white);
   line-height: 1.4;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 /* === MULTI-SELECT CARDS === */
