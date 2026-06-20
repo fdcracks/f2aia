@@ -590,7 +590,6 @@
   (function(){
     var READ_URL = 'https://n8n.f2aia.com/webhook/f2aia-counter';
     var INC_URL  = 'https://n8n.f2aia.com/webhook/f2aia-counter-inc';
-    var SECRET   = 'f2aia-demo-2026';
     var numEl    = document.getElementById('dlc-num');
 
     function setCount(n) {
@@ -614,7 +613,7 @@
       window.open(url, '_blank', 'noopener,noreferrer');
       fetch(INC_URL, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'X-F2AIA-Secret': SECRET },
+        headers: { 'Content-Type': 'application/json' },
         body: '{}'
       })
       .then(function(r){ return r.json(); })
