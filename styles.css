@@ -385,6 +385,19 @@ ul, ol { list-style: none; }
   transform: translateY(-2px);
   box-shadow: 0 0 40px rgba(0,255,136,0.55), 0 0 80px rgba(0,255,136,0.2);
 }
+/* Botones hero de igual peso visual */
+.btn-equal {
+  background: transparent;
+  color: var(--white);
+  border: 1.5px solid rgba(255,255,255,0.22);
+  font-weight: 600;
+}
+.btn-equal:hover {
+  background: rgba(0,255,136,0.07);
+  border-color: rgba(0,255,136,0.50);
+  color: var(--green);
+  transform: translateY(-2px);
+}
 
 /* === HERO === */
 .hero {
@@ -1488,49 +1501,46 @@ section { position: relative; z-index: 1; }
   text-align: center;
 }
 
-/* === WA FAB — redesigned === */
+/* === WA FAB — glass pill === */
 .wa-fab {
   position: fixed;
-  bottom: 28px;
-  right: 24px;
+  bottom: 24px;
+  right: 20px;
   z-index: 500;
   display: flex;
   align-items: center;
-  gap: 10px;
-  background: #0f0f18;
-  border: 1px solid rgba(37,211,102,0.32);
+  gap: 9px;
+  padding: 11px 18px 11px 14px;
+  background: rgba(10, 16, 28, 0.82);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 50px;
   color: var(--white);
-  padding: 13px 15px;
-  border-radius: 40px;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.55), 0 0 0 1px rgba(37,211,102,0.08);
-  transition: max-width 0.3s cubic-bezier(0.4,0,0.2,1),
-              border-color 0.25s, box-shadow 0.25s;
-  max-width: 54px;
-  overflow: hidden;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.84rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
   white-space: nowrap;
+  text-decoration: none;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.45);
+  transition: border-color 0.22s, box-shadow 0.22s, transform 0.18s;
 }
 .wa-fab:hover {
-  max-width: 180px;
-  border-color: rgba(37,211,102,0.55);
-  box-shadow: 0 8px 32px rgba(0,0,0,0.55), 0 0 20px rgba(37,211,102,0.14);
+  border-color: rgba(37,211,102,0.42);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.5), 0 0 16px rgba(37,211,102,0.10);
+  transform: translateY(-2px);
 }
 .wa-fab svg {
   flex-shrink: 0;
   color: #25d366;
-  animation: waGlow 3s ease-in-out infinite;
-}
-@keyframes waGlow {
-  0%,100% { filter: drop-shadow(0 0 3px rgba(37,211,102,0.35)); }
-  50%      { filter: drop-shadow(0 0 9px rgba(37,211,102,0.75)); }
 }
 .wa-label {
-  font-size: 0.82rem;
+  font-size: 0.84rem;
   font-weight: 600;
   white-space: nowrap;
-  opacity: 0;
-  transition: opacity 0.18s 0.08s;
+  opacity: 1;
 }
-.wa-fab:hover .wa-label { opacity: 1; }
 
 /* === REVEAL ANIMATIONS === */
 .reveal {
