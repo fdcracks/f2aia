@@ -376,6 +376,16 @@ section {
 }
 
 /* === INPUTS (PASO 1) === */
+.hp-wrap {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
 .input-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;

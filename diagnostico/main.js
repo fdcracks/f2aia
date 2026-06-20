@@ -2,8 +2,11 @@
 
 /* ============================================================
    F2AIA — Diagnóstico de Automatización Comercial
-   main.js v20260617
+   main.js v20260619
    ============================================================ */
+
+const PAGE_LOAD_TIME    = Date.now();
+const MIN_FILL_TIME_MS  = 5000; // humanos tardan >5s en llenar 8 pasos
 
 const CONFIG = {
   webhookUrl:     'https://n8n.f2aia.com/webhook/diagnostico-f2aia',
@@ -330,9 +333,11 @@ function buildPayload(data, score, temperature, rec) {
   const inversion = INVERSION.find(i => i.value === data.inversion);
   const consultas = CONSULTAS.find(c => c.value === data.consultas);
 
+  const hpEl = document.getElementById('hp-website');
   return {
     source:       'diagnostico_f2aia',
     submitted_at: new Date().toISOString(),
+    _hp:          hpEl ? hpEl.value : '',
     contact: {
       name:      data.nombre,
       email:     data.email,
@@ -444,6 +449,13 @@ function showResult(data, score, temperature, rec) {
 // ─── SUBMIT FINAL ────────────────────────────────────────────
 
 async function handleSubmit() {
+  // Anti-spam: honeypot — si está relleno, es un bot
+  const hp = document.getElementById('hp-website');
+  if (hp && hp.value.trim() !== '') return;
+
+  // Anti-spam: tiempo mínimo — bots envían en milisegundos
+  if (Date.now() - PAGE_LOAD_TIME < MIN_FILL_TIME_MS) return;
+
   const score       = calculateScore(formData);
   const temperature = getTemperature(score);
   const rec         = RECOMENDACIONES[formData.problema] || RECOMENDACIONES['nodonde'];

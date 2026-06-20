@@ -30,7 +30,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Inter:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="styles.css?v=20260617">
+  <link rel="stylesheet" href="styles.css?v=20260619">
 </head>
 <body>
 
@@ -116,6 +116,12 @@
         <div class="step-panel" data-step="1">
           <h3 class="step-title">Primero, contanos sobre vos y tu negocio</h3>
           <p class="step-subtitle">Estos datos nos permiten enviarte el diagnóstico y contactarte con el resultado.</p>
+
+          <!-- Honeypot anti-spam: oculto para humanos, visible para bots -->
+          <div class="hp-wrap" aria-hidden="true">
+            <label for="hp-website">Website</label>
+            <input type="text" id="hp-website" name="website" tabindex="-1" autocomplete="off">
+          </div>
 
           <div class="input-grid">
             <div class="input-group">
@@ -583,6 +589,6 @@
     </div>
   </footer>
 
-  <script src="main.js?v=20260617"></script>
+  <script src="main.js?v=20260619"></script>
 </body>
 </html>
