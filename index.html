@@ -24,13 +24,22 @@
     "email": "hola@f2aia.com",
     "telephone": "+5491164858166",
     "address": { "@type": "PostalAddress", "addressLocality": "Buenos Aires", "addressRegion": "CABA", "addressCountry": "AR" },
-    "sameAs": ["https://www.facebook.com/profile.php?id=61590053287826","https://www.instagram.com/f2aia_/"]
+    "sameAs": ["https://www.facebook.com/profile.php?id=61590053287826","https://instagram.com/f2aiaworking"]
   }
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Syne:wght@700;800&family=Inter:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" />
-  <link rel="stylesheet" href="styles.css?v=20260619" />
+  <link rel="stylesheet" href="styles.css?v=20260613" />
+  <!-- DEMO COUNTER STYLES -->
+  <style>
+    .demo-live-count{display:flex;align-items:center;gap:9px;margin-top:16px;font-size:13px;color:rgba(255,255,255,.45);letter-spacing:.02em;font-family:'Inter',sans-serif}
+    .dlc-dot{width:7px;height:7px;border-radius:50%;background:#00FF88;flex-shrink:0;animation:dlcPulse 2.5s ease-in-out infinite}
+    @keyframes dlcPulse{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(0,255,136,.5)}60%{opacity:.5;box-shadow:0 0 0 6px rgba(0,255,136,0)}}
+    #dlc-num{color:#00FF88;font-weight:700;font-size:15px;font-family:'Space Mono',monospace;display:inline-block;min-width:2ch}
+    .dlc-bump{animation:dlcBump .35s cubic-bezier(.36,.07,.19,.97)}
+    @keyframes dlcBump{0%{transform:scale(1)}40%{transform:scale(1.45)}100%{transform:scale(1)}}
+  </style>
 </head>
 <body>
 
@@ -58,7 +67,7 @@
             <span class="nav-app-pill">Demo en vivo</span>
           </a>
         </li>
-        <li><a href="https://f2aia.com/diagnostico/" class="nav-cta">Diagnóstico gratis →</a></li>
+        <li><a href="#diagnostico" class="nav-cta">Diagnóstico gratis →</a></li>
       </ul>
       <button class="nav-burger" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-mobile">
         <span></span><span></span><span></span>
@@ -72,7 +81,7 @@
         Probá el agente →
         <span class="mobile-app-pill">Demo en vivo</span>
       </a>
-      <a href="https://f2aia.com/diagnostico/" class="mobile-cta">Diagnóstico gratis →</a>
+      <a href="#diagnostico" class="mobile-cta">Diagnóstico gratis →</a>
     </div>
   </nav>
 
@@ -87,7 +96,10 @@
           <span>Sistema activo · Buenos Aires</span>
         </div>
         <h1 class="hero-title">
-          Tu activo comercial IA, <em>24/7.</em>
+          Tu <br>
+          negocio,<br>
+          trabaja<br>
+          <em>solo.</em>
         </h1>
       </div>
 
@@ -127,14 +139,30 @@
 
       <!-- TEXTO INFERIOR: sub + ctas + proof -->
       <div class="hero-text-bottom">
-        <p class="hero-sub">IA que atiende, agenda y capta leads por vos. Las 24 horas.</p>
+        <p class="hero-sub">
+          Atención automática 24/7, captación de leads y seguimiento sin esfuerzo.<br class="br-desk">
+          Tu competencia trabaja 8 horas. Vos, sin límites.
+        </p>
         <div class="hero-ctas">
-          <a href="https://f2aia.com/diagnostico/" class="btn btn-equal">Diagnóstico gratis →</a>
-          <a href="https://f2aia.com/demo" class="btn btn-equal" target="_blank" rel="noopener">Ver el agente →</a>
+          <a href="https://f2aia.com/demo" class="btn btn-demo" target="_blank" rel="noopener">Probá el agente →</a>
+          <a href="#diagnostico" class="btn btn-ghost">Activar mi sistema gratis</a>
         </div>
+        <!-- DEMO LIVE COUNTER — prueba social activa -->
         <div class="demo-live-count" id="demo-live-count">
           <span class="dlc-dot"></span>
-          <span class="dlc-text"><strong id="dlc-num">50</strong>&nbsp;negocios ya probaron el agente</span>
+          <span><strong id="dlc-num">50</strong>&nbsp;negocios ya probaron el agente</span>
+        </div>
+        <a href="https://f2aia.com/demo" class="hero-app-badge" target="_blank" rel="noopener" aria-label="Probar el agente de F2AIA en vivo">
+          <span class="app-dot"></span>
+          F2AIA Demo · Probalo ahora
+        </a>
+        <div class="hero-proof">
+          <div class="proof-dots">
+            <span style="background:linear-gradient(135deg,#00FF88,#00CC6A)"></span>
+            <span style="background:linear-gradient(135deg,#00CC6A,#009950)"></span>
+            <span style="background:linear-gradient(135deg,#009950,#006630)"></span>
+          </div>
+          <p>+50 negocios de CABA ya automatizados</p>
         </div>
       </div>
 
@@ -220,7 +248,7 @@
         <form class="form-card" id="form-contacto" novalidate>
           <div class="field-group">
             <label for="nombre">Nombre completo</label>
-            <input type="text" id="nombre" name="nombre" placeholder="Ej: Dr. Martín García" required autocomplete="name" maxlength="120" />
+            <input type="text" id="nombre" name="nombre" placeholder="Ej: Dr. Martín García" required autocomplete="name" />
           </div>
           <div class="field-group">
             <label for="negocio">¿A qué te dedicás?</label>
@@ -237,11 +265,11 @@
           </div>
           <div class="field-group">
             <label for="whatsapp">Tu WhatsApp (con código de área)</label>
-            <input type="tel" id="whatsapp" name="whatsapp" placeholder="Ej: 1123456789" required autocomplete="tel" maxlength="20" />
+            <input type="tel" id="whatsapp" name="whatsapp" placeholder="Ej: 1123456789" required autocomplete="tel" />
           </div>
           <div class="field-group">
             <label for="mensaje">¿Qué proceso te consume más tiempo?</label>
-            <textarea id="mensaje" name="mensaje" rows="3" placeholder="Ej: confirmar turnos, responder consultas, seguir leads..." maxlength="800"></textarea>
+            <textarea id="mensaje" name="mensaje" rows="3" placeholder="Ej: confirmar turnos, responder consultas, seguir leads..."></textarea>
           </div>
           <button type="submit" class="btn btn-green btn-submit" id="btn-submit">
             <span class="btn-label">Quiero mi diagnóstico gratis →</span>
@@ -558,9 +586,9 @@
             <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.236 2.686.236v2.97h-1.514c-1.491 0-1.956.931-1.956 1.886v2.267h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg>
             Facebook
           </a>
-          <a href="https://www.instagram.com/f2aia_/" class="soc-link" target="_blank" rel="noopener" aria-label="Instagram @f2aia_">
+          <a href="https://instagram.com/f2aiaworking" class="soc-link" target="_blank" rel="noopener" aria-label="Instagram @f2aiaworking">
             <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
-            @f2aia_
+            @f2aiaworking
           </a>
         </div>
       </div>
@@ -586,42 +614,49 @@
     <span class="wa-label">Hablemos</span>
   </a>
 
+  <!-- DEMO COUNTER LOGIC -->
   <script>
   (function(){
     var READ_URL = 'https://n8n.f2aia.com/webhook/f2aia-counter';
     var INC_URL  = 'https://n8n.f2aia.com/webhook/f2aia-counter-inc';
+    var SECRET   = 'f2aia-wh-7k3x9m2q';
     var numEl    = document.getElementById('dlc-num');
 
     function setCount(n) {
       if (!numEl || !n) return;
       numEl.textContent = n;
       numEl.classList.remove('dlc-bump');
-      void numEl.offsetWidth;
+      void numEl.offsetWidth; // force reflow para reiniciar la animacion
       numEl.classList.add('dlc-bump');
     }
 
+    // Leer contador al cargar la pagina
     fetch(READ_URL)
-      .then(function(r){ return r.json(); })
-      .then(function(d){ if (d.count) setCount(d.count); })
-      .catch(function(){});
+      .then(function(r) { return r.json(); })
+      .then(function(d) { if (d.count) setCount(d.count); })
+      .catch(function() { /* falla silenciosa, muestra el 50 por defecto */ });
 
-    document.addEventListener('click', function(e){
+    // Interceptar clicks en todos los botones de demo (event delegation)
+    document.addEventListener('click', function(e) {
       var btn = e.target.closest('a[href="https://f2aia.com/demo"]');
       if (!btn) return;
       e.preventDefault();
       var url = btn.getAttribute('href');
+      // Abrir demo INMEDIATAMENTE (sincrono — evita bloqueadores de popups)
       window.open(url, '_blank', 'noopener,noreferrer');
+      // Incrementar contador (fire & forget — no bloquea la navegacion)
       fetch(INC_URL, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'application/json', 'X-F2AIA-Secret': SECRET },
         body: '{}'
       })
-      .then(function(r){ return r.json(); })
-      .then(function(d){ if (d.count) setCount(d.count); })
-      .catch(function(){});
+      .then(function(r) { return r.json(); })
+      .then(function(d) { if (d.count) setCount(d.count); })
+      .catch(function() {});
     });
   })();
   </script>
+
   <script defer src="main.js?v=20260613"></script>
 
 </body>
