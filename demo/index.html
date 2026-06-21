@@ -12,14 +12,14 @@
   <style>
     /* ─── VARIABLES ─────────────────────────────────────── */
     :root {
-      --bg:          #070707;
-      --bg-1:        #0f0f0f;
-      --bg-2:        #161616;
-      --bg-3:        #1c1c1c;
-      --accent:      #22c55e;
-      --accent-2:    #16a34a;
-      --accent-glow: rgba(34, 197, 94, 0.12);
-      --accent-line: rgba(34, 197, 94, 0.25);
+      --bg:          #08101c;
+      --bg-1:        #0e1525;
+      --bg-2:        #141e30;
+      --bg-3:        #1a2438;
+      --accent:      #00ff88;
+      --accent-2:    #00cc6e;
+      --accent-glow: rgba(0, 255, 136, 0.10);
+      --accent-line: rgba(0, 255, 136, 0.25);
       --error:       #ef4444;
       --error-glow:  rgba(239, 68, 68, 0.12);
       --text:        #f0f0f0;
@@ -51,9 +51,9 @@
       position: fixed;
       inset: 0;
       background-image:
-        radial-gradient(ellipse 60% 40% at 50% -10%, rgba(34,197,94,0.06) 0%, transparent 70%),
-        linear-gradient(rgba(34,197,94,0.025) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(34,197,94,0.025) 1px, transparent 1px);
+        radial-gradient(ellipse 65% 55% at 100% 0%, rgba(0,255,136,0.07) 0%, transparent 60%),
+        linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
       background-size: 100% 100%, 40px 40px, 40px 40px;
       pointer-events: none;
       z-index: 0;
@@ -270,7 +270,7 @@
     }
     .btn-start:hover {
       background: var(--accent-2);
-      box-shadow: 0 4px 20px rgba(34,197,94,0.3);
+      box-shadow: 0 4px 20px rgba(0,255,136,0.25);
       transform: translateY(-1px);
     }
     .btn-start:active { transform: translateY(0); }
@@ -473,7 +473,7 @@
     }
     .btn-cta-chat:hover {
       background: var(--accent-2);
-      box-shadow: 0 4px 20px rgba(34,197,94,0.35);
+      box-shadow: 0 4px 20px rgba(0,255,136,0.30);
       transform: translateY(-1px);
     }
 
@@ -590,7 +590,7 @@
       justify-content: center;
       font-size: 40px;
       animation: successPop 0.5s cubic-bezier(0.34,1.7,0.64,1);
-      box-shadow: 0 0 40px rgba(34,197,94,0.15);
+      box-shadow: 0 0 40px rgba(0,255,136,0.12);
     }
     @keyframes successPop {
       from { transform: scale(0); opacity: 0; }
@@ -645,7 +645,7 @@
     }
     .btn-calendly:hover {
       background: var(--accent-2);
-      box-shadow: 0 4px 24px rgba(34,197,94,0.35);
+      box-shadow: 0 4px 24px rgba(0,255,136,0.30);
       transform: translateY(-1px);
     }
 
@@ -869,7 +869,7 @@
     const CFG = {
       WEBHOOK_CHAT:    'https://n8n.f2aia.com/webhook/f2aia-chat',
       WEBHOOK_LEAD:    'https://n8n.f2aia.com/webhook/f2aia-lead',
-
+      SECRET:          'f2aia-wh-7k3x9m2q',  // header de seguridad — debe coincidir con n8n
       MAX_MSGS:        7,      // mensajes del usuario antes del cierre
       RATE_LIMIT_MS:   3000,   // ms mínimos entre envíos
     };
@@ -1022,7 +1022,7 @@
       // Disparar webhook lead inmediatamente (no bloqueante)
       fetch(CFG.WEBHOOK_LEAD, {
         method:  'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'application/json', 'X-F2AIA-Secret': CFG.SECRET },
         body: JSON.stringify({
           name:      S.name,
           phone:     S.phone,
@@ -1081,7 +1081,7 @@
       try {
         const res = await fetch(CFG.WEBHOOK_CHAT, {
           method:  'POST',
-          headers: { 'Content-Type': 'application/json' },
+          headers: { 'Content-Type': 'application/json', 'X-F2AIA-Secret': CFG.SECRET },
           body: JSON.stringify({
             message:       text,
             name:          S.name,
