@@ -77,7 +77,7 @@
     #intro-screen {
       align-items: center;
       justify-content: center;
-      padding: max(56px, calc(env(safe-area-inset-top) + 40px)) 24px 32px;
+      padding: calc(env(safe-area-inset-top) + 68px) 24px 32px;
       overflow-y: auto;
       gap: 24px;
     }
@@ -308,6 +308,7 @@
     #chat-screen {
       height: 100%;
       height: 100dvh;
+      padding-top: calc(44px + env(safe-area-inset-top));
     }
 
     /* Header */
@@ -574,7 +575,7 @@
     #success-screen {
       align-items: center;
       justify-content: center;
-      padding: 40px 24px;
+      padding: calc(env(safe-area-inset-top) + 64px) 24px 40px;
       gap: 28px;
       text-align: center;
       overflow-y: auto;
@@ -689,10 +690,69 @@
       padding: 0; margin: -1px; overflow: hidden;
       clip: rect(0,0,0,0); white-space: nowrap; border: 0;
     }
+
+    /* ─── TOP BAR — navegación persistente (volver / diagnóstico / whatsapp) ── */
+    .demo-topbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 60;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      padding: 0 10px;
+      padding-top: env(safe-area-inset-top);
+      height: calc(44px + env(safe-area-inset-top));
+      background: rgba(14, 21, 37, 0.82);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+    .demo-topbar a {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-family: var(--font);
+      font-size: 12.5px;
+      font-weight: 600;
+      color: var(--text-2);
+      text-decoration: none;
+      padding: 6px 10px;
+      border-radius: 99px;
+      white-space: nowrap;
+      transition: background 0.2s, color 0.2s;
+    }
+    .demo-topbar a:hover { color: var(--accent); background: var(--accent-glow); }
+    .demo-topbar .tb-right { display: flex; align-items: center; gap: 2px; }
+    .demo-topbar svg { width: 15px; height: 15px; flex-shrink: 0; }
+    @media (max-width: 360px) {
+      .demo-topbar a { font-size: 11.5px; padding: 6px 8px; }
+      .demo-topbar .tb-label-diag { display: none; }
+    }
   </style>
 </head>
 
 <body>
+
+  <!-- ══════════════════════════════════════════════════════
+       TOP BAR — navegación persistente
+  ══════════════════════════════════════════════════════ -->
+  <nav class="demo-topbar" aria-label="Navegación">
+    <a href="https://f2aia.com" aria-label="Volver a f2aia.com">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      <span>Volver a f2aia.com</span>
+    </a>
+    <div class="tb-right">
+      <a href="https://f2aia.com/diagnostico/" aria-label="Diagnóstico gratis">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+        <span class="tb-label-diag">Diagnóstico</span>
+      </a>
+      <a href="https://wa.me/5491164858166?text=Hola%21+Vengo+de+probar+el+agente+de+F2AIA+y+quiero+m%C3%A1s+info." target="_blank" rel="noopener" aria-label="Hablar por WhatsApp">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.15-1.8-.9-2-1-.3-.1-.5-.15-.7.15-.2.3-.8 1-.95 1.15-.2.15-.35.2-.65.05-.3-.15-1.25-.45-2.4-1.5-.9-.8-1.5-1.75-1.65-2.05-.15-.3 0-.45.15-.6.15-.15.3-.35.45-.55.15-.2.2-.3.3-.5.1-.2.05-.4 0-.55-.05-.15-.7-1.65-.95-2.25-.25-.6-.5-.5-.7-.5h-.55c-.2 0-.5.05-.75.35-.25.3-1 1-1 2.4 0 1.4 1.05 2.75 1.2 2.95.15.2 2.05 3.15 5 4.4.7.3 1.25.5 1.65.65.7.2 1.35.2 1.85.1.55-.1 1.8-.7 2.05-1.4.25-.7.25-1.25.2-1.4-.05-.15-.25-.2-.55-.35zM12 2a10 10 0 0 0-8.5 15.3L2 22l4.8-1.5A10 10 0 1 0 12 2z"/></svg>
+        <span class="sr-only">WhatsApp</span>
+      </a>
+    </div>
+  </nav>
 
   <!-- ══════════════════════════════════════════════════════
        SCREEN 1 — INTRO
@@ -1151,6 +1211,8 @@
       $(inputId).addEventListener('input', () => setFieldError(inputId, errorId, false));
     });
   </script>
+
+  <script defer src="/lib/cursor.js"></script>
 
 </body>
 </html>
