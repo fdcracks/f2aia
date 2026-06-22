@@ -841,7 +841,7 @@
            data-sitekey="0x4AAAAAADoyNyGwCzZ-Oc4N"
            data-callback="onTurnstileSuccess"
            data-expired-callback="onTurnstileExpired"
-           data-error-callback="onTurnstileExpired"
+           data-error-callback="onTurnstileError"
            data-theme="dark"
            data-refresh-expired="auto"
            style="margin: 2px auto 0;"></div>
@@ -951,13 +951,21 @@
 
     /* ── TURNSTILE (anti-bot del formulario) ────────────── */
     let turnstileToken = '';
+    let submitPending  = false;   // hay un "Iniciar demo" esperando token fresco
+    let submitTimer    = null;    // fallback por si Turnstile no responde
+
     window.onTurnstileSuccess = function (token) {
       turnstileToken = token;
       const note = document.getElementById('err-turnstile');
       if (note) note.classList.remove('show');
+      // Si el usuario ya apretó "Iniciar demo", ahora que llegó el token fresco, seguimos.
+      if (submitPending) finalizeSubmit();
     };
     window.onTurnstileExpired = function () {
       turnstileToken = '';  // el widget se auto-refresca (data-refresh-expired="auto")
+    };
+    window.onTurnstileError = function () {
+      turnstileToken = '';
     };
 
     /* ── ESTADO ─────────────────────────────────────────── */
@@ -1099,20 +1107,45 @@
 
       if (!nameOk || !rubroOk || !phoneOk) return;
 
-      // Portero anti-bot: sin token de Turnstile no se dispara el lead
-      if (!turnstileToken) {
-        const note = $('err-turnstile');
-        note.textContent = '🔒 Verificando que sos una persona, esperá un segundo e intentá de nuevo...';
-        note.classList.add('show');
-        return;
-      }
-
       // Guardar estado
       S.name      = name;
       S.rubro     = rubro;
       S.phone     = '54' + rawPhone;
       S.sessionId = uid();
 
+      // Pedir un token FRESCO de Turnstile en este instante (los tokens vencen a los 5 min).
+      // Así un usuario que dejó el form abierto un rato igual envía un token válido.
+      const note = $('err-turnstile');
+      note.textContent = '🔒 Verificando que sos una persona...';
+      note.classList.add('show');
+      submitPending  = true;
+      turnstileToken = '';   // descartar cualquier token viejo/posiblemente vencido
+
+      // Fallback: si en 8s no llega un token fresco, avisar (nunca enviamos uno vencido).
+      if (submitTimer) clearTimeout(submitTimer);
+      submitTimer = setTimeout(() => {
+        if (!submitPending) return;
+        submitPending = false;
+        note.textContent = '🔒 No pudimos verificar que sos una persona. Recargá la página e intentá de nuevo.';
+        note.classList.add('show');
+      }, 8000);
+
+      // Re-ejecutar Turnstile → dispara onTurnstileSuccess con un token nuevo → finalizeSubmit()
+      if (window.turnstile) {
+        try { turnstile.reset(); } catch (e) { /* si falla, salta el fallback de 8s */ }
+      }
+    }
+
+    /* ── Se llama cuando ya tenemos un token FRESCO confirmado ──── */
+    function finalizeSubmit() {
+      if (!submitPending || !turnstileToken) return;
+      submitPending = false;
+      if (submitTimer) { clearTimeout(submitTimer); submitTimer = null; }
+      $('err-turnstile').classList.remove('show');
+      proceedWithDemo();
+    }
+
+    function proceedWithDemo() {
       // Disparar webhook lead inmediatamente (no bloqueante)
       fetch(CFG.WEBHOOK_LEAD, {
         method:  'POST',
@@ -1140,8 +1173,8 @@
       setInput(true);
       setTimeout(() => {
         appendBotMsg(
-          `¡Hola *${name}*! 👋 Soy *Valentina*, agente de inteligencia artificial de F2AIA.\n\n` +
-          `Vi que tenés un negocio de *${rubro}*. Voy a mostrarte cómo respondería el sistema a tus clientes.\n\n` +
+          `¡Hola *${S.name}*! 👋 Soy *Valentina*, agente de inteligencia artificial de F2AIA.\n\n` +
+          `Vi que tenés un negocio de *${S.rubro}*. Voy a mostrarte cómo respondería el sistema a tus clientes.\n\n` +
           `¿Cuál es la consulta que más seguido recibís?`
         );
         setInput(false);
