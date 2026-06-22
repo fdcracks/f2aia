@@ -9,6 +9,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
+  <!-- Cloudflare Turnstile — verificación anti-bot (gratis, invisible) -->
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+
   <style>
     /* ─── VARIABLES ─────────────────────────────────────── */
     :root {
@@ -833,6 +836,17 @@
         <p>Tus datos son confidenciales. Solo los usamos para enviarte la demo y contactarte si te interesa el sistema.</p>
       </div>
 
+      <!-- Cloudflare Turnstile — portero anti-bot (gratis, casi siempre invisible) -->
+      <div class="cf-turnstile"
+           data-sitekey="0x4AAAAAADoyNyGwCzZ-Oc4N"
+           data-callback="onTurnstileSuccess"
+           data-expired-callback="onTurnstileExpired"
+           data-error-callback="onTurnstileExpired"
+           data-theme="dark"
+           data-refresh-expired="auto"
+           style="margin: 2px auto 0;"></div>
+      <p class="field-error" id="err-turnstile">🔒 Verificando que sos una persona, esperá un segundo...</p>
+
       <button class="btn-start" onclick="startDemo()">
         Iniciar demo en vivo
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -929,9 +943,21 @@
     const CFG = {
       WEBHOOK_CHAT:    'https://n8n.f2aia.com/webhook/f2aia-chat',
       WEBHOOK_LEAD:    'https://n8n.f2aia.com/webhook/f2aia-lead',
-      SECRET:          'f2aia-wh-7k3x9m2q',  // header de seguridad — debe coincidir con n8n
+      SECRET_CHAT:     'f2aia-chat-3p8w5n1v',  // header chat — debe coincidir con credencial n8n "F2AIA Chat Secret"
+      SECRET_LEAD:     'f2aia-lead-9x4k2m7q',  // header lead — debe coincidir con credencial n8n "F2AIA Lead Secret"
       MAX_MSGS:        7,      // mensajes del usuario antes del cierre
       RATE_LIMIT_MS:   3000,   // ms mínimos entre envíos
+    };
+
+    /* ── TURNSTILE (anti-bot del formulario) ────────────── */
+    let turnstileToken = '';
+    window.onTurnstileSuccess = function (token) {
+      turnstileToken = token;
+      const note = document.getElementById('err-turnstile');
+      if (note) note.classList.remove('show');
+    };
+    window.onTurnstileExpired = function () {
+      turnstileToken = '';  // el widget se auto-refresca (data-refresh-expired="auto")
     };
 
     /* ── ESTADO ─────────────────────────────────────────── */
@@ -1073,6 +1099,14 @@
 
       if (!nameOk || !rubroOk || !phoneOk) return;
 
+      // Portero anti-bot: sin token de Turnstile no se dispara el lead
+      if (!turnstileToken) {
+        const note = $('err-turnstile');
+        note.textContent = '🔒 Verificando que sos una persona, esperá un segundo e intentá de nuevo...';
+        note.classList.add('show');
+        return;
+      }
+
       // Guardar estado
       S.name      = name;
       S.rubro     = rubro;
@@ -1082,13 +1116,14 @@
       // Disparar webhook lead inmediatamente (no bloqueante)
       fetch(CFG.WEBHOOK_LEAD, {
         method:  'POST',
-        headers: { 'Content-Type': 'application/json', 'X-F2AIA-Secret': CFG.SECRET },
+        headers: { 'Content-Type': 'application/json', 'X-F2AIA-Secret': CFG.SECRET_LEAD },
         body: JSON.stringify({
-          name:      S.name,
-          phone:     S.phone,
-          rubro:     S.rubro,
-          fuente:    'demo-web',
-          sessionId: S.sessionId,
+          name:           S.name,
+          phone:          S.phone,
+          rubro:          S.rubro,
+          fuente:         'demo-web',
+          sessionId:      S.sessionId,
+          turnstileToken: turnstileToken,
         }),
       }).catch(err => console.error('[F2AIA Lead]', err));
 
@@ -1141,7 +1176,7 @@
       try {
         const res = await fetch(CFG.WEBHOOK_CHAT, {
           method:  'POST',
-          headers: { 'Content-Type': 'application/json', 'X-F2AIA-Secret': CFG.SECRET },
+          headers: { 'Content-Type': 'application/json', 'X-F2AIA-Secret': CFG.SECRET_CHAT },
           body: JSON.stringify({
             message:       text,
             name:          S.name,
