@@ -369,34 +369,50 @@
       <div class="sec-head reveal"><p class="kicker">Cómo funciona</p><h2>Un agente de IA en tu WhatsApp,<br><span class="green-text">conectado a tu negocio.</span></h2></div>
       <div class="flow-wrap reveal">
         <!-- DESKTOP: horizontal -->
-        <svg class="flow-desktop" viewBox="0 0 900 300" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Flujo: mensaje entrante, Neura agente, decisión, responde o deriva">
+        <svg class="flow-desktop" viewBox="0 0 960 380" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Flujo n8n: mensaje entrante, agente Neura con modelo/memoria/herramientas, decisión, responde o deriva">
           <defs><marker id="ahd" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#00FF88"/></marker></defs>
-          <line x1="185" y1="150" x2="250" y2="150" stroke="rgba(255,255,255,.25)" stroke-width="1.5" marker-end="url(#ahd)"/>
-          <line x1="470" y1="150" x2="530" y2="150" stroke="rgba(255,255,255,.25)" stroke-width="1.5" marker-end="url(#ahd)"/>
-          <path d="M650 150 C 690 150, 690 90, 730 90" fill="none" stroke="rgba(0,255,136,.4)" stroke-width="1.5" marker-end="url(#ahd)"/>
-          <path d="M650 150 C 690 150, 690 215, 730 215" fill="none" stroke="rgba(255,255,255,.2)" stroke-width="1.5" marker-end="url(#ahd)"/>
-          <g><rect x="40" y="120" width="145" height="60" rx="12" fill="#0E0E0E" stroke="rgba(255,255,255,.14)"/><text x="60" y="146" fill="#fff" font-family="Inter" font-size="14" font-weight="600">Mensaje</text><text x="60" y="164" fill="rgba(255,255,255,.5)" font-family="JetBrains Mono" font-size="11">whatsapp</text></g>
-          <g><rect x="250" y="108" width="220" height="84" rx="14" fill="#0E0E0E" stroke="rgba(0,255,136,.3)"/><text x="278" y="146" fill="#fff" font-family="Fraunces" font-size="17" font-weight="700">Neura · Agente IA</text><text x="278" y="168" fill="rgba(255,255,255,.5)" font-family="JetBrains Mono" font-size="11">atiende + califica</text></g>
-          <g><rect x="530" y="120" width="120" height="60" rx="12" fill="#0E0E0E" stroke="rgba(255,255,255,.14)"/><text x="552" y="155" fill="#fff" font-family="Inter" font-size="14" font-weight="600">¿Resuelve?</text></g>
-          <g><rect x="730" y="62" width="150" height="56" rx="12" fill="#0E0E0E" stroke="rgba(0,255,136,.3)"/><text x="752" y="95" fill="#fff" font-family="Inter" font-size="14" font-weight="600">Responde 24/7</text></g>
-          <g><rect x="730" y="188" width="150" height="56" rx="12" fill="#0E0E0E" stroke="rgba(255,255,255,.14)"/><text x="752" y="221" fill="#fff" font-family="Inter" font-size="14" font-weight="600">Deriva a tu equipo</text></g>
-          <text x="690" y="80" fill="#00FF88" font-family="JetBrains Mono" font-size="11">sí</text>
-          <text x="688" y="208" fill="rgba(255,255,255,.5)" font-family="JetBrains Mono" font-size="11">no</text>
+          <path id="c1" d="M150 150 H210" fill="none" stroke="rgba(255,255,255,.22)" stroke-width="1.4" marker-end="url(#ahd)"/>
+          <path id="c2" d="M430 150 H500" fill="none" stroke="rgba(255,255,255,.22)" stroke-width="1.4" marker-end="url(#ahd)"/>
+          <path id="c3" d="M610 150 C 660 150,660 92,720 92" fill="none" stroke="rgba(0,255,136,.4)" stroke-width="1.4" marker-end="url(#ahd)"/>
+          <path id="c4" d="M610 150 C 660 150,660 262,720 262" fill="none" stroke="rgba(255,255,255,.2)" stroke-width="1.4" marker-end="url(#ahd)"/>
+          <circle r="3" fill="#00FF88"><animateMotion dur="2s" repeatCount="indefinite"><mpath href="#c1"/></animateMotion></circle>
+          <circle r="3" fill="#00FF88"><animateMotion dur="2.2s" repeatCount="indefinite" begin="0.4s"><mpath href="#c2"/></animateMotion></circle>
+          <circle r="3" fill="#00FF88"><animateMotion dur="2.4s" repeatCount="indefinite" begin="0.8s"><mpath href="#c3"/></animateMotion></circle>
+          <circle r="3" fill="#00FF88"><animateMotion dur="2.4s" repeatCount="indefinite" begin="1s"><mpath href="#c4"/></animateMotion></circle>
+          <g><rect x="20" y="122" width="130" height="56" rx="12" fill="#0E0E0E" stroke="rgba(255,255,255,.14)"/><text x="44" y="148" fill="#fff" font-family="Inter" font-size="13" font-weight="600">Mensaje</text><text x="44" y="166" fill="rgba(255,255,255,.5)" font-family="JetBrains Mono" font-size="10">whatsapp / web</text></g>
+          <g><rect x="210" y="108" width="220" height="84" rx="14" fill="#0E0E0E" stroke="rgba(0,255,136,.3)"/><text x="238" y="142" fill="#fff" font-family="Fraunces" font-size="17" font-weight="600">Neura · Agente IA</text><text x="238" y="164" fill="rgba(255,255,255,.5)" font-family="JetBrains Mono" font-size="10">atiende + califica</text></g>
+          <path d="M260 192 V232" stroke="rgba(255,255,255,.14)" stroke-width="1" stroke-dasharray="3 4"/><path d="M320 192 V232" stroke="rgba(255,255,255,.14)" stroke-width="1" stroke-dasharray="3 4"/><path d="M380 192 V232" stroke="rgba(255,255,255,.14)" stroke-width="1" stroke-dasharray="3 4"/>
+          <g><circle cx="260" cy="248" r="16" fill="#0E0E0E" stroke="rgba(0,255,136,.3)"/><text x="260" y="284" text-anchor="middle" fill="rgba(255,255,255,.55)" font-family="Inter" font-size="10">Modelo</text></g>
+          <g><circle cx="320" cy="248" r="16" fill="#0E0E0E" stroke="rgba(0,255,136,.3)"/><text x="320" y="284" text-anchor="middle" fill="rgba(255,255,255,.55)" font-family="Inter" font-size="10">Memoria</text></g>
+          <g><circle cx="380" cy="248" r="16" fill="#0E0E0E" stroke="rgba(0,255,136,.3)"/><text x="380" y="284" text-anchor="middle" fill="rgba(255,255,255,.55)" font-family="Inter" font-size="10">CRM</text></g>
+          <g><rect x="500" y="122" width="110" height="56" rx="12" fill="#0E0E0E" stroke="rgba(255,255,255,.14)"/><text x="555" y="155" text-anchor="middle" fill="#fff" font-family="Inter" font-size="13" font-weight="600">¿Resuelve?</text></g>
+          <g><rect x="720" y="64" width="150" height="56" rx="12" fill="#0E0E0E" stroke="rgba(0,255,136,.3)"/><text x="740" y="90" fill="#fff" font-family="Inter" font-size="13" font-weight="600">Responde 24/7</text><text x="740" y="107" fill="rgba(255,255,255,.5)" font-family="JetBrains Mono" font-size="9">registra + agenda</text></g>
+          <g><rect x="720" y="234" width="150" height="56" rx="12" fill="#0E0E0E" stroke="rgba(255,255,255,.14)"/><text x="740" y="260" fill="#fff" font-family="Inter" font-size="13" font-weight="600">Deriva a tu equipo</text><text x="740" y="277" fill="rgba(255,255,255,.5)" font-family="JetBrains Mono" font-size="9">aviso telegram</text></g>
+          <text x="662" y="84" fill="#00FF88" font-family="JetBrains Mono" font-size="10">sí</text>
+          <text x="660" y="256" fill="rgba(255,255,255,.5)" font-family="JetBrains Mono" font-size="10">no</text>
         </svg>
         <!-- MÓVIL: vertical -->
-        <svg class="flow-mobile" viewBox="0 0 360 620" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Flujo vertical: mensaje, Neura agente, decisión, responde o deriva">
+        <svg class="flow-mobile" viewBox="0 0 360 560" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Flujo vertical n8n: mensaje entrante, agente Neura con modelo/memoria/CRM, decisión, responde o deriva">
           <defs><marker id="ahm" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#00FF88"/></marker></defs>
-          <line x1="180" y1="80" x2="180" y2="148" stroke="rgba(255,255,255,.25)" stroke-width="1.5" marker-end="url(#ahm)"/>
-          <line x1="180" y1="218" x2="180" y2="298" stroke="rgba(255,255,255,.25)" stroke-width="1.5" marker-end="url(#ahm)"/>
-          <path d="M180 356 C 180 405, 96 400, 96 438" fill="none" stroke="rgba(0,255,136,.4)" stroke-width="1.5" marker-end="url(#ahm)"/>
-          <path d="M180 356 C 180 405, 266 400, 266 438" fill="none" stroke="rgba(255,255,255,.2)" stroke-width="1.5" marker-end="url(#ahm)"/>
-          <g><rect x="110" y="24" width="140" height="54" rx="12" fill="#0E0E0E" stroke="rgba(255,255,255,.14)"/><text x="180" y="47" text-anchor="middle" fill="#fff" font-family="Inter" font-size="14" font-weight="600">Mensaje</text><text x="180" y="65" text-anchor="middle" fill="rgba(255,255,255,.5)" font-family="JetBrains Mono" font-size="11">whatsapp</text></g>
-          <g><rect x="88" y="150" width="184" height="66" rx="14" fill="#0E0E0E" stroke="rgba(0,255,136,.3)"/><text x="180" y="180" text-anchor="middle" fill="#fff" font-family="Fraunces" font-size="15" font-weight="700">Neura · Agente IA</text><text x="180" y="200" text-anchor="middle" fill="rgba(255,255,255,.5)" font-family="JetBrains Mono" font-size="10">atiende + califica</text></g>
-          <g><rect x="118" y="300" width="124" height="54" rx="12" fill="#0E0E0E" stroke="rgba(255,255,255,.14)"/><text x="180" y="332" text-anchor="middle" fill="#fff" font-family="Inter" font-size="14" font-weight="600">¿Resuelve?</text></g>
-          <g><rect x="26" y="438" width="140" height="52" rx="12" fill="#0E0E0E" stroke="rgba(0,255,136,.3)"/><text x="96" y="469" text-anchor="middle" fill="#fff" font-family="Inter" font-size="13" font-weight="600">Responde 24/7</text></g>
-          <g><rect x="196" y="438" width="140" height="52" rx="12" fill="#0E0E0E" stroke="rgba(255,255,255,.14)"/><text x="266" y="463" text-anchor="middle" fill="#fff" font-family="Inter" font-size="12.5" font-weight="600">Deriva a tu</text><text x="266" y="479" text-anchor="middle" fill="#fff" font-family="Inter" font-size="12.5" font-weight="600">equipo</text></g>
-          <text x="120" y="418" fill="#00FF88" font-family="JetBrains Mono" font-size="11">sí</text>
-          <text x="238" y="418" fill="rgba(255,255,255,.5)" font-family="JetBrains Mono" font-size="11">no</text>
+          <path id="mm1" d="M180 78 V140" fill="none" stroke="rgba(255,255,255,.22)" stroke-width="1.4" marker-end="url(#ahm)"/>
+          <path id="mm2" d="M180 310 V356" fill="none" stroke="rgba(255,255,255,.22)" stroke-width="1.4" marker-end="url(#ahm)"/>
+          <path id="mm3" d="M180 412 C 180 436,96 424,96 460" fill="none" stroke="rgba(0,255,136,.4)" stroke-width="1.4" marker-end="url(#ahm)"/>
+          <path id="mm4" d="M180 412 C 180 436,266 424,266 460" fill="none" stroke="rgba(255,255,255,.2)" stroke-width="1.4" marker-end="url(#ahm)"/>
+          <circle r="3" fill="#00FF88"><animateMotion dur="2s" repeatCount="indefinite"><mpath href="#mm1"/></animateMotion></circle>
+          <circle r="3" fill="#00FF88"><animateMotion dur="2.2s" repeatCount="indefinite" begin="0.4s"><mpath href="#mm2"/></animateMotion></circle>
+          <circle r="3" fill="#00FF88"><animateMotion dur="2.4s" repeatCount="indefinite" begin="0.8s"><mpath href="#mm3"/></animateMotion></circle>
+          <circle r="3" fill="#00FF88"><animateMotion dur="2.4s" repeatCount="indefinite" begin="1s"><mpath href="#mm4"/></animateMotion></circle>
+          <g><rect x="110" y="24" width="140" height="54" rx="12" fill="#0E0E0E" stroke="rgba(255,255,255,.14)"/><text x="180" y="47" text-anchor="middle" fill="#fff" font-family="Inter" font-size="13" font-weight="600">Mensaje</text><text x="180" y="65" text-anchor="middle" fill="rgba(255,255,255,.5)" font-family="JetBrains Mono" font-size="10">whatsapp / web</text></g>
+          <g><rect x="80" y="140" width="200" height="80" rx="14" fill="#0E0E0E" stroke="rgba(0,255,136,.3)"/><text x="180" y="170" text-anchor="middle" fill="#fff" font-family="Fraunces" font-size="15" font-weight="600">Neura · Agente IA</text><text x="180" y="190" text-anchor="middle" fill="rgba(255,255,255,.5)" font-family="JetBrains Mono" font-size="10">atiende + califica</text></g>
+          <path d="M130 220 V250" stroke="rgba(255,255,255,.14)" stroke-width="1" stroke-dasharray="3 4"/><path d="M180 220 V250" stroke="rgba(255,255,255,.14)" stroke-width="1" stroke-dasharray="3 4"/><path d="M230 220 V250" stroke="rgba(255,255,255,.14)" stroke-width="1" stroke-dasharray="3 4"/>
+          <g><circle cx="130" cy="265" r="15" fill="#0E0E0E" stroke="rgba(0,255,136,.3)"/><text x="130" y="298" text-anchor="middle" fill="rgba(255,255,255,.55)" font-family="Inter" font-size="9">Modelo</text></g>
+          <g><circle cx="180" cy="265" r="15" fill="#0E0E0E" stroke="rgba(0,255,136,.3)"/><text x="180" y="298" text-anchor="middle" fill="rgba(255,255,255,.55)" font-family="Inter" font-size="9">Memoria</text></g>
+          <g><circle cx="230" cy="265" r="15" fill="#0E0E0E" stroke="rgba(0,255,136,.3)"/><text x="230" y="298" text-anchor="middle" fill="rgba(255,255,255,.55)" font-family="Inter" font-size="9">CRM</text></g>
+          <g><rect x="118" y="356" width="124" height="56" rx="12" fill="#0E0E0E" stroke="rgba(255,255,255,.14)"/><text x="180" y="389" text-anchor="middle" fill="#fff" font-family="Inter" font-size="13" font-weight="600">¿Resuelve?</text></g>
+          <g><rect x="26" y="460" width="140" height="64" rx="12" fill="#0E0E0E" stroke="rgba(0,255,136,.3)"/><text x="96" y="488" text-anchor="middle" fill="#fff" font-family="Inter" font-size="13" font-weight="600">Responde 24/7</text><text x="96" y="507" text-anchor="middle" fill="rgba(255,255,255,.5)" font-family="JetBrains Mono" font-size="9">registra + agenda</text></g>
+          <g><rect x="196" y="460" width="140" height="64" rx="12" fill="#0E0E0E" stroke="rgba(255,255,255,.14)"/><text x="266" y="482" text-anchor="middle" fill="#fff" font-family="Inter" font-size="13" font-weight="600">Deriva a</text><text x="266" y="498" text-anchor="middle" fill="#fff" font-family="Inter" font-size="13" font-weight="600">tu equipo</text><text x="266" y="515" text-anchor="middle" fill="rgba(255,255,255,.5)" font-family="JetBrains Mono" font-size="8">aviso telegram</text></g>
+          <text x="118" y="440" fill="#00FF88" font-family="JetBrains Mono" font-size="10">sí</text>
+          <text x="238" y="440" fill="rgba(255,255,255,.5)" font-family="JetBrains Mono" font-size="10">no</text>
         </svg>
       </div>
       <div class="steps">
