@@ -56,7 +56,7 @@
     // recorrido de la murmuración anclado al inicio de la FASE 3 (0=izq .. 1=der), no al reloj absoluto
     var phase = murmurT0 ? Math.min(1,(sec-murmurT0)/2.6) : 1;
     var sweep = phase<1 ? phase*phase*(3-2*phase) : 1;   // smoothstep: entra izq -> cruza centro -> converge der
-    var headX=W*(0.12+0.62*sweep), headY=CY;             // headX: 0.12W (izq) -> 0.74W = CX (der, donde nace el orbe)
+    var headX=W*0.12+(CX-W*0.12)*sweep, headY=CY;        // izq (0.12W) -> CX real (0.74W desktop / 0.5W movil), sin salto
     var AT=[
       {x:headX,                         y:headY+H*0.10*Math.sin(ft*1.3)},
       {x:headX-W*0.10+W*0.05*Math.cos(ft), y:headY+H*0.16*Math.cos(ft*0.9+1.2)},
