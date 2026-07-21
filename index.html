@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>F2AIA — Sistemas autónomos con IA | Neura · Buenos Aires</title>
-  <meta name="description" content="F2AIA implementa Neura: atención por WhatsApp con IA 24/7 que responde, califica y agenda sola, y deriva a una persona cuando hace falta. Automatización para negocios. Buenos Aires." />
+  <title>F2AIA Lab — Sistemas autónomos con IA | Neura · Buenos Aires</title>
+  <meta name="description" content="Diseñamos e implementamos sistemas autónomos con IA. Neura, nuestro producto estrella, atiende tu WhatsApp 24/7: responde, califica y agenda, y deriva a una persona cuando hace falta. Buenos Aires." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://www.f2aia.com/" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://www.f2aia.com/" />
-  <meta property="og:title" content="F2AIA — Sistemas autónomos con IA" />
-  <meta property="og:description" content="Neura atiende tu WhatsApp 24/7 con IA y te pasa la charla cuando hace falta. Automatización con IA para negocios." />
+  <meta property="og:title" content="F2AIA Lab — Sistemas autónomos con IA" />
+  <meta property="og:description" content="Diseñamos e implementamos sistemas autónomos con IA. Neura, nuestro producto estrella, atiende tu WhatsApp 24/7: responde, califica y agenda, y deriva a una persona cuando hace falta. Buenos Aires." />
   <meta property="og:locale" content="es_AR" />
   <meta property="og:site_name" content="F2AIA" />
   <meta name="twitter:card" content="summary_large_image" />
@@ -121,12 +121,6 @@
   .stat .n .u{ font-size:.5em; margin-left:2px; color:var(--green-soft) }
   .stat .l{ font-size:12.5px; color:var(--muted); margin-top:8px; line-height:1.35 }
 
-  /* ═══ TICKER ═══ */
-  .ticker{ z-index:10; position:relative; border-top:1px solid var(--line); border-bottom:1px solid var(--line); padding:20px 0; overflow:hidden; background:rgba(7,7,7,.6); white-space:nowrap }
-  .ticker-track{ display:inline-flex; gap:40px; align-items:center; animation:scroll 26s linear infinite; font-family:'JetBrains Mono',monospace; font-size:14px; color:var(--muted) }
-  .ticker-track .sep{ color:var(--green) }
-  @keyframes scroll{ from{transform:translateX(0)} to{transform:translateX(-50%)} }
-
   /* ═══ REVEAL ═══ */
   .reveal{ opacity:0; transform:translateY(24px); transition:opacity .7s var(--ease), transform .7s var(--ease) }
   .reveal.is-visible{ opacity:1; transform:none }
@@ -143,9 +137,6 @@
   .sec-head p.lead{ color:var(--text); margin-top:14px; font-weight:300; font-size:17px }
 
   .grid-3{ display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:22px }
-
-  /* PROBLEMA */
-  .prob-card .num{ font-family:'JetBrains Mono',monospace; color:rgba(0,255,136,.4); font-size:13px; font-weight:700; margin-bottom:14px }
 
   /* SOLUCIÓN / WORKFLOW */
   /* workflow transparente (se ve el fondo), horizontal desktop / vertical móvil */
@@ -238,11 +229,6 @@
   .form-disclaimer{ font-size:12px; color:var(--muted); text-align:center; margin-top:14px }
   .form-consent{ font-size:12px; color:var(--muted); margin-top:10px; text-align:center } .form-consent a{ color:var(--green-soft) }
 
-  /* CTA FINAL */
-  .cta-final .card{ text-align:center; padding:clamp(36px,6vw,72px) }
-  .cta-final h2{ margin-bottom:14px } .cta-final p{ color:var(--text); margin-bottom:28px }
-  .cta-btns{ display:flex; gap:14px; justify-content:center; flex-wrap:wrap }
-
   /* FOOTER */
   footer{ position:relative; z-index:10; border-top:1px solid var(--line); background:rgba(7,7,7,.85); padding:56px 0 30px }
   .foot-grid{ display:grid; grid-template-columns:1.4fr 1fr 1fr; gap:40px; margin-bottom:36px }
@@ -307,7 +293,7 @@
     <div class="nav-inner">
       <a href="#" class="nav-logo"><span class="iso"></span>F2<span>AIA</span></a>
       <ul class="nav-links" role="list">
-        <li><a href="#servicios">Soluciones</a></li>
+        <li><a href="#servicios">Qué hacemos</a></li>
         <li><a href="#neura" class="hot">Neura</a></li>
         <li><a href="#roi">Calcular ROI</a></li>
         <li><a href="#como-funciona">Cómo funciona</a></li>
@@ -316,7 +302,7 @@
       <button class="nav-burger" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-mobile"><span></span><span></span><span></span></button>
     </div>
     <div class="nav-mobile" id="nav-mobile" aria-hidden="true">
-      <a href="#servicios">Soluciones</a>
+      <a href="#servicios">Qué hacemos</a>
       <a href="#neura">Neura</a>
       <a href="#roi">Calcular ROI</a>
       <a href="#como-funciona">Cómo funciona</a>
@@ -328,45 +314,27 @@
   <section class="hero" id="hero" aria-label="Portada">
     <div class="container">
       <div class="hero-l" id="hero-l">
-        <div class="eyebrow"><span class="d"></span> Automatización con IA · Buenos Aires</div>
+        <div class="eyebrow"><span class="d"></span> F2AIA Lab · Automatización e IA · Buenos Aires</div>
         <h1>Sistemas <em>autónomos</em> con IA.</h1>
-        <p class="sub">Neura atiende tu WhatsApp <b>24/7</b>: responde, califica y agenda sola. Cuando hace falta, le pasa la charla a tu equipo — sin fricción.</p>
+        <p class="sub">Diseñamos e implementamos sistemas con IA que atienden, venden y operan solos. Empezá por <b>Neura</b>: tu WhatsApp respondido <b>24/7</b>, con toma de control humana cuando hace falta.</p>
         <div class="hero-ctas">
           <a href="https://f2aia.com/demo" class="btn btn-primary">Probá a Neura <span class="ar">→</span></a>
           <a href="https://f2aia.com/diagnostico/" class="btn btn-ghost">Diagnóstico gratis</a>
         </div>
         <div class="stats">
-          <div class="stat"><div class="n"><span class="count-up" data-target="80">0</span><span class="u">%</span></div><div class="l">de tus tareas<br>eliminadas</div></div>
           <div class="stat"><div class="n"><span class="count-up" data-target="24">0</span><span class="u">H</span></div><div class="l">atención sin<br>interrupciones</div></div>
-          <div class="stat"><div class="n"><span class="count-up" data-target="3">0</span><span class="u">×</span></div><div class="l">más leads<br>calificados</div></div>
           <div class="stat"><div class="n"><span class="count-up" data-target="15">0</span><span class="u">D</span></div><div class="l">de idea a<br>sistema activo</div></div>
+          <div class="stat"><div class="n"><span class="count-up" data-target="700">0</span><span class="u">+</span></div><div class="l">integraciones<br>posibles (n8n)</div></div>
+          <div class="stat"><div class="n"><span class="count-up" data-target="0">0</span></div><div class="l">abono por<br>agente</div></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- TICKER -->
-  <div class="ticker" aria-hidden="true"><div class="ticker-track">
-    <span>WhatsApp Cloud API</span><span class="sep">✦</span><span>n8n</span><span class="sep">✦</span><span>OpenAI · GPT-4o</span><span class="sep">✦</span><span>Google Sheets</span><span class="sep">✦</span><span>Telegram</span><span class="sep">✦</span><span>Cloudflare Turnstile</span><span class="sep">✦</span><span>Agentes IA</span><span class="sep">✦</span>
-    <span>WhatsApp Cloud API</span><span class="sep">✦</span><span>n8n</span><span class="sep">✦</span><span>OpenAI · GPT-4o</span><span class="sep">✦</span><span>Google Sheets</span><span class="sep">✦</span><span>Telegram</span><span class="sep">✦</span><span>Cloudflare Turnstile</span><span class="sep">✦</span><span>Agentes IA</span><span class="sep">✦</span>
-  </div></div>
-
-  <!-- PROBLEMA -->
-  <section id="problema" aria-label="El problema">
-    <div class="container">
-      <div class="sec-head reveal"><p class="kicker">El problema</p><h2>Sin automatización, tu negocio<br><span class="green-text">pierde clientes cada día.</span></h2></div>
-      <div class="grid-3">
-        <div class="card prob-card reveal"><div class="num">01</div><h3>Fuera de horario, nadie responde</h3><p>A las 11pm llega una consulta y el cliente se va con el que le contestó primero. Cada noche y cada fin de semana.</p></div>
-        <div class="card prob-card reveal"><div class="num">02</div><h3>Tu equipo se satura</h3><p>Responder lo mismo 20 veces (precios, horarios, "¿tienen tal cosa?") consume horas que deberían ir a vender.</p></div>
-        <div class="card prob-card reveal"><div class="num">03</div><h3>Se pierden mensajes</h3><p>Entre el volumen, hay consultas que nunca se responden. Y una consulta sin responder es una venta que no pasa.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SOLUCIÓN / CÓMO FUNCIONA -->
+  <!-- SOLUCIÓN / CÓMO FUNCIONA (absorbe el problema) -->
   <section id="como-funciona" aria-label="Cómo funciona Neura">
     <div class="container">
-      <div class="sec-head reveal"><p class="kicker">Cómo funciona</p><h2>Un agente de IA en tu WhatsApp,<br><span class="green-text">conectado a tu negocio.</span></h2></div>
+      <div class="sec-head reveal"><p class="kicker">Cómo funciona</p><h2>Un agente de IA en tu WhatsApp,<br><span class="green-text">conectado a tu negocio.</span></h2><p class="lead">Fuera de horario nadie responde, tu equipo se satura con lo repetitivo y se pierden mensajes. Neura contesta al instante 24/7 y deriva a una persona cuando conviene.</p></div>
       <div class="flow-wrap reveal">
         <!-- DESKTOP: horizontal -->
         <svg class="flow-desktop" viewBox="0 0 960 380" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Flujo n8n: mensaje entrante, agente Neura con modelo/memoria/herramientas, decisión, responde o deriva">
@@ -424,44 +392,10 @@
     </div>
   </section>
 
-  <!-- CAPACIDADES BENTO -->
-  <section id="servicios" aria-label="Capacidades">
-    <div class="container">
-      <div class="sec-head reveal"><p class="kicker">Lo que hacemos</p><h2>Todo tu negocio,<br><span class="green-text">en un solo sistema.</span></h2></div>
-      <div class="bento">
-        <article class="card wide reveal"><span class="tag">Más popular</span><div class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div><h3>Agente WhatsApp IA</h3><p>Responde, agenda y convierte consultas en clientes las 24 horas, con la información y el tono de tu negocio.</p></article>
-        <article class="card reveal"><div class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg></div><h3>CRM Inteligente</h3><p>Seguimiento de cada lead e historial completo por cliente, siempre al día.</p></article>
-        <article class="card reveal"><div class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10"/></svg></div><h3>Turnos Automáticos</h3><p>Flujos que coordinan agenda, recordatorios y confirmaciones sin llamadas.</p></article>
-        <article class="card wide reveal"><div class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></div><h3>Integración total</h3><p>Conectamos WhatsApp, Instagram, tu calendario y tus herramientas actuales en un flujo único, en piloto automático.</p></article>
-      </div>
-    </div>
-  </section>
-
-  <!-- ROI -->
-  <section id="roi" aria-label="Simulador de ahorro">
-    <div class="container">
-      <div class="sec-head reveal"><p class="kicker">Calculá el impacto</p><h2>¿Cuánto te cuesta<br><span class="green-text">hacerlo a mano?</span></h2></div>
-      <div class="roi-card reveal">
-        <div class="roi-controls">
-          <label><span class="lab">Horas semanales en tareas repetitivas <span class="val" id="v-horas">40</span></span><input type="range" id="r-horas" min="10" max="500" value="40" step="5"></label>
-          <label><span class="lab">Costo promedio por hora (USD) <span class="val" id="v-costo">$30</span></span><input type="range" id="r-costo" min="15" max="150" value="30" step="5"></label>
-          <label><span class="lab">% de procesos a automatizar <span class="val" id="v-pct">50%</span></span><input type="range" id="r-pct" min="10" max="90" value="50" step="5"></label>
-        </div>
-        <div class="roi-out">
-          <div class="ro"><div class="rn" id="o-horas">0</div><div class="rl">horas liberadas por mes</div></div>
-          <div class="ro"><div class="rn" id="o-mes">$0</div><div class="rl">ahorro mensual estimado</div></div>
-          <div class="ro"><div class="rn" id="o-anio">$0</div><div class="rl">ahorro anual proyectado</div></div>
-          <p class="roi-note">* Estimación orientativa según tus datos. No es una cotización.</p>
-          <a href="https://f2aia.com/diagnostico/" class="btn btn-primary" style="margin-top:6px">Agendar diagnóstico gratis <span class="ar">→</span></a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- DEMO INFO -->
+  <!-- DEMO INFO (movida a 3.ª posición) -->
   <section id="neura" aria-label="Probá a Neura">
     <div class="container">
-      <div class="sec-head reveal"><p class="kicker">Probá a Neura</p><h2>La mejor demo<br><span class="green-text">es escribirle.</span></h2><p class="lead">Contale tu rubro y Neura te atiende como si fuera tu propio negocio. Sin instalar nada, sin WhatsApp real. En 2 minutos ves de qué se trata.</p></div>
+      <div class="sec-head reveal"><p class="kicker">Probá a Neura</p><h2>La mejor demo<br><span class="green-text">es escribirle.</span></h2><p class="lead">Escribile como si fueras un cliente tuyo. Neura te atiende con los datos de tu rubro —precios, horarios, turnos— igual que lo haría tu negocio. Gratis, sin instalar nada y sin WhatsApp real. En 2 minutos ves de qué se trata.</p></div>
       <div class="grid-3" style="margin-bottom:34px">
         <div class="card reveal"><div class="num" style="font-family:'JetBrains Mono',monospace;color:rgba(0,255,136,.4);font-size:13px;font-weight:700;margin-bottom:12px">01</div><h3>Elegís tu rubro</h3><p>Escribís a qué se dedica tu negocio (clínica, ferretería, gimnasio, lo que sea).</p></div>
         <div class="card reveal"><div class="num" style="font-family:'JetBrains Mono',monospace;color:rgba(0,255,136,.4);font-size:13px;font-weight:700;margin-bottom:12px">02</div><h3>Neura te atiende</h3><p>Responde con datos concretos (precios, horarios, turnos) como lo haría tu negocio real.</p></div>
@@ -487,43 +421,56 @@
     </div>
   </section>
 
-  <!-- EDUCATIVO -->
-  <section id="educativo" aria-label="Cuándo automatizar">
+  <!-- CAPACIDADES BENTO -->
+  <section id="servicios" aria-label="Capacidades">
     <div class="container">
-      <div class="sec-head reveal"><p class="kicker">Hablemos claro</p><h2>¿Cuándo conviene automatizar<br><span class="green-text">y cuándo no?</span></h2><p class="lead">Preferimos decirte la verdad antes que venderte humo. Automatizar no siempre es la respuesta.</p></div>
-      <div class="two-col">
-        <div class="card reveal"><h3 style="color:var(--green)">Sí conviene si…</h3><ul class="list-check">
-          <li>Recibís muchas consultas repetitivas (precios, horarios, disponibilidad).</li>
-          <li>Perdés clientes fuera de horario o los fines de semana.</li>
-          <li>Tu equipo pasa horas respondiendo lo mismo una y otra vez.</li>
-          <li>Querés captar y calificar leads sin sumar gente.</li>
-        </ul></div>
-        <div class="card reveal"><h3>Todavía no, si…</h3><ul class="list-cross">
-          <li>Tu volumen de mensajes es muy bajo (lo resolvés a mano sin problema).</li>
-          <li>Cada consulta es 100% única y necesita criterio humano desde el inicio.</li>
-          <li>No tenés definido tu proceso: primero hay que ordenarlo, después automatizar.</li>
-          <li>Buscás reemplazar a tu equipo: Neura lo potencia, no lo reemplaza.</li>
-        </ul></div>
+      <div class="sec-head reveal"><p class="kicker">Qué hacemos</p><h2>No es un chatbot.<br><span class="green-text">Es tu negocio operando solo.</span></h2></div>
+      <div class="bento">
+        <article class="card wide reveal"><span class="tag">Producto estrella</span><div class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div><h3>Agente WhatsApp IA (Neura)</h3><p>Responde, califica y agenda 24/7 con la info y el tono de tu negocio. Toma de control humana con un clic. También como chat web en tu sitio.</p></article>
+        <article class="card reveal"><div class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></div><h3>Automatización + integraciones</h3><p>Conectamos WhatsApp, tu calendario, CRM y herramientas en un flujo único que corre solo. El motor es n8n: 700+ integraciones.</p></article>
+        <article class="card reveal"><div class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg></div><h3>Sistemas a medida</h3><p>Construimos el sistema que tu negocio necesita — a medida y tuyo. Sin abono por agente ni datos encerrados en un SaaS ajeno.</p></article>
+        <article class="card wide reveal"><div class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10"/></svg></div><h3>Optimización con IA</h3><p>Detectamos qué tareas repetitivas te comen el día y las automatizamos con IA. Menos trabajo manual, más foco en vender.</p></article>
       </div>
     </div>
   </section>
 
-  <!-- PRUEBA HONESTA -->
-  <section id="prueba" aria-label="Qué sí y qué todavía no">
+  <!-- ROI -->
+  <section id="roi" aria-label="Simulador de ahorro">
     <div class="container">
-      <div class="sec-head reveal"><p class="kicker">Claridad honesta</p><h2>Qué hace hoy,<br><span class="green-text">y qué todavía no.</span></h2></div>
+      <div class="sec-head reveal"><p class="kicker">Calculá el impacto</p><h2>¿Cuánto te cuesta<br><span class="green-text">hacerlo a mano?</span></h2></div>
+      <div class="roi-card reveal">
+        <div class="roi-controls">
+          <label><span class="lab">Horas semanales en tareas repetitivas <span class="val" id="v-horas">40</span></span><input type="range" id="r-horas" min="10" max="500" value="40" step="5"></label>
+          <label><span class="lab">Costo promedio por hora (USD) <span class="val" id="v-costo">$30</span></span><input type="range" id="r-costo" min="15" max="150" value="30" step="5"></label>
+          <label><span class="lab">% de procesos a automatizar <span class="val" id="v-pct">50%</span></span><input type="range" id="r-pct" min="10" max="90" value="50" step="5"></label>
+        </div>
+        <div class="roi-out">
+          <div class="ro"><div class="rn" id="o-horas">0</div><div class="rl">horas liberadas por mes</div></div>
+          <div class="ro"><div class="rn" id="o-mes">$0</div><div class="rl">ahorro mensual estimado</div></div>
+          <div class="ro"><div class="rn" id="o-anio">$0</div><div class="rl">ahorro anual proyectado</div></div>
+          <p class="roi-note">* Estimación orientativa según tus datos. No es una cotización.</p>
+          <a href="https://f2aia.com/diagnostico/" class="btn btn-primary" style="margin-top:6px">Agendar diagnóstico gratis <span class="ar">→</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HABLEMOS CLARO (fusión de educativo + prueba honesta) -->
+  <section id="claro" aria-label="Qué hace hoy y qué todavía no">
+    <div class="container">
+      <div class="sec-head reveal"><p class="kicker">Hablemos claro</p><h2>Qué hace hoy,<br><span class="green-text">y qué todavía no.</span></h2><p class="lead">Automatizar sirve si recibís muchas consultas repetitivas y perdés clientes fuera de horario. Si tu volumen es bajo o cada caso es único, todavía no. Y preferimos decírtelo.</p></div>
       <div class="two-col">
         <div class="card reveal"><h3 style="color:var(--green)">Lo que ya hace</h3><ul class="list-check">
           <li>Atención 24/7 con IA + toma de control humana con un clic.</li>
-          <li>WhatsApp Cloud API oficial de Meta (sin riesgo de baneo por la herramienta).</li>
+          <li>WhatsApp Cloud API oficial de Meta (sin baneo por la herramienta).</li>
           <li>Escala inteligente (por palabra clave, por tiempo o por decisión del modelo).</li>
-          <li>Panel único con historial por cliente, auto-hospedado.</li>
+          <li>También chat web en tu sitio, en la misma bandeja.</li>
         </ul></div>
-        <div class="card reveal"><h3>Lo que todavía no (y es honesto decirlo)</h3><ul class="list-cross">
+        <div class="card reveal"><h3>Lo que todavía no (y lo decimos)</h3><ul class="list-cross">
           <li>No conoce tu catálogo real hasta cargar tu info → se hace en el onboarding.</li>
-          <li>No agenda solo en un calendario: capta el dato y lo pasa a una persona (integrable a futuro).</li>
+          <li>No agenda solo en un calendario: capta el dato y lo pasa a una persona.</li>
           <li>No procesa audios todavía (activable más adelante).</li>
-          <li>Onboarding gestionado por F2AIA (a medida; autoservicio = futuro).</li>
+          <li>Onboarding gestionado por F2AIA (autoservicio = futuro).</li>
         </ul></div>
       </div>
     </div>
@@ -556,7 +503,6 @@
         <div class="faq-item reveal"><button class="faq-btn" aria-expanded="false"><span>¿Cuánto tarda la implementación?</span><span class="faq-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button><div class="faq-answer"><p>Entre 10 y 20 días hábiles para un sistema completo, funcionando y probado en tu entorno real.</p></div></div>
         <div class="faq-item reveal"><button class="faq-btn" aria-expanded="false"><span>¿Funciona con mi WhatsApp actual?</span><span class="faq-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button><div class="faq-answer"><p>Trabajamos con la WhatsApp Cloud API oficial de Meta. Coordinamos la configuración según tu caso, sin riesgo de baneo por la herramienta.</p></div></div>
         <div class="faq-item reveal"><button class="faq-btn" aria-expanded="false"><span>¿La IA reemplaza a mi equipo?</span><span class="faq-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button><div class="faq-answer"><p>No. Neura se encarga de lo repetitivo para que tu equipo entre solo en las conversaciones de alto valor. Ante una duda que no puede responder bien, deriva a una persona.</p></div></div>
-        <div class="faq-item reveal"><button class="faq-btn" aria-expanded="false"><span>¿Qué necesitan para facturarme?</span><span class="faq-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button><div class="faq-answer"><p>Emitimos Factura tipo C (Monotributo). Para empresas o profesionales pedimos CUIT, razón social, condición frente al IVA y dirección fiscal.</p></div></div>
         <div class="faq-item reveal"><button class="faq-btn" aria-expanded="false"><span>¿Cuánto cuesta?</span><span class="faq-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button><div class="faq-answer"><p>Depende del sistema que necesitás. El diagnóstico es gratuito y sin compromiso; a partir de ahí te presentamos una propuesta a medida.</p></div></div>
       </div>
     </div>
@@ -596,26 +542,13 @@
     </div>
   </section>
 
-  <!-- CTA FINAL -->
-  <section class="cta-final" aria-label="Siguiente paso">
-    <div class="container"><div class="card reveal">
-      <p class="kicker">Siguiente paso</p>
-      <h2>Tu competencia no espera.<br><span class="green-text">¿Vos sí?</span></h2>
-      <p>El diagnóstico es gratis. El primer paso, tuyo.</p>
-      <div class="cta-btns">
-        <a href="https://f2aia.com/demo" class="btn btn-ghost">Probá a Neura →</a>
-        <a href="https://f2aia.com/diagnostico/" class="btn btn-primary">Activar mi sistema gratis</a>
-      </div>
-    </div></div>
-  </section>
-
   <!-- FOOTER -->
   <footer role="contentinfo">
     <div class="container">
       <div class="foot-grid">
         <div class="foot-brand">
           <a href="#" class="nav-logo"><span class="iso"></span>F2<span>AIA</span></a>
-          <p>Automatización con IA para negocios que quieren escalar sin sumar gente.</p>
+          <p>F2AIA Lab · Diseñamos e implementamos sistemas autónomos con IA. Neura, nuestro producto estrella, atiende tu WhatsApp 24/7.</p>
           <div class="soc">
             <a href="https://www.instagram.com/f2aia_/" target="_blank" rel="noopener" aria-label="Instagram @f2aia_"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 3.25.15 4.77 1.69 4.92 4.92.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.15 3.23-1.66 4.77-4.92 4.92-1.27.06-1.64.07-4.85.07s-3.58-.01-4.85-.07c-3.26-.15-4.77-1.7-4.92-4.92C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85C2.38 3.92 3.9 2.38 7.15 2.23 8.42 2.17 8.8 2.16 12 2.16M12 0C8.74 0 8.33.01 7.05.07 2.7.27.27 2.69.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.2 4.36 2.62 6.78 6.98 6.98C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c4.35-.2 6.78-2.62 6.98-6.98.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.2-4.35-2.62-6.78-6.98-6.98C15.67.01 15.26 0 12 0zm0 5.84a6.16 6.16 0 100 12.32 6.16 6.16 0 000-12.32zM12 16a4 4 0 110-8 4 4 0 010 8zm6.41-11.85a1.44 1.44 0 100 2.88 1.44 1.44 0 000-2.88z"/></svg> @f2aia_</a>
           </div>
