@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>F2AIA — Tu negocio trabaja solo | IA para negocios · Buenos Aires</title>
-  <meta name="description" content="Automatizamos tu negocio con IA: atención 24/7 por WhatsApp, turnos automáticos y CRM inteligente. Implementado en 15 días. Buenos Aires, CABA." />
+  <title>F2AIA — Sistemas autónomos con IA | Neura · Buenos Aires</title>
+  <meta name="description" content="F2AIA implementa Neura: atención por WhatsApp con IA 24/7 que responde, califica y agenda sola, y deriva a una persona cuando hace falta. Automatización para negocios. Buenos Aires." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://www.f2aia.com/" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://www.f2aia.com/" />
-  <meta property="og:title" content="F2AIA — Tu negocio trabaja solo" />
-  <meta property="og:description" content="Tu negocio, trabajando solo. IA que responde, agenda y capta leads por vos, las 24 horas." />
+  <meta property="og:title" content="F2AIA — Sistemas autónomos con IA" />
+  <meta property="og:description" content="Neura atiende tu WhatsApp 24/7 con IA y te pasa la charla cuando hace falta. Automatización con IA para negocios." />
   <meta property="og:locale" content="es_AR" />
   <meta property="og:site_name" content="F2AIA" />
   <meta name="twitter:card" content="summary_large_image" />
@@ -19,7 +19,7 @@
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "name": "F2AIA",
-    "description": "Agencia de automatización con inteligencia artificial para negocios en Buenos Aires.",
+    "description": "Automatización con inteligencia artificial para negocios. Producto: Neura, atención por WhatsApp con IA + toma de control humana.",
     "url": "https://www.f2aia.com/",
     "email": "hola@f2aia.com",
     "telephone": "+5491164858166",
@@ -29,599 +29,631 @@
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Syne:wght@700;800&family=Inter:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" />
-  <link rel="stylesheet" href="styles.css?v=20260619" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" />
+  <style>
+  :root{
+    --bg:#070707; --panel:#0E0E0E; --panel-2:#141414;
+    --green:#00FF88; --green-soft:#8BFFC4; --green-deep:#00c46a;
+    --white:#fff; --text:rgba(255,255,255,.74); --muted:rgba(255,255,255,.55); --line:rgba(255,255,255,.08);
+    --ease:cubic-bezier(.16,1,.3,1); --nav-h:66px; --max:1200px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{ font-family:'Inter',system-ui,sans-serif; color:var(--white); background:var(--bg); overflow-x:hidden; line-height:1.6 }
+  a{color:inherit}
+  img,svg{max-width:100%}
+  .container{ width:100%; max-width:var(--max); margin:0 auto; padding:0 clamp(18px,4vw,44px) }
+  .kicker{ font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:2px; text-transform:uppercase; color:var(--green-soft); margin-bottom:14px }
+  .green-text{ color:var(--green) }
+  h2{ font-family:'Syne',sans-serif; font-weight:800; font-size:clamp(28px,4.4vw,52px); line-height:1.18; letter-spacing:-1px }
+  section{ position:relative; z-index:10; padding:clamp(72px,10vw,120px) 0 }
+
+  /* ═══ FONDO FIJO (orbe de partículas) ═══ */
+  .stage{ position:fixed; inset:0; z-index:0; pointer-events:none }
+  #fx{ position:absolute; inset:0; width:100%; height:100%; display:block }
+  .orb-name{ position:absolute; left:76%; top:34%; transform:translate(-50%,-50%);
+    font-family:'Syne',sans-serif; font-weight:800; font-size:clamp(22px,3vw,40px); letter-spacing:8px;
+    color:rgba(255,255,255,.10); opacity:0; transition:opacity 1s ease; user-select:none; text-shadow:0 0 30px rgba(0,255,136,.2) }
+  .orb-name.flash{ opacity:1 }
+  .veil{ position:absolute; inset:0; background:linear-gradient(90deg, rgba(7,7,7,.9) 0%, rgba(7,7,7,.5) 45%, rgba(7,7,7,.2) 75%, transparent 100%) }
+
+  /* ═══ INTRO ═══ */
+  .install{ position:fixed; z-index:60; inset:0; background:var(--bg); display:flex; flex-direction:column; align-items:center; justify-content:center; transition:opacity .7s ease }
+  .code{ width:min(1560px,95vw); font-family:'JetBrains Mono',monospace; font-size:clamp(11px,1.05vw,16px); line-height:1.9; color:var(--green-soft); height:80vh; overflow:hidden;
+    -webkit-mask-image:linear-gradient(180deg,transparent,#000 8%,#000 88%,transparent); mask-image:linear-gradient(180deg,transparent,#000 8%,#000 88%,transparent) }
+  .code.hide{ display:none }
+  .cl{ opacity:0; animation:tin .16s ease forwards; white-space:nowrap; overflow:hidden }
+  @keyframes tin{ from{opacity:0} to{opacity:1} }
+  .ok{color:var(--green)} .dim{color:rgba(255,255,255,.28)}
+  .bar-wrap{ width:min(680px,90vw); display:none; flex-direction:column; gap:15px; text-align:center; font-family:'JetBrains Mono',monospace; font-size:15px; color:#fff }
+  .bar-wrap.on{ display:flex }
+  .bar-top{ display:flex; justify-content:space-between; align-items:center } .bar-top .pct{ color:var(--green) }
+  .bar{ height:9px; border-radius:999px; background:#1a1a1a; overflow:hidden }
+  .bar span{ display:block; height:100%; width:0; border-radius:999px; background:linear-gradient(90deg,#00c46a,var(--green)); box-shadow:0 0 16px rgba(0,255,136,.5); transition:width .12s linear }
+  .diagram{ position:fixed; z-index:55; inset:0; opacity:0; transition:opacity .9s ease; pointer-events:none; filter:blur(3.2px) }
+  .diagram svg{ width:100%; height:100% }
+  .skip{ position:fixed; z-index:65; top:20px; right:22px; font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--muted); background:var(--panel); border:1px solid var(--line); padding:9px 15px; border-radius:999px; cursor:pointer }
+  .skip:hover{ color:var(--green); border-color:rgba(0,255,136,.4) }
+
+  /* ═══ BOTONES ═══ */
+  .btn{ position:relative; font-size:14px; font-weight:600; text-decoration:none; border-radius:12px; padding:14px 24px; cursor:pointer; display:inline-flex; align-items:center; justify-content:center; gap:8px; transition:transform .3s var(--ease), border-color .3s, background .3s; min-height:44px }
+  .btn::before{ content:""; position:absolute; inset:-4px; z-index:-1; border-radius:16px; filter:blur(11px); opacity:.7; transition:opacity .3s }
+  .btn:hover{ transform:translateY(-2px) } .btn:hover::before{ opacity:1 }
+  .btn-primary{ background:#0f2418; color:#eafff5; border:1px solid rgba(0,255,136,.55) }
+  .btn-primary::before{ background:radial-gradient(closest-side, rgba(0,255,136,.4), transparent 78%) }
+  .btn-primary:hover{ background:#123a24; border-color:rgba(0,255,136,.85) } .btn-primary .ar{ color:var(--green) }
+  .btn-ghost{ background:#1a1a1a; color:#fff; border:1px solid rgba(255,255,255,.2) }
+  .btn-ghost::before{ background:radial-gradient(closest-side, rgba(255,255,255,.12), transparent 78%) }
+  .btn-ghost:hover{ background:#242424; border-color:rgba(255,255,255,.34) }
+
+  /* ═══ NAV (oculto durante la intro; aparece con el contenido) ═══ */
+  .nav{ position:fixed; top:0; left:0; right:0; z-index:30; height:var(--nav-h); display:flex; align-items:center; opacity:0; pointer-events:none; transition:background .3s, backdrop-filter .3s, opacity .7s ease }
+  .nav.ready{ opacity:1; pointer-events:auto }
+  body.intro-lock{ overflow:hidden }
+  .nav.scrolled{ background:rgba(7,7,7,.8); backdrop-filter:blur(10px); border-bottom:1px solid var(--line) }
+  .nav-inner{ width:100%; max-width:var(--max); margin:0 auto; padding:0 clamp(18px,4vw,44px); display:flex; align-items:center; justify-content:space-between }
+  .nav-logo{ display:flex; align-items:center; gap:10px; font-family:'Syne',sans-serif; font-weight:800; font-size:20px; text-decoration:none; letter-spacing:-.3px }
+  .nav-logo .iso{ width:20px;height:20px;position:relative;display:inline-block }
+  .nav-logo .iso::before,.nav-logo .iso::after{ content:"";position:absolute;inset:0;border:2px solid var(--green);border-radius:4px }
+  .nav-logo .iso::after{ transform:rotate(45deg);opacity:.5 } .nav-logo span{ color:var(--green) }
+  .nav-links{ display:flex; align-items:center; gap:6px; list-style:none }
+  .nav-links a{ font-size:14px; color:#cfcfcf; text-decoration:none; padding:9px 14px; border-radius:10px; transition:.25s }
+  .nav-links a:hover{ color:#fff; background:rgba(255,255,255,.05) } .nav-links a.hot{ color:var(--green) }
+  .nav-burger{ display:none; flex-direction:column; gap:5px; background:none; border:0; cursor:pointer; padding:8px }
+  .nav-burger span{ width:24px; height:2px; background:#fff; transition:.3s }
+  .nav-mobile{ display:none }
+
+  /* ═══ HERO ═══ */
+  .hero{ min-height:100vh; display:flex; align-items:center; padding-top:var(--nav-h) }
+  .hero-l{ max-width:640px; opacity:0; transform:translateY(14px); transition:opacity 1s ease, transform 1s var(--ease) }
+  .hero-l.on{ opacity:1; transform:none }
+  .eyebrow{ display:inline-flex; align-items:center; gap:9px; margin-bottom:22px; font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:2px; text-transform:uppercase; color:var(--green-soft) }
+  .eyebrow .d{ width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 10px var(--green);animation:pulse 1.8s ease-in-out infinite }
+  @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.65)}}
+  .hero h1{ font-family:'Syne',sans-serif; font-weight:700; font-size:clamp(40px,5.8vw,76px); line-height:1.06; letter-spacing:-3px }
+  .hero h1 em{ font-style:normal; font-weight:800; color:var(--green); text-shadow:0 0 30px rgba(0,255,136,.3) }
+  .hero .sub{ font-size:clamp(16px,1.75vw,19px); color:var(--text); font-weight:300; max-width:44ch; margin:22px 0 32px }
+  .hero .sub b{ color:#fff; font-weight:600 }
+  .hero-ctas{ display:flex; gap:14px; flex-wrap:wrap; margin-bottom:40px }
+  .stats{ display:flex; align-items:flex-start; flex-wrap:wrap }
+  .stat{ padding:0 26px } .stat:first-child{ padding-left:0 } .stat + .stat{ border-left:1px solid var(--line) }
+  .stat .n{ font-family:'Syne',sans-serif; font-weight:800; font-size:clamp(30px,4vw,44px); color:var(--green); line-height:1; text-shadow:0 0 26px rgba(0,255,136,.35) }
+  .stat .n .u{ font-size:.5em; margin-left:2px; color:var(--green-soft) }
+  .stat .l{ font-size:12.5px; color:var(--muted); margin-top:8px; line-height:1.35 }
+
+  /* ═══ TICKER ═══ */
+  .ticker{ z-index:10; position:relative; border-top:1px solid var(--line); border-bottom:1px solid var(--line); padding:20px 0; overflow:hidden; background:rgba(7,7,7,.6); white-space:nowrap }
+  .ticker-track{ display:inline-flex; gap:40px; align-items:center; animation:scroll 26s linear infinite; font-family:'JetBrains Mono',monospace; font-size:14px; color:var(--muted) }
+  .ticker-track .sep{ color:var(--green) }
+  @keyframes scroll{ from{transform:translateX(0)} to{transform:translateX(-50%)} }
+
+  /* ═══ REVEAL ═══ */
+  .reveal{ opacity:0; transform:translateY(24px); transition:opacity .7s var(--ease), transform .7s var(--ease) }
+  .reveal.is-visible{ opacity:1; transform:none }
+
+  /* ═══ CARDS SÓLIDAS ═══ */
+  .card{ position:relative; background:var(--panel); border:1px solid var(--line); border-radius:18px; padding:30px }
+  .card::before{ content:""; position:absolute; inset:-1px; z-index:-1; border-radius:19px; background:radial-gradient(140px 90px at 25% 0%, rgba(0,255,136,.16), transparent 72%); filter:blur(14px); opacity:0; transition:opacity .35s }
+  .card:hover::before{ opacity:1 }
+  .card:hover{ border-color:rgba(0,255,136,.28) }
+  .card .ic{ width:52px; height:52px; border-radius:13px; display:grid; place-items:center; background:rgba(0,255,136,.08); border:1px solid rgba(0,255,136,.22); color:var(--green); margin-bottom:20px }
+  .card h3{ font-family:'Syne',sans-serif; font-weight:700; font-size:20px; margin-bottom:10px }
+  .card p{ color:var(--text); font-size:15px; font-weight:300 }
+  .sec-head{ max-width:640px; margin-bottom:52px }
+  .sec-head p.lead{ color:var(--text); margin-top:14px; font-weight:300; font-size:17px }
+
+  .grid-3{ display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:22px }
+
+  /* PROBLEMA */
+  .prob-card .num{ font-family:'JetBrains Mono',monospace; color:rgba(0,255,136,.4); font-size:13px; font-weight:700; margin-bottom:14px }
+
+  /* SOLUCIÓN / WORKFLOW */
+  /* workflow transparente (se ve el fondo), horizontal desktop / vertical móvil */
+  .flow-wrap{ padding:8px 0; margin:0 auto; max-width:960px }
+  .flow-desktop{ width:100%; height:auto; display:block }
+  .flow-mobile{ display:none; width:100%; max-width:340px; height:auto; margin:0 auto }
+  @media(max-width:820px){ .flow-desktop{ display:none } .flow-mobile{ display:block } }
+  .steps{ display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:20px; margin-top:34px }
+  .step .sn{ font-family:'JetBrains Mono',monospace; color:var(--green); font-size:13px; font-weight:700 }
+  .step h4{ font-family:'Syne',sans-serif; font-weight:700; font-size:17px; margin:8px 0 6px }
+  .step p{ color:var(--text); font-size:14px; font-weight:300 }
+
+  /* BENTO */
+  .bento{ display:grid; grid-template-columns:repeat(4,1fr); gap:20px }
+  .bento .card.wide{ grid-column:span 2 }
+  .bento .tag{ position:absolute; top:20px; right:20px; font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--green); background:rgba(0,255,136,.08); border:1px solid rgba(0,255,136,.25); padding:5px 10px; border-radius:999px }
+
+  /* ROI */
+  .roi-card{ background:var(--panel); border:1px solid var(--line); border-radius:22px; padding:clamp(24px,4vw,44px); display:grid; grid-template-columns:1fr 1fr; gap:44px }
+  .roi-controls label{ display:block; margin-bottom:28px }
+  .roi-controls .lab{ display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; font-size:14px; color:var(--text) }
+  .roi-controls .val{ font-family:'JetBrains Mono',monospace; color:var(--green); font-weight:700; font-size:18px }
+  input[type=range]{ -webkit-appearance:none; appearance:none; width:100%; height:6px; border-radius:999px; background:#1e1e1e; outline:none }
+  input[type=range]::-webkit-slider-thumb{ -webkit-appearance:none; width:20px; height:20px; border-radius:50%; background:var(--green); cursor:pointer; box-shadow:0 0 14px rgba(0,255,136,.6) }
+  input[type=range]::-moz-range-thumb{ width:20px; height:20px; border:0; border-radius:50%; background:var(--green); cursor:pointer; box-shadow:0 0 14px rgba(0,255,136,.6) }
+  .roi-out{ display:flex; flex-direction:column; justify-content:center; gap:22px }
+  .roi-out .ro{ border-left:2px solid rgba(0,255,136,.35); padding-left:18px }
+  .roi-out .ro .rn{ font-family:'JetBrains Mono',monospace; font-weight:700; font-size:clamp(26px,4vw,40px); color:var(--green); text-shadow:0 0 24px rgba(0,255,136,.3) }
+  .roi-out .ro .rl{ color:var(--muted); font-size:13px; margin-top:4px }
+  .roi-note{ font-size:12px; color:var(--muted); margin-top:8px; font-style:italic }
+
+  /* DEMO INFO / EDUCATIVO / PRUEBA */
+  .two-col{ display:grid; grid-template-columns:1fr 1fr; gap:22px }
+  .list-check li, .list-cross li{ list-style:none; padding:10px 0 10px 30px; position:relative; color:var(--text); font-size:15px; border-bottom:1px solid var(--line) }
+  .list-check li::before{ content:""; position:absolute; left:0; top:16px; width:16px; height:16px; border-radius:50%; background:rgba(0,255,136,.15); }
+  .list-check li::after{ content:"✓"; position:absolute; left:3px; top:9px; color:var(--green); font-size:12px; font-weight:700 }
+  .list-cross li::before{ content:""; position:absolute; left:0; top:16px; width:16px; height:16px; border-radius:50%; background:rgba(255,255,255,.06) }
+  .list-cross li::after{ content:"→"; position:absolute; left:2px; top:9px; color:var(--muted); font-size:12px }
+
+  .demo-live{ display:inline-flex; align-items:center; gap:10px; font-family:'JetBrains Mono',monospace; font-size:14px; color:var(--text); margin-top:8px }
+  .demo-live .dot{ width:9px; height:9px; border-radius:50%; background:var(--green); box-shadow:0 0 10px var(--green); animation:pulse 2s ease-in-out infinite }
+  .demo-live strong{ color:var(--green) } #dlc-num.dlc-bump{ animation:bump .5s ease }
+  @keyframes bump{ 0%{transform:scale(1)} 40%{transform:scale(1.25)} 100%{transform:scale(1)} }
+
+  /* Mockup de chat del demo (bloque visual) */
+  .chatmock{ max-width:420px; margin:0 auto; background:#0E0E0E; border:1px solid var(--line); border-radius:22px; overflow:hidden; position:relative; box-shadow:0 24px 60px rgba(0,0,0,.55) }
+  .chatmock::before{ content:""; position:absolute; inset:-1px; z-index:-1; border-radius:23px; background:radial-gradient(200px 130px at 50% 0%, rgba(0,255,136,.20), transparent 72%); filter:blur(18px) }
+  .cm-head{ display:flex; align-items:center; gap:11px; padding:13px 16px; border-bottom:1px solid var(--line); background:rgba(255,255,255,.02) }
+  .cm-av{ width:36px; height:36px; border-radius:50%; background:linear-gradient(135deg,#00FF88,#087a45); display:grid; place-items:center; color:#052; font-weight:800; font-family:'Syne',sans-serif; font-size:16px }
+  .cm-who{ font-weight:700; font-size:14px; line-height:1.2 }
+  .cm-status{ font-size:11px; color:var(--green); display:flex; align-items:center; gap:5px; margin-top:2px }
+  .cm-status .dot{ width:7px; height:7px; border-radius:50%; background:var(--green); box-shadow:0 0 8px var(--green) }
+  .cm-body{ padding:16px; display:flex; flex-direction:column; gap:9px; background:#0A0A0A }
+  .cm-b{ max-width:80%; padding:9px 13px; border-radius:15px; font-size:13.5px; line-height:1.42 }
+  .cm-in{ align-self:flex-start; background:#191919; border:1px solid var(--line); border-bottom-left-radius:5px; color:var(--text) }
+  .cm-out{ align-self:flex-end; background:rgba(0,255,136,.13); border:1px solid rgba(0,255,136,.32); color:#d6ffe9; border-bottom-right-radius:5px }
+
+  /* ALFA */
+  .alfa-card{ background:linear-gradient(160deg,#0c1a12,#0a0a0a); border:1px solid rgba(0,255,136,.25); border-radius:22px; padding:clamp(28px,4vw,52px); position:relative; overflow:hidden }
+  .alfa-card::before{ content:""; position:absolute; top:-40%; right:-10%; width:400px; height:400px; background:radial-gradient(circle, rgba(0,255,136,.12), transparent 70%); filter:blur(20px) }
+  .alfa-benefits{ display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:18px; margin:26px 0 30px; position:relative }
+  .alfa-benefits div{ padding-left:26px; position:relative; color:var(--text); font-size:15px }
+  .alfa-benefits div::before{ content:"✓"; position:absolute; left:0; color:var(--green); font-weight:700 }
+
+  /* FAQ */
+  .faq-item{ border-bottom:1px solid var(--line) }
+  .faq-btn{ width:100%; background:none; border:0; color:#fff; font-size:17px; font-weight:600; text-align:left; padding:22px 0; display:flex; justify-content:space-between; align-items:center; cursor:pointer; font-family:inherit }
+  .faq-ic{ color:var(--green); transition:transform .3s; flex-shrink:0; margin-left:16px }
+  .faq-item.open .faq-ic{ transform:rotate(45deg) }
+  .faq-answer{ max-height:0; overflow:hidden; transition:max-height .35s ease }
+  .faq-item.open .faq-answer{ max-height:260px }
+  .faq-answer p{ color:var(--text); font-weight:300; padding-bottom:22px; max-width:70ch }
+
+  /* FORM */
+  .form-wrap{ display:grid; grid-template-columns:1fr 1fr; gap:44px; align-items:start }
+  .form-copy .lead{ color:var(--text); margin:14px 0 24px; font-weight:300; font-size:16px }
+  .form-benefits{ list-style:none }
+  .form-benefits li{ display:flex; gap:10px; align-items:flex-start; padding:8px 0; color:var(--text); font-size:15px }
+  .form-benefits .fb{ color:var(--green); flex-shrink:0; margin-top:3px }
+  /* form: contenedor transparente, campos flotando sobre el fondo */
+  .form-card{ background:transparent; border:none; padding:0 }
+  .field-group{ margin-bottom:16px }
+  .field-group label{ display:block; font-size:13px; color:var(--muted); margin-bottom:8px }
+  .field-group input,.field-group select,.field-group textarea{ width:100%; background:rgba(16,16,16,.72); backdrop-filter:blur(8px); border:1px solid rgba(255,255,255,.12); border-radius:12px; padding:14px 16px; color:#fff; font-family:inherit; font-size:15px; transition:border-color .2s, box-shadow .2s; box-shadow:0 6px 20px rgba(0,0,0,.35) }
+  .field-group input:focus,.field-group select:focus,.field-group textarea:focus{ outline:none; border-color:rgba(0,255,136,.5) }
+  .btn-submit{ width:100%; position:relative; font-size:15px; font-weight:700; border-radius:12px; padding:16px; cursor:pointer; border:1px solid rgba(0,255,136,.55); background:#0f2418; color:#eafff5; min-height:52px; transition:background .3s }
+  .btn-submit:hover{ background:#123a24 }
+  .btn-sending,.btn-sent{ display:none } .btn-submit.is-sending .btn-label,.btn-submit.is-sent .btn-label{ display:none }
+  .btn-submit.is-sending .btn-sending{ display:inline } .btn-submit.is-sent .btn-sent{ display:inline-flex; align-items:center; gap:8px; justify-content:center }
+  .form-disclaimer{ font-size:12px; color:var(--muted); text-align:center; margin-top:14px }
+  .form-consent{ font-size:12px; color:var(--muted); margin-top:10px; text-align:center } .form-consent a{ color:var(--green-soft) }
+
+  /* CTA FINAL */
+  .cta-final .card{ text-align:center; padding:clamp(36px,6vw,72px) }
+  .cta-final h2{ margin-bottom:14px } .cta-final p{ color:var(--text); margin-bottom:28px }
+  .cta-btns{ display:flex; gap:14px; justify-content:center; flex-wrap:wrap }
+
+  /* FOOTER */
+  footer{ position:relative; z-index:10; border-top:1px solid var(--line); background:rgba(7,7,7,.85); padding:56px 0 30px }
+  .foot-grid{ display:grid; grid-template-columns:1.4fr 1fr 1fr; gap:40px; margin-bottom:36px }
+  .foot-brand p{ color:var(--muted); font-size:14px; margin:14px 0; max-width:34ch }
+  .foot-col h5{ font-size:13px; color:var(--muted); text-transform:uppercase; letter-spacing:1px; margin-bottom:14px }
+  .foot-col a{ display:block; color:var(--text); text-decoration:none; font-size:14px; padding:5px 0 } .foot-col a:hover{ color:var(--green) }
+  .ai-notice{ font-size:12.5px; color:var(--muted); border-top:1px solid var(--line); padding-top:22px; margin-bottom:16px; line-height:1.6 } .ai-notice a{ color:var(--green-soft) }
+  .foot-bottom{ font-size:12px; color:var(--muted) }
+  .soc a{ display:inline-flex; align-items:center; gap:7px; color:var(--text); text-decoration:none; font-size:13px; margin-right:16px } .soc a:hover{ color:var(--green) }
+
+  /* WHATSAPP FAB */
+  .wa-fab{ position:fixed; bottom:22px; right:22px; z-index:35; width:56px; height:56px; border-radius:50%; background:#101010; border:1px solid rgba(0,255,136,.4); color:var(--green); display:grid; place-items:center; box-shadow:0 8px 30px rgba(0,0,0,.5); transition:transform .3s, box-shadow .3s }
+  .wa-fab:hover{ transform:scale(1.08); box-shadow:0 8px 40px rgba(0,255,136,.35) }
+
+  /* ═══ RESPONSIVE ═══ */
+  @media (max-width:900px){
+    .roi-card{ grid-template-columns:1fr } .form-wrap{ grid-template-columns:1fr } .two-col{ grid-template-columns:1fr }
+    .bento{ grid-template-columns:1fr 1fr } .bento .card.wide{ grid-column:span 2 }
+    .foot-grid{ grid-template-columns:1fr 1fr }
+  }
+  @media (max-width:820px){
+    .nav-links{ display:none } .nav-burger{ display:flex }
+    .nav.open .nav-mobile{ display:flex; flex-direction:column; gap:4px; position:absolute; top:var(--nav-h); left:0; right:0; background:rgba(10,10,10,.97); backdrop-filter:blur(12px); border-bottom:1px solid var(--line); padding:14px 18px }
+    .nav.open .nav-mobile a{ color:#fff; text-decoration:none; padding:12px; border-radius:10px; font-size:16px } .nav.open .nav-mobile a:hover{ background:rgba(255,255,255,.05) }
+    .nav.open .nav-burger span:nth-child(1){ transform:translateY(7px) rotate(45deg) }
+    .nav.open .nav-burger span:nth-child(2){ opacity:0 }
+    .nav.open .nav-burger span:nth-child(3){ transform:translateY(-7px) rotate(-45deg) }
+    .orb-name{ left:50%; top:22%; font-size:clamp(22px,6.5vw,38px); color:rgba(255,255,255,.11) }
+    .veil{ background:linear-gradient(180deg, rgba(7,7,7,.3) 0%, rgba(7,7,7,.55) 32%, rgba(7,7,7,.95) 62%) }
+    .hero{ align-items:flex-start } .hero-l{ padding-top:34vh }
+    .hero h1{ font-size:clamp(31px,8vw,52px); line-height:1.1; letter-spacing:-1px }
+    h2{ font-size:clamp(25px,7vw,40px); line-height:1.22; letter-spacing:-.4px }
+    .sec-head{ margin-bottom:36px } .sec-head p.lead{ font-size:15px }
+    section{ padding:64px 0 }
+    .hero-ctas{ flex-direction:column } .hero-ctas .btn{ width:100% }
+    .stats{ display:grid; grid-template-columns:1fr 1fr; gap:24px 18px } .stat{ padding:0; border:none!important }
+    .code{ height:64vh; font-size:10px; line-height:1.7 }
+    .bento{ grid-template-columns:1fr } .bento .card.wide{ grid-column:span 1 } .foot-grid{ grid-template-columns:1fr }
+  }
+  @media (prefers-reduced-motion:reduce){ *{animation-duration:.01ms!important; transition-duration:.01ms!important} }
+  </style>
 </head>
 <body>
 
-  <!-- BACKGROUND GRID -->
-  <div class="bg-grid" aria-hidden="true"></div>
+  <!-- FONDO FIJO -->
+  <div class="stage" aria-hidden="true">
+    <canvas id="fx"></canvas>
+    <div class="veil"></div>
+    <div class="orb-name" id="orbname">NEURA</div>
+  </div>
 
-  <!-- CUSTOM CURSOR -->
-  <div class="cursor-outer" id="cursor-outer" aria-hidden="true"></div>
-  <div class="cursor-dot"   id="cursor-dot"   aria-hidden="true"></div>
-
-  <div class="scroll-bar" id="scroll-bar" aria-hidden="true"></div>
-  <a href="#diagnostico" class="skip-link">Ir al formulario</a>
+  <!-- INTRO -->
+  <div class="diagram" id="diagram" aria-hidden="true"><svg id="dgsvg" viewBox="0 0 1440 520" preserveAspectRatio="xMidYMid meet"></svg></div>
+  <div class="install" id="install" aria-hidden="true">
+    <div class="code" id="code"></div>
+    <div class="bar-wrap" id="barwrap"><div class="bar-top"><span>Iniciando Neura</span><span class="pct" id="pct">0%</span></div><div class="bar"><span id="barfill"></span></div></div>
+  </div>
+  <button class="skip" id="skip">Saltar intro →</button>
 
   <!-- NAV -->
   <nav class="nav" id="nav">
     <div class="nav-inner">
-      <a href="#" class="nav-logo" aria-label="F2AIA inicio">F2<span>AIA</span></a>
+      <a href="#" class="nav-logo"><span class="iso"></span>F2<span>AIA</span></a>
       <ul class="nav-links" role="list">
-        <li><a href="#servicios">Servicios</a></li>
-        <li><a href="#como-funciona">Proceso</a></li>
-        <li><a href="#testimoniales">Casos</a></li>
-        <li>
-          <a href="https://f2aia.com/demo" class="nav-app-btn" aria-label="Probar el agente de F2AIA en vivo">
-            Probá el agente
-            <span class="nav-app-pill">Demo en vivo</span>
-          </a>
-        </li>
-        <li><a href="https://f2aia.com/diagnostico/" class="nav-cta">Diagnóstico gratis →</a></li>
+        <li><a href="#servicios">Soluciones</a></li>
+        <li><a href="#neura" class="hot">Neura</a></li>
+        <li><a href="#roi">Calcular ROI</a></li>
+        <li><a href="#como-funciona">Cómo funciona</a></li>
+        <li><a href="https://f2aia.com/diagnostico/" class="btn btn-primary">Diagnóstico gratis</a></li>
       </ul>
-      <button class="nav-burger" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-mobile">
-        <span></span><span></span><span></span>
-      </button>
+      <button class="nav-burger" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-mobile"><span></span><span></span><span></span></button>
     </div>
     <div class="nav-mobile" id="nav-mobile" aria-hidden="true">
-      <a href="#servicios">Servicios</a>
-      <a href="#como-funciona">Proceso</a>
-      <a href="#testimoniales">Casos</a>
-      <a href="https://f2aia.com/demo" class="mobile-demo-link">
-        Probá el agente →
-        <span class="mobile-app-pill">Demo en vivo</span>
-      </a>
-      <a href="https://f2aia.com/diagnostico/" class="mobile-cta">Diagnóstico gratis →</a>
+      <a href="#servicios">Soluciones</a>
+      <a href="#neura">Neura</a>
+      <a href="#roi">Calcular ROI</a>
+      <a href="#como-funciona">Cómo funciona</a>
+      <a href="https://f2aia.com/diagnostico/">Diagnóstico gratis</a>
     </div>
   </nav>
 
   <!-- HERO -->
   <section class="hero" id="hero" aria-label="Portada">
-    <div class="hero-grid">
-
-      <!-- TEXTO SUPERIOR: badge + título -->
-      <div class="hero-text-top">
-        <div class="hero-badge">
-          <span class="badge-pulse"></span>
-          <span>Sistema activo · Buenos Aires</span>
-        </div>
-        <h1 class="hero-title">
-          Tu activo comercial IA, <em>24/7.</em>
-        </h1>
-      </div>
-
-      <!-- TERMINAL VISUAL (todos los dispositivos) -->
-      <div class="hero-visual" aria-hidden="true">
-        <div class="terminal">
-          <div class="terminal-bar">
-            <span class="tb-dot" style="background:#FF5F57"></span>
-            <span class="tb-dot" style="background:#FFBD2E"></span>
-            <span class="tb-dot" style="background:#28C840"></span>
-            <span class="tb-title">f2aia · sistema activo</span>
-          </div>
-          <div class="terminal-body">
-            <div class="tl"><span class="tl-k">AGENTE WHATSAPP</span><span class="tl-v green tl-pulse">● ACTIVO</span></div>
-            <div class="tl"><span class="tl-k">TURNOS AUTO</span><span class="tl-v green tl-pulse">● ACTIVO</span></div>
-            <div class="tl"><span class="tl-k">CRM LEADS</span><span class="tl-v green tl-pulse">● ACTIVO</span></div>
-            <div class="tl tl-sep">────────────────────</div>
-            <div class="tl"><span class="tl-k">LEADS HOY</span><span class="tl-v">+3 nuevos</span></div>
-            <div class="tl"><span class="tl-k">TURNOS CONFIRMADOS</span><span class="tl-v">12 / 12</span></div>
-            <div class="tl"><span class="tl-k">CONSULTAS ATENDIDAS</span><span class="tl-v">100%</span></div>
-            <div class="tl tl-sep">────────────────────</div>
-            <div class="tl-cursor-line">
-              <span class="tl-prompt">$</span>
-              <span class="tl-type" id="live-feed-text">Nuevo lead captado hace 2 min</span>
-              <span class="cursor-blink">▌</span>
-            </div>
-          </div>
-        </div>
-        <div class="hero-metrics">
-          <div class="hm-item"><strong>80%</strong><span>tareas eliminadas</span></div>
-          <div class="hm-div"></div>
-          <div class="hm-item"><strong>24/7</strong><span>sin descanso</span></div>
-          <div class="hm-div"></div>
-          <div class="hm-item"><strong>15D</strong><span>para activar</span></div>
-        </div>
-      </div>
-
-      <!-- TEXTO INFERIOR: sub + ctas + proof -->
-      <div class="hero-text-bottom">
-        <p class="hero-sub">IA que atiende, agenda y capta leads por vos. Las 24 horas.</p>
+    <div class="container">
+      <div class="hero-l" id="hero-l">
+        <div class="eyebrow"><span class="d"></span> Automatización con IA · Buenos Aires</div>
+        <h1>Sistemas <em>autónomos</em> con IA.</h1>
+        <p class="sub">Neura atiende tu WhatsApp <b>24/7</b>: responde, califica y agenda sola. Cuando hace falta, le pasa la charla a tu equipo — sin fricción.</p>
         <div class="hero-ctas">
-          <a href="https://f2aia.com/diagnostico/" class="btn btn-equal">Diagnóstico gratis →</a>
-          <a href="https://f2aia.com/demo" class="btn btn-equal">Ver el agente →</a>
+          <a href="https://f2aia.com/demo" class="btn btn-primary">Probá a Neura <span class="ar">→</span></a>
+          <a href="https://f2aia.com/diagnostico/" class="btn btn-ghost">Diagnóstico gratis</a>
         </div>
-        <div class="demo-live-count" id="demo-live-count">
-          <span class="dlc-dot"></span>
-          <span class="dlc-text"><strong id="dlc-num">50</strong>&nbsp;negocios ya probaron el agente</span>
+        <div class="stats">
+          <div class="stat"><div class="n"><span class="count-up" data-target="80">0</span><span class="u">%</span></div><div class="l">de tus tareas<br>eliminadas</div></div>
+          <div class="stat"><div class="n"><span class="count-up" data-target="24">0</span><span class="u">H</span></div><div class="l">atención sin<br>interrupciones</div></div>
+          <div class="stat"><div class="n"><span class="count-up" data-target="3">0</span><span class="u">×</span></div><div class="l">más leads<br>calificados</div></div>
+          <div class="stat"><div class="n"><span class="count-up" data-target="15">0</span><span class="u">D</span></div><div class="l">de idea a<br>sistema activo</div></div>
         </div>
       </div>
-
-    </div>
-
-    <!-- Chips solo en mobile -->
-    <div class="hero-chips" aria-hidden="true">
-      <span class="chip">80% automatizado</span>
-      <span class="chip">24/7 activo</span>
-      <span class="chip">15 días</span>
-      <span class="chip">3× más leads</span>
-    </div>
-
-    <div class="hero-scroll" aria-hidden="true">
-      <span>SCROLL</span>
-      <div class="scroll-dot"></div>
     </div>
   </section>
 
   <!-- TICKER -->
-  <div class="ticker" aria-hidden="true">
-    <div class="ticker-track">
-      <span>WhatsApp IA</span><span class="sep">✦</span>
-      <span>n8n</span><span class="sep">✦</span>
-      <span>GoHighLevel</span><span class="sep">✦</span>
-      <span>OpenAI</span><span class="sep">✦</span>
-      <span>Turnos automáticos</span><span class="sep">✦</span>
-      <span>CRM inteligente</span><span class="sep">✦</span>
-      <span>Agentes IA</span><span class="sep">✦</span>
-      <span>Make</span><span class="sep">✦</span>
-      <span>WhatsApp IA</span><span class="sep">✦</span>
-      <span>n8n</span><span class="sep">✦</span>
-      <span>GoHighLevel</span><span class="sep">✦</span>
-      <span>OpenAI</span><span class="sep">✦</span>
-      <span>Turnos automáticos</span><span class="sep">✦</span>
-      <span>CRM inteligente</span><span class="sep">✦</span>
-      <span>Agentes IA</span><span class="sep">✦</span>
-      <span>Make</span><span class="sep">✦</span>
-    </div>
-  </div>
-
-  <!-- FORMULARIO -->
-  <section class="form-section" id="diagnostico" aria-label="Formulario de contacto">
-    <div class="container">
-      <div class="form-wrap">
-
-        <div class="form-copy">
-          <p class="kicker">DIAGNÓSTICO SIN COSTO</p>
-          <h2>Activá tu sistema<br><span class="green-text">en 15 días.</span></h2>
-          <p class="form-sub">Contanos tu negocio y te armamos el plan de automatización. Gratis. Sin compromiso.</p>
-          <ul class="form-benefits" role="list">
-            <li>
-              <span class="fb-icon">
-                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-              </span>
-              <span>Sin conocimiento técnico — nos ocupamos de todo</span>
-            </li>
-            <li>
-              <span class="fb-icon">
-                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-              </span>
-              <span>Sistema activo en 15 días hábiles garantizados</span>
-            </li>
-            <li>
-              <span class="fb-icon">
-                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-              </span>
-              <span>Soporte directo el primer mes incluido</span>
-            </li>
-            <li>
-              <span class="fb-icon">
-                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-              </span>
-              <span>Respondemos en menos de 24 horas</span>
-            </li>
-          </ul>
-          <div class="form-wa">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="#25d366" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-            <span>O escribinos directo por WhatsApp</span>
-          </div>
-        </div>
-
-        <form class="form-card" id="form-contacto" novalidate>
-          <div class="field-group">
-            <label for="nombre">Nombre completo</label>
-            <input type="text" id="nombre" name="nombre" placeholder="Ej: Dr. Martín García" required autocomplete="name" maxlength="120" />
-          </div>
-          <div class="field-group">
-            <label for="negocio">¿A qué te dedicás?</label>
-            <select id="negocio" name="negocio" required>
-              <option value="">— Seleccioná tu rubro —</option>
-              <option>Clínica / Consultorio dental</option>
-              <option>Consultorio médico</option>
-              <option>Inmobiliaria</option>
-              <option>Estudio jurídico</option>
-              <option>Comercio / Retail</option>
-              <option>Restaurante / Gastronomía</option>
-              <option>Otro servicio</option>
-            </select>
-          </div>
-          <div class="field-group">
-            <label for="whatsapp">Tu WhatsApp (con código de área)</label>
-            <input type="tel" id="whatsapp" name="whatsapp" placeholder="Ej: 1123456789" required autocomplete="tel" maxlength="20" />
-          </div>
-          <div class="field-group">
-            <label for="mensaje">¿Qué proceso te consume más tiempo?</label>
-            <textarea id="mensaje" name="mensaje" rows="3" placeholder="Ej: confirmar turnos, responder consultas, seguir leads..." maxlength="800"></textarea>
-          </div>
-          <button type="submit" class="btn btn-green btn-submit" id="btn-submit">
-            <span class="btn-label">Quiero mi diagnóstico gratis →</span>
-            <span class="btn-sending" aria-hidden="true">Enviando…</span>
-            <span class="btn-sent" aria-hidden="true">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-              ¡Recibido! Te contactamos pronto
-            </span>
-          </button>
-          <p class="form-disclaimer">Sin spam · Diagnóstico gratuito · Respuesta en menos de 24h</p>
-        </form>
-
-      </div>
-    </div>
-  </section>
+  <div class="ticker" aria-hidden="true"><div class="ticker-track">
+    <span>WhatsApp Cloud API</span><span class="sep">✦</span><span>n8n</span><span class="sep">✦</span><span>OpenAI · GPT-4o</span><span class="sep">✦</span><span>Google Sheets</span><span class="sep">✦</span><span>Telegram</span><span class="sep">✦</span><span>Cloudflare Turnstile</span><span class="sep">✦</span><span>Agentes IA</span><span class="sep">✦</span>
+    <span>WhatsApp Cloud API</span><span class="sep">✦</span><span>n8n</span><span class="sep">✦</span><span>OpenAI · GPT-4o</span><span class="sep">✦</span><span>Google Sheets</span><span class="sep">✦</span><span>Telegram</span><span class="sep">✦</span><span>Cloudflare Turnstile</span><span class="sep">✦</span><span>Agentes IA</span><span class="sep">✦</span>
+  </div></div>
 
   <!-- PROBLEMA -->
-  <section class="problema" id="problema" aria-label="Problemas que resolvemos">
+  <section id="problema" aria-label="El problema">
     <div class="container">
-      <div class="prob-header reveal">
-        <p class="kicker">EL PROBLEMA</p>
-        <h2>Sin automatización, tu negocio<br><span class="green-text">trabaja contra reloj.</span></h2>
-      </div>
-      <div class="prob-grid">
-        <div class="prob-card reveal">
-          <span class="prob-bg-num" aria-hidden="true">01</span>
-          <div class="prob-icon" aria-hidden="true">
-            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-          </div>
-          <h3>Turnos que se pierden</h3>
-          <p>Clientes que no aparecen, horas vacías, ingresos que no llegan. Todo porque no hay una confirmación automática que lo evite.</p>
-        </div>
-        <div class="prob-card reveal">
-          <span class="prob-bg-num" aria-hidden="true">02</span>
-          <div class="prob-icon" aria-hidden="true">
-            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-          </div>
-          <h3>Mensajes sin respuesta</h3>
-          <p>A las 11pm llegan consultas y nadie responde. Ese lead en dos minutos elige a tu competencia. Y así, cada fin de semana.</p>
-        </div>
-        <div class="prob-card reveal">
-          <span class="prob-bg-num" aria-hidden="true">03</span>
-          <div class="prob-icon" aria-hidden="true">
-            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-          </div>
-          <h3>Tiempo en tareas que no escalan</h3>
-          <p>Confirmar reservas, recordar clientes, responder lo mismo 20 veces. Horas que deberías invertir en hacer crecer tu negocio.</p>
-        </div>
-      </div>
-      <div class="prob-cta reveal">
-        <a href="#diagnostico" class="btn btn-green">Quiero resolver esto ahora</a>
+      <div class="sec-head reveal"><p class="kicker">El problema</p><h2>Sin automatización, tu negocio<br><span class="green-text">pierde clientes cada día.</span></h2></div>
+      <div class="grid-3">
+        <div class="card prob-card reveal"><div class="num">01</div><h3>Fuera de horario, nadie responde</h3><p>A las 11pm llega una consulta y el cliente se va con el que le contestó primero. Cada noche y cada fin de semana.</p></div>
+        <div class="card prob-card reveal"><div class="num">02</div><h3>Tu equipo se satura</h3><p>Responder lo mismo 20 veces (precios, horarios, "¿tienen tal cosa?") consume horas que deberían ir a vender.</p></div>
+        <div class="card prob-card reveal"><div class="num">03</div><h3>Se pierden mensajes</h3><p>Entre el volumen, hay consultas que nunca se responden. Y una consulta sin responder es una venta que no pasa.</p></div>
       </div>
     </div>
   </section>
 
-  <!-- SERVICIOS -->
-  <section class="servicios" id="servicios" aria-label="Nuestros servicios">
+  <!-- SOLUCIÓN / CÓMO FUNCIONA -->
+  <section id="como-funciona" aria-label="Cómo funciona Neura">
     <div class="container">
-      <div class="srv-header reveal">
-        <p class="kicker">LO QUE HACEMOS</p>
-        <h2>Todo lo que tu negocio necesita,<br><span class="green-text">en un solo sistema.</span></h2>
+      <div class="sec-head reveal"><p class="kicker">Cómo funciona</p><h2>Un agente de IA en tu WhatsApp,<br><span class="green-text">conectado a tu negocio.</span></h2></div>
+      <div class="flow-wrap reveal">
+        <!-- DESKTOP: horizontal -->
+        <svg class="flow-desktop" viewBox="0 0 900 300" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Flujo: mensaje entrante, Neura agente, decisión, responde o deriva">
+          <defs><marker id="ahd" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#00FF88"/></marker></defs>
+          <line x1="185" y1="150" x2="250" y2="150" stroke="rgba(255,255,255,.25)" stroke-width="1.5" marker-end="url(#ahd)"/>
+          <line x1="470" y1="150" x2="530" y2="150" stroke="rgba(255,255,255,.25)" stroke-width="1.5" marker-end="url(#ahd)"/>
+          <path d="M650 150 C 690 150, 690 90, 730 90" fill="none" stroke="rgba(0,255,136,.4)" stroke-width="1.5" marker-end="url(#ahd)"/>
+          <path d="M650 150 C 690 150, 690 215, 730 215" fill="none" stroke="rgba(255,255,255,.2)" stroke-width="1.5" marker-end="url(#ahd)"/>
+          <g><rect x="40" y="120" width="145" height="60" rx="12" fill="#0E0E0E" stroke="rgba(255,255,255,.14)"/><text x="60" y="146" fill="#fff" font-family="Inter" font-size="14" font-weight="600">Mensaje</text><text x="60" y="164" fill="rgba(255,255,255,.5)" font-family="JetBrains Mono" font-size="11">whatsapp</text></g>
+          <g><rect x="250" y="108" width="220" height="84" rx="14" fill="#0E0E0E" stroke="rgba(0,255,136,.3)"/><text x="278" y="146" fill="#fff" font-family="Syne" font-size="17" font-weight="700">Neura · Agente IA</text><text x="278" y="168" fill="rgba(255,255,255,.5)" font-family="JetBrains Mono" font-size="11">atiende + califica</text></g>
+          <g><rect x="530" y="120" width="120" height="60" rx="12" fill="#0E0E0E" stroke="rgba(255,255,255,.14)"/><text x="552" y="155" fill="#fff" font-family="Inter" font-size="14" font-weight="600">¿Resuelve?</text></g>
+          <g><rect x="730" y="62" width="150" height="56" rx="12" fill="#0E0E0E" stroke="rgba(0,255,136,.3)"/><text x="752" y="95" fill="#fff" font-family="Inter" font-size="14" font-weight="600">Responde 24/7</text></g>
+          <g><rect x="730" y="188" width="150" height="56" rx="12" fill="#0E0E0E" stroke="rgba(255,255,255,.14)"/><text x="752" y="221" fill="#fff" font-family="Inter" font-size="14" font-weight="600">Deriva a tu equipo</text></g>
+          <text x="690" y="80" fill="#00FF88" font-family="JetBrains Mono" font-size="11">sí</text>
+          <text x="688" y="208" fill="rgba(255,255,255,.5)" font-family="JetBrains Mono" font-size="11">no</text>
+        </svg>
+        <!-- MÓVIL: vertical -->
+        <svg class="flow-mobile" viewBox="0 0 360 620" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Flujo vertical: mensaje, Neura agente, decisión, responde o deriva">
+          <defs><marker id="ahm" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#00FF88"/></marker></defs>
+          <line x1="180" y1="80" x2="180" y2="148" stroke="rgba(255,255,255,.25)" stroke-width="1.5" marker-end="url(#ahm)"/>
+          <line x1="180" y1="218" x2="180" y2="298" stroke="rgba(255,255,255,.25)" stroke-width="1.5" marker-end="url(#ahm)"/>
+          <path d="M180 356 C 180 405, 96 400, 96 438" fill="none" stroke="rgba(0,255,136,.4)" stroke-width="1.5" marker-end="url(#ahm)"/>
+          <path d="M180 356 C 180 405, 266 400, 266 438" fill="none" stroke="rgba(255,255,255,.2)" stroke-width="1.5" marker-end="url(#ahm)"/>
+          <g><rect x="110" y="24" width="140" height="54" rx="12" fill="#0E0E0E" stroke="rgba(255,255,255,.14)"/><text x="180" y="47" text-anchor="middle" fill="#fff" font-family="Inter" font-size="14" font-weight="600">Mensaje</text><text x="180" y="65" text-anchor="middle" fill="rgba(255,255,255,.5)" font-family="JetBrains Mono" font-size="11">whatsapp</text></g>
+          <g><rect x="88" y="150" width="184" height="66" rx="14" fill="#0E0E0E" stroke="rgba(0,255,136,.3)"/><text x="180" y="180" text-anchor="middle" fill="#fff" font-family="Syne" font-size="15" font-weight="700">Neura · Agente IA</text><text x="180" y="200" text-anchor="middle" fill="rgba(255,255,255,.5)" font-family="JetBrains Mono" font-size="10">atiende + califica</text></g>
+          <g><rect x="118" y="300" width="124" height="54" rx="12" fill="#0E0E0E" stroke="rgba(255,255,255,.14)"/><text x="180" y="332" text-anchor="middle" fill="#fff" font-family="Inter" font-size="14" font-weight="600">¿Resuelve?</text></g>
+          <g><rect x="26" y="438" width="140" height="52" rx="12" fill="#0E0E0E" stroke="rgba(0,255,136,.3)"/><text x="96" y="469" text-anchor="middle" fill="#fff" font-family="Inter" font-size="13" font-weight="600">Responde 24/7</text></g>
+          <g><rect x="196" y="438" width="140" height="52" rx="12" fill="#0E0E0E" stroke="rgba(255,255,255,.14)"/><text x="266" y="463" text-anchor="middle" fill="#fff" font-family="Inter" font-size="12.5" font-weight="600">Deriva a tu</text><text x="266" y="479" text-anchor="middle" fill="#fff" font-family="Inter" font-size="12.5" font-weight="600">equipo</text></g>
+          <text x="120" y="418" fill="#00FF88" font-family="JetBrains Mono" font-size="11">sí</text>
+          <text x="238" y="418" fill="rgba(255,255,255,.5)" font-family="JetBrains Mono" font-size="11">no</text>
+        </svg>
       </div>
-      <div class="srv-bento">
-        <article class="srv-card srv-wide reveal">
-          <div class="srv-card-icon" aria-hidden="true">
-            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-          </div>
-          <div class="srv-card-text">
-            <h3>Agente WhatsApp IA</h3>
-            <p>Un asistente que responde, agenda y convierte consultas en clientes, las 24 horas, sin que muevas un dedo. Tu negocio siempre disponible.</p>
-          </div>
-          <span class="srv-tag">Más popular</span>
-        </article>
-        <article class="srv-card reveal">
-          <div class="srv-card-icon" aria-hidden="true">
-            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
-          </div>
-          <div class="srv-card-text">
-            <h3>CRM Inteligente</h3>
-            <p>Seguimiento de cada lead, historial completo y reportes en tiempo real. GoHighLevel configurado para tu negocio.</p>
-          </div>
-        </article>
-        <article class="srv-card reveal">
-          <div class="srv-card-icon" aria-hidden="true">
-            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><polyline points="23 20 23 14 17 14"/><path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 0 1 3.51 15"/></svg>
-          </div>
-          <div class="srv-card-text">
-            <h3>Turnos Automáticos</h3>
-            <p>Flujos n8n que coordinan agenda, recordatorios y confirmaciones sin llamadas. Agenda llena, cero esfuerzo.</p>
-          </div>
-        </article>
-        <article class="srv-card srv-wide reveal">
-          <div class="srv-card-icon" aria-hidden="true">
-            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
-          </div>
-          <div class="srv-card-text">
-            <h3>Integración Total</h3>
-            <p>Conectamos Instagram, email, calendario y tus herramientas actuales en un flujo único. Un ecosistema que trabaja junto, en piloto automático.</p>
-          </div>
-        </article>
+      <div class="steps">
+        <div class="step reveal"><div class="sn">01</div><h4>El cliente escribe</h4><p>Por tu WhatsApp de siempre (número oficial de Meta).</p></div>
+        <div class="step reveal"><div class="sn">02</div><h4>Neura responde y califica</h4><p>Contesta lo repetitivo con el tono de tu negocio y capta los datos.</p></div>
+        <div class="step reveal"><div class="sn">03</div><h4>Avanza o deriva</h4><p>Lo lleva hacia la venta/turno, o escala a una persona si conviene.</p></div>
+        <div class="step reveal"><div class="sn">04</div><h4>Tu equipo toma el control</h4><p>Con un clic, desde un panel único. El bot se aparta y retoma al resolver.</p></div>
       </div>
     </div>
   </section>
 
-  <!-- STATS -->
-  <section class="stats" aria-label="Números clave">
+  <!-- CAPACIDADES BENTO -->
+  <section id="servicios" aria-label="Capacidades">
     <div class="container">
-      <div class="stats-row">
-        <div class="stat-item reveal">
-          <div class="stat-num"><span class="count-up" data-target="80">0</span>%</div>
-          <p class="stat-desc">de tus tareas<br>eliminadas</p>
+      <div class="sec-head reveal"><p class="kicker">Lo que hacemos</p><h2>Todo tu negocio,<br><span class="green-text">en un solo sistema.</span></h2></div>
+      <div class="bento">
+        <article class="card wide reveal"><span class="tag">Más popular</span><div class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div><h3>Agente WhatsApp IA</h3><p>Responde, agenda y convierte consultas en clientes las 24 horas, con la información y el tono de tu negocio.</p></article>
+        <article class="card reveal"><div class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg></div><h3>CRM Inteligente</h3><p>Seguimiento de cada lead e historial completo por cliente, siempre al día.</p></article>
+        <article class="card reveal"><div class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10"/></svg></div><h3>Turnos Automáticos</h3><p>Flujos que coordinan agenda, recordatorios y confirmaciones sin llamadas.</p></article>
+        <article class="card wide reveal"><div class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></div><h3>Integración total</h3><p>Conectamos WhatsApp, Instagram, tu calendario y tus herramientas actuales en un flujo único, en piloto automático.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ROI -->
+  <section id="roi" aria-label="Simulador de ahorro">
+    <div class="container">
+      <div class="sec-head reveal"><p class="kicker">Calculá el impacto</p><h2>¿Cuánto te cuesta<br><span class="green-text">hacerlo a mano?</span></h2></div>
+      <div class="roi-card reveal">
+        <div class="roi-controls">
+          <label><span class="lab">Horas semanales en tareas repetitivas <span class="val" id="v-horas">40</span></span><input type="range" id="r-horas" min="10" max="500" value="40" step="5"></label>
+          <label><span class="lab">Costo promedio por hora (USD) <span class="val" id="v-costo">$30</span></span><input type="range" id="r-costo" min="15" max="150" value="30" step="5"></label>
+          <label><span class="lab">% de procesos a automatizar <span class="val" id="v-pct">50%</span></span><input type="range" id="r-pct" min="10" max="90" value="50" step="5"></label>
         </div>
-        <div class="stat-div" aria-hidden="true"></div>
-        <div class="stat-item reveal">
-          <div class="stat-num">24<span class="stat-unit">H</span></div>
-          <p class="stat-desc">atención sin<br>interrupciones</p>
-        </div>
-        <div class="stat-div" aria-hidden="true"></div>
-        <div class="stat-item reveal">
-          <div class="stat-num"><span class="count-up" data-target="3">0</span>×</div>
-          <p class="stat-desc">más leads<br>calificados</p>
-        </div>
-        <div class="stat-div" aria-hidden="true"></div>
-        <div class="stat-item reveal">
-          <div class="stat-num"><span class="count-up" data-target="15">0</span><span class="stat-unit">D</span></div>
-          <p class="stat-desc">de idea a<br>sistema activo</p>
+        <div class="roi-out">
+          <div class="ro"><div class="rn" id="o-horas">0</div><div class="rl">horas liberadas por mes</div></div>
+          <div class="ro"><div class="rn" id="o-mes">$0</div><div class="rl">ahorro mensual estimado</div></div>
+          <div class="ro"><div class="rn" id="o-anio">$0</div><div class="rl">ahorro anual proyectado</div></div>
+          <p class="roi-note">* Estimación orientativa según tus datos. No es una cotización.</p>
+          <a href="https://f2aia.com/diagnostico/" class="btn btn-primary" style="margin-top:6px">Agendar diagnóstico gratis <span class="ar">→</span></a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- PROCESO -->
-  <section class="proceso" id="como-funciona" aria-label="Cómo funciona">
+  <!-- DEMO INFO -->
+  <section id="neura" aria-label="Probá a Neura">
     <div class="container">
-      <div class="proc-header reveal">
-        <p class="kicker">EL PROCESO</p>
-        <h2>Tres pasos.<br><span class="green-text">Un sistema que funciona.</span></h2>
+      <div class="sec-head reveal"><p class="kicker">Probá a Neura</p><h2>La mejor demo<br><span class="green-text">es escribirle.</span></h2><p class="lead">Contale tu rubro y Neura te atiende como si fuera tu propio negocio. Sin instalar nada, sin WhatsApp real. En 2 minutos ves de qué se trata.</p></div>
+      <div class="grid-3" style="margin-bottom:34px">
+        <div class="card reveal"><div class="num" style="font-family:'JetBrains Mono',monospace;color:rgba(0,255,136,.4);font-size:13px;font-weight:700;margin-bottom:12px">01</div><h3>Elegís tu rubro</h3><p>Escribís a qué se dedica tu negocio (clínica, ferretería, gimnasio, lo que sea).</p></div>
+        <div class="card reveal"><div class="num" style="font-family:'JetBrains Mono',monospace;color:rgba(0,255,136,.4);font-size:13px;font-weight:700;margin-bottom:12px">02</div><h3>Neura te atiende</h3><p>Responde con datos concretos (precios, horarios, turnos) como lo haría tu negocio real.</p></div>
+        <div class="card reveal"><div class="num" style="font-family:'JetBrains Mono',monospace;color:rgba(0,255,136,.4);font-size:13px;font-weight:700;margin-bottom:12px">03</div><h3>Ves el resultado</h3><p>Al terminar, dejás tus datos si querés que lo implementemos en tu negocio.</p></div>
       </div>
-      <div class="proc-steps">
-        <div class="proc-step reveal">
-          <div class="proc-num">01</div>
-          <div class="proc-line" aria-hidden="true"></div>
-          <div class="proc-content">
-            <h3>Diagnóstico</h3>
-            <p>30 minutos para mapear tu negocio, detectar dónde perdés tiempo y dinero, y definir el sistema ideal para vos.</p>
-          </div>
+      <div class="chatmock reveal" aria-label="Ejemplo de conversación con Neura">
+        <div class="cm-head">
+          <div class="cm-av">N</div>
+          <div><div class="cm-who">Neura</div><div class="cm-status"><span class="dot"></span>en línea</div></div>
         </div>
-        <div class="proc-step reveal">
-          <div class="proc-num">02</div>
-          <div class="proc-line" aria-hidden="true"></div>
-          <div class="proc-content">
-            <h3>Arquitectura</h3>
-            <p>Diseñamos el flujo a medida. Sin plantillas genéricas. Cada automatización pensada para tu realidad y tu rubro.</p>
-          </div>
+        <div class="cm-body">
+          <div class="cm-b cm-in">¡Hola! Soy Neura 👋 ¿De qué es tu negocio?</div>
+          <div class="cm-b cm-out">Una ferretería en Palermo</div>
+          <div class="cm-b cm-in">Genial 🙌 Atendemos de lunes a sábado de 9 a 20 h. ¿Buscás un producto puntual o querés que te pase precios?</div>
+          <div class="cm-b cm-out">¿Tenés taladros?</div>
+          <div class="cm-b cm-in">Sí. Tenemos desde $28.000. ¿Te reservo uno o te mando el catálogo por acá?</div>
         </div>
-        <div class="proc-step reveal">
-          <div class="proc-num">03</div>
-          <div class="proc-content">
-            <h3>Activación</h3>
-            <p>Deploy, testing en vivo y entrega del sistema funcionando. Soporte directo el primer mes incluido.</p>
-          </div>
-        </div>
+      </div>
+      <div class="reveal" style="text-align:center;margin-top:30px">
+        <a href="https://f2aia.com/demo" class="btn btn-primary" style="font-size:16px;padding:16px 34px">Probá a Neura ahora <span class="ar">→</span></a>
+        <div class="demo-live" style="justify-content:center;margin-top:18px"><span class="dot"></span><span><strong id="dlc-num">50</strong>&nbsp;negocios ya lo probaron</span></div>
       </div>
     </div>
   </section>
 
-  <!-- TESTIMONIALES -->
-  <section class="testimoniales" id="testimoniales" aria-label="Testimonios">
+  <!-- EDUCATIVO -->
+  <section id="educativo" aria-label="Cuándo automatizar">
     <div class="container">
-      <div class="test-header reveal">
-        <p class="kicker">RESULTADOS REALES</p>
-        <h2>Negocios que dieron el salto<br><span class="green-text">y no vuelven atrás.</span></h2>
+      <div class="sec-head reveal"><p class="kicker">Hablemos claro</p><h2>¿Cuándo conviene automatizar<br><span class="green-text">y cuándo no?</span></h2><p class="lead">Preferimos decirte la verdad antes que venderte humo. Automatizar no siempre es la respuesta.</p></div>
+      <div class="two-col">
+        <div class="card reveal"><h3 style="color:var(--green)">Sí conviene si…</h3><ul class="list-check">
+          <li>Recibís muchas consultas repetitivas (precios, horarios, disponibilidad).</li>
+          <li>Perdés clientes fuera de horario o los fines de semana.</li>
+          <li>Tu equipo pasa horas respondiendo lo mismo una y otra vez.</li>
+          <li>Querés captar y calificar leads sin sumar gente.</li>
+        </ul></div>
+        <div class="card reveal"><h3>Todavía no, si…</h3><ul class="list-cross">
+          <li>Tu volumen de mensajes es muy bajo (lo resolvés a mano sin problema).</li>
+          <li>Cada consulta es 100% única y necesita criterio humano desde el inicio.</li>
+          <li>No tenés definido tu proceso: primero hay que ordenarlo, después automatizar.</li>
+          <li>Buscás reemplazar a tu equipo: Neura lo potencia, no lo reemplaza.</li>
+        </ul></div>
       </div>
-      <div class="test-grid">
-        <article class="test-card reveal">
-          <div class="test-stars" aria-label="5 estrellas">
-            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="#00FF88" stroke="none" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="#00FF88" stroke="none" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="#00FF88" stroke="none" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="#00FF88" stroke="none" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="#00FF88" stroke="none" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          </div>
-          <p>"Antes pasaba una hora al día confirmando turnos a mano. Ahora lo hace el sistema solo. Recuperé ese tiempo para atender más pacientes."</p>
-          <div class="test-author">
-            <div class="test-av" style="background:linear-gradient(135deg,#00FF88,#00AA55);color:#050505" aria-hidden="true">CM</div>
-            <div>
-              <strong>Dra. Carla Mendez</strong>
-              <span>Profesional independiente · CABA</span>
-            </div>
-          </div>
-        </article>
-        <article class="test-card reveal">
-          <div class="test-stars" aria-label="5 estrellas">
-            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="#00FF88" stroke="none" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="#00FF88" stroke="none" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="#00FF88" stroke="none" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="#00FF88" stroke="none" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="#00FF88" stroke="none" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          </div>
-          <p>"No soy técnico y tenía miedo. Franco se encargó de todo desde el día uno. Hoy el sistema responde, filtra y agenda sin que yo haga nada."</p>
-          <div class="test-author">
-            <div class="test-av" style="background:linear-gradient(135deg,#005533,#00FF88);color:#fff" aria-hidden="true">ST</div>
-            <div>
-              <strong>Sebastián Torres</strong>
-              <span>Dueño de negocio · Palermo</span>
-            </div>
-          </div>
-        </article>
-        <article class="test-card reveal">
-          <div class="test-stars" aria-label="5 estrellas">
-            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="#00FF88" stroke="none" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="#00FF88" stroke="none" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="#00FF88" stroke="none" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="#00FF88" stroke="none" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="#00FF88" stroke="none" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          </div>
-          <p>"Implementado en 2 semanas exactas. Hoy tengo un sistema que trabaja mientras duermo. Es la mejor inversión que hice para mi consultorio."</p>
-          <div class="test-author">
-            <div class="test-av" style="background:linear-gradient(135deg,#003322,#00CC66);color:#fff" aria-hidden="true">MR</div>
-            <div>
-              <strong>Marcela Ríos</strong>
-              <span>Consultorio Integral · Belgrano</span>
-            </div>
-          </div>
-        </article>
+    </div>
+  </section>
+
+  <!-- PRUEBA HONESTA -->
+  <section id="prueba" aria-label="Qué sí y qué todavía no">
+    <div class="container">
+      <div class="sec-head reveal"><p class="kicker">Claridad honesta</p><h2>Qué hace hoy,<br><span class="green-text">y qué todavía no.</span></h2></div>
+      <div class="two-col">
+        <div class="card reveal"><h3 style="color:var(--green)">Lo que ya hace</h3><ul class="list-check">
+          <li>Atención 24/7 con IA + toma de control humana con un clic.</li>
+          <li>WhatsApp Cloud API oficial de Meta (sin riesgo de baneo por la herramienta).</li>
+          <li>Escala inteligente (por palabra clave, por tiempo o por decisión del modelo).</li>
+          <li>Panel único con historial por cliente, auto-hospedado.</li>
+        </ul></div>
+        <div class="card reveal"><h3>Lo que todavía no (y es honesto decirlo)</h3><ul class="list-cross">
+          <li>No conoce tu catálogo real hasta cargar tu info → se hace en el onboarding.</li>
+          <li>No agenda solo en un calendario: capta el dato y lo pasa a una persona (integrable a futuro).</li>
+          <li>No procesa audios todavía (activable más adelante).</li>
+          <li>Onboarding gestionado por F2AIA (a medida; autoservicio = futuro).</li>
+        </ul></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROGRAMA ALFA -->
+  <section id="alfa" aria-label="Programa Alfa">
+    <div class="container">
+      <div class="alfa-card reveal">
+        <p class="kicker">Programa Alfa · cupos limitados</p>
+        <h2>Entrá temprano.<br><span class="green-text">Te conviene.</span></h2>
+        <div class="alfa-benefits">
+          <div>Precio mensual congelado 6 meses</div>
+          <div>Sin permanencia — seguís mes a mes</div>
+          <div>Atención directa de F2AIA en el setup</div>
+          <div>Configurado a la medida de tu negocio</div>
+        </div>
+        <p style="color:var(--text);font-weight:300;max-width:60ch;position:relative">A cambio, nos ayudás con tu feedback y —cuando funcione— nos dejás contarlo como caso. Los cupos son limitados.</p>
+        <div style="margin-top:26px;position:relative"><a href="#contacto" class="btn btn-primary">Quiero entrar al Programa Alfa <span class="ar">→</span></a></div>
       </div>
     </div>
   </section>
 
   <!-- FAQ -->
-  <section class="faq" aria-label="Preguntas frecuentes">
+  <section id="faq" aria-label="Preguntas frecuentes">
     <div class="container">
-      <div class="faq-header reveal">
-        <p class="kicker">PREGUNTAS</p>
-        <h2>Todo lo que querés saber<br><span class="green-text">antes de arrancar.</span></h2>
-      </div>
+      <div class="sec-head reveal"><p class="kicker">Preguntas</p><h2>Todo lo que querés saber<br><span class="green-text">antes de arrancar.</span></h2></div>
       <div class="faq-list">
-        <div class="faq-item reveal">
-          <button class="faq-btn" aria-expanded="false">
-            <span>¿Necesito saber de tecnología?</span>
-            <span class="faq-icon" aria-hidden="true">
-              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-            </span>
-          </button>
-          <div class="faq-answer"><p>No. Nos encargamos de todo. Solo necesitás contarnos cómo funciona tu negocio hoy. El resto lo hacemos nosotros.</p></div>
+        <div class="faq-item reveal"><button class="faq-btn" aria-expanded="false"><span>¿Necesito saber de tecnología?</span><span class="faq-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button><div class="faq-answer"><p>No. Usamos herramientas no-code (n8n) y nos ocupamos de todo. Solo necesitás contarnos cómo funciona tu negocio hoy.</p></div></div>
+        <div class="faq-item reveal"><button class="faq-btn" aria-expanded="false"><span>¿Cuánto tarda la implementación?</span><span class="faq-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button><div class="faq-answer"><p>Entre 10 y 20 días hábiles para un sistema completo, funcionando y probado en tu entorno real.</p></div></div>
+        <div class="faq-item reveal"><button class="faq-btn" aria-expanded="false"><span>¿Funciona con mi WhatsApp actual?</span><span class="faq-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button><div class="faq-answer"><p>Trabajamos con la WhatsApp Cloud API oficial de Meta. Coordinamos la configuración según tu caso, sin riesgo de baneo por la herramienta.</p></div></div>
+        <div class="faq-item reveal"><button class="faq-btn" aria-expanded="false"><span>¿La IA reemplaza a mi equipo?</span><span class="faq-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button><div class="faq-answer"><p>No. Neura se encarga de lo repetitivo para que tu equipo entre solo en las conversaciones de alto valor. Ante una duda que no puede responder bien, deriva a una persona.</p></div></div>
+        <div class="faq-item reveal"><button class="faq-btn" aria-expanded="false"><span>¿Qué necesitan para facturarme?</span><span class="faq-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button><div class="faq-answer"><p>Emitimos Factura tipo C (Monotributo). Para empresas o profesionales pedimos CUIT, razón social, condición frente al IVA y dirección fiscal.</p></div></div>
+        <div class="faq-item reveal"><button class="faq-btn" aria-expanded="false"><span>¿Cuánto cuesta?</span><span class="faq-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button><div class="faq-answer"><p>Depende del sistema que necesitás. El diagnóstico es gratuito y sin compromiso; a partir de ahí te presentamos una propuesta a medida.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACTO (FORM → n8n · NO TOCAR wiring) -->
+  <section id="contacto" aria-label="Contacto">
+    <div class="container">
+      <div class="form-wrap">
+        <div class="form-copy alfa-card reveal">
+          <p class="kicker">Contanos tu caso</p>
+          <h2>Activá tu sistema<br><span class="green-text">en 15 días.</span></h2>
+          <p class="lead" style="position:relative">Dejanos tus datos y te escribimos con un plan de automatización a medida. Gratis, sin compromiso.</p>
+          <ul class="form-benefits">
+            <li><span class="fb"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> Sin conocimiento técnico — nos ocupamos de todo</li>
+            <li><span class="fb"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> Sistema activo en 15 días hábiles</li>
+            <li><span class="fb"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> Soporte directo el primer mes incluido</li>
+            <li><span class="fb"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> Respondemos en menos de 24 horas</li>
+          </ul>
         </div>
-        <div class="faq-item reveal">
-          <button class="faq-btn" aria-expanded="false">
-            <span>¿Cuánto tarda la implementación?</span>
-            <span class="faq-icon" aria-hidden="true">
-              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-            </span>
+        <form class="form-card reveal" id="form-contacto" novalidate>
+          <div class="field-group"><label for="nombre">Nombre completo</label><input type="text" id="nombre" name="nombre" placeholder="Ej: Dr. Martín García" required autocomplete="name" maxlength="120" /></div>
+          <div class="field-group"><label for="negocio">¿A qué te dedicás?</label><select id="negocio" name="negocio" required>
+            <option value="">— Seleccioná tu rubro —</option><option>Clínica / Consultorio dental</option><option>Consultorio médico</option><option>Inmobiliaria</option><option>Estudio jurídico</option><option>Comercio / Retail</option><option>Restaurante / Gastronomía</option><option>Otro servicio</option>
+          </select></div>
+          <div class="field-group"><label for="whatsapp">Tu WhatsApp (con código de área)</label><input type="tel" id="whatsapp" name="whatsapp" placeholder="Ej: 1123456789" required autocomplete="tel" maxlength="20" /></div>
+          <div class="field-group"><label for="mensaje">¿Qué proceso te consume más tiempo?</label><textarea id="mensaje" name="mensaje" rows="3" placeholder="Ej: confirmar turnos, responder consultas, seguir leads..." maxlength="800"></textarea></div>
+          <button type="submit" class="btn-submit" id="btn-submit">
+            <span class="btn-label">Quiero mi diagnóstico gratis →</span>
+            <span class="btn-sending" aria-hidden="true">Enviando…</span>
+            <span class="btn-sent" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> ¡Recibido! Te contactamos pronto</span>
           </button>
-          <div class="faq-answer"><p>Entre 10 y 20 días hábiles para un sistema completo, funcionando y testeado en tu entorno real.</p></div>
-        </div>
-        <div class="faq-item reveal">
-          <button class="faq-btn" aria-expanded="false">
-            <span>¿Funciona con mi WhatsApp actual?</span>
-            <span class="faq-icon" aria-hidden="true">
-              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-            </span>
-          </button>
-          <div class="faq-answer"><p>Sí. Trabajamos con WhatsApp Business API y también con soluciones alternativas, sin necesidad de cambiar tu número actual.</p></div>
-        </div>
-        <div class="faq-item reveal">
-          <button class="faq-btn" aria-expanded="false">
-            <span>¿Qué pasa si algo falla?</span>
-            <span class="faq-icon" aria-hidden="true">
-              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-            </span>
-          </button>
-          <div class="faq-answer"><p>Soporte directo conmigo el primer mes. Los sistemas son estables y están diseñados para requerir mínimo mantenimiento una vez activos.</p></div>
-        </div>
-        <div class="faq-item reveal">
-          <button class="faq-btn" aria-expanded="false">
-            <span>¿Cuánto cuesta?</span>
-            <span class="faq-icon" aria-hidden="true">
-              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-            </span>
-          </button>
-          <div class="faq-answer"><p>Depende del sistema que necesitás. El diagnóstico es completamente gratuito y sin compromiso. A partir de ahí te presentamos una propuesta a medida.</p></div>
-        </div>
+          <p class="form-consent">Al enviar, aceptás nuestra <a href="/privacidad/">Política de Privacidad</a> y que te contactemos por WhatsApp.</p>
+          <p class="form-disclaimer">Sin spam · Diagnóstico gratuito · Respuesta en menos de 24h</p>
+        </form>
       </div>
     </div>
   </section>
 
   <!-- CTA FINAL -->
-  <section class="cta-final" aria-label="Llamada a la acción final">
-    <div class="container">
-      <div class="cta-box reveal">
-        <p class="kicker">SIGUIENTE PASO</p>
-        <h2>Tu competencia no espera.<br><span class="green-text">¿Vos sí?</span></h2>
-        <p>El diagnóstico es gratis. El primer paso, tuyo.</p>
-        <div class="cta-final-btns">
-          <a href="https://f2aia.com/demo" class="btn btn-demo">Probá el agente →</a>
-          <a href="#diagnostico" class="btn btn-green">Activar mi sistema gratis</a>
-          <a href="https://wa.me/5491164858166?text=Hola%21+Vi+la+web+de+F2AIA+y+me+interesa+automatizar+mi+negocio." class="btn btn-ghost" target="_blank" rel="noopener">
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-            WhatsApp directo
-          </a>
-        </div>
+  <section class="cta-final" aria-label="Siguiente paso">
+    <div class="container"><div class="card reveal">
+      <p class="kicker">Siguiente paso</p>
+      <h2>Tu competencia no espera.<br><span class="green-text">¿Vos sí?</span></h2>
+      <p>El diagnóstico es gratis. El primer paso, tuyo.</p>
+      <div class="cta-btns">
+        <a href="https://f2aia.com/demo" class="btn btn-ghost">Probá a Neura →</a>
+        <a href="https://f2aia.com/diagnostico/" class="btn btn-primary">Activar mi sistema gratis</a>
       </div>
-    </div>
+    </div></div>
   </section>
 
   <!-- FOOTER -->
-  <footer class="footer" role="contentinfo">
-    <div class="container footer-inner">
-      <div class="footer-brand">
-        <a href="#" class="nav-logo" aria-label="F2AIA inicio">F2<span>AIA</span></a>
-        <p>Automatización con IA para negocios que quieren escalar sin límites.</p>
-        <div class="footer-social">
-          <a href="https://www.facebook.com/profile.php?id=61590053287826" class="soc-link" target="_blank" rel="noopener" aria-label="Facebook F2AIA">
-            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.236 2.686.236v2.97h-1.514c-1.491 0-1.956.931-1.956 1.886v2.267h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg>
-            Facebook
-          </a>
-          <a href="https://www.instagram.com/f2aia_/" class="soc-link" target="_blank" rel="noopener" aria-label="Instagram @f2aia_">
-            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
-            @f2aia_
-          </a>
+  <footer role="contentinfo">
+    <div class="container">
+      <div class="foot-grid">
+        <div class="foot-brand">
+          <a href="#" class="nav-logo"><span class="iso"></span>F2<span>AIA</span></a>
+          <p>Automatización con IA para negocios que quieren escalar sin sumar gente.</p>
+          <div class="soc">
+            <a href="https://www.instagram.com/f2aia_/" target="_blank" rel="noopener" aria-label="Instagram @f2aia_"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 3.25.15 4.77 1.69 4.92 4.92.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.15 3.23-1.66 4.77-4.92 4.92-1.27.06-1.64.07-4.85.07s-3.58-.01-4.85-.07c-3.26-.15-4.77-1.7-4.92-4.92C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85C2.38 3.92 3.9 2.38 7.15 2.23 8.42 2.17 8.8 2.16 12 2.16M12 0C8.74 0 8.33.01 7.05.07 2.7.27.27 2.69.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.2 4.36 2.62 6.78 6.98 6.98C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c4.35-.2 6.78-2.62 6.98-6.98.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.2-4.35-2.62-6.78-6.98-6.98C15.67.01 15.26 0 12 0zm0 5.84a6.16 6.16 0 100 12.32 6.16 6.16 0 000-12.32zM12 16a4 4 0 110-8 4 4 0 010 8zm6.41-11.85a1.44 1.44 0 100 2.88 1.44 1.44 0 000-2.88z"/></svg> @f2aia_</a>
+          </div>
         </div>
+        <div class="foot-col"><h5>Producto</h5><a href="#neura">Neura</a><a href="#como-funciona">Cómo funciona</a><a href="#servicios">Capacidades</a><a href="#roi">Calcular ROI</a></div>
+        <div class="foot-col"><h5>Empresa</h5><a href="https://f2aia.com/diagnostico/">Diagnóstico gratis</a><a href="mailto:hola@f2aia.com">hola@f2aia.com</a><a href="/privacidad/">Privacidad</a><a href="/terminos/">Términos</a></div>
       </div>
-      <nav class="footer-nav" aria-label="Navegación footer">
-        <a href="#servicios">Servicios</a>
-        <a href="#como-funciona">Proceso</a>
-        <a href="#testimoniales">Casos</a>
-        <a href="#diagnostico">Contacto</a>
-        <a href="mailto:hola@f2aia.com">hola@f2aia.com</a>
-        <a href="https://f2aia.com/privacidad" target="_blank" rel="noopener">Privacidad</a>
-      </nav>
-    </div>
-    <div class="footer-bottom">
-      <div class="container">
-        <p>© 2026 F2AIA · Buenos Aires, Argentina · Todos los derechos reservados.</p>
-      </div>
+      <p class="ai-notice">Este sitio y el asistente Neura utilizan inteligencia artificial. Las respuestas del demo son generadas por IA y pueden contener errores; no constituyen asesoramiento profesional. Ver <a href="/privacidad/">Política de Privacidad</a>.</p>
+      <p class="foot-bottom">© 2026 F2AIA · Buenos Aires, Argentina · Todos los derechos reservados.</p>
     </div>
   </footer>
 
   <!-- WHATSAPP FAB -->
-  <a id="wa-fab" class="wa-fab" href="https://wa.me/5491164858166?text=Hola%21+Vi+la+web+de+F2AIA+y+me+interesa+automatizar+mi+negocio." target="_blank" rel="noopener" aria-label="Chatear por WhatsApp con F2AIA">
-    <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-    <span class="wa-label">Hablemos</span>
+  <a id="wa-fab" class="wa-fab" href="https://wa.me/5491164858166" target="_blank" rel="noopener" aria-label="Chatear por WhatsApp con F2AIA">
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
   </a>
 
+  <!-- CONTADOR (preservado, público sin auth) -->
   <script>
   (function(){
-    var READ_URL = 'https://n8n.f2aia.com/webhook/f2aia-counter';
-    var INC_URL  = 'https://n8n.f2aia.com/webhook/f2aia-counter-inc';
-    var numEl    = document.getElementById('dlc-num');
-
-    function setCount(n) {
-      if (!numEl || !n) return;
-      numEl.textContent = n;
-      numEl.classList.remove('dlc-bump');
-      void numEl.offsetWidth;
-      numEl.classList.add('dlc-bump');
-    }
-
-    fetch(READ_URL)
-      .then(function(r){ return r.json(); })
-      .then(function(d){ if (d.count) setCount(d.count); })
-      .catch(function(){});
-
+    var READ_URL='https://n8n.f2aia.com/webhook/f2aia-counter', INC_URL='https://n8n.f2aia.com/webhook/f2aia-counter-inc', numEl=document.getElementById('dlc-num');
+    function setCount(n){ if(!numEl||!n)return; numEl.textContent=n; numEl.classList.remove('dlc-bump'); void numEl.offsetWidth; numEl.classList.add('dlc-bump'); }
+    fetch(READ_URL).then(function(r){return r.json();}).then(function(d){ if(d.count) setCount(d.count); }).catch(function(){});
     document.addEventListener('click', function(e){
-      var btn = e.target.closest('a[href="https://f2aia.com/demo"]');
-      if (!btn) return;
-      // Incremento fire-and-forget que sobrevive a la navegación en la misma ventana.
-      // counter-inc es público (sin Header Auth), así que sendBeacon basta.
-      var sent = false;
-      try { sent = navigator.sendBeacon(INC_URL, '{}'); } catch(_) {}
-      if (!sent) {
-        // fallback si sendBeacon no está disponible
-        try { fetch(INC_URL, { method:'POST', body:'{}', keepalive:true }).catch(function(){}); } catch(_) {}
-      }
-      // dejamos que el link navegue normalmente (misma ventana)
+      var btn=e.target.closest('a[href="https://f2aia.com/demo"]'); if(!btn) return;
+      var sent=false; try{ sent=navigator.sendBeacon(INC_URL,'{}'); }catch(_){}
+      if(!sent){ try{ fetch(INC_URL,{method:'POST',body:'{}',keepalive:true}).catch(function(){}); }catch(_){} }
     });
   })();
   </script>
-  <script defer src="main.js?v=20260613"></script>
-  <script defer src="/lib/cursor.js"></script>
+
+  <!-- HERO: fondo orbe + intro (bg + timeline) -->
+  <script src="hero-bg.js?v=20260721b" defer></script>
+  <!-- ROI + interacciones base (form → n8n, reveals, faq, countUp, nav) -->
+  <script>
+  (function(){
+    function roi(){
+      var h=document.getElementById('r-horas'), c=document.getElementById('r-costo'), p=document.getElementById('r-pct');
+      if(!h) return;
+      var vh=document.getElementById('v-horas'), vc=document.getElementById('v-costo'), vp=document.getElementById('v-pct');
+      var oh=document.getElementById('o-horas'), om=document.getElementById('o-mes'), oa=document.getElementById('o-anio');
+      function fmt(n){ return '$'+Math.round(n).toLocaleString('es-AR'); }
+      function calc(){
+        var horas=+h.value, costo=+c.value, pct=+p.value;
+        vh.textContent=horas; vc.textContent='$'+costo; vp.textContent=pct+'%';
+        var libres=horas*4.33*(pct/100), mes=libres*costo, anio=mes*12;
+        oh.textContent=Math.round(libres); om.textContent=fmt(mes); oa.textContent=fmt(anio);
+      }
+      [h,c,p].forEach(function(el){ el.addEventListener('input',calc); }); calc();
+    }
+    if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',roi); else roi();
+  })();
+  </script>
+  <script src="main.js?v=20260720" defer></script>
 
 </body>
 </html>
