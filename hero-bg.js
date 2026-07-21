@@ -52,10 +52,13 @@
     if(g.orb>0.02 && orbname){ orbname.style.left=ocx+'px'; orbname.style.top=(CY+R*1.2)+'px'; orbname.style.right='auto'; }
     // reloj rápido (tiempo real) para que la bandada se mueva de verdad durante los ~3s de murmuración
     var ft=sec*1.25;   // reloj de la bandada (más alto = más rápida)
+    // recorrido dirigido: la cabeza de la bandada barre de izquierda -> centro -> derecha (hacia el orbe)
+    var sweep=(Math.sin(ft*0.5-Math.PI/2)+1)/2;          // 0 (izq) .. 1 (der), ida y vuelta suave
+    var headX=W*(0.12+0.62*sweep), headY=CY;             // converge hacia la altura del orbe
     var AT=[
-      {x:W*(0.5+0.30*Math.sin(ft)),          y:H*(0.42+0.20*Math.cos(ft*0.8))},
-      {x:W*(0.5+0.32*Math.cos(ft*0.75+2.1)), y:H*(0.48+0.22*Math.sin(ft*0.65+1.2))},
-      {x:W*(0.5+0.28*Math.sin(ft*0.6+4.0)),  y:H*(0.42+0.18*Math.cos(ft*0.9+3.1))}
+      {x:headX,                         y:headY+H*0.10*Math.sin(ft*1.3)},
+      {x:headX-W*0.10+W*0.05*Math.cos(ft), y:headY+H*0.16*Math.cos(ft*0.9+1.2)},
+      {x:headX-W*0.18+W*0.04*Math.sin(ft*1.1+2.0), y:headY+H*0.12*Math.sin(ft*0.7+3.1)}
     ];
     for(var i=0;i<P.length;i++){ var p=P[i], o=g.orb;
       var fv=flowVec(p.x,p.y,ft), waveY=Math.sin(p.x*0.008+ft*2.0)*1.5*g.wave;
@@ -170,7 +173,7 @@
     await seqNodes(); await wait(1000); if(done)return;
     // FASE 3 · murmuración: la bandada ondula por TODA la pantalla
     if(diagram)diagram.style.opacity=0; T.part=1; T.wave=1; T.orb=0; await wait(2600); if(done)return;
-    // FASE 4 · el orbe se forma DIRECTO en su lugar (derecha en desktop / arriba en móvil), sin pasar por el centro
+    // FASE 4 · el orbe se forma DIRECTO a la derecha (CX,CY), donde la murmuración ya dejó la masa
     ocx=CX; OCXt=CX; T.orb=1; T.wave=0.22; if(orbname)orbname.classList.add('flash');
     await wait(2400); if(done)return;
     showContent();
