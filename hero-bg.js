@@ -22,7 +22,7 @@
   }
   addEventListener('resize',size); size();
 
-  var g={part:0,wave:0,orb:0}, T={part:0,wave:0,orb:0}, t=0, lastHb=0, CYCLE=3.6, nameTimer=null;
+  var g={part:0,wave:0,orb:0}, T={part:0,wave:0,orb:0}, t=0, lastHb=0, CYCLE=3.6, nameTimer=null, murmurT0=0;
   // Murmuración: curl-noise (divergencia≈0) → bandas coherentes que ondulan y giran, como la bandada.
   var S=0.0016, FSP=560;   // FSP = velocidad de la bandada
   function flowVec(x,y,ft){
@@ -53,8 +53,10 @@
     // reloj rápido (tiempo real) para que la bandada se mueva de verdad durante los ~3s de murmuración
     var ft=sec*1.25;   // reloj de la bandada (más alto = más rápida)
     // recorrido dirigido: la cabeza de la bandada barre de izquierda -> centro -> derecha (hacia el orbe)
-    var sweep=(Math.sin(ft*0.5-Math.PI/2)+1)/2;          // 0 (izq) .. 1 (der), ida y vuelta suave
-    var headX=W*(0.12+0.62*sweep), headY=CY;             // converge hacia la altura del orbe
+    // recorrido de la murmuración anclado al inicio de la FASE 3 (0=izq .. 1=der), no al reloj absoluto
+    var phase = murmurT0 ? Math.min(1,(sec-murmurT0)/2.6) : 1;
+    var sweep = phase<1 ? phase*phase*(3-2*phase) : 1;   // smoothstep: entra izq -> cruza centro -> converge der
+    var headX=W*(0.12+0.62*sweep), headY=CY;             // headX: 0.12W (izq) -> 0.74W = CX (der, donde nace el orbe)
     var AT=[
       {x:headX,                         y:headY+H*0.10*Math.sin(ft*1.3)},
       {x:headX-W*0.10+W*0.05*Math.cos(ft), y:headY+H*0.16*Math.cos(ft*0.9+1.2)},
@@ -172,7 +174,7 @@
     await wait(400); if(install)install.style.display='none';
     await seqNodes(); await wait(1000); if(done)return;
     // FASE 3 · murmuración: la bandada ondula por TODA la pantalla
-    if(diagram)diagram.style.opacity=0; T.part=1; T.wave=1; T.orb=0; await wait(2600); if(done)return;
+    if(diagram)diagram.style.opacity=0; T.part=1; T.wave=1; T.orb=0; murmurT0=(typeof performance!=='undefined'?performance.now():Date.now())/1000; await wait(2600); if(done)return;
     // FASE 4 · el orbe se forma DIRECTO a la derecha (CX,CY), donde la murmuración ya dejó la masa
     ocx=CX; OCXt=CX; T.orb=1; T.wave=0.22; if(orbname)orbname.classList.add('flash');
     await wait(2400); if(done)return;
