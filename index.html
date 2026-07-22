@@ -105,12 +105,12 @@
 
   /* ═══ HERO ═══ */
   .hero{ min-height:100vh; display:flex; align-items:center; padding-top:var(--nav-h) }
-  .hero-l{ max-width:640px; opacity:0; transform:translateY(14px); transition:opacity 1s ease, transform 1s var(--ease) }
+  .hero-l{ max-width:720px; opacity:0; transform:translateY(14px); transition:opacity 1s ease, transform 1s var(--ease) }
   .hero-l.on{ opacity:1; transform:none }
   .eyebrow{ display:inline-flex; align-items:center; gap:9px; margin-bottom:22px; font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:2px; text-transform:uppercase; color:var(--green-soft) }
   .eyebrow .d{ width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 10px var(--green);animation:pulse 1.8s ease-in-out infinite }
   @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.65)}}
-  .hero h1{ font-family:'Fraunces',Georgia,serif; font-weight:600; font-size:clamp(40px,5.8vw,74px); line-height:1.05; letter-spacing:-1.5px }
+  .hero h1{ font-family:'Fraunces',Georgia,serif; font-weight:600; font-size:clamp(48px,7.8vw,96px); line-height:1.0; letter-spacing:-2.5px }
   .hero h1 em{ font-style:italic; font-weight:600; color:var(--green); text-shadow:0 0 30px rgba(0,255,136,.3) }
   .hero .sub{ font-size:clamp(16px,1.75vw,19px); color:var(--text); font-weight:300; max-width:44ch; margin:22px 0 32px }
   .hero .sub b{ color:#fff; font-weight:600 }
@@ -120,6 +120,12 @@
   .stat .n{ font-family:'Fraunces',Georgia,serif; font-weight:800; font-size:clamp(30px,4vw,44px); color:var(--green); line-height:1; text-shadow:0 0 26px rgba(0,255,136,.35) }
   .stat .n .u{ font-size:.5em; margin-left:2px; color:var(--green-soft) }
   .stat .l{ font-size:12.5px; color:var(--muted); margin-top:8px; line-height:1.35 }
+
+  /* ═══ TICKER (marquesina) ═══ */
+  .ticker{ z-index:10; position:relative; border-top:1px solid var(--line); border-bottom:1px solid var(--line); padding:20px 0; overflow:hidden; background:rgba(7,7,7,.6); white-space:nowrap }
+  .ticker-track{ display:inline-flex; gap:40px; align-items:center; animation:scroll 26s linear infinite; font-family:'JetBrains Mono',monospace; font-size:14px; color:var(--muted) }
+  .ticker-track .sep{ color:var(--green) }
+  @keyframes scroll{ from{transform:translateX(0)} to{transform:translateX(-50%)} }
 
   /* ═══ REVEAL ═══ */
   .reveal{ opacity:0; transform:translateY(24px); transition:opacity .7s var(--ease), transform .7s var(--ease) }
@@ -140,11 +146,13 @@
 
   /* SOLUCIÓN / WORKFLOW */
   /* workflow transparente (se ve el fondo), horizontal desktop / vertical móvil */
-  .flow-wrap{ padding:8px 0; margin:0 auto; max-width:960px }
+  .flow-wrap{ padding:clamp(20px,3vw,40px); margin:0 auto; max-width:1040px; background:linear-gradient(160deg, rgba(0,255,136,.06), rgba(10,10,10,.30)); border:1px solid rgba(0,255,136,.22); border-radius:22px; position:relative; overflow:hidden; box-shadow:0 0 44px rgba(0,255,136,.06) }
   .flow-desktop{ width:100%; height:auto; display:block }
   .flow-mobile{ display:none; width:100%; max-width:340px; height:auto; margin:0 auto }
   @media(max-width:820px){ .flow-desktop{ display:none } .flow-mobile{ display:block } }
   .steps{ display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:20px; margin-top:34px }
+  .step{ background:var(--panel); border:1px solid var(--line); border-radius:16px; padding:24px; transition:border-color .3s, transform .3s }
+  .step:hover{ border-color:rgba(0,255,136,.28); transform:translateY(-2px) }
   .step .sn{ font-family:'JetBrains Mono',monospace; color:var(--green); font-size:13px; font-weight:700 }
   .step h4{ font-family:'Fraunces',Georgia,serif; font-weight:700; font-size:17px; margin:8px 0 6px }
   .step p{ color:var(--text); font-size:14px; font-weight:300 }
@@ -181,18 +189,26 @@
   .demo-live strong{ color:var(--green) } #dlc-num.dlc-bump{ animation:bump .5s ease }
   @keyframes bump{ 0%{transform:scale(1)} 40%{transform:scale(1.25)} 100%{transform:scale(1)} }
 
-  /* Mockup de chat del demo (bloque visual) */
-  .chatmock{ max-width:420px; margin:0 auto; background:#0E0E0E; border:1px solid var(--line); border-radius:22px; overflow:hidden; position:relative; box-shadow:0 24px 60px rgba(0,0,0,.55) }
-  .chatmock::before{ content:""; position:absolute; inset:-1px; z-index:-1; border-radius:23px; background:radial-gradient(200px 130px at 50% 0%, rgba(0,255,136,.20), transparent 72%); filter:blur(18px) }
-  .cm-head{ display:flex; align-items:center; gap:11px; padding:13px 16px; border-bottom:1px solid var(--line); background:rgba(255,255,255,.02) }
-  .cm-av{ width:36px; height:36px; border-radius:50%; background:linear-gradient(135deg,#00FF88,#087a45); display:grid; place-items:center; color:#052; font-weight:800; font-family:'Fraunces',Georgia,serif; font-size:16px }
-  .cm-who{ font-weight:700; font-size:14px; line-height:1.2 }
-  .cm-status{ font-size:11px; color:var(--green); display:flex; align-items:center; gap:5px; margin-top:2px }
-  .cm-status .dot{ width:7px; height:7px; border-radius:50%; background:var(--green); box-shadow:0 0 8px var(--green) }
-  .cm-body{ padding:16px; display:flex; flex-direction:column; gap:9px; background:#0A0A0A }
-  .cm-b{ max-width:80%; padding:9px 13px; border-radius:15px; font-size:13.5px; line-height:1.42 }
-  .cm-in{ align-self:flex-start; background:#191919; border:1px solid var(--line); border-bottom-left-radius:5px; color:var(--text) }
-  .cm-out{ align-self:flex-end; background:rgba(0,255,136,.13); border:1px solid rgba(0,255,136,.32); color:#d6ffe9; border-bottom-right-radius:5px }
+  /* Demo en 2 columnas */
+  .demo-grid{ display:grid; grid-template-columns:1fr 1fr; gap:clamp(28px,4vw,56px); align-items:center }
+  .demo-steps{ display:flex; flex-direction:column; gap:18px; margin-bottom:26px }
+  .demo-step{ display:flex; gap:14px; align-items:flex-start }
+  .demo-step .ds-n{ font-family:'JetBrains Mono',monospace; color:var(--green); font-weight:700; font-size:13px; background:rgba(0,255,136,.08); border:1px solid rgba(0,255,136,.25); width:34px; height:34px; border-radius:9px; display:grid; place-items:center; flex-shrink:0 }
+  .demo-step h4{ font-family:'Fraunces',Georgia,serif; font-weight:700; font-size:17px; margin-bottom:3px }
+  .demo-step p{ color:var(--text); font-size:14px; font-weight:300 }
+
+  /* Mockup de chat del demo — estilo WhatsApp real (fondo claro) */
+  .chatmock{ max-width:400px; margin:0; background:#ECE5DD; border:1px solid rgba(0,0,0,.12); border-radius:18px; overflow:hidden; position:relative; box-shadow:0 24px 60px rgba(0,0,0,.5) }
+  .chatmock::before{ content:""; position:absolute; inset:-1px; z-index:-1; border-radius:19px; background:radial-gradient(220px 140px at 50% 0%, rgba(0,255,136,.24), transparent 72%); filter:blur(20px) }
+  .cm-head{ display:flex; align-items:center; gap:11px; padding:12px 16px; background:#075E54 }
+  .cm-av{ width:36px; height:36px; border-radius:50%; background:#fff; display:grid; place-items:center; color:#075E54; font-weight:800; font-family:'Fraunces',Georgia,serif; font-size:16px }
+  .cm-who{ font-weight:700; font-size:14px; line-height:1.2; color:#fff }
+  .cm-status{ font-size:11px; color:rgba(255,255,255,.85); display:flex; align-items:center; gap:5px; margin-top:2px }
+  .cm-status .dot{ width:7px; height:7px; border-radius:50%; background:#25D366; box-shadow:0 0 8px #25D366 }
+  .cm-body{ padding:16px 14px; display:flex; flex-direction:column; gap:8px; background:#ECE5DD }
+  .cm-b{ max-width:82%; padding:8px 12px; border-radius:9px; font-size:13.5px; line-height:1.42; box-shadow:0 1px 1.5px rgba(0,0,0,.13) }
+  .cm-in{ align-self:flex-start; background:#fff; color:#111b21; border-top-left-radius:2px }
+  .cm-out{ align-self:flex-end; background:#DCF8C6; color:#111b21; border-top-right-radius:2px }
 
   /* ALFA */
   .alfa-card{ background:linear-gradient(160deg,#0c1a12,#0a0a0a); border:1px solid rgba(0,255,136,.25); border-radius:22px; padding:clamp(28px,4vw,52px); position:relative; overflow:hidden }
@@ -240,8 +256,18 @@
   .soc a{ display:inline-flex; align-items:center; gap:7px; color:var(--text); text-decoration:none; font-size:13px; margin-right:16px } .soc a:hover{ color:var(--green) }
 
   /* WHATSAPP FAB */
-  .wa-fab{ position:fixed; bottom:22px; right:22px; z-index:35; width:56px; height:56px; border-radius:50%; background:#101010; border:1px solid rgba(0,255,136,.4); color:var(--green); display:grid; place-items:center; box-shadow:0 8px 30px rgba(0,0,0,.5); transition:transform .3s, box-shadow .3s }
-  .wa-fab:hover{ transform:scale(1.08); box-shadow:0 8px 40px rgba(0,255,136,.35) }
+  .wa-fab{ position:fixed; bottom:22px; right:22px; z-index:35; width:58px; height:58px; border-radius:50%; background:#25D366; color:#fff; display:grid; place-items:center; box-shadow:0 10px 30px rgba(0,0,0,.5); transition:transform .3s, box-shadow .3s }
+  .wa-fab::after{ content:""; position:absolute; inset:0; border-radius:50%; animation:wa-pulse 2.2s ease-out infinite; pointer-events:none }
+  @keyframes wa-pulse{ 0%{ box-shadow:0 0 0 0 rgba(37,211,102,.5) } 70%{ box-shadow:0 0 0 16px rgba(37,211,102,0) } 100%{ box-shadow:0 0 0 0 rgba(37,211,102,0) } }
+  .wa-fab:hover{ transform:scale(1.08); box-shadow:0 10px 40px rgba(37,211,102,.45) }
+  .wa-label{ position:absolute; right:70px; top:50%; transform:translateY(-50%) translateX(6px); background:#0E0E0E; color:#fff; border:1px solid var(--line); font-size:13px; padding:7px 12px; border-radius:10px; white-space:nowrap; opacity:0; pointer-events:none; transition:opacity .25s, transform .25s; box-shadow:0 8px 24px rgba(0,0,0,.4) }
+  .wa-fab:hover .wa-label{ opacity:1; transform:translateY(-50%) translateX(0) }
+
+  /* ═══ CURSOR custom (aro negro con borde verde que late) ═══ */
+  .cursor-dot{ position:fixed; top:0; left:0; z-index:9999; pointer-events:none; will-change:transform }
+  .cursor-dot .cur-ring{ width:26px; height:26px; margin:-13px 0 0 -13px; border-radius:50%; background:rgba(7,7,7,.5); border:1.5px solid rgba(0,255,136,.6); box-shadow:0 0 12px rgba(0,255,136,.35); transition:transform .18s ease, background .2s; animation:cur-beat 1.6s ease-in-out infinite }
+  .cursor-dot.cur-hover .cur-ring{ transform:scale(1.7); background:rgba(0,255,136,.14) }
+  @keyframes cur-beat{ 0%,100%{ box-shadow:0 0 10px rgba(0,255,136,.30); border-color:rgba(0,255,136,.5) } 50%{ box-shadow:0 0 20px rgba(0,255,136,.6); border-color:rgba(0,255,136,.95) } }
 
   /* ═══ RESPONSIVE ═══ */
   @media (max-width:900px){
@@ -259,7 +285,7 @@
     .orb-name{ left:50%; top:22%; font-size:clamp(22px,6.5vw,38px); color:rgba(255,255,255,.11) }
     .veil{ background:linear-gradient(180deg, rgba(7,7,7,.3) 0%, rgba(7,7,7,.55) 32%, rgba(7,7,7,.95) 62%) }
     .hero{ align-items:flex-start } .hero-l{ padding-top:34vh }
-    .hero h1{ font-size:clamp(32px,8.5vw,52px); line-height:1.08; letter-spacing:-.6px }
+    .hero h1{ font-size:clamp(38px,10vw,62px); line-height:1.03; letter-spacing:-1px }
     h2{ font-size:clamp(25px,7vw,38px); line-height:1.16; letter-spacing:-.3px }
     .sec-head{ margin-bottom:36px } .sec-head p.lead{ font-size:15px }
     section{ padding:64px 0 }
@@ -267,6 +293,7 @@
     .stats{ display:grid; grid-template-columns:1fr 1fr; gap:24px 18px } .stat{ padding:0; border:none!important }
     .code{ height:64vh; font-size:10px; line-height:1.7 }
     .bento{ grid-template-columns:1fr } .bento .card.wide{ grid-column:span 1 } .foot-grid{ grid-template-columns:1fr }
+    .demo-grid{ grid-template-columns:1fr } .chatmock{ margin:0 auto }
   }
   @media (prefers-reduced-motion:reduce){ *{animation-duration:.01ms!important; transition-duration:.01ms!important} }
   </style>
@@ -316,7 +343,7 @@
       <div class="hero-l" id="hero-l">
         <div class="eyebrow"><span class="d"></span> F2AIA Lab · Automatización e IA · Buenos Aires</div>
         <h1>Sistemas <em>autónomos</em> con IA.</h1>
-        <p class="sub">Diseñamos e implementamos sistemas con IA que atienden, venden y operan solos. Empezá por <b>Neura</b>: tu WhatsApp respondido <b>24/7</b>, con toma de control humana cuando hace falta.</p>
+        <p class="sub">Ponemos IA a trabajar en tu negocio para que atienda, venda y opere sola. Empezá por <b>Neura</b>: contesta tu WhatsApp <b>24/7</b> y le pasa la charla a tu equipo cuando conviene.</p>
         <div class="hero-ctas">
           <a href="https://f2aia.com/demo" class="btn btn-primary">Probá a Neura <span class="ar">→</span></a>
           <a href="https://f2aia.com/diagnostico/" class="btn btn-ghost">Diagnóstico gratis</a>
@@ -330,6 +357,12 @@
       </div>
     </div>
   </section>
+
+  <!-- TICKER (marquesina) -->
+  <div class="ticker" aria-hidden="true"><div class="ticker-track">
+    <span>WhatsApp Cloud API</span><span class="sep">✦</span><span>n8n</span><span class="sep">✦</span><span>OpenAI · GPT-4o</span><span class="sep">✦</span><span>Google Sheets</span><span class="sep">✦</span><span>Telegram</span><span class="sep">✦</span><span>Cloudflare Turnstile</span><span class="sep">✦</span><span>Agentes IA</span><span class="sep">✦</span>
+    <span>WhatsApp Cloud API</span><span class="sep">✦</span><span>n8n</span><span class="sep">✦</span><span>OpenAI · GPT-4o</span><span class="sep">✦</span><span>Google Sheets</span><span class="sep">✦</span><span>Telegram</span><span class="sep">✦</span><span>Cloudflare Turnstile</span><span class="sep">✦</span><span>Agentes IA</span><span class="sep">✦</span>
+  </div></div>
 
   <!-- SOLUCIÓN / CÓMO FUNCIONA (absorbe el problema) -->
   <section id="como-funciona" aria-label="Cómo funciona Neura">
@@ -396,27 +429,31 @@
   <section id="neura" aria-label="Probá a Neura">
     <div class="container">
       <div class="sec-head reveal"><p class="kicker">Probá a Neura</p><h2>La mejor demo<br><span class="green-text">es escribirle.</span></h2><p class="lead">Escribile como si fueras un cliente tuyo. Neura te atiende con los datos de tu rubro —precios, horarios, turnos— igual que lo haría tu negocio. Gratis, sin instalar nada y sin WhatsApp real. En 2 minutos ves de qué se trata.</p></div>
-      <div class="grid-3" style="margin-bottom:34px">
-        <div class="card reveal"><div class="num" style="font-family:'JetBrains Mono',monospace;color:rgba(0,255,136,.4);font-size:13px;font-weight:700;margin-bottom:12px">01</div><h3>Elegís tu rubro</h3><p>Escribís a qué se dedica tu negocio (clínica, ferretería, gimnasio, lo que sea).</p></div>
-        <div class="card reveal"><div class="num" style="font-family:'JetBrains Mono',monospace;color:rgba(0,255,136,.4);font-size:13px;font-weight:700;margin-bottom:12px">02</div><h3>Neura te atiende</h3><p>Responde con datos concretos (precios, horarios, turnos) como lo haría tu negocio real.</p></div>
-        <div class="card reveal"><div class="num" style="font-family:'JetBrains Mono',monospace;color:rgba(0,255,136,.4);font-size:13px;font-weight:700;margin-bottom:12px">03</div><h3>Ves el resultado</h3><p>Al terminar, dejás tus datos si querés que lo implementemos en tu negocio.</p></div>
-      </div>
-      <div class="chatmock reveal" aria-label="Ejemplo de conversación con Neura">
-        <div class="cm-head">
-          <div class="cm-av">N</div>
-          <div><div class="cm-who">Neura</div><div class="cm-status"><span class="dot"></span>en línea</div></div>
+      <div class="demo-grid">
+        <div>
+          <div class="demo-steps">
+            <div class="demo-step reveal"><span class="ds-n">01</span><div><h4>Elegís tu rubro</h4><p>Escribís a qué se dedica tu negocio (clínica, ferretería, gimnasio, lo que sea).</p></div></div>
+            <div class="demo-step reveal"><span class="ds-n">02</span><div><h4>Neura te atiende</h4><p>Responde con datos concretos (precios, horarios, turnos) como lo haría tu negocio real.</p></div></div>
+            <div class="demo-step reveal"><span class="ds-n">03</span><div><h4>Ves el resultado</h4><p>Al terminar, dejás tus datos si querés que lo implementemos en tu negocio.</p></div></div>
+          </div>
+          <div class="reveal">
+            <a href="https://f2aia.com/demo" class="btn btn-primary" style="font-size:16px;padding:16px 34px">Probá a Neura ahora <span class="ar">→</span></a>
+            <div class="demo-live" style="margin-top:18px"><span class="dot"></span><span><strong id="dlc-num">50</strong>&nbsp;negocios ya lo probaron</span></div>
+          </div>
         </div>
-        <div class="cm-body">
-          <div class="cm-b cm-in">¡Hola! Soy Neura 👋 ¿De qué es tu negocio?</div>
-          <div class="cm-b cm-out">Una ferretería en Palermo</div>
-          <div class="cm-b cm-in">Genial 🙌 Atendemos de lunes a sábado de 9 a 20 h. ¿Buscás un producto puntual o querés que te pase precios?</div>
-          <div class="cm-b cm-out">¿Tenés taladros?</div>
-          <div class="cm-b cm-in">Sí. Tenemos desde $28.000. ¿Te reservo uno o te mando el catálogo por acá?</div>
+        <div class="chatmock reveal" aria-label="Ejemplo de conversación con Neura">
+          <div class="cm-head">
+            <div class="cm-av">N</div>
+            <div><div class="cm-who">Neura</div><div class="cm-status"><span class="dot"></span>en línea</div></div>
+          </div>
+          <div class="cm-body">
+            <div class="cm-b cm-in">¡Hola! Soy Neura 👋 ¿De qué es tu negocio?</div>
+            <div class="cm-b cm-out">Una ferretería en Palermo</div>
+            <div class="cm-b cm-in">Genial 🙌 Atendemos de lunes a sábado de 9 a 20 h. ¿Buscás un producto puntual o querés que te pase precios?</div>
+            <div class="cm-b cm-out">¿Tenés taladros?</div>
+            <div class="cm-b cm-in">Sí. Tenemos desde $28.000. ¿Te reservo uno o te mando el catálogo por acá?</div>
+          </div>
         </div>
-      </div>
-      <div class="reveal" style="text-align:center;margin-top:30px">
-        <a href="https://f2aia.com/demo" class="btn btn-primary" style="font-size:16px;padding:16px 34px">Probá a Neura ahora <span class="ar">→</span></a>
-        <div class="demo-live" style="justify-content:center;margin-top:18px"><span class="dot"></span><span><strong id="dlc-num">50</strong>&nbsp;negocios ya lo probaron</span></div>
       </div>
     </div>
   </section>
@@ -426,10 +463,10 @@
     <div class="container">
       <div class="sec-head reveal"><p class="kicker">Qué hacemos</p><h2>No es un chatbot.<br><span class="green-text">Es tu negocio operando solo.</span></h2></div>
       <div class="bento">
-        <article class="card wide reveal"><span class="tag">Producto estrella</span><div class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div><h3>Agente WhatsApp IA (Neura)</h3><p>Responde, califica y agenda 24/7 con la info y el tono de tu negocio. Toma de control humana con un clic. También como chat web en tu sitio.</p></article>
+        <article class="card reveal"><span class="tag">Producto estrella</span><div class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div><h3>Agente WhatsApp IA (Neura)</h3><p>Responde, califica y agenda 24/7 con la info y el tono de tu negocio. Toma de control humana con un clic. También como chat web en tu sitio.</p></article>
         <article class="card reveal"><div class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></div><h3>Automatización + integraciones</h3><p>Conectamos WhatsApp, tu calendario, CRM y herramientas en un flujo único que corre solo. El motor es n8n: 700+ integraciones.</p></article>
         <article class="card reveal"><div class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg></div><h3>Sistemas a medida</h3><p>Construimos el sistema que tu negocio necesita — a medida y tuyo. Sin abono por agente ni datos encerrados en un SaaS ajeno.</p></article>
-        <article class="card wide reveal"><div class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10"/></svg></div><h3>Optimización con IA</h3><p>Detectamos qué tareas repetitivas te comen el día y las automatizamos con IA. Menos trabajo manual, más foco en vender.</p></article>
+        <article class="card reveal"><div class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10"/></svg></div><h3>Optimización con IA</h3><p>Detectamos qué tareas repetitivas te comen el día y las automatizamos con IA. Menos trabajo manual, más foco en vender.</p></article>
       </div>
     </div>
   </section>
@@ -437,7 +474,7 @@
   <!-- ROI -->
   <section id="roi" aria-label="Simulador de ahorro">
     <div class="container">
-      <div class="sec-head reveal"><p class="kicker">Calculá el impacto</p><h2>¿Cuánto te cuesta<br><span class="green-text">hacerlo a mano?</span></h2></div>
+      <div class="sec-head reveal"><p class="kicker">Calculá el impacto</p><h2>¿Cuánto te cuesta<br><span class="green-text">hacerlo a mano?</span></h2><p class="lead">Una calculadora rápida para estimar lo que te ahorrás automatizando. Movés los 3 controles con los números de tu negocio y al instante ves las horas que liberás por mes y el ahorro estimado. Es orientativo, no una cotización.</p></div>
       <div class="roi-card reveal">
         <div class="roi-controls">
           <label><span class="lab">Horas semanales en tareas repetitivas <span class="val" id="v-horas">40</span></span><input type="range" id="r-horas" min="10" max="500" value="40" step="5"></label>
@@ -563,6 +600,7 @@
 
   <!-- WHATSAPP FAB -->
   <a id="wa-fab" class="wa-fab" href="https://wa.me/5491164858166" target="_blank" rel="noopener" aria-label="Chatear por WhatsApp con F2AIA">
+    <span class="wa-label">Escribinos</span>
     <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
   </a>
 
@@ -600,6 +638,22 @@
       [h,c,p].forEach(function(el){ el.addEventListener('input',calc); }); calc();
     }
     if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',roi); else roi();
+  })();
+  </script>
+  <!-- Cursor custom (aro negro con borde verde que late) -->
+  <script>
+  (function(){
+    if(!matchMedia('(pointer:fine)').matches || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var d=document.createElement('div'); d.className='cursor-dot'; d.setAttribute('aria-hidden','true'); d.style.opacity='0'; d.style.transition='opacity .3s ease';
+    var r=document.createElement('div'); r.className='cur-ring'; d.appendChild(r); document.body.appendChild(d);
+    var x=innerWidth/2, y=innerHeight/2, tx=x, ty=y, shown=false;
+    addEventListener('mousemove', function(e){ tx=e.clientX; ty=e.clientY; if(!shown){ shown=true; d.style.opacity='1'; } }, {passive:true});
+    document.addEventListener('mouseleave', function(){ d.style.opacity='0'; });
+    document.addEventListener('mouseenter', function(){ if(shown) d.style.opacity='1'; });
+    var HOT='a,button,input,select,textarea,label,[role=button]';
+    document.addEventListener('mouseover', function(e){ if(e.target.closest && e.target.closest(HOT)) d.classList.add('cur-hover'); });
+    document.addEventListener('mouseout', function(e){ if(e.target.closest && e.target.closest(HOT)) d.classList.remove('cur-hover'); });
+    (function loop(){ x+=(tx-x)*0.2; y+=(ty-y)*0.2; d.style.transform='translate('+x+'px,'+y+'px)'; requestAnimationFrame(loop); })();
   })();
   </script>
   <script src="main.js?v=20260720" defer></script>
