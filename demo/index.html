@@ -80,21 +80,10 @@
        SCREEN 1 — INTRO
     ═══════════════════════════════════════════════════════ */
     #intro-screen {
-      align-items: center;
-      justify-content: center;
-      padding: calc(env(safe-area-inset-top) + 68px) 24px 32px;
+      align-items: stretch;
       overflow-y: auto;
-      gap: 24px;
     }
 
-    /* Brand */
-    .brand {
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 10px;
-    }
     .brand-wordmark {
       font-size: 28px;
       font-weight: 800;
@@ -105,62 +94,54 @@
       font-style: normal;
       color: var(--accent);
     }
-    .brand-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      background: var(--accent-glow);
-      border: 1px solid var(--accent-line);
-      border-radius: 99px;
-      padding: 5px 14px;
-      font-size: 11px;
-      font-weight: 600;
-      color: var(--accent);
-      letter-spacing: 0.4px;
-      text-transform: uppercase;
-    }
-    .pulse-dot {
-      width: 6px; height: 6px;
-      background: var(--accent);
-      border-radius: 50%;
-      flex-shrink: 0;
-      animation: pulse 1.8s ease-in-out infinite;
-    }
     @keyframes pulse {
       0%, 100% { opacity: 1; transform: scale(1); }
       50%       { opacity: 0.35; transform: scale(0.8); }
     }
 
-    /* Hero text */
-    .intro-hero {
-      text-align: center;
-      max-width: 340px;
+    .intro-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 56px;
+      align-items: start;
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: calc(64px + env(safe-area-inset-top)) 24px 32px;
     }
-    .intro-hero h1 {
-      font-size: 28px;
-      font-weight: 800;
-      line-height: 1.15;
-      letter-spacing: -0.8px;
+    .intro-explain h1 {
+      font-family: var(--font-display);
+      font-size: clamp(38px, 5vw, 62px);
+      font-weight: 700;
+      line-height: 1.03;
+      letter-spacing: -0.02em;
+      margin: 14px 0 14px;
     }
-    .intro-hero h1 em {
-      font-style: normal;
+    .intro-explain h1 em { font-style: normal; color: var(--accent); }
+    .intro-lead { color: var(--text-2); font-size: 17px; line-height: 1.55; max-width: 46ch; }
+    .intro-steps { list-style: none; margin: 30px 0 26px; display: grid; gap: 16px; }
+    .intro-steps li { display: flex; gap: 14px; align-items: flex-start; }
+    .intro-steps span {
+      flex-shrink: 0;
+      width: 28px; height: 28px;
+      display: grid; place-items: center;
+      border-radius: 99px;
+      font-family: var(--font-mono); font-size: 12px;
       color: var(--accent);
+      background: var(--accent-glow);
+      border: 1px solid var(--accent-line);
     }
-    .intro-hero p {
-      margin-top: 10px;
-      font-size: 14px;
-      color: var(--text-2);
-      line-height: 1.65;
+    .intro-steps strong { display: block; font-size: 15px; margin-bottom: 2px; }
+    .intro-steps p { color: var(--text-2); font-size: 14px; line-height: 1.45; }
+    .intro-honest {
+      font-size: 13.5px; line-height: 1.55; color: var(--text-2);
+      border-left: 2px solid var(--accent-line);
+      padding: 2px 0 2px 14px;
     }
+    .intro-honest strong { color: var(--text); }
 
-    /* Form card */
+    /* Form card — .f2-card aporta fondo/borde/sombra; acá sólo layout interno */
     .intro-card {
-      background: var(--bg-1);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: 24px;
-      width: 100%;
-      max-width: 380px;
+      padding: 28px 26px;
       display: flex;
       flex-direction: column;
       gap: 14px;
@@ -235,26 +216,19 @@
       flex: 1;
     }
 
-    /* Privacy note */
-    .privacy-note {
-      display: flex;
-      align-items: flex-start;
-      gap: 8px;
-      padding: 10px 12px;
-      background: rgba(255,255,255,0.02);
+    /* Trust note */
+    .trust-note {
+      margin-top: 18px; padding: 14px 16px;
+      background: rgba(255, 255, 255, 0.02);
       border: 1px solid var(--border);
-      border-radius: var(--radius-sm);
+      border-radius: var(--radius);
     }
-    .privacy-note svg {
-      flex-shrink: 0;
-      margin-top: 1px;
-      color: var(--text-3);
-    }
-    .privacy-note p {
-      font-size: 11.5px;
-      color: var(--text-3);
-      line-height: 1.55;
-    }
+    .trust-head { display: flex; align-items: center; gap: 7px; color: var(--accent); font-size: 13px; margin-bottom: 8px; }
+    .trust-note ul { list-style: none; display: grid; gap: 6px; }
+    .trust-note li { position: relative; padding-left: 14px; font-size: 12.5px; line-height: 1.5; color: var(--text-2); }
+    .trust-note li::before { content: "·"; position: absolute; left: 4px; color: var(--accent); }
+    .trust-note a { display: inline-block; margin-top: 10px; font-size: 12.5px; color: var(--accent); text-decoration: none; }
+    .trust-note a:hover { text-decoration: underline; }
 
     .btn-start {
       width: 100%;
@@ -285,26 +259,13 @@
       font-size: 11.5px;
       color: var(--text-3);
       max-width: 280px;
+      margin: 0 auto;
     }
 
-    /* Stats chips */
-    .intro-stats {
-      display: flex;
-      gap: 10px;
-      justify-content: center;
-      flex-wrap: wrap;
-      max-width: 340px;
+    @media (max-width: 900px) {
+      .intro-grid { grid-template-columns: 1fr; gap: 32px; padding-top: calc(56px + env(safe-area-inset-top)); }
+      .intro-explain h1 { font-size: clamp(32px, 9vw, 44px); }
     }
-    .stat-chip {
-      background: var(--bg-1);
-      border: 1px solid var(--border);
-      border-radius: 99px;
-      padding: 5px 13px;
-      font-size: 12px;
-      color: var(--text-2);
-      font-weight: 500;
-    }
-    .stat-chip strong { color: var(--accent); }
 
 
     /* ═══════════════════════════════════════════════════════
@@ -774,26 +735,28 @@
   ══════════════════════════════════════════════════════ -->
   <div id="intro-screen" class="screen active">
 
-    <div class="brand">
-      <div class="brand-wordmark">F2<em>AIA</em></div>
-      <div class="brand-pill">
-        <span class="pulse-dot"></span>
-        Demo en vivo
+    <div class="intro-grid">
+
+      <div class="intro-explain">
+        <div class="brand-wordmark">F2<em>AIA</em></div>
+        <p class="f2-eyebrow">Demo en vivo</p>
+
+        <h1>Probá a <em>Neura</em>.</h1>
+        <p class="intro-lead">Chateá con ella como lo haría un cliente tuyo. Dos minutos, sin instalar nada.</p>
+
+        <ol class="intro-steps">
+          <li><span>1</span><div><strong>Contanos de tu negocio</strong><p>Tres datos, nada más.</p></div></li>
+          <li><span>2</span><div><strong>Chateás con Neura</strong><p>Preguntale lo que te preguntaría un cliente.</p></div></li>
+          <li><span>3</span><div><strong>Te queda el resumen</strong><p>Y si querés, te escribimos.</p></div></li>
+        </ol>
+
+        <p class="intro-honest">
+          Es una simulación: Neura arma un negocio de ejemplo de tu rubro para mostrarte cómo responde.
+          <strong>No se conecta a tu WhatsApp ni le escribe a tus clientes.</strong>
+        </p>
       </div>
-    </div>
 
-    <div class="intro-hero">
-      <h1>Probá el sistema<br><em>antes de comprarlo.</em></h1>
-      <p>Chateá con Valentina, nuestra agente IA. En 2 minutos vas a ver cómo trabajaría para tu negocio.</p>
-    </div>
-
-    <div class="intro-stats">
-      <div class="stat-chip"><strong>24/7</strong> sin descanso</div>
-      <div class="stat-chip"><strong>2 min</strong> demo real</div>
-      <div class="stat-chip"><strong>0</strong> técnica requerida</div>
-    </div>
-
-    <div class="intro-card">
+      <div class="intro-card f2-card">
 
       <!-- Nombre -->
       <div class="field-group">
@@ -840,12 +803,21 @@
         <p class="field-error" id="err-phone">Ingresá tu número sin 0 ni 15 (solo código de área + número)</p>
       </div>
 
-      <!-- Privacidad -->
-      <div class="privacy-note">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-        </svg>
-        <p>Tus datos son confidenciales. Solo los usamos para enviarte la demo y contactarte si te interesa el sistema.</p>
+      <!-- Confianza sobre los datos — pedido de Franco (sesión 15) -->
+      <div class="trust-note">
+        <div class="trust-head">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
+          <strong>Tus datos, en serio</strong>
+        </div>
+        <ul>
+          <li>Te pedimos el rubro para que Neura hable de tu negocio, no de uno genérico.</li>
+          <li>Viajan cifrados (HTTPS) a nuestro sistema.</li>
+          <li>No los compartimos ni los vendemos. A nadie.</li>
+          <li>Te escribimos una vez. Si no te interesa, no volvés a saber de nosotros.</li>
+        </ul>
+        <a href="/privacidad/">Cómo cuidamos tus datos →</a>
       </div>
 
       <!-- Cloudflare Turnstile — portero anti-bot (gratis, casi siempre invisible) -->
@@ -866,9 +838,11 @@
         </svg>
       </button>
 
-    </div>
+      </div><!-- /.intro-card -->
 
-    <p class="intro-footer-note">Sin registro · Demo 100% gratuita · 2 minutos</p>
+    </div><!-- /.intro-grid -->
+
+    <p class="intro-footer-note">Sin registro · Gratis · Dos minutos</p>
 
   </div>
 
