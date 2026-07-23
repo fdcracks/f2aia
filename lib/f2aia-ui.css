@@ -1,0 +1,73 @@
+/* F2AIA — sistema visual compartido. Consumido por /demo (2026-07-23).
+   La landing todavía usa su CSS inline; se migra con el reskin de /diagnostico. */
+:root {
+  --bg:          #070707;
+  --bg-card:     #0d0d0d;
+  --bg-elev:     #131313;
+  --accent:      #00FF88;
+  --accent-2:    #00C46A;
+  --accent-glow: rgba(0, 255, 136, 0.10);
+  --accent-line: rgba(0, 255, 136, 0.25);
+  --error:       #ef4444;
+  --error-glow:  rgba(239, 68, 68, 0.12);
+  --text:        #f4f4f4;
+  --text-2:      #a8a8a8;
+  --text-3:      #6b6b6b;
+  --border:      rgba(255, 255, 255, 0.08);
+  --border-2:    rgba(255, 255, 255, 0.14);
+  --radius-sm:   10px;
+  --radius:      14px;
+  --radius-lg:   22px;
+  --font:         'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-mono:    'JetBrains Mono', ui-monospace, monospace;
+}
+
+.f2-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.f2-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 0 0 1px rgba(0, 255, 136, 0.04), 0 24px 60px rgba(0, 0, 0, 0.55);
+}
+
+.f2-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: var(--font);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text);
+  background: var(--bg-elev);
+  border: 1px solid var(--border-2);
+  border-radius: 99px;
+  padding: 13px 22px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: border-color 0.2s, box-shadow 0.2s, color 0.2s;
+}
+.f2-btn:hover {
+  color: var(--accent);
+  border-color: var(--accent-line);
+  box-shadow: 0 0 0 3px var(--accent-glow);
+}
+
+.f2-btn-primary {
+  color: #041209;
+  background: var(--accent);
+  border-color: transparent;
+}
+.f2-btn-primary:hover {
+  color: #041209;
+  background: #4dffab;
+  box-shadow: 0 0 0 4px var(--accent-glow);
+}
