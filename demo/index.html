@@ -3,11 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <meta name="description" content="F2AIA — Probá en vivo cómo funciona un agente IA para tu negocio">
-  <title>F2AIA — Demo en Vivo</title>
+  <meta name="description" content="Probá a Neura: chateá con el sistema de IA de F2AIA como lo haría un cliente tuyo. Demo real, 2 minutos.">
+  <title>Probá a Neura — F2AIA Lab</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <meta property="og:title" content="Probá a Neura — F2AIA Lab">
+  <meta property="og:description" content="Chateá con el sistema de IA de F2AIA como lo haría un cliente tuyo. Demo real, 2 minutos.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://f2aia.com/demo/">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/lib/f2aia-ui.css">
 
   <!-- Cloudflare Turnstile — verificación anti-bot (gratis, invisible) -->
   <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
@@ -15,25 +21,21 @@
   <style>
     /* ─── VARIABLES ─────────────────────────────────────── */
     :root {
-      --bg:          #08101c;
-      --bg-1:        #0e1525;
-      --bg-2:        #141e30;
-      --bg-3:        #1a2438;
-      --accent:      #00ff88;
-      --accent-2:    #00cc6e;
+      /* Tokens base vienen de /lib/f2aia-ui.css. Acá, sólo lo propio del demo. */
+      --bg-1:        #0d0d0d;
+      --bg-2:        #131313;
+      --bg-3:        #1a1a1a;
       --accent-glow: rgba(0, 255, 136, 0.10);
       --accent-line: rgba(0, 255, 136, 0.25);
-      --error:       #ef4444;
-      --error-glow:  rgba(239, 68, 68, 0.12);
-      --text:        #f0f0f0;
-      --text-2:      #a0a0a0;
-      --text-3:      #555;
-      --border:      rgba(255, 255, 255, 0.07);
-      --border-2:    rgba(255, 255, 255, 0.12);
-      --radius-sm:   10px;
-      --radius:      14px;
-      --radius-lg:   20px;
-      --font:        'Inter', -apple-system, sans-serif;
+      /* Chat claro — paleta propia inspirada en WhatsApp (ningún hex de Meta) */
+      --wa-header:   #0A2E22;
+      --wa-bg:       #F2EFE9;
+      --wa-bot:      #FFFFFF;
+      --wa-user:     #D7F5E3;
+      --wa-send:     #00C46A;
+      --wa-text:     #12211B;
+      --wa-text-2:   #5C6B64;
+      --wa-line:     rgba(10, 46, 34, 0.10);
     }
 
     /* ─── RESET ─────────────────────────────────────────── */
@@ -706,7 +708,7 @@
       padding: 0 10px;
       padding-top: env(safe-area-inset-top);
       height: calc(44px + env(safe-area-inset-top));
-      background: rgba(14, 21, 37, 0.82);
+      background: rgba(7, 7, 7, 0.86);
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
       border-bottom: 1px solid var(--border);
@@ -716,9 +718,10 @@
       align-items: center;
       gap: 5px;
       font-family: var(--font);
-      font-size: 12.5px;
+      font-size: 13.5px;
       font-weight: 600;
-      color: var(--text-2);
+      color: var(--text);
+      border: 1px solid var(--border);
       text-decoration: none;
       padding: 6px 10px;
       border-radius: 99px;
@@ -732,10 +735,19 @@
       .demo-topbar a { font-size: 11.5px; padding: 6px 8px; }
       .demo-topbar .tb-label-diag { display: none; }
     }
+
+    .stage { position: fixed; inset: 0; z-index: 0; pointer-events: none; }
+    .stage canvas { display: block; width: 100%; height: 100%; }
+    .screen { position: relative; z-index: 1; }
+    .demo-topbar { z-index: 60; }
   </style>
 </head>
 
-<body>
+<body data-hero="static">
+
+  <div class="stage" aria-hidden="true">
+    <canvas id="fx"></canvas>
+  </div>
 
   <!-- ══════════════════════════════════════════════════════
        TOP BAR — navegación persistente
@@ -1281,6 +1293,7 @@
   </script>
 
   <script defer src="/lib/cursor.js"></script>
+  <script src="/hero-bg.js?v=20260723a" defer></script>
 
 </body>
 </html>
