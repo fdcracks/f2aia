@@ -274,7 +274,7 @@
     #chat-screen {
       height: 100%;
       height: 100dvh;
-      padding-top: calc(44px + env(safe-area-inset-top));
+      background: var(--wa-bg);
     }
 
     /* Header */
@@ -282,22 +282,25 @@
       display: flex;
       align-items: center;
       gap: 12px;
-      padding: 12px 16px;
-      background: var(--bg-1);
-      border-bottom: 1px solid var(--border);
+      padding: 10px 14px;
+      padding-top: calc(10px + 44px + env(safe-area-inset-top));
+      background: var(--wa-header);
+      color: #fff;
+      border-bottom: 1px solid var(--wa-line);
       flex-shrink: 0;
       z-index: 10;
     }
     .header-avatar {
-      width: 42px; height: 42px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--accent) 0%, #065f46 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 20px;
+      width: 38px; height: 38px;
       flex-shrink: 0;
-      box-shadow: 0 0 0 2px var(--bg-1), 0 0 0 4px var(--accent-line);
+      display: grid;
+      place-items: center;
+      border-radius: 99px;
+      background: var(--accent-2);
+      color: #041209;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 17px;
     }
     .header-info { flex: 1; min-width: 0; }
     .header-name {
@@ -308,29 +311,24 @@
       text-overflow: ellipsis;
     }
     .header-status {
-      font-size: 12px;
-      color: var(--accent);
       display: flex;
       align-items: center;
       gap: 5px;
-      margin-top: 1px;
+      font-size: 12px;
+      opacity: 0.8;
     }
-    .header-status::before {
-      content: '';
+    .hs-dot {
       width: 6px; height: 6px;
+      border-radius: 99px;
       background: var(--accent);
-      border-radius: 50%;
-      animation: pulse 1.8s infinite;
     }
     .header-counter {
       flex-shrink: 0;
-      background: var(--bg-2);
-      border: 1px solid var(--border);
+      font-family: var(--font-mono);
+      font-size: 12px;
+      padding: 4px 9px;
       border-radius: 99px;
-      padding: 4px 11px;
-      font-size: 11px;
-      font-weight: 600;
-      color: var(--text-3);
+      background: rgba(255, 255, 255, 0.12);
       transition: all 0.3s;
     }
     .header-counter.warning {
@@ -348,6 +346,7 @@
       flex-direction: column;
       gap: 4px;
       scroll-behavior: smooth;
+      background: var(--wa-bg);
     }
     .chat-body::-webkit-scrollbar { width: 3px; }
     .chat-body::-webkit-scrollbar-track { background: transparent; }
@@ -357,12 +356,12 @@
     .date-divider {
       text-align: center;
       font-size: 11px;
-      color: var(--text-3);
+      color: var(--wa-text-2);
       padding: 8px 0 4px;
       position: relative;
     }
     .date-divider span {
-      background: var(--bg);
+      background: var(--wa-bg);
       padding: 0 10px;
       position: relative;
       z-index: 1;
@@ -373,7 +372,7 @@
       top: 50%;
       left: 0; right: 0;
       height: 1px;
-      background: var(--border);
+      background: var(--wa-line);
     }
 
     /* Bubbles */
@@ -391,28 +390,28 @@
     .msg-row.bot  { align-self: flex-start; align-items: flex-start; margin-top: 2px; }
 
     .bubble {
-      padding: 10px 14px;
+      max-width: 76%;
+      padding: 8px 12px;
       font-size: 14.5px;
-      line-height: 1.55;
+      line-height: 1.45;
       word-break: break-word;
       position: relative;
+      color: var(--wa-text);
+      box-shadow: 0 1px 1px rgba(0, 0, 0, 0.06);
     }
     .bubble.user {
-      background: linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 100%);
-      color: #000;
-      border-radius: 18px 18px 4px 18px;
-      font-weight: 500;
+      background: var(--wa-user);
+      border-radius: 14px 4px 14px 14px;
     }
     .bubble.bot {
-      background: var(--bg-2);
-      color: var(--text);
-      border-radius: 18px 18px 18px 4px;
-      border: 1px solid var(--border);
+      background: var(--wa-bot);
+      border: 1px solid var(--wa-line);
+      border-radius: 4px 14px 14px 14px;
     }
 
     .msg-meta {
-      font-size: 10.5px;
-      color: var(--text-3);
+      font-size: 11px;
+      color: var(--wa-text-2);
       margin-top: 3px;
       padding: 0 5px;
       display: flex;
@@ -450,9 +449,9 @@
       animation: msgIn 0.22s cubic-bezier(0.34,1.56,0.64,1);
     }
     .typing-bubble {
-      background: var(--bg-2);
-      border: 1px solid var(--border);
-      border-radius: 18px 18px 18px 4px;
+      background: var(--wa-bot);
+      border: 1px solid var(--wa-line);
+      border-radius: 4px 14px 14px 14px;
       padding: 12px 16px;
       display: flex;
       gap: 5px;
@@ -460,7 +459,7 @@
     }
     .t-dot {
       width: 7px; height: 7px;
-      background: var(--text-3);
+      background: var(--wa-text-2);
       border-radius: 50%;
       animation: typeDot 1.3s ease-in-out infinite;
     }
@@ -474,11 +473,11 @@
     /* Limit warning bar */
     .limit-bar {
       display: none;
-      background: var(--accent-glow);
+      background: rgba(0, 196, 106, 0.14);
       border-top: 1px solid var(--accent-line);
       padding: 9px 16px;
       font-size: 12.5px;
-      color: var(--accent);
+      color: var(--wa-text);
       text-align: center;
       font-weight: 500;
       flex-shrink: 0;
@@ -492,19 +491,19 @@
       gap: 10px;
       padding: 10px 14px;
       padding-bottom: calc(10px + env(safe-area-inset-bottom));
-      background: var(--bg-1);
-      border-top: 1px solid var(--border);
+      background: #E6E1D8;
+      border-top: 1px solid var(--wa-line);
       flex-shrink: 0;
     }
     .chat-textarea {
       flex: 1;
-      background: var(--bg-2);
-      border: 1px solid var(--border);
+      background: #fff;
+      border: 1px solid var(--wa-line);
       border-radius: 22px;
       padding: 10px 16px;
       font-size: 15px;
       font-family: var(--font);
-      color: var(--text);
+      color: var(--wa-text);
       outline: none;
       resize: none;
       line-height: 1.45;
@@ -512,13 +511,13 @@
       transition: border-color 0.2s;
       overflow-y: auto;
     }
-    .chat-textarea::placeholder { color: var(--text-3); }
+    .chat-textarea::placeholder { color: var(--wa-text-2); }
     .chat-textarea:focus { border-color: var(--accent-line); }
     .chat-textarea:disabled { opacity: 0.35; cursor: not-allowed; }
 
     .send-btn {
       width: 42px; height: 42px;
-      background: var(--accent);
+      background: var(--wa-send);
       border: none;
       border-radius: 50%;
       cursor: pointer;
@@ -531,7 +530,7 @@
     .send-btn:hover:not(:disabled) { background: var(--accent-2); transform: scale(1.05); }
     .send-btn:disabled { background: var(--bg-3); cursor: not-allowed; }
     .send-btn svg { width: 18px; height: 18px; }
-    .send-btn svg path { fill: #000; }
+    .send-btn svg path { fill: #fff; }
     .send-btn:disabled svg path { fill: var(--text-3); }
 
 
@@ -630,8 +629,8 @@
     .skip-bar {
       display: none;
       padding: 8px 14px;
-      background: var(--bg-1);
-      border-top: 1px solid var(--border);
+      background: var(--wa-bg);
+      border-top: 1px solid var(--wa-line);
       text-align: center;
       flex-shrink: 0;
     }
@@ -649,6 +648,10 @@
       transition: background 0.2s, border-color 0.2s;
     }
     .btn-skip:hover { background: var(--accent-glow); }
+    .skip-bar .btn-skip {
+      background: #fff; color: var(--wa-header);
+      border: 1px solid var(--wa-line);
+    }
 
     /* ─── UTILS ─────────────────────────────────────────── */
     .sr-only {
@@ -853,10 +856,10 @@
   <div id="chat-screen" class="screen">
 
     <header class="chat-header">
-      <div class="header-avatar" aria-hidden="true">🤖</div>
+      <div class="header-avatar" aria-hidden="true">N</div>
       <div class="header-info">
-        <div class="header-name">Valentina — Agente IA F2AIA</div>
-        <div class="header-status">En línea ahora</div>
+        <div class="header-name">Neura</div>
+        <div class="header-status"><span class="hs-dot"></span>en línea</div>
       </div>
       <div class="header-counter" id="msg-counter" aria-live="polite">0 / 7</div>
     </header>
@@ -991,6 +994,16 @@
       const b = $('chat-body');
       requestAnimationFrame(() => { b.scrollTop = b.scrollHeight; });
     }
+
+    /* ── Pausa del canvas del orbe mientras el chat tapa la pantalla ── */
+    (function watchOrb() {
+      window.__f2aiaOrbPaused = false;
+      var chat = document.getElementById('chat-screen');
+      if (!chat) return;
+      function sync() { window.__f2aiaOrbPaused = chat.classList.contains('active'); }
+      new MutationObserver(sync).observe(chat, { attributes: true, attributeFilter: ['class'] });
+      sync();
+    })();
 
     /* ── VALIDACIÓN ─────────────────────────────────────── */
     function setFieldError(inputId, errorId, hasError) {
@@ -1236,7 +1249,7 @@
 
       } catch (err) {
         hideTyping();
-        appendBotMsg('Hubo un problema de conexión. Verificá que n8n esté activo e intentá de nuevo.');
+        appendBotMsg('Se me cortó la conexión un segundo. ¿Probás de nuevo?');
         console.error('[F2AIA Chat]', err);
         setInput(false);
       }
