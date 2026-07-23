@@ -10,6 +10,8 @@
   var diagram=document.getElementById('diagram'), dgsvg=document.getElementById('dgsvg');
   var skip=document.getElementById('skip'), heroL=document.getElementById('hero-l'), navEl=document.getElementById('nav');
   var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  // Modo estático (opt-in, usado por /demo): orbe ya formado, sin intro cinematográfica.
+  var STATIC=document.body&&document.body.getAttribute('data-hero')==='static';
 
   var W,H,DPR,CX,CY,R,P=[],ocx=0,OCXt=0;
   function size(){ DPR=Math.min(devicePixelRatio||1,2); W=innerWidth; H=innerHeight;
@@ -17,7 +19,7 @@
     ctx.fillStyle='#070707'; ctx.fillRect(0,0,W,H);
     CX=W<820?W*0.5:W*0.74; CY=H*(W<820?0.30:0.40); R=Math.min(W,H)*(W<820?0.28:0.19);
     if(!ocx){ ocx=W*0.5; OCXt=W*0.5; }
-    var n=Math.round(Math.min(3000,W*H/800));   // densidad de la bandada
+    var n=Math.round(Math.min(3000,W*H/(STATIC?1400:800)));   // densidad de la bandada
     P=[]; for(var i=0;i<n;i++) P.push({x:Math.random()*W,y:Math.random()*H,a:Math.random()*6.283,rf:Math.sqrt(Math.random()),tw:Math.random()*6.283});
   }
   addEventListener('resize',size); size();
@@ -42,6 +44,9 @@
     if(orbname){ orbname.classList.add('flash'); clearTimeout(nameTimer); nameTimer=setTimeout(function(){orbname.classList.remove('flash');},2000); }
   }
   function frame(now){
+    // Pausa de dibujo (el chat del demo tapa el canvas): se mantiene el rAF vivo,
+    // se saltea el trabajo pesado de pintar las partículas.
+    if(window.__f2aiaOrbPaused){ requestAnimationFrame(frame); return; }
     var sec=(now||0)/1000; t+=reduce?0.0006:0.0016;
     for(var k in g) g[k]+=(T[k]-g[k])*0.05;
     ocx += (OCXt-ocx)*(reduce?0.05:0.026);
@@ -184,7 +189,7 @@
   if(skip) skip.addEventListener('click', function(){ done=true; timers.forEach(clearTimeout); revealNow(); });
 
   // La intro corre en CADA carga; F5 la reinicia como página nueva, desde arriba (no detrás del contenido).
-  if(reduce){ revealNow(); }
+  if(reduce || STATIC){ revealNow(); }
   else {
     try{ if('scrollRestoration' in history) history.scrollRestoration='manual'; }catch(e){}
     window.scrollTo(0,0);
