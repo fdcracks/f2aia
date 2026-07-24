@@ -13,7 +13,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/lib/f2aia-ui.css">
+  <link rel="stylesheet" href="/lib/f2aia-ui.css?v=20260724">
 
   <!-- Cloudflare Turnstile — verificación anti-bot (gratis, invisible) -->
   <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
@@ -93,10 +93,6 @@
     .brand-wordmark em {
       font-style: normal;
       color: var(--accent);
-    }
-    @keyframes pulse {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50%       { opacity: 0.35; transform: scale(0.8); }
     }
 
     .intro-grid {
@@ -342,7 +338,6 @@
       transition: all 0.3s;
     }
     .header-counter.warning {
-      border-color: var(--accent-line);
       color: var(--accent);
       background: var(--accent-glow);
     }
@@ -483,7 +478,7 @@
     .limit-bar {
       display: none;
       background: rgba(0, 196, 106, 0.14);
-      border-top: 1px solid var(--accent-line);
+      border-top: 1px solid rgba(0, 196, 106, 0.30);
       padding: 9px 16px;
       font-size: 12.5px;
       color: var(--wa-text);
@@ -521,7 +516,7 @@
       overflow-y: auto;
     }
     .chat-textarea::placeholder { color: var(--wa-text-2); }
-    .chat-textarea:focus { border-color: var(--accent-line); }
+    .chat-textarea:focus { border-color: var(--wa-send); }
     .chat-textarea:disabled { opacity: 0.35; cursor: not-allowed; }
 
     .send-btn {
