@@ -60,7 +60,7 @@ const RECOMENDACIONES = {
   },
   lentitud: {
     sistema: 'WhatsApp IA + formulario inteligente + registro instantáneo',
-    texto:   'Un agente de IA en WhatsApp puede responder consultas al instante, las 24hs, y registrar cada lead automáticamente sin intervención humana.'
+    texto:   'Un agente de IA en WhatsApp puede responder consultas al instante, las 24hs, y dejar cada lead registrado sin carga manual.'
   },
   datos: {
     sistema: 'Sheets estructurado + CRM simple + carga de datos sin trabajo manual',
@@ -79,7 +79,7 @@ const RECOMENDACIONES = {
     texto:   'Un proceso comercial claro y ordenado por un sistema te da visibilidad total de cada oportunidad, sin depender de la memoria ni del WhatsApp.'
   },
   leads: {
-    sistema: 'Landing de captación + formulario + seguimiento automático',
+    sistema: 'Landing de captación + formulario + seguimiento programado',
     texto:   'Podemos diseñar un sistema que atraiga leads calificados y los nutra con IA hasta que estén listos para avanzar.'
   },
   nodonde: {
