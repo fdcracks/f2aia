@@ -119,7 +119,7 @@
   function showNode(id){ var n=q('#N-'+id); if(n)n.style.opacity=1; }
   function drawLink(i){ var l=q('#L'+i); if(l)l.style.strokeDashoffset=0; var e=q('#E'+i); if(e)setTimeout(function(){e.setAttribute('opacity','1');},650); }
 
-  var CODE=['# ══════════════════════════════════════════════════════════════════','#   F2AIA · NEURA runtime v2.6','#   sistemas autónomos con IA','# ══════════════════════════════════════════════════════════════════','',
+  var CODE=['# ══════════════════════════════════════════════════════════════════','#   F2AIA · NEURA runtime v2.6','#   sistemas de IA a medida','# ══════════════════════════════════════════════════════════════════','',
     '> neura · iniciando sistema --env=prod --region=sa-east-1 --channel=whatsapp-cloud-api',
     '[0.02s]  conectando whatsapp cloud api · graph.facebook.com/v19.0 ·················· ok',
     '[0.15s]  autenticando · meta oauth · token permanente ····························· ok',
@@ -137,7 +137,7 @@
     '[2.28s]  activando webhook · POST /webhook/f2aia-lead ···························· ok',
     '[2.53s]  chequeo de salud · api · db · cola · llm · todos los sistemas ··········· ok',
     '[2.71s]  handshake 0x00FF88 · canal seguro establecido ··························· ok',
-    '[3.04s]  neura.core → ● EN LÍNEA · atendiendo 24/7','         sistema listo en 3.04s.'];
+    '[3.04s]  neura.core → ● EN LÍNEA','         sistema listo en 3.04s.'];
 
   var timers=[], done=false;
   function wait(ms){ return new Promise(function(r){ timers.push(setTimeout(r,ms)); }); }
