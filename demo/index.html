@@ -141,7 +141,11 @@
 
     /* Form card — .f2-card aporta fondo/borde/sombra; acá sólo layout interno */
     .intro-card {
-      padding: 28px 26px;
+      /* Sin fondo: los campos flotan y se ve el orbe por detrás (pedido de Franco). */
+      background: transparent;
+      border: none;
+      box-shadow: none;
+      padding: 4px 0 0;
       display: flex;
       flex-direction: column;
       gap: 14px;
@@ -161,8 +165,10 @@
     }
     .field-input {
       width: 100%;
-      background: var(--bg-2);
-      border: 1px solid var(--border);
+      background: rgba(13, 13, 13, 0.5);
+      -webkit-backdrop-filter: blur(7px);
+      backdrop-filter: blur(7px);
+      border: 1px solid var(--border-2);
       border-radius: var(--radius-sm);
       padding: 13px 16px;
       font-size: 15px;
@@ -197,8 +203,10 @@
       align-items: stretch;
     }
     .phone-prefix {
-      background: var(--bg-3);
-      border: 1px solid var(--border);
+      background: rgba(20, 20, 20, 0.5);
+      -webkit-backdrop-filter: blur(7px);
+      backdrop-filter: blur(7px);
+      border: 1px solid var(--border-2);
       border-right: none;
       border-radius: var(--radius-sm) 0 0 var(--radius-sm);
       padding: 0 13px;
@@ -218,9 +226,11 @@
 
     /* Trust note */
     .trust-note {
-      margin-top: 18px; padding: 14px 16px;
-      background: rgba(255, 255, 255, 0.02);
-      border: 1px solid var(--border);
+      margin-top: 4px; padding: 14px 16px;
+      background: rgba(13, 13, 13, 0.42);
+      -webkit-backdrop-filter: blur(7px);
+      backdrop-filter: blur(7px);
+      border: 1px solid var(--border-2);
       border-radius: var(--radius);
     }
     .trust-head { display: flex; align-items: center; gap: 7px; color: var(--accent); font-size: 13px; margin-bottom: 8px; }
@@ -752,7 +762,7 @@
         </p>
       </div>
 
-      <div class="intro-card f2-card">
+      <div class="intro-card">
 
       <!-- Nombre -->
       <div class="field-group">
