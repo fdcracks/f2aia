@@ -390,7 +390,6 @@
     .msg-row.bot  { align-self: flex-start; align-items: flex-start; margin-top: 2px; }
 
     .bubble {
-      max-width: 76%;
       padding: 8px 12px;
       font-size: 14.5px;
       line-height: 1.45;
@@ -528,7 +527,9 @@
       transition: background 0.2s, transform 0.15s;
     }
     .send-btn:hover:not(:disabled) { background: var(--accent-2); transform: scale(1.05); }
-    .send-btn:disabled { background: var(--bg-3); cursor: not-allowed; }
+    .send-btn:disabled { background: #B9C2BC; cursor: not-allowed; }
+    /* Ocultar el spotlight verde (/lib/cursor.js) mientras el chat claro está activo */
+    body.chat-active #f2aia-cursor-glow { opacity: 0 !important; }
     .send-btn svg { width: 18px; height: 18px; }
     .send-btn svg path { fill: #fff; }
     .send-btn:disabled svg path { fill: var(--text-3); }
@@ -539,7 +540,7 @@
     ═══════════════════════════════════════════════════════ */
     #success-screen {
       align-items: center;
-      justify-content: center;
+      justify-content: safe center;
       padding: calc(env(safe-area-inset-top) + 64px) 24px 40px;
       gap: 28px;
       text-align: center;
@@ -848,9 +849,9 @@
   <div id="chat-screen" class="screen">
 
     <header class="chat-header">
-      <div class="header-avatar" aria-hidden="true">N</div>
+      <div class="header-avatar" aria-hidden="true">V</div>
       <div class="header-info">
-        <div class="header-name">Neura</div>
+        <div class="header-name">Valentina</div>
         <div class="header-status"><span class="hs-dot"></span>en línea</div>
       </div>
       <div class="header-counter" id="msg-counter" aria-live="polite">0 / 7</div>
@@ -994,7 +995,12 @@
       window.__f2aiaOrbPaused = false;
       var chat = document.getElementById('chat-screen');
       if (!chat) return;
-      function sync() { window.__f2aiaOrbPaused = chat.classList.contains('active'); }
+      function sync() {
+        var active = chat.classList.contains('active');
+        window.__f2aiaOrbPaused = active;
+        // El spotlight verde de /lib/cursor.js se ve como mancha sobre el chat claro: lo ocultamos ahí.
+        document.body.classList.toggle('chat-active', active);
+      }
       new MutationObserver(sync).observe(chat, { attributes: true, attributeFilter: ['class'] });
       sync();
     })();
