@@ -1,7 +1,7 @@
 'use strict';
 
 /* ============================================================
-   F2AIA — Diagnóstico de Automatización Comercial
+   F2AIA — Diagnóstico gratis
    main.js v20260619
    ============================================================ */
 
@@ -23,7 +23,7 @@ const PROBLEMAS = [
   { value: 'lentitud',    label: 'Recibo consultas pero no respondo rápido',          score: 25 },
   { value: 'datos',       label: 'Mis datos están desordenados',                      score: 20 },
   { value: 'tareas',      label: 'Tengo muchas tareas manuales repetitivas',          score: 20 },
-  { value: 'turnos',      label: 'Quiero automatizar reservas/turnos/cotizaciones',   score: 20 },
+  { value: 'turnos',      label: 'Reservas, turnos o cotizaciones',                     score: 20 },
   { value: 'proceso',     label: 'Necesito ordenar mi proceso comercial',             score: 20 },
   { value: 'leads',       label: 'Quiero captar más leads',                           score: 10 },
   { value: 'nodonde',     label: 'No sé por dónde empezar',                           score:  5 }
@@ -55,36 +55,36 @@ const INVERSION = [
 
 const RECOMENDACIONES = {
   seguimiento: {
-    sistema: 'CRM simple + secuencia de seguimiento automático',
-    texto:   'Un sistema de seguimiento automatizado puede recordarte y contactar a cada lead en el momento justo, sin que tengas que hacerlo manualmente.'
+    sistema: 'CRM simple + secuencia de seguimiento programada',
+    texto:   'Un sistema de seguimiento puede recordarte y contactar a cada lead en el momento justo, sin trabajo manual de tu parte.'
   },
   lentitud: {
-    sistema: 'WhatsApp IA + formulario inteligente + registro automático',
+    sistema: 'WhatsApp IA + formulario inteligente + registro instantáneo',
     texto:   'Un agente de IA en WhatsApp puede responder consultas al instante, las 24hs, y registrar cada lead automáticamente sin intervención humana.'
   },
   datos: {
-    sistema: 'Sheets estructurado + CRM simple + automatización de entrada',
-    texto:   'Podemos centralizar todos tus datos en un único lugar y automatizar el ingreso desde cada canal que usás, sin carga manual.'
+    sistema: 'Sheets estructurado + CRM simple + carga de datos sin trabajo manual',
+    texto:   'Podemos centralizar todos tus datos en un único lugar y ordenar el ingreso desde cada canal que usás, sin carga manual.'
   },
   tareas: {
     sistema: 'n8n + integraciones email/WhatsApp/Sheets',
-    texto:   'Las tareas repetitivas son las más fáciles de automatizar. Con n8n conectamos tus herramientas actuales y eliminamos el trabajo manual.'
+    texto:   'Las tareas repetitivas son las más fáciles de resolver con un sistema. Con n8n conectamos tus herramientas actuales y eliminamos el trabajo manual.'
   },
   turnos: {
     sistema: 'Formulario inteligente + WhatsApp IA + notificación interna',
-    texto:   'Un sistema de reservas automatizado puede recibir solicitudes, confirmar por WhatsApp y avisarte sin intermediarios.'
+    texto:   'Un sistema de reservas puede recibir solicitudes, confirmar por WhatsApp y avisarte sin intermediarios.'
   },
   proceso: {
     sistema: 'CRM + pipeline de ventas + seguimiento + reporte básico',
-    texto:   'Un proceso comercial claro y automatizado te da visibilidad total de cada oportunidad, sin depender de la memoria ni del WhatsApp.'
+    texto:   'Un proceso comercial claro y ordenado por un sistema te da visibilidad total de cada oportunidad, sin depender de la memoria ni del WhatsApp.'
   },
   leads: {
     sistema: 'Landing de captación + formulario + seguimiento automático',
-    texto:   'Podemos diseñar un sistema que atraiga leads calificados y los nutra automáticamente hasta que estén listos para comprar.'
+    texto:   'Podemos diseñar un sistema que atraiga leads calificados y los nutra con IA hasta que estén listos para avanzar.'
   },
   nodonde: {
     sistema: 'Revisión del proceso + recomendación inicial personalizada',
-    texto:   'Empezamos por mapear cómo funciona tu negocio hoy e identificamos el punto de mayor impacto para automatizar primero.'
+    texto:   'Empezamos por mapear cómo funciona tu negocio hoy e identificamos el punto de mayor impacto para resolver primero.'
   }
 };
 

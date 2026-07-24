@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Diagnóstico de Automatización Comercial gratuito para tu negocio. Descubrí qué procesos podés automatizar con IA para ahorrar tiempo y captar más clientes — F2AIA.">
+  <meta name="description" content="Diagnóstico gratis para tu negocio: en 2 minutos sabés por dónde empezar con IA y cuál es el primer paso concreto — F2AIA.">
   <meta name="robots" content="index, follow">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,26 +11,30 @@
   <!-- Content Security Policy: sin scripts inline, fuentes solo de Google, conexiones solo a n8n -->
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self'; connect-src 'self' https://n8n.f2aia.com; img-src 'self' data:;">
 
-  <title>Diagnóstico de Automatización Comercial | F2AIA</title>
+  <title>Diagnóstico gratis | F2AIA</title>
 
   <!-- Schema.org -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "name": "Diagnóstico de Automatización Comercial",
-    "description": "Diagnóstico gratuito para descubrir qué podés automatizar en tu negocio con IA.",
+    "name": "Diagnóstico gratis F2AIA",
+    "description": "Diagnóstico gratis para descubrir por dónde empezar con IA en tu negocio.",
     "url": "https://f2aia.com/diagnostico/",
     "isPartOf": { "@type": "WebSite", "url": "https://f2aia.com" }
   }
   </script>
 
+  <!-- Favicon -->
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+
   <!-- Fuentes -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Inter:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="styles.css?v=20260619b">
+  <link rel="stylesheet" href="/lib/f2aia-ui.css?v=20260724">
+  <link rel="stylesheet" href="styles.css?v=20260724">
 </head>
 <body>
 
@@ -53,10 +57,10 @@
   <!-- ═══ HERO ═══════════════════════════════════════════════ -->
   <section class="hero" aria-labelledby="hero-title">
     <div class="container">
-      <span class="kicker">Diagnóstico gratuito · F2AIA</span>
+      <span class="kicker">Diagnóstico gratis · F2AIA Lab</span>
       <h1 id="hero-title">
-        Descubrí qué automatizar<br>
-        <span class="green-text">en tu negocio</span>
+        Descubrí qué resolver<br>
+        <span class="green-text">primero.</span>
       </h1>
       <div class="hero-badges" aria-label="Características del diagnóstico">
         <span class="badge">100% gratuito</span>
@@ -78,7 +82,7 @@
     <div class="trust-strip-inner">
       <div class="trust-item">
         <span class="trust-icon">🎯</span>
-        <span>Qué automatizar primero</span>
+        <span>Por dónde empezar</span>
       </div>
       <div class="trust-item">
         <span class="trust-icon">⚡</span>
@@ -96,13 +100,13 @@
     <div class="container">
 
       <!-- Contenedor del diagnóstico -->
-      <div id="diagnostico-form" role="form" aria-label="Diagnóstico de Automatización Comercial">
+      <div id="diagnostico-form" role="form" aria-label="Diagnóstico gratis">
 
         <!-- Barra de progreso -->
         <div class="progress-header" aria-hidden="false">
           <div class="progress-meta">
             <span class="progress-label" id="progress-label">Paso 1 de 8</span>
-            <span class="progress-title">Diagnóstico de Automatización Comercial</span>
+            <span class="progress-title">Diagnóstico gratis</span>
           </div>
           <div class="progress-track"
                role="progressbar"
@@ -254,7 +258,7 @@
             </label>
             <label class="radio-card-label">
               <input type="radio" name="problema" value="turnos">
-              <div class="radio-card-body"><div class="radio-dot"></div><span class="radio-card-text">Automatizar reservas, turnos o cotizaciones</span></div>
+              <div class="radio-card-body"><div class="radio-dot"></div><span class="radio-card-text">Reservas, turnos o cotizaciones</span></div>
             </label>
             <label class="radio-card-label">
               <input type="radio" name="problema" value="proceso">
@@ -509,6 +513,7 @@
               <button type="button" class="btn-prev" data-action="prev">← Anterior</button>
               <button type="button" class="btn-next" data-action="next">Ver mi diagnóstico →</button>
             </div>
+            <p class="consent-note">Al enviar aceptás nuestra <a href="https://f2aia.com/privacidad">política de privacidad</a>.</p>
             <div class="step-escape">
               <span>¿Preferís otra opción?</span>
               <a href="https://f2aia.com/demo">Probar Demo</a>
@@ -557,7 +562,7 @@
             <a href="https://f2aia.com/demo" class="btn-ghost">
               Probar el Demo
             </a>
-            <a id="res-booking-btn" href="#" class="btn-ghost" style="display:none;">
+            <a id="res-booking-btn" href="#" class="btn-ghost">
               📅 Agendar revisión
             </a>
           </div>
@@ -584,12 +589,12 @@
           <a href="https://wa.me/5491164858166">WhatsApp</a>
           <a href="https://f2aia.com/privacidad">Privacidad</a>
         </nav>
-        <p class="footer-copy">© 2026 F2AIA · Buenos Aires, Argentina</p>
+        <p class="footer-copy">© 2026 F2AIA Lab · Buenos Aires, Argentina</p>
       </div>
     </div>
   </footer>
 
-  <script src="main.js?v=20260619"></script>
+  <script src="main.js?v=20260724"></script>
   <script defer src="/lib/cursor.js"></script>
 </body>
 </html>
