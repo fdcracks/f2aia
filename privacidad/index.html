@@ -1,290 +1,292 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-AR">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Política de Privacidad — F2AIA</title>
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
 
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      background: #0d0d14;
-      color: #e0e0f0;
-      line-height: 1.8;
-      padding: 0 16px;
-    }
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self'; img-src 'self' data:;">
 
-    header {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 60px 0 40px;
-      border-bottom: 1px solid #2a2a3a;
-    }
+  <title>Política de Privacidad | F2AIA</title>
+  <meta name="description" content="Cómo F2AIA Lab recopila, usa, protege y comparte tus datos personales: sitio web, demo del asistente y diagnóstico. Ley 25.326 de Protección de Datos Personales.">
+  <link rel="canonical" href="https://f2aia.com/privacidad/">
 
-    .logo {
-      font-size: 22px;
-      font-weight: 800;
-      letter-spacing: -0.5px;
-      color: #fff;
-      margin-bottom: 24px;
-    }
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://f2aia.com/privacidad/">
+  <meta property="og:title" content="Política de Privacidad | F2AIA">
+  <meta property="og:description" content="Qué datos pedimos, para qué los usamos, con quién los compartimos y cómo pedir que los borremos.">
+  <meta property="og:locale" content="es_AR">
+  <meta name="twitter:card" content="summary_large_image">
 
-    .logo span { color: #7c6fff; }
-
-    header h1 {
-      font-size: 38px;
-      font-weight: 800;
-      line-height: 1.2;
-      margin-bottom: 12px;
-    }
-
-    header p {
-      color: #8888a8;
-      font-size: 15px;
-    }
-
-    main {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 48px 0 80px;
-    }
-
-    section {
-      margin-bottom: 48px;
-    }
-
-    h2 {
-      font-size: 20px;
-      font-weight: 700;
-      color: #fff;
-      margin-bottom: 16px;
-      padding-bottom: 8px;
-      border-bottom: 1px solid #2a2a3a;
-    }
-
-    h3 {
-      font-size: 16px;
-      font-weight: 600;
-      color: #a0a0c0;
-      margin: 20px 0 8px;
-    }
-
-    p {
-      color: #b0b0cc;
-      font-size: 15px;
-      margin-bottom: 12px;
-    }
-
-    ul {
-      list-style: none;
-      padding: 0;
-      margin-bottom: 12px;
-    }
-
-    ul li {
-      color: #b0b0cc;
-      font-size: 15px;
-      padding: 4px 0 4px 20px;
-      position: relative;
-    }
-
-    ul li::before {
-      content: '→';
-      position: absolute;
-      left: 0;
-      color: #7c6fff;
-    }
-
-    .highlight {
-      background: #1a1a2e;
-      border: 1px solid #2a2a4a;
-      border-left: 3px solid #7c6fff;
-      border-radius: 8px;
-      padding: 16px 20px;
-      margin: 16px 0;
-    }
-
-    .highlight p { margin: 0; font-size: 14px; color: #a0a0c0; }
-
-    .contact-box {
-      background: #12121e;
-      border: 1px solid #2a2a3a;
-      border-radius: 12px;
-      padding: 24px 28px;
-    }
-
-    .contact-box a {
-      color: #7c6fff;
-      text-decoration: none;
-    }
-
-    .contact-box a:hover { text-decoration: underline; }
-
-    .last-update {
-      display: inline-block;
-      background: #1a1a2e;
-      color: #7c6fff;
-      font-size: 12px;
-      font-weight: 600;
-      padding: 4px 12px;
-      border-radius: 20px;
-      margin-top: 8px;
-    }
-
-    footer {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 24px 0 40px;
-      border-top: 1px solid #2a2a3a;
-      color: #5a5a7a;
-      font-size: 13px;
-    }
-  </style>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/lib/f2aia-ui.css?v=20260725">
+  <link rel="stylesheet" href="/lib/f2aia-legal.css?v=20260725">
 </head>
 <body>
 
-<header>
-  <div class="logo">F2<span>AIA</span></div>
-  <h1>Política de Privacidad</h1>
-  <p>Última actualización: 6 de junio de 2026</p>
-  <span class="last-update">Versión 1.0</span>
-</header>
+<a class="skip-link" href="#contenido">Saltar al contenido</a>
 
-<main>
-
-  <section>
-    <h2>1. Quiénes somos</h2>
-    <p>F2AIA es una agencia de automatización con Inteligencia Artificial con sede en Argentina. Operamos a través de la cuenta de Instagram <strong>@f2aia_</strong> y utilizamos herramientas automatizadas para gestionar la comunicación con nuestros clientes potenciales a través de mensajes directos de Instagram.</p>
-    <p>Esta política de privacidad describe cómo recopilamos, usamos y protegemos la información personal de los usuarios que interactúan con nosotros a través de Instagram, de acuerdo con las Políticas de la Plataforma de Meta y las leyes aplicables de la República Argentina (Ley 25.326 de Protección de Datos Personales).</p>
-  </section>
-
-  <section>
-    <h2>2. Información que recopilamos</h2>
-    <p>Cuando un usuario envía un mensaje directo (DM) a nuestra cuenta de Instagram <strong>@f2aia_</strong>, podemos recopilar y procesar la siguiente información:</p>
-
-    <h3>Datos de identificación de Instagram</h3>
-    <ul>
-      <li>ID de usuario de Instagram (Instagram User ID / IGSID)</li>
-      <li>Nombre de usuario de Instagram</li>
-    </ul>
-
-    <h3>Datos proporcionados voluntariamente por el usuario</h3>
-    <ul>
-      <li>Nombre personal (si el usuario lo proporciona en la conversación)</li>
-      <li>Tipo de negocio o rubro</li>
-      <li>Objetivos y necesidades de automatización</li>
-      <li>Número de teléfono o correo electrónico (si el usuario lo comparte)</li>
-      <li>Cualquier otra información que el usuario decida compartir en la conversación</li>
-    </ul>
-
-    <h3>Datos de la conversación</h3>
-    <ul>
-      <li>Contenido de los mensajes intercambiados</li>
-      <li>Fecha y hora de la interacción</li>
-    </ul>
-
-    <div class="highlight">
-      <p><strong>Importante:</strong> Solo recopilamos información que el usuario nos proporciona voluntariamente al iniciar o continuar una conversación con nosotros. No accedemos a información de terceros ni a datos fuera de la conversación directa.</p>
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="/">F2<span>AIA</span></a>
+    <div class="nav-links">
+      <a class="nav-btn" href="/">Volver a f2aia.com</a>
+      <a class="nav-btn nav-btn-accent" href="/demo/">Probar el demo</a>
     </div>
-  </section>
+  </div>
+</nav>
 
-  <section>
-    <h2>3. Cómo usamos la información</h2>
-    <p>La información recopilada se utiliza exclusivamente para los siguientes fines:</p>
-    <ul>
-      <li>Responder a consultas y mensajes recibidos a través de Instagram Direct</li>
-      <li>Calificar leads y gestionar el proceso de ventas de F2AIA</li>
-      <li>Contactar al usuario para ofrecerle información sobre nuestros servicios de automatización</li>
-      <li>Mejorar la calidad de nuestras respuestas y atención al cliente</li>
-      <li>Cumplir con obligaciones legales o reglamentarias aplicables</li>
-    </ul>
-    <p>No utilizamos la información para fines publicitarios de terceros, no la vendemos, ni la cedemos a empresas externas.</p>
-  </section>
+<div class="legal-wrap">
 
-  <section>
-    <h2>4. Uso de la API de Instagram (Meta)</h2>
-    <p>Nuestra aplicación utiliza la <strong>Instagram Graph API</strong> de Meta para gestionar los mensajes directos recibidos en la cuenta <strong>@f2aia_</strong>. Los permisos de la API que utilizamos son:</p>
-    <ul>
-      <li><strong>instagram_business_basic</strong> — para acceder a información básica de la cuenta de negocio</li>
-      <li><strong>instagram_business_manage_messages</strong> — para leer y responder mensajes directos enviados a @f2aia_</li>
-      <li><strong>instagram_manage_comments</strong> — para gestionar comentarios en publicaciones</li>
-    </ul>
+  <header class="legal-hero">
+    <span class="f2-eyebrow">Política de privacidad · F2AIA Lab</span>
+    <h1>Tus datos, en claro.</h1>
+    <p class="legal-lead">Qué información te pedimos, para qué la usamos, con quién la compartimos y cómo
+      pedir que la borremos. Escrito para que se entienda, no para esconder nada.</p>
+    <p class="legal-meta">
+      <span class="legal-badge">Versión 2.0</span>
+      <span>Última actualización: <time datetime="2026-07-25">25 de julio de 2026</time></span>
+    </p>
+  </header>
 
-    <div class="highlight">
-      <p>El uso de estos permisos se limita estrictamente a la gestión de mensajes entrantes en la cuenta <strong>@f2aia_</strong>. No accedemos a mensajes de otras cuentas ni a datos de usuarios fuera de las conversaciones iniciadas con nosotros.</p>
-    </div>
+  <div class="legal-body">
 
-    <p>El procesamiento de datos a través de la API de Instagram está sujeto también a la <a href="https://www.facebook.com/privacy/policy/" target="_blank" rel="noopener" style="color:#7c6fff">Política de Privacidad de Meta</a> y a las <a href="https://developers.facebook.com/policy/" target="_blank" rel="noopener" style="color:#7c6fff">Políticas de la Plataforma de Meta</a>.</p>
-  </section>
+    <aside class="toc" aria-label="Índice de la política">
+      <p class="toc-title">Índice</p>
+      <ul class="toc-list">
+        <li><a href="#quienes-somos">1. Quiénes somos</a></li>
+        <li><a href="#datos">2. Qué datos recopilamos</a></li>
+        <li><a href="#usos">3. Para qué los usamos</a></li>
+        <li><a href="#ia">4. Uso de IA</a></li>
+        <li><a href="#terceros">5. Con quién los compartimos</a></li>
+        <li><a href="#transferencia">6. Transferencia internacional</a></li>
+        <li><a href="#seguridad">7. Seguridad y retención</a></li>
+        <li><a href="#instagram">8. API de Instagram</a></li>
+        <li><a href="#derechos">9. Tus derechos</a></li>
+        <li><a href="#eliminacion">10. Eliminación de datos</a></li>
+        <li><a href="#cookies">11. Cookies</a></li>
+        <li><a href="#menores">12. Menores</a></li>
+        <li><a href="#contacto">13. Cambios y contacto</a></li>
+      </ul>
+    </aside>
 
-  <section>
-    <h2>5. Almacenamiento y seguridad de datos</h2>
-    <p>Los datos recopilados se almacenan en servicios de Google (Google Sheets) con acceso restringido, protegidos mediante autenticación OAuth2. Aplicamos las siguientes medidas de seguridad:</p>
-    <ul>
-      <li>Acceso restringido solo al equipo de F2AIA</li>
-      <li>Tokens de acceso a la API almacenados de forma segura y rotados periódicamente</li>
-      <li>Transmisión de datos siempre a través de conexiones HTTPS/TLS</li>
-      <li>No se almacenan contraseñas ni datos de pago</li>
-    </ul>
+    <main id="contenido">
 
-    <h3>Retención de datos</h3>
-    <p>Conservamos los datos de conversación durante un período máximo de 12 meses desde la última interacción. Los datos de leads calificados se retienen mientras sean necesarios para la relación comercial con el usuario.</p>
-  </section>
+      <section class="legal-section" id="quienes-somos">
+        <h2><span class="num">01</span>Quiénes somos</h2>
+        <p><strong>F2AIA Lab</strong> integra inteligencia artificial en negocios, con sede en Argentina.
+          Para cualquier consulta sobre tus datos personales podés escribirnos a
+          <a href="mailto:hola@f2aia.com">hola@f2aia.com</a>.</p>
+        <p>Esta política describe cómo recopilamos, usamos, protegemos y compartimos la información personal
+          de las personas que interactúan con nosotros, de acuerdo con la <strong>Ley 25.326 de Protección de
+          Datos Personales</strong> de la República Argentina y las políticas de las plataformas que
+          utilizamos (Meta, Google, entre otras).</p>
+        <h3>Alcance</h3>
+        <p>Esta política cubre dos canales:</p>
+        <ul>
+          <li>El sitio web <strong>f2aia.com</strong>, incluido el <strong>demo del asistente Neura</strong>
+            (aparece como <strong>Valentina</strong> en el chat) y el <strong>formulario de
+            diagnóstico</strong>.</li>
+          <li>La cuenta de Instagram <strong>@f2aia_</strong> (mensajes directos).</li>
+        </ul>
+      </section>
 
-  <section>
-    <h2>6. Derechos del usuario</h2>
-    <p>De acuerdo con la Ley 25.326 de Protección de Datos Personales de Argentina, los usuarios tienen derecho a:</p>
-    <ul>
-      <li><strong>Acceso:</strong> solicitar qué datos personales suyos tenemos almacenados</li>
-      <li><strong>Rectificación:</strong> corregir datos incorrectos o desactualizados</li>
-      <li><strong>Supresión:</strong> solicitar la eliminación de sus datos personales</li>
-      <li><strong>Oposición:</strong> oponerse al tratamiento de sus datos para fines específicos</li>
-    </ul>
-    <p>Para ejercer cualquiera de estos derechos, el usuario puede contactarnos a través del correo electrónico indicado en la sección de contacto. Responderemos dentro de los 30 días hábiles.</p>
-  </section>
+      <section class="legal-section" id="datos">
+        <h2><span class="num">02</span>Qué datos recopilamos</h2>
 
-  <section>
-    <h2>7. Eliminación de datos</h2>
-    <p>Los usuarios pueden solicitar la eliminación completa de sus datos personales en cualquier momento. Para hacerlo:</p>
-    <ul>
-      <li>Enviar un correo electrónico a <strong>hola@f2aia.com</strong> con el asunto "Solicitud de eliminación de datos"</li>
-      <li>O enviar un mensaje directo a <strong>@f2aia_</strong> en Instagram solicitando la eliminación</li>
-    </ul>
-    <p>Procederemos a eliminar todos los datos asociados al usuario dentro de los 30 días hábiles de recibida la solicitud.</p>
+        <h3>a) A través del sitio, el demo y el diagnóstico</h3>
+        <p>Cuando completás alguno de nuestros formularios o probás el asistente, podemos recopilar:</p>
+        <ul>
+          <li><strong>Nombre</strong> que ingresás.</li>
+          <li><strong>Nombre del negocio</strong> y <strong>rubro</strong> o tipo de actividad.</li>
+          <li><strong>Número de WhatsApp</strong> y, en el formulario de diagnóstico,
+            <strong>correo electrónico</strong>.</li>
+          <li><strong>El mensaje o consulta</strong> que nos dejás.</li>
+          <li><strong>Las respuestas del diagnóstico</strong>: problema principal a resolver, volumen de
+            consultas, canales que usás, herramientas actuales, urgencia y rango de inversión previsto.</li>
+          <li><strong>El contenido de la conversación</strong> que mantenés con el asistente durante el demo.</li>
+          <li><strong>Datos técnicos mínimos de seguridad:</strong> un token de verificación anti-bot
+            (Cloudflare Turnstile), la marca temporal de la interacción y datos técnicos básicos de la
+            conexión (por ejemplo, la dirección IP procesada por Cloudflare con fines de seguridad y
+            prevención de abuso).</li>
+        </ul>
 
-    <div class="highlight">
-      <p>También podés revocar el acceso de nuestra aplicación a tu cuenta de Instagram en cualquier momento desde: <strong>Instagram → Configuración → Seguridad → Aplicaciones y sitios web</strong>.</p>
-    </div>
-  </section>
+        <h3>b) A través de Instagram Direct (@f2aia_)</h3>
+        <ul>
+          <li>ID y nombre de usuario de Instagram.</li>
+          <li>Nombre, rubro y datos de contacto que compartas voluntariamente.</li>
+          <li>El contenido, la fecha y la hora de los mensajes. <em>(Ver también el punto 8 sobre la API de
+            Meta.)</em></li>
+        </ul>
 
-  <section>
-    <h2>8. Cookies y rastreo</h2>
-    <p>Esta política de privacidad corresponde exclusivamente a la interacción vía Instagram Direct. No utilizamos cookies en esta política ni rastreamos la actividad del usuario fuera de los mensajes enviados directamente a @f2aia_.</p>
-  </section>
+        <div class="callout">
+          <p><strong>Solo recopilamos lo que nos das voluntariamente</strong> al iniciar o continuar una
+            conversación, más los datos técnicos mínimos necesarios para la seguridad del servicio. No
+            compramos ni obtenemos datos personales tuyos de terceros.</p>
+        </div>
+      </section>
 
-  <section>
-    <h2>9. Cambios en esta política</h2>
-    <p>Podemos actualizar esta política de privacidad periódicamente. Cuando lo hagamos, actualizaremos la fecha de "última actualización" al inicio de este documento. Recomendamos revisarla periódicamente. El uso continuado de nuestros servicios después de cualquier cambio implica la aceptación de la política actualizada.</p>
-  </section>
+      <section class="legal-section" id="usos">
+        <h2><span class="num">03</span>Para qué los usamos</h2>
+        <ul>
+          <li>Responder tus consultas y mantener la conversación, incluido el demo del asistente.</li>
+          <li><strong>Contactarte por WhatsApp o teléfono</strong> para darte información sobre nuestros
+            servicios.</li>
+          <li>Calificar y gestionar el interés comercial (lead).</li>
+          <li>Mejorar la calidad de la atención.</li>
+          <li>Prevenir abuso, fraude y ataques de bots.</li>
+          <li>Cumplir obligaciones legales aplicables.</li>
+        </ul>
+        <div class="callout">
+          <p><strong>No vendemos tus datos, no los cedemos para publicidad de terceros</strong> ni los usamos
+            para fines ajenos a los descriptos acá.</p>
+        </div>
+      </section>
 
-  <section>
-    <h2>10. Contacto</h2>
-    <div class="contact-box">
-      <p><strong>F2AIA — Agencia de Automatización con IA</strong></p>
-      <p style="margin-top:12px;">📧 Email: <a href="mailto:hola@f2aia.com">hola@f2aia.com</a></p>
-      <p>📲 Instagram: <a href="https://www.instagram.com/f2aia_" target="_blank" rel="noopener">@f2aia_</a></p>
-      <p>🌐 Web: <a href="https://f2aia.com" target="_blank" rel="noopener">f2aia.com</a></p>
-      <p style="margin-top:12px; color:#5a5a7a; font-size:13px;">Argentina — Ley 25.326 de Protección de Datos Personales</p>
-    </div>
-  </section>
+      <section class="legal-section" id="ia">
+        <h2><span class="num">04</span>Uso de inteligencia artificial</h2>
+        <p><strong>El asistente Neura —&nbsp;“Valentina” en el chat del demo&nbsp;— funciona con inteligencia
+          artificial.</strong> Las respuestas que ves son generadas por modelos de IA (actualmente
+          <strong>GPT-4o mini</strong>, del proveedor OpenAI). Para generarlas, el contenido de tu
+          conversación se procesa a través de ese proveedor.</p>
+        <div class="callout">
+          <p>Las respuestas de la IA <strong>pueden contener errores</strong> y <strong>no constituyen
+            asesoramiento profesional</strong> (médico, legal, contable, financiero ni de ningún otro tipo).
+            Ante una duda importante, la conversación pasa a una persona.</p>
+        </div>
+      </section>
 
-</main>
+      <section class="legal-section" id="terceros">
+        <h2><span class="num">05</span>Con quién compartimos datos</h2>
+        <p>Para prestar el servicio usamos proveedores tecnológicos que actúan como <strong>encargados de
+          tratamiento</strong>. Cada uno accede únicamente a los datos necesarios para su función:</p>
+        <div class="table-wrap">
+          <table class="legal-table">
+            <thead>
+              <tr><th>Proveedor</th><th>Para qué</th><th>Ubicación</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>OpenAI</strong></td><td>Procesamiento de IA (generar las respuestas del asistente)</td><td>EE.UU. / internacional</td></tr>
+              <tr><td><strong>Meta — WhatsApp Cloud API</strong></td><td>Envío de mensajes de WhatsApp</td><td>EE.UU. / internacional</td></tr>
+              <tr><td><strong>Google (Google Sheets)</strong></td><td>Almacenamiento de las consultas recibidas</td><td>Internacional</td></tr>
+              <tr><td><strong>Telegram</strong></td><td>Notificación interna al equipo de F2AIA</td><td>Internacional</td></tr>
+              <tr><td><strong>Cloudflare</strong></td><td>Seguridad, CDN y verificación anti-bot (Turnstile)</td><td>Internacional</td></tr>
+              <tr><td><strong>n8n (auto-hospedado)</strong></td><td>Orquestación de los flujos de trabajo</td><td>Servidor propio (VPS)</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
 
-<footer>
-  <p>© 2026 F2AIA. Todos los derechos reservados.</p>
+      <section class="legal-section" id="transferencia">
+        <h2><span class="num">06</span>Transferencia internacional de datos</h2>
+        <p>Algunos de estos proveedores están ubicados <strong>fuera de la Argentina</strong>. Al utilizar el
+          sitio o el demo, prestás tu consentimiento para que tus datos sean transferidos y procesados por
+          ellos, que aplican estándares de seguridad reconocidos, <strong>exclusivamente</strong> para las
+          finalidades descriptas en esta política (conforme al art. 12 de la Ley 25.326).</p>
+      </section>
+
+      <section class="legal-section" id="seguridad">
+        <h2><span class="num">07</span>Almacenamiento, seguridad y retención</h2>
+        <ul>
+          <li>Las consultas se almacenan en <strong>Google Sheets con acceso restringido</strong> al equipo
+            de F2AIA.</li>
+          <li>Todas las comunicaciones viajan <strong>cifradas (HTTPS/TLS)</strong>.</li>
+          <li>Los tokens de acceso a las APIs se guardan de forma segura y se rotan periódicamente.</li>
+          <li><strong>No almacenamos contraseñas ni datos de pago.</strong></li>
+        </ul>
+        <h3>Retención</h3>
+        <p>Conservamos los datos de conversación por un máximo de <strong>12 meses</strong> desde la última
+          interacción. Los datos de contacto se conservan mientras sean necesarios para la relación
+          comercial. Cumplido el plazo, se eliminan o se anonimizan.</p>
+      </section>
+
+      <section class="legal-section" id="instagram">
+        <h2><span class="num">08</span>Uso de la API de Instagram (Meta)</h2>
+        <p>Nuestra aplicación utiliza la <strong>Instagram Graph API</strong> de Meta para gestionar los
+          mensajes directos de la cuenta <strong>@f2aia_</strong>, con los permisos
+          <strong>instagram_business_basic</strong>, <strong>instagram_business_manage_messages</strong> e
+          <strong>instagram_manage_comments</strong>, limitados estrictamente a esa cuenta.</p>
+        <p>No accedemos a mensajes de otras cuentas ni a datos de personas fuera de las conversaciones
+          iniciadas con nosotros. El procesamiento a través de Meta se rige también por la
+          <a href="https://www.facebook.com/privacy/policy/" target="_blank" rel="noopener">Política de
+          Privacidad de Meta</a> y por las
+          <a href="https://developers.facebook.com/policy/" target="_blank" rel="noopener">Políticas de la
+          Plataforma de Meta</a>.</p>
+      </section>
+
+      <section class="legal-section" id="derechos">
+        <h2><span class="num">09</span>Tus derechos (Ley 25.326)</h2>
+        <p>Tenés derecho a <strong>acceder, rectificar, actualizar y suprimir</strong> tus datos, y a
+          <strong>oponerte</strong> a su tratamiento. Para ejercerlos, escribinos a
+          <a href="mailto:hola@f2aia.com">hola@f2aia.com</a> con el asunto “Datos personales”. Respondemos
+          dentro de los <strong>10 días corridos</strong> para los pedidos de acceso, y en los plazos legales
+          para el resto.</p>
+        <h3>Autoridad de control</h3>
+        <p>La <strong>Agencia de Acceso a la Información Pública (AAIP)</strong> es el organismo que controla
+          el cumplimiento de la Ley 25.326 y ante el cual podés presentar un reclamo:
+          <a href="https://www.argentina.gob.ar/aaip" target="_blank" rel="noopener">argentina.gob.ar/aaip</a>.</p>
+      </section>
+
+      <section class="legal-section" id="eliminacion">
+        <h2><span class="num">10</span>Eliminación de datos</h2>
+        <p>Podés pedir la eliminación total de tus datos en cualquier momento escribiendo a
+          <a href="mailto:hola@f2aia.com">hola@f2aia.com</a> con el asunto “Solicitud de eliminación de
+          datos”, o por mensaje directo a <strong>@f2aia_</strong>.</p>
+        <div class="callout">
+          <p>Los eliminamos dentro de los <strong>30 días corridos</strong>. También podés revocar el acceso
+            de nuestra aplicación de Instagram desde <strong>Instagram → Configuración → Seguridad →
+            Aplicaciones y sitios web</strong>.</p>
+        </div>
+      </section>
+
+      <section class="legal-section" id="cookies">
+        <h2><span class="num">11</span>Cookies y tecnologías similares</h2>
+        <p>El sitio utiliza <strong>cookies estrictamente necesarias para la seguridad y el
+          funcionamiento</strong> (por ejemplo, las que usa Cloudflare/Turnstile para distinguir personas de
+          bots). <strong>No usamos cookies de publicidad ni de seguimiento de terceros con fines de
+          marketing.</strong></p>
+      </section>
+
+      <section class="legal-section" id="menores">
+        <h2><span class="num">12</span>Menores</h2>
+        <p>Nuestros servicios están dirigidos a <strong>negocios y personas mayores de edad</strong>. No
+          recopilamos deliberadamente datos de menores de edad.</p>
+      </section>
+
+      <section class="legal-section" id="contacto">
+        <h2><span class="num">13</span>Cambios y contacto</h2>
+        <p>Podemos actualizar esta política. Cuando lo hagamos, publicaremos la nueva fecha de “última
+          actualización” al principio de esta página.</p>
+        <div class="contact-card">
+          <p><strong>F2AIA Lab — Integración de IA</strong></p>
+          <p>Email: <a href="mailto:hola@f2aia.com">hola@f2aia.com</a></p>
+          <p>Instagram: <a href="https://www.instagram.com/f2aia_" target="_blank" rel="noopener">@f2aia_</a></p>
+          <p>Web: <a href="https://f2aia.com">f2aia.com</a></p>
+          <p class="contact-legal">Argentina — Ley 25.326 de Protección de Datos Personales.
+            Ver también nuestros <a href="/terminos/">Términos y Condiciones</a>.</p>
+        </div>
+      </section>
+
+    </main>
+  </div>
+</div>
+
+<footer class="legal-footer">
+  <div class="footer-links">
+    <a href="/">Inicio</a>
+    <a href="/demo/">Demo</a>
+    <a href="/diagnostico/">Diagnóstico gratis</a>
+    <a href="/terminos/">Términos y Condiciones</a>
+  </div>
+  <p class="footer-ai">Este sitio y el asistente Neura (Valentina en el demo) usan inteligencia artificial.
+    Las respuestas del demo son generadas por IA, pueden contener errores y no constituyen asesoramiento
+    profesional.</p>
+  <p class="footer-copy">© 2026 F2AIA Lab · Buenos Aires, Argentina</p>
 </footer>
 
-  <script defer src="/lib/cursor.js"></script>
+<script defer src="/lib/legal-toc.js?v=20260725"></script>
+<script defer src="/lib/cursor.js"></script>
 </body>
 </html>
