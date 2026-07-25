@@ -1,0 +1,17 @@
+# Backups locales del rediseño. NUNCA se publican: si se commitean, quedan
+# accesibles como páginas públicas (f2aia.com/index.html.bak-YYYYMMDD).
+*.bak
+*.bak-*
+*.old
+*.orig
+
+# Credenciales y notas locales (por si alguna vez caen acá por error)
+.env
+.env.*
+*secret*
+*token*
+
+# Basura del sistema operativo
+.DS_Store
+Thumbs.db
+desktop.ini

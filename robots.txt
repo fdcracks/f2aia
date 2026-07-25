@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://f2aia.com/sitemap.xml
