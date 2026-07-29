@@ -10,6 +10,10 @@ const MIN_FILL_TIME_MS  = 5000; // humanos tardan >5s en llenar 8 pasos
 
 const CONFIG = {
   webhookUrl:     'https://n8n.f2aia.com/webhook/diagnostico-f2aia',
+  // Header propio de esta página. Público por diseño (viaja en el bundle): filtra barridos de bots
+  // genéricos. El portero real es Turnstile, validado en n8n contra la clave privada del widget.
+  // Debe coincidir con la credencial n8n "F2AIA Diagnostico Secret".
+  secret:         'f2aia-diag-6m3k8t5w',
   whatsappUrl:    'https://wa.me/5491164858166',
   mainWebsiteUrl: 'https://f2aia.com',
   demoUrl:        'https://f2aia.com/demo',
@@ -337,7 +341,10 @@ function buildPayload(data, score, temperature, rec) {
   return {
     source:       'diagnostico_f2aia',
     submitted_at: new Date().toISOString(),
+    // Anti-spam validado en el SERVIDOR (acá solo se envían): honeypot relleno o menos de 5 s
+    // llenando 8 pasos = bot. En el cliente son decoración — un curl ni ejecuta este archivo.
     _hp:          hpEl ? hpEl.value : '',
+    elapsed_ms:   Date.now() - PAGE_LOAD_TIME,
     contact: {
       name:      data.nombre,
       email:     data.email,
@@ -367,14 +374,63 @@ function buildPayload(data, score, temperature, rec) {
   };
 }
 
+// ─── TURNSTILE (portero anti-bot) ────────────────────────────
+// Los callbacks se registran al cargar el archivo: el widget puede resolver antes de que
+// termine de armarse el resto de la página.
+
+let tsToken   = '';
+let tsPending = false;
+let tsTimer   = null;
+let tsOnReady = null;
+
+window.onTurnstileSuccess = function (token) {
+  tsToken = token;
+  if (tsPending && tsOnReady) tsOnReady();
+};
+window.onTurnstileExpired = function () { tsToken = ''; };
+window.onTurnstileError   = function () { tsToken = ''; };
+
+// Devuelve un token FRESCO (los de Turnstile vencen a los 5 min y el diagnóstico son 8 pasos),
+// o '' si no llega en 8 s. Un token ya usado no sirve: por eso el reintento también pasa por acá.
+function getFreshToken() {
+  return new Promise(resolve => {
+    tsPending = true;
+    tsToken   = '';
+
+    if (tsTimer) clearTimeout(tsTimer);
+    tsTimer = setTimeout(() => {
+      if (!tsPending) return;
+      tsPending = false;
+      tsOnReady = null;
+      resolve('');
+    }, 8000);
+
+    tsOnReady = () => {
+      if (!tsPending || !tsToken) return;
+      tsPending = false;
+      clearTimeout(tsTimer);
+      tsTimer   = null;
+      tsOnReady = null;
+      resolve(tsToken);
+    };
+
+    if (window.turnstile) {
+      try { turnstile.reset(); } catch { /* si falla, salta el fallback de 8 s */ }
+    }
+  });
+}
+
 // ─── WEBHOOK ─────────────────────────────────────────────────
 
 async function sendWebhook(payload) {
+  const token = await getFreshToken();
+  if (!token) return false;   // sin token válido n8n lo descarta igual: mostramos el reintento
+
   try {
     const res = await fetch(CONFIG.webhookUrl, {
       method:  'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body:    JSON.stringify(payload),
+      headers: { 'Content-Type': 'application/json', 'X-F2AIA-Secret': CONFIG.secret },
+      body:    JSON.stringify({ ...payload, turnstileToken: token }),
       signal:  AbortSignal.timeout ? AbortSignal.timeout(12000) : undefined
     });
     return res.ok;

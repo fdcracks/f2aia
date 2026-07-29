@@ -9,7 +9,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
   <!-- Content Security Policy: sin scripts inline, fuentes solo de Google, conexiones solo a n8n -->
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self'; connect-src 'self' https://n8n.f2aia.com; img-src 'self' data:;">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self' https://challenges.cloudflare.com; frame-src https://challenges.cloudflare.com; connect-src 'self' https://n8n.f2aia.com; img-src 'self' data:;">
 
   <title>Diagnóstico gratis | F2AIA</title>
 
@@ -48,6 +48,9 @@
 
   <link rel="stylesheet" href="/lib/f2aia-ui.css?v=20260724">
   <link rel="stylesheet" href="styles.css?v=20260724">
+
+  <!-- Cloudflare Turnstile — portero anti-bot del formulario (gratis, invisible salvo que haga falta) -->
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </head>
 <body>
 
@@ -522,6 +525,15 @@
           </div>
 
           <div class="step-actions">
+            <!-- Cloudflare Turnstile — invisible salvo que Cloudflare necesite preguntar -->
+            <div class="cf-turnstile"
+                 data-sitekey="0x4AAAAAADoyNyGwCzZ-Oc4N"
+                 data-callback="onTurnstileSuccess"
+                 data-expired-callback="onTurnstileExpired"
+                 data-error-callback="onTurnstileError"
+                 data-appearance="interaction-only"
+                 data-theme="dark"
+                 data-refresh-expired="auto"></div>
             <div class="step-btn-row">
               <button type="button" class="btn-prev" data-action="prev">← Anterior</button>
               <button type="button" class="btn-next" data-action="next">Ver mi diagnóstico →</button>
@@ -608,7 +620,7 @@
     </div>
   </footer>
 
-  <script src="main.js?v=20260724"></script>
+  <script src="main.js?v=20260728"></script>
   <script defer src="/lib/cursor.js"></script>
 </body>
 </html>

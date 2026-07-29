@@ -4,6 +4,10 @@
   var WA_NUM  = '5491164858166';
   var WA_MSG  = encodeURIComponent('Hola! Vi la web de F2AIA y me interesa automatizar mi negocio.');
   var WEBHOOK = 'https://n8n.f2aia.com/webhook/f2aia-leads';
+  // Header propio del form de la landing. Público por diseño (viaja en el bundle), igual que los
+  // del demo: filtra barridos de bots genéricos. El portero real es Turnstile, validado en n8n.
+  // Debe coincidir con la credencial n8n "F2AIA Landing Form Secret".
+  var SECRET  = 'f2aia-web-2j7r4c9x';
 
   var reduced = matchMedia('(prefers-reduced-motion:reduce)').matches;
   var isMobile = !matchMedia('(hover:hover)').matches;
@@ -240,29 +244,35 @@
     }, 4200);
   }
 
+  /* ── TURNSTILE (portero anti-bot del form) ──
+     Los callbacks se registran acá, al parsear el archivo, y no dentro de initForm:
+     el widget puede resolver antes de DOMContentLoaded y ahí se perdería el token. */
+  var TS = { token:'', pending:false, timer:null, onReady:null };
+
+  window.onTurnstileSuccess = function(token){
+    TS.token = token;
+    if(TS.pending && TS.onReady) TS.onReady();
+  };
+  window.onTurnstileExpired = function(){ TS.token = ''; };
+  window.onTurnstileError   = function(){ TS.token = ''; };
+
   /* ── FORM → n8n ── */
   function initForm(){
     var form = $('#form-contacto');
     var btn  = $('#btn-submit');
+    var note = $('#err-turnstile');
     if(!form||!btn) return;
-    form.addEventListener('submit', async function(e){
-      e.preventDefault();
-      if(!form.reportValidity()) return;
-      if(btn.classList.contains('is-sending')||btn.classList.contains('is-sent')) return;
-      btn.classList.add('is-sending');
-      btn.disabled = true;
-      var payload = {
-        nombre:   form.nombre.value.trim(),
-        negocio:  form.negocio.value,
-        whatsapp: form.whatsapp.value.trim(),
-        mensaje:  form.mensaje ? form.mensaje.value.trim() : '',
-        fecha:    new Date().toLocaleString('es-AR',{timeZone:'America/Argentina/Buenos_Aires'}),
-        origen:   'Landing F2AIA'
-      };
+
+    var pending = null;   // payload capturado al apretar el botón
+
+    function showNote(txt){ if(note){ note.textContent = txt; note.hidden = false; } }
+    function hideNote(){ if(note){ note.hidden = true; } }
+
+    async function send(payload){
       try {
         await fetch(WEBHOOK, {
           method:'POST',
-          headers:{'Content-Type':'application/json'},
+          headers:{'Content-Type':'application/json','X-F2AIA-Secret':SECRET},
           body: JSON.stringify(payload)
         });
         btn.classList.remove('is-sending');
@@ -274,6 +284,56 @@
         btn.classList.remove('is-sending');
         btn.classList.add('is-sent');
         setTimeout(function(){ btn.classList.remove('is-sent'); btn.disabled=false; }, 4000);
+      }
+    }
+
+    /* Se llama cuando ya tenemos un token FRESCO confirmado */
+    TS.onReady = function(){
+      if(!TS.pending || !TS.token || !pending) return;
+      TS.pending = false;
+      if(TS.timer){ clearTimeout(TS.timer); TS.timer = null; }
+      hideNote();
+      pending.turnstileToken = TS.token;
+      var payload = pending; pending = null;
+      send(payload);
+    };
+
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      if(!form.reportValidity()) return;
+      if(btn.classList.contains('is-sending')||btn.classList.contains('is-sent')) return;
+      btn.classList.add('is-sending');
+      btn.disabled = true;
+
+      pending = {
+        nombre:   form.nombre.value.trim(),
+        negocio:  form.negocio.value,
+        whatsapp: form.whatsapp.value.trim(),
+        mensaje:  form.mensaje ? form.mensaje.value.trim() : '',
+        fecha:    new Date().toLocaleString('es-AR',{timeZone:'America/Argentina/Buenos_Aires'}),
+        origen:   'Landing F2AIA'
+      };
+
+      // Pedir un token FRESCO en este instante: los de Turnstile vencen a los 5 min y alguien
+      // puede tener la landing abierta un buen rato antes de escribirnos.
+      TS.pending = true;
+      TS.token   = '';
+      showNote('Verificando que sos una persona…');
+
+      // Fallback: si en 8 s no llega un token, avisamos y dejamos escribir de nuevo.
+      // Nunca enviamos un token vencido.
+      if(TS.timer) clearTimeout(TS.timer);
+      TS.timer = setTimeout(function(){
+        if(!TS.pending) return;
+        TS.pending = false;
+        pending = null;
+        showNote('No pudimos verificarte. Recargá la página o escribinos por WhatsApp.');
+        btn.classList.remove('is-sending');
+        btn.disabled = false;
+      }, 8000);
+
+      if(window.turnstile){
+        try { turnstile.reset(); } catch(err){ /* si falla, salta el fallback de 8 s */ }
       }
     });
   }

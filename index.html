@@ -36,6 +36,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" />
+  <!-- Cloudflare Turnstile — portero anti-bot del formulario (gratis, invisible salvo que haga falta) -->
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
   <style>
   :root{
     --bg:#070707; --panel:#0E0E0E; --panel-2:#141414;
@@ -250,6 +252,8 @@
   .btn-submit.is-sending .btn-sending{ display:inline } .btn-submit.is-sent .btn-sent{ display:inline-flex; align-items:center; gap:8px; justify-content:center }
   .form-disclaimer{ font-size:12px; color:var(--muted); text-align:center; margin-top:14px }
   .form-consent{ font-size:12px; color:var(--muted); margin-top:10px; text-align:center } .form-consent a{ color:var(--green-soft) }
+  .form-note{ font-size:12px; color:var(--muted); text-align:center; margin:0 0 12px }
+  .cf-turnstile:not(:empty){ margin:0 0 14px; display:flex; justify-content:center }
 
   /* FOOTER */
   footer{ position:relative; z-index:10; border-top:1px solid var(--line); background:rgba(7,7,7,.85); padding:56px 0 30px }
@@ -576,6 +580,16 @@
           </select></div>
           <div class="field-group"><label for="whatsapp">Tu WhatsApp (con código de área)</label><input type="tel" id="whatsapp" name="whatsapp" placeholder="Ej: 1123456789" required autocomplete="tel" maxlength="20" /></div>
           <div class="field-group"><label for="mensaje">¿Qué proceso te consume más tiempo?</label><textarea id="mensaje" name="mensaje" rows="3" placeholder="Ej: confirmar turnos, responder consultas, seguir leads..." maxlength="800"></textarea></div>
+          <!-- Cloudflare Turnstile — invisible salvo que Cloudflare necesite preguntar -->
+          <div class="cf-turnstile"
+               data-sitekey="0x4AAAAAADoyNyGwCzZ-Oc4N"
+               data-callback="onTurnstileSuccess"
+               data-expired-callback="onTurnstileExpired"
+               data-error-callback="onTurnstileError"
+               data-appearance="interaction-only"
+               data-theme="dark"
+               data-refresh-expired="auto"></div>
+          <p class="form-note" id="err-turnstile" hidden></p>
           <button type="submit" class="btn-submit" id="btn-submit">
             <span class="btn-label">Quiero mi diagnóstico gratis →</span>
             <span class="btn-sending" aria-hidden="true">Enviando…</span>
@@ -669,7 +683,7 @@
     (function loop(){ x+=(tx-x)*0.2; y+=(ty-y)*0.2; d.style.transform='translate('+x+'px,'+y+'px)'; a.style.transform='translate('+(tx-2)+'px,'+(ty-2)+'px)'; requestAnimationFrame(loop); })();
   })();
   </script>
-  <script src="main.js?v=20260720" defer></script>
+  <script src="main.js?v=20260728" defer></script>
 
 </body>
 </html>
