@@ -539,7 +539,7 @@
           <div>Configurado a la medida de tu negocio</div>
         </div>
         <p style="color:var(--text);font-weight:300;max-width:60ch;position:relative">A cambio, nos ayudás con tu feedback y —cuando funcione— nos dejás contarlo como caso. Los cupos son limitados.</p>
-        <div style="margin-top:26px;position:relative"><a href="#contacto" class="btn btn-primary">Quiero entrar al Programa Alfa <span class="ar">→</span></a></div>
+        <div style="margin-top:26px;position:relative"><a href="#contacto" class="btn btn-primary" id="cta-alfa">Quiero entrar al Programa Alfa <span class="ar">→</span></a></div>
       </div>
     </div>
   </section>
@@ -563,8 +563,8 @@
     <div class="container">
       <div class="form-wrap">
         <div class="form-copy alfa-card reveal">
-          <p class="kicker">Contanos tu caso</p>
-          <h2>Activá tu sistema<br><span class="green-text">en 15 días.</span></h2>
+          <p class="kicker" id="fc-kicker">Contanos tu caso</p>
+          <h2 id="fc-title">Activá tu sistema<br><span class="green-text">en 15 días.</span></h2>
           <p class="lead" style="position:relative">Dejanos tus datos y te escribimos con un plan a medida: qué integrar, qué desarrollar y qué impacto esperar en tu día a día. Gratis, sin compromiso.</p>
           <ul class="form-benefits">
             <li><span class="fb"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> Sin conocimiento técnico — nos ocupamos de todo</li>
@@ -591,12 +591,12 @@
                data-refresh-expired="auto"></div>
           <p class="form-note" id="err-turnstile" hidden></p>
           <button type="submit" class="btn-submit" id="btn-submit">
-            <span class="btn-label">Quiero mi diagnóstico gratis →</span>
+            <span class="btn-label">Quiero mi plan a medida →</span>
             <span class="btn-sending" aria-hidden="true">Enviando…</span>
             <span class="btn-sent" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> ¡Recibido! Te contactamos pronto</span>
           </button>
           <p class="form-consent">Al enviar, aceptás nuestra <a href="/privacidad/">Política de Privacidad</a> y que te contactemos por WhatsApp.</p>
-          <p class="form-disclaimer">Sin spam · Diagnóstico gratuito · Respuesta en menos de 24h</p>
+          <p class="form-disclaimer">Sin spam · Respuesta en menos de 24h</p>
         </form>
       </div>
     </div>
@@ -661,6 +661,17 @@
       [h,c,p].forEach(function(el){ el.addEventListener('input',calc); }); calc();
     }
     if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',roi); else roi();
+  })();
+  </script>
+  <!-- El form de #contacto reconoce si venís del CTA de Programa Alfa -->
+  <script>
+  (function(){
+    var alfaBtn=document.getElementById('cta-alfa'), kicker=document.getElementById('fc-kicker'), title=document.getElementById('fc-title');
+    if(!alfaBtn||!kicker||!title) return;
+    alfaBtn.addEventListener('click', function(){
+      kicker.textContent='Programa Alfa · cupos limitados';
+      title.innerHTML='Aplicá al<br><span class="green-text">Programa Alfa.</span>';
+    });
   })();
   </script>
   <!-- Cursor custom (flechita + aro, borde verde que late) -->
